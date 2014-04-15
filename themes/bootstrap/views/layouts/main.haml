@@ -39,10 +39,6 @@
       / content
       .clear
       #footer
-        Copyright &copy; #{date('Y')} by My Company.
-        %br
-        All Rights Reserved
-        %br
-        = Yii::powered()
+        Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}.
       / footer
     / page
