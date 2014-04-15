@@ -1,5 +1,8 @@
 .sass-cache/
+<<<<<<< HEAD
 #assets/
+=======
+>>>>>>> 13bbe59ed0addb4f60f24751e07489362686c861
 .htaccess
 fire_app_log.txt
 config.rb
