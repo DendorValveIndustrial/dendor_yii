@@ -1,0 +1,48 @@
+!!! 5
+%html{:lang => 'en'}
+  %head
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    %meta(name="language" content="en")
+
+    %link(rel="stylesheet" type="text/css" href="#{Yii::app()->request->baseUrl}/css/bootstrap-styles.css" media="screen, projection")
+    / blueprint CSS framework
+      %link(rel="stylesheet" type="text/css" href="#{Yii::app()->request->baseUrl}/css/screen.css" media="screen, projection")
+      %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/print.css" media="print")
+    / [if lt IE 8]
+      %link(rel="stylesheet" type="text/css" href="#{Yii::app()->request->baseUrl}/css/ie.css" media="screen, projection")
+    %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/main.css")
+    %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/form.css")
+    %title= $this->pageTitle
+  %body
+    #page(class="container")
+      #header
+        #logo= CHtml::encode(Yii::app()->name)
+      / header
+      #mainmenu
+        :php
+          $this->widget('zii.widgets.CMenu',array(
+            'items'=>array(
+              array('label'=>'Home', 'url'=>array('/site/index')),
+              array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+              array('label'=>'Contact', 'url'=>array('/site/contact')),
+              array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+            ),
+          ));
+      / mainmenu
+      :php
+        if(isset($this->breadcrumbs)){
+          $this->widget('zii.widgets.CBreadcrumbs', array(
+            'links'=>$this->breadcrumbs,
+          ));
+        }
+      = $content
+      / content
+      .clear
+      #footer
+        Copyright &copy; #{date('Y')} by My Company.
+        %br
+        All Rights Reserved
+        %br
+        = Yii::powered()
+      / footer
+    / page
