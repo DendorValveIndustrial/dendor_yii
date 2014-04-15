@@ -1,0 +1,50 @@
+@import "compass/utilities";
+@import "compass/css3";
+
+@mixin red-box($all-children: false){
+  @if $all-children {
+    &, div {
+      @include box-shadow(#f00 0 0 1px inset);
+    }
+  }
+  @else{
+    >div {
+      @include box-shadow(#f00 0 0 1px inset);
+    }
+  }
+}
+
+@mixin img-polaroid-light($padding: 8px){
+  padding: $padding;
+  background-color: #fff;
+  @include box-shadow(rgba(0,0,0, 0.2) 5px 5px 5px, rgba(0, 0, 0, 0.3) 0px 0px 2px);
+}
+
+@mixin justified-grid($wrap-width: 100%, $item-width: 32%){
+  width: $wrap-width;
+  text-align: justify;
+  font-size: 0;
+  font-size: 12px\9; /* IE6-9 only fix */
+  > div{
+    width: $item-width;
+    display: inline-block;
+    font-size: initial;
+    text-align: center;
+    zoom: 1;
+    *display: inline; /* IE stuff again */
+  }
+  &:after{
+    content: "";
+    width: 100%;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+.h1 {
+  color: #9D9D00;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
