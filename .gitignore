@@ -1,5 +1,6 @@
 .sass-cache/
 assets/
+protected/runtime/
 .htaccess
 fire_app_log.txt
 config.rb
