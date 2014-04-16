@@ -10,6 +10,10 @@ return array(
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
 
+	'aliases' => array(
+		'bootstrap' => realpath(__DIR__ . '/../extensions/yiistrap'),
+	),
+
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -17,18 +21,18 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'bootstrap.helpers.TbHtml',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'Enter Your Password Here',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths' => array('bootstrap.gii'),
 		),
-		*/
 	),
 
 	// application components
@@ -87,6 +91,9 @@ return array(
 			'style' => 'nested',
 			'debug' => 0,
 			'cache' => false,
+		),
+		'bootstrap' => array(
+			'class' => 'bootstrap.components.TbApi',
 		),
 	),
 
