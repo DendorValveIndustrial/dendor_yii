@@ -44,6 +44,9 @@
                         'class'=>'nav',
                     ),
                   ));
+                = TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_SEARCH, '/search/', 'get', array('class'=>'navbar-search pull-right'))
+                = TbHtml::searchQueryField('q', '', array('placeholder'=>'Search', 'class' => 'search-query'))
+                = TbHtml::endForm()
         / navbar
       / header
       %main.main
@@ -60,6 +63,8 @@
         / content
       .layout-footer
     %footer.footer
-      Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}.
-      %p= CHtml::encode(Yii::getVersion())
+      .container
+        .row
+          .text-center
+            Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}. Yii v.#{CHtml::encode(Yii::getVersion())}
     / footer
