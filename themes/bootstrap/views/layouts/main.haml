@@ -6,43 +6,52 @@
     %title= $this->pageTitle
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
     :php
-      Yii::app()->bootstrap->register();
-    /
-      %link(rel="stylesheet" type="text/css" href="#{Yii::app()->request->baseUrl}/css/bootstrap-styles.css" media="screen, projection")/
-    / blueprint CSS framework
-      %link(rel="stylesheet" type="text/css" href="#{Yii::app()->request->baseUrl}/css/screen.css" media="screen, projection")
-      %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/print.css" media="print")
+      Yii::app()->bootstrap->registerCoreCss();
     / [if lt IE 8]
       %link(rel="stylesheet" type="text/css" href="#{Yii::app()->request->baseUrl}/css/ie.css" media="screen, projection")
     /
       %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/main.css")/
       %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/form.css")/
-  %body
-    #page(class="container")
-      #header
+  %body#root
+    .layout
+      %header.header
+        .container.top-header
+          .row
+            .span6
+              / =link_to(image_tag('logo/logo-blue193.png', :width=>"194", :height=>"59", :alt=>"Dendor Valve"), "/")
+            .span4
+              .top-contact.pull-right
+                .tel.text-center 48-792-516-591
+                .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
+            .span2
+              %ul.inline.pull-right
+                / %li=link_to(image_tag('icons/us.gif', :width=>"16", :height=>"11", :alt=>"U.S."), "http://dendor-valve.com", :title=>"U.S.")
+                / %li=link_to(image_tag('icons/pl.gif', :width=>"16", :height=>"11", :alt=>"Poland"), "http://dendor.pl", :title=>"Poland")
+                / %li=link_to(image_tag('icons/ru.gif', :width=>"16", :height=>"11", :alt=>"Русский"), "http://dendor.ru", :title=>"Русский")
         #logo= CHtml::encode(Yii::app()->name)
+        #mainmenu
+          :php
+            $this->widget('zii.widgets.CMenu',array(
+              'items'=>array(
+                array('label'=>'Home', 'url'=>array('/site/index')),
+                array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+                array('label'=>'Contact', 'url'=>array('/site/contact')),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+              ),
+            ));
+        / mainmenu
       / header
-      #mainmenu
-        :php
-          $this->widget('zii.widgets.CMenu',array(
-            'items'=>array(
-              array('label'=>'Home', 'url'=>array('/site/index')),
-              array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-              array('label'=>'Contact', 'url'=>array('/site/contact')),
-              array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-            ),
-          ));
-      / mainmenu
-      :php
-        if(isset($this->breadcrumbs)){
-          $this->widget('zii.widgets.CBreadcrumbs', array(
-            'links'=>$this->breadcrumbs,
-          ));
-        }
-      = $content
-      / content
-      .clear
-      #footer
-        Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}.
-      / footer
-    / page
+      %main.main
+        .container
+          :php
+            if(isset($this->breadcrumbs)){
+              $this->widget('zii.widgets.CBreadcrumbs', array(
+                'links'=>$this->breadcrumbs,
+              ));
+            }
+          = $content
+        / content
+      .layout-footer
+    %footer.footer
+      Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}.
+    / footer

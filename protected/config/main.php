@@ -102,5 +102,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'admin@dendor.pl',
+		'officeEmail'=>'info@dendor.pl',
 	),
 );
