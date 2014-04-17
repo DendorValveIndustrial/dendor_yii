@@ -51,13 +51,8 @@
           .row
             .span12
               :php
-                  // echo TbHtml::breadcrumbs(array(
-                  //     'Home' => '#',
-                  //     'Library' => '#',
-                  //     'Data',
-                  // ));
                 if(isset($this->breadcrumbs)){
-                  $this->widget('zii.widgets.CBreadcrumbs', array(
+                  $this->widget('bootstrap.widgets.TbBreadcrumb', array(
                     'links'=>$this->breadcrumbs,
                   ));
                 }
