@@ -18,28 +18,35 @@
         .container.top-header
           .row
             .span6
-              / =link_to(image_tag('logo/logo-blue193.png', :width=>"194", :height=>"59", :alt=>"Dendor Valve"), "/")
+              = CHtml::link(CHtml::image('img/logo/logo-blue193.png',CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),'/')
             .span4
               .top-contact.pull-right
                 .tel.text-center 48-792-516-591
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
               %ul.inline.pull-right
-                / %li=link_to(image_tag('icons/us.gif', :width=>"16", :height=>"11", :alt=>"U.S."), "http://dendor-valve.com", :title=>"U.S.")
-                / %li=link_to(image_tag('icons/pl.gif', :width=>"16", :height=>"11", :alt=>"Poland"), "http://dendor.pl", :title=>"Poland")
-                / %li=link_to(image_tag('icons/ru.gif', :width=>"16", :height=>"11", :alt=>"Русский"), "http://dendor.ru", :title=>"Русский")
-        #logo= CHtml::encode(Yii::app()->name)
-        #mainmenu
-          :php
-            $this->widget('zii.widgets.CMenu',array(
-              'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                array('label'=>'Contact', 'url'=>array('/site/contact')),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-              ),
-            ));
-        / mainmenu
+                %li= CHtml::link(CHtml::image('img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))
+                %li= CHtml::link(CHtml::image('img/icons/pl.gif','Poland', array('width'=>'16', 'height'=>'11')),'http://dendor.pl', array('title'=>'Poland'))
+                %li= CHtml::link(CHtml::image('img/icons/ru.gif','Русский', array('width'=>'16', 'height'=>'11')),'http://dendor.ru', array('title'=>'Русский'))
+        / top-header
+        .navbar.navbar-inverse.navbar-static-top(role="navigation")
+          .navbar-inner
+            .container
+              .nav-collapse.collapse
+                :php
+                  $this->widget('zii.widgets.CMenu',array(
+                    'items'=>array(
+                      array('label'=>'Home', 'url'=>array('/site/index')),
+                      array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+                      array('label'=>'Contact', 'url'=>array('/site/contact')),
+                      array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                    ),
+                    'activeCssClass'=>'active',
+                    'htmlOptions'=>array(
+                        'class'=>'nav',
+                    ),
+                  ));
+        / navbar
       / header
       %main.main
         .container
