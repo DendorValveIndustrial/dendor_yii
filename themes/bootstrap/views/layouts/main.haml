@@ -7,10 +7,8 @@
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
     :php
       Yii::app()->bootstrap->registerCoreCss();
-    / [if lt IE 8]
-      %link(rel="stylesheet" type="text/css" href="#{Yii::app()->request->baseUrl}/css/ie.css" media="screen, projection")
+    %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/screen.css")/
     /
-      %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/main.css")/
       %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/form.css")/
   %body#root
     .layout
@@ -50,15 +48,23 @@
       / header
       %main.main
         .container
-          :php
-            if(isset($this->breadcrumbs)){
-              $this->widget('zii.widgets.CBreadcrumbs', array(
-                'links'=>$this->breadcrumbs,
-              ));
-            }
+          .row
+            .span12
+              :php
+                  // echo TbHtml::breadcrumbs(array(
+                  //     'Home' => '#',
+                  //     'Library' => '#',
+                  //     'Data',
+                  // ));
+                if(isset($this->breadcrumbs)){
+                  $this->widget('zii.widgets.CBreadcrumbs', array(
+                    'links'=>$this->breadcrumbs,
+                  ));
+                }
           = $content
         / content
       .layout-footer
     %footer.footer
       Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}.
+      %p= CHtml::encode(Yii::getVersion())
     / footer

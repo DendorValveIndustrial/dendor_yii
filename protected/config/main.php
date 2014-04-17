@@ -11,7 +11,7 @@ return array(
 	'theme'=>'bootstrap',
 
 	'aliases' => array(
-		'bootstrap' => realpath(__DIR__ . '/../extensions/yiistrap'),
+		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
 	),
 
 	// preloading 'log' component
