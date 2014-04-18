@@ -5,8 +5,7 @@
     %meta(name="language" content="en")/
     %title= $this->pageTitle
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
-    :php
-      Yii::app()->bootstrap->registerCoreCss();
+    = Yii::app()->bootstrap->registerCoreCss()
     %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/screen.css")/
     /
       %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/form.css")/
