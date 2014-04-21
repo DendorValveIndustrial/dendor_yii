@@ -29,6 +29,7 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+		$this->layout = 'home';
 		$this->render('index');
 	}
 
@@ -106,4 +107,12 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	public function actionSearch()
+	{
+		// renders the view file 'protected/views/site/search.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('search');
+	}
+
 }
