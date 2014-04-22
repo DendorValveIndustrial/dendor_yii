@@ -1,34 +1,21 @@
 !!! 5
-%html{:lang => 'en'}
+%html{:lang => 'pl'}
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")/
-    %meta(name="language" content="en")/
+    %meta(name="language" content="pl")/
     %title= $this->pageTitle
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
-    = Yii::app()->bootstrap->registerCoreCss()
-    %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/screen.css")/
+    = Yii::app()->bootstrap->register()
+    %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/home.css")/
     /
       %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/form.css")/
   %body#root
     .layout
       %header.header(role="banner")
-        .container.top-header
-          .row
-            .span6
-              = CHtml::link(CHtml::image('img/logo/logo-blue193.png',CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),'/')
-            .span4
-              .top-contact.pull-right
-                .tel.text-center 48-792-516-591
-                .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
-            .span2
-              %ul.inline.pull-right
-                %li= CHtml::link(CHtml::image('img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))
-                %li= CHtml::link(CHtml::image('img/icons/pl.gif','Poland', array('width'=>'16', 'height'=>'11')),'http://dendor.pl', array('title'=>'Poland'))
-                %li= CHtml::link(CHtml::image('img/icons/ru.gif','Русский', array('width'=>'16', 'height'=>'11')),'http://dendor.ru', array('title'=>'Русский'))
-        / top-header
-        .navbar.navbar-inverse.navbar-static-top(role="navigation")
+        .navbar.navbar-inverse.navbar-fixed-top(role="navigation")
           .navbar-inner
             .container
+              = CHtml::link('Dendor Valve', '/', array('class'=>'brand span2'))
               .nav-collapse.collapse
                 :php
                   $this->widget('zii.widgets.CMenu',array(
@@ -43,10 +30,29 @@
                         'class'=>'nav',
                     ),
                   ));
-                = TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_SEARCH, '//site/search/', 'get', array('class'=>'navbar-search pull-right'))
-                = TbHtml::searchQueryField('q', '', array('placeholder'=>'Search', 'class' => 'search-query'))
-                = TbHtml::endForm()
+                %ul.nav.pull-right.country
+                  %li= CHtml::link(CHtml::image('img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))
+                  %li= CHtml::link(CHtml::image('img/icons/pl.gif','Poland', array('width'=>'16', 'height'=>'11')),'http://dendor.pl', array('title'=>'Poland'))
+                  %li= CHtml::link(CHtml::image('img/icons/ru.gif','Русский', array('width'=>'16', 'height'=>'11')),'http://dendor.ru', array('title'=>'Русский'))
         / navbar
+        .container
+          .row.head
+            .span3
+              .logo= CHtml::image('img/logo/logo-wite270.png',CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82'))
+              .contact-top.text-center(role="contentinfo")
+                .address
+                  ul. Romualda Traugutta 29,
+                  %br/
+                  80-229, Gdańsk, Polska
+                .tel 48-792-516-591
+                .email
+                  %i.icon-envelope.icon-white
+                  = CHtml::mailto(Yii::app()->params['officeEmail'])
+            .span9
+              .wrap-slider
+                %h1.pull-left Armatura przemysłowa
+                .pull-right.img-slider= CHtml::image('/img/slide1.png','Armatura przemysłowa', array('width'=>'245', 'height'=>'395'))
+        / head
       / header
       %main.main
         .container
