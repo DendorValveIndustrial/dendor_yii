@@ -1,0 +1,1 @@
+$(function(){var o=slidr.create("slider",{breadcrumbs:!0,controls:"none",transition:"cube",overflow:!0,pause:!0}).add("h",["one","two","three","one"]);o.auto(1e4,"right")});

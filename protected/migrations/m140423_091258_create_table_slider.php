@@ -16,6 +16,7 @@ class m140423_091258_create_table_slider extends CDbMigration
 
 		$this->insert('slider', array(
 			'data_slidr' => 'one',
+			'name' => 'Przepustnice zwrotne',
 			'text' => 'Oferujemy przepustnice zwrotne wyprodukowane ze stali, żeliwa sferoidalnego, PVC. Kołnierzowe, bezkołnierzowe, do wspawania, mimośrodowe w zakresie średnic DN – od 32 do 2000.',
 			'link' => '/about/',
 		));
