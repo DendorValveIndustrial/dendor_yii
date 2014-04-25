@@ -1,18 +1,54 @@
 <?php
-/* @var $this SiteController */
-
-$this->pageTitle=Yii::app()->name . ' - Search';
-$this->breadcrumbs=array(
-  'Search',
-);
-
-/*Yii::app()->clientScript->registerScript(
-  'googleSearchScript'
-  , "(function() {var cx = '002321161471768174809:2gxw9iecfem'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();var noQuery = document.getElementById('no-query'); noQuery.style.display = (window.location.search != '')?'none':'block';"
-  , CClientScript::POS_END
-);*/
+/* @var $this SearchFormController */
+/* @var $model SearchForm */
+/* @var $form CActiveForm */
 ?>
-<h1>Search</h1>
 
-<p id="no-query">Enter your search query in the search form.</p>
-<div><gcse:searchresults-only></gcse:searchresults-only></div>
+<div class="form">
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'search-form-search-form',
+	// Please note: When you enable ajax validation, make sure the corresponding
+	// controller action is handling ajax validation correctly.
+	// See class documentation of CActiveForm for details on this,
+	// you need to use the performAjaxValidation()-method described there.
+  'enableAjaxValidation'=>false,
+	//'method'=>'get',
+)); ?>
+
+	<?php echo $form->errorSummary($model); ?>
+
+	<div class="row">
+		<?php //echo $form->labelEx($model,'q'); ?>
+		<?php echo $form->textField($model,'q'); ?>
+		<?php //echo $form->error($model,'q'); ?>
+	</div>
+
+
+	<div class="row buttons">
+		<?php echo CHtml::submitButton('Submit'); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+
+</div><!-- form -->
+
+<div class="qwery">
+  <?php echo CHtml::encode($model->q); ?>
+</div>
+<?php
+  Yii::app()->clientScript->registerScript(
+    'googleSearch',
+    "(function() {
+    var cx = '002321161471768174809:2gxw9iecfem';
+    var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.qwery = 'dendor';
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s); })();",
+    CClientScript::POS_END
+    );
+?>
+<gcse:searchresults-only></gcse:searchresults-only>

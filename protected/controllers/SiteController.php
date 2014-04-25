@@ -110,9 +110,14 @@ class SiteController extends Controller
 
 	public function actionSearch()
 	{
-		// renders the view file 'protected/views/site/search.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('search');
+		$model=new SearchForm;
+		if(isset($_POST['SearchForm'])){
+			// получаем данные из формы
+			$model->attributes=$_POST['SearchForm'];
+			if(isset($model->q) && $model->q != '')
+				$this->redirect('?r=site/search&q=' . CHtml::encode($model->q));
+		}
+		$this->render('search',array('model'=>$model));
 	}
 
 }
