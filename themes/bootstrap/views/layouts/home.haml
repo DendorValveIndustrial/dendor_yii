@@ -1,8 +1,8 @@
 !!! 5
-%html{:lang => 'pl'}
+%html(lang = "#{Yii::app()->language}")
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")/
-    %meta(name="language" content="pl")/
+    %meta(name="language" content="#{Yii::app()->language}")/
     %title= $this->pageTitle
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
     = Yii::app()->bootstrap->register()
@@ -20,10 +20,10 @@
                 :php
                   $this->widget('zii.widgets.CMenu',array(
                     'items'=>array(
-                      array('label'=>'Home', 'url'=>array('/site/index')),
-                      array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                      array('label'=>'Contact', 'url'=>array('/site/contact')),
-                      array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                      array('label'=>Yii::t('app', 'HOME'), 'url'=>array('/site/index')),
+                      array('label'=>Yii::t('app', 'ABOUT'), 'url'=>array('/site/page', 'view'=>'about')),
+                      array('label'=>Yii::t('app', 'CONTACT'), 'url'=>array('/site/contact')),
+                      array('label'=>Yii::t('app', 'LOGOUT').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
                     'activeCssClass'=>'active',
                     'htmlOptions'=>array(

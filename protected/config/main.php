@@ -9,6 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
+	'language'=>'en',
 
 	'aliases' => array(
 		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
