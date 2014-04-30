@@ -1,10 +1,6 @@
 <?php
 class SliderHome extends CWidget {
   public function init(){
-    /*$baseUrl = Yii::app()->baseUrl;
-    $cs=Yii::app()->clientScript;
-    $cs->registerScriptFile($baseUrl.'/js/slidr/slidr.min.js', CClientScript::POS_END);
-    $cs->registerScriptFile($baseUrl.'/js/slidr/slidr-example.js', CClientScript::POS_END);*/
     $this -> publishAssets();
   }
 

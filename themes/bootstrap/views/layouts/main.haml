@@ -43,8 +43,8 @@
                         'class'=>'nav',
                     ),
                   ));
-                = TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_SEARCH, '//site/search/', 'get', array('class'=>'navbar-search pull-right'))
-                = TbHtml::searchQueryField('q', '', array('placeholder'=>'Search', 'class' => 'search-query'))
+                = TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_SEARCH, Yii::app()->createUrl('site/search'), 'get', array('class'=>'navbar-search pull-right'))
+                = TbHtml::searchQueryField('q', '', array('placeholder'=>Yii::t('app', 'SEARCH'), 'class' => 'search-query'))
                 = TbHtml::endForm()
         / navbar
       / header
