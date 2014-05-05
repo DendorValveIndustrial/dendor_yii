@@ -9,7 +9,8 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
-	'language'=>'pl',
+	//'language'=>'pl',
+	//'sourceLanguage'=>'pl',
 
 	'aliases' => array(
 		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
@@ -45,16 +46,16 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
+
 		'urlManager'=>array(
-			'urlFormat'=>'path',
+			/*'urlFormat'=>'path',
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
+			),*/
 		),
-		*/
+
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
