@@ -10,7 +10,7 @@ return array(
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
 	'language'=>'pl',
-	/*'sourceLanguage'=>'en',*/
+	//'sourceLanguage'=>'en',
 
 	'aliases' => array(
 		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
@@ -48,12 +48,15 @@ return array(
 		// uncomment the following to enable URLs in path-format
 
 		'urlManager'=>array(
-			/*'urlFormat'=>'path',
+			'urlFormat'=>'path',
 			'rules'=>array(
+				'home' => 'site/index',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),*/
+			),
+			'showScriptName'=>false,
+			'urlSuffix'=>'.html',
 		),
 
 		'db'=>array(

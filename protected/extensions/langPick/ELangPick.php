@@ -17,7 +17,7 @@
         * Valid values are 'mini', 'small' and 'large'.
         */
         public $buttonsSize = 'mini';
-        
+
         /**
          * @var array list of languages to exclude from display list
          */
@@ -51,9 +51,9 @@
             $dirs = new DirectoryIterator(Yii::app()->messages->basePath);
             foreach ($dirs as $dir)
                 if ($dir->isDir() && !$dir->isDot())
-                    $translations[$dir->getFilename()] = $dir->getFilename(); 
+                    $translations[$dir->getFilename()] = $dir->getFilename();
             return in_array(Yii::app()->sourceLanguage, $translations) ? $translations : array_merge($translations, array(Yii::app()->sourceLanguage => Yii::app()->sourceLanguage));
-        }    
+        }
 
         /**
         * renders CPortlet content
@@ -64,11 +64,11 @@
             for ($i = 0; $i < count($this->excludeFromList); $i++)
                 $this->excludeFromList[$i] = strtolower($this->excludeFromList[$i]);
             $translations = array_diff($translations, $this->excludeFromList);
-            
+
             echo '<div id="languagePickerContainer">';
             switch ($this->pickerType)
             {
-                case 'buttons':                     
+                case 'buttons':
                 if (!isset(Yii::app()->components['bootstrap']))
                     throw new CException('Cannot find Bootstrap component');
 
@@ -80,13 +80,13 @@
 
                 try
                 {
-                    $this->widget('bootstrap.widgets.BootButtonGroup', array( 
+                    $this->widget('bootstrap.widgets.BootButtonGroup', array(
                             'toggle' => 'radio',
                             'size' => $this->buttonsSize,
                             'buttons' => $buttons,
                         ));
-                } 
-                catch (CException $e) 
+                }
+                catch (CException $e)
                 {
                     try
                     {
@@ -96,7 +96,7 @@
                                 'buttons' => $buttons,
                             ));
                     }
-                    catch (CException $e) 
+                    catch (CException $e)
                     {
                         echo 'Cannot find Bootstrap...';
                     }
@@ -129,7 +129,7 @@
             {
                 Yii::app()->setLanguage($_POST['languagePicker']);
                 $cookie = new CHttpCookie('language', $_POST['languagePicker']);
-                $cookie->expire = time() + 60 * 60 * 24 * $daysExpires; 
+                $cookie->expire = time() + 60 * 60 * 24 * $daysExpires;
                 Yii::app()->request->cookies['language'] = $cookie;
             }
             else if (isset(Yii::app()->request->cookies['language']) && in_array(Yii::app()->request->cookies['language']->value, self::getLanguages(), true))
@@ -148,4 +148,3 @@
             }
         }
     }
-?>

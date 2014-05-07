@@ -1,8 +1,8 @@
 !!! 5
-%html(lang = "#{Yii::app()->language}")
+%html(lang = "#{Yii::app()->getLanguage()}")
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")/
-    %meta(name="language" content="#{Yii::app()->language}")/
+    //%meta(http-equiv="Content-Language" content="#{Yii::app()->getLanguage()}")/
     %title= $this->pageTitle
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
     = Yii::app()->bootstrap->register()
@@ -20,10 +20,10 @@
                 :php
                   $this->widget('zii.widgets.CMenu',array(
                     'items'=>array(
-                      array('label'=>Yii::t('app', 'HOME'), 'url'=>array('/site/index')),
-                      array('label'=>Yii::t('app', 'ABOUT'), 'url'=>array('/site/page', 'view'=>'about')),
-                      array('label'=>Yii::t('app', 'CONTACT'), 'url'=>array('/site/contact')),
-                      array('label'=>Yii::t('app', 'LOGOUT').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                      array('label'=>Yii::t('app', 'HOME'), 'url'=>array('site/index')),
+                      array('label'=>Yii::t('app', 'ABOUT'), 'url'=>array('site/page', 'view'=>'about')),
+                      array('label'=>Yii::t('app', 'CONTACT'), 'url'=>array('site/contact')),
+                      array('label'=>Yii::t('app', 'LOGOUT').' ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
                     'activeCssClass'=>'active',
                     'htmlOptions'=>array(
@@ -31,14 +31,14 @@
                     ),
                   ));
                 %ul.nav.pull-right.country
-                  %li= CHtml::link(CHtml::image('img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))
-                  %li= CHtml::link(CHtml::image('img/icons/pl.gif','Poland', array('width'=>'16', 'height'=>'11')),'http://dendor.pl', array('title'=>'Poland'))
-                  %li= CHtml::link(CHtml::image('img/icons/ru.gif','Русский', array('width'=>'16', 'height'=>'11')),'http://dendor.ru', array('title'=>'Русский'))
+                  %li= CHtml::link(CHtml::image('/img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))
+                  %li= CHtml::link(CHtml::image('/img/icons/pl.gif','Poland', array('width'=>'16', 'height'=>'11')),'http://dendor.pl', array('title'=>'Poland'))
+                  %li= CHtml::link(CHtml::image('/img/icons/ru.gif','Русский', array('width'=>'16', 'height'=>'11')),'http://dendor.ru', array('title'=>'Русский'))
         / navbar
         .container
           .row.head
             .span3
-              .logo= CHtml::image('img/logo/logo-wite270.png',CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82'))
+              .logo= CHtml::image('/img/logo/logo-wite270.png',CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82'))
               .contact-top.text-center(role="contentinfo")
                 .address
                   ul. Romualda Traugutta 29,
