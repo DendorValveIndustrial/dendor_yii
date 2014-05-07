@@ -23,8 +23,7 @@ class Controller extends CController
 
 	public function init()
 	{
-		Yii::import('ext.langPick.ELangPick');
-		ELangPick::setLanguage();
+		LanguageChange::setLanguage();
 		parent::init();
 	}
 }

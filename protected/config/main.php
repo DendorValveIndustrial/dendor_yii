@@ -26,6 +26,7 @@ return array(
 		'bootstrap.helpers.TbHtml',
 		'bootstrap.helpers.TbArray',
 		'bootstrap.behaviors.TbWidget',
+		'application.extensions.langChange.*',
 	),
 
 	'modules'=>array(
@@ -48,8 +49,8 @@ return array(
 		// uncomment the following to enable URLs in path-format
 
 		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'rules'=>array(
+			'urlFormat' => 'path',
+			'rules' => array(
 				'home' => 'site/index',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
