@@ -9,7 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
-	'language'=>'pl',
+	'language'=>'en',
 	//'sourceLanguage'=>'en',
 
 	'aliases' => array(
@@ -26,7 +26,7 @@ return array(
 		'bootstrap.helpers.TbHtml',
 		'bootstrap.helpers.TbArray',
 		'bootstrap.behaviors.TbWidget',
-		'application.extensions.langChange.*',
+		//'ext.langChange.*',
 	),
 
 	'modules'=>array(

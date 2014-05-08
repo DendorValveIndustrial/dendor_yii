@@ -1,9 +1,15 @@
 <?php
   class LanguageChange extends CController
   {
-    public $lang;
-    public $langParam         = 'language';
-    public $preferredLanguage = false;
+    private $lang = 'en';
+    private $langParam         = 'language';
+    private $preferredLanguage = false;
+
+    public function init()
+    {
+      $this->setAppLanguage();
+      parent::init();
+    }
 
     /**
      * Получаем язык из браузера:
@@ -57,10 +63,11 @@
      *
      * @return void
      */
-    public function setLanguage()
+    public function setAppLanguage()
     {
-      $lang = self::getCoockeLang();
-      Yii::app()->setLanguage($lang);
+      //$lang = $this->getCoockeLang();
+      $this->lang = self::getCoockeLang();
+      Yii::app()->setLanguage($this->lang);
     }
 
 

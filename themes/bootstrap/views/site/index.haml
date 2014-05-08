@@ -13,10 +13,13 @@
 %p= Yii::app()->getRequest()->getPreferredLanguage()
 %p= Yii::app()->getLanguage()
 :php
-  $aLocale = explode('_',Yii::app()->getRequest()->getPreferredLanguage());
-  $prefLang = $aLocale[0];
-  $dirs = new DirectoryIterator(Yii::app()->messages->basePath);
-  var_dump($dirs);
+  $object = new LangChange();
+  var_dump($object->getMessageLangs());
+  $object->setAppLang('pl')
+%p= $object->getDefaultLang()
+%p= $object->getPrefLang()
+%p= $object->getCoockeLang()
+
 
 
 /-$this->widget('ext.langPick.ELangPick', array('excludeFromList' => array('en_us'),))
