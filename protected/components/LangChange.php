@@ -81,7 +81,17 @@
     {
       $this->_lang = isset($lang)
         ? $lang
-        : $this->getCoockeLang();
+        : $this->getDefaultLang();
+
+      Yii::app()->getRequest()->cookies->add(
+        $this->langParam, new CHttpCookie(
+          $this->langParam,
+          $this->_lang, array(
+            'expire'   => time() + (60 * 60 * 24 * 365),
+            'httpOnly' => true
+          )
+        )
+      );
 
       Yii::app()->setLanguage($this->_lang);
     }
