@@ -38,7 +38,7 @@
      *
      * @return string
      */
-    public function getCoockeLang()
+    public function getCookieLang()
     {
       $request = Yii::app()->request;
       try {

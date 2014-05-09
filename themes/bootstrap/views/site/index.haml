@@ -9,16 +9,12 @@
   %li Layout file:
     %code= $this->getLayoutFile('main')
 %p!= For more details on how to further develop this application, please read the <a href="http://www.yiiframework.com/doc/">documentation</a>. Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>, should you have any questions.
-%p= Yii::app()->sourceLanguage
-%p= Yii::app()->getRequest()->getPreferredLanguage()
-%p= Yii::app()->getLanguage()
 :php
   $object = new LangChange();
-  var_dump($object->getMessageLangs());
   $object->setAppLang('pl');
-%p= $object->getDefaultLang()
-%p= $object->getPrefLang()
-%p= $object->getCoockeLang()
+%p=Yii::t('app', 'Default Language: ') . $object->getDefaultLang()
+%p=Yii::t('app', 'Preffered Language: ') . $object->getPrefLang()
+%p=Yii::t('app', 'Cookie Language: ') . $object->getCookieLang()
 
 
 
