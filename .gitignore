@@ -4,6 +4,6 @@ protected/runtime/
 .htaccess
 fire_app_log.txt
 config.rb
-dendor-pl-yii.sublime-project
-dendor-pl-yii.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 ~*

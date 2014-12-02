@@ -52,7 +52,9 @@ body{
       }
       .email{
         >a{
-          @include link-colors(#fff, darken(#fff, 10%), #fff, #fff, #fff);
+          @include link-colors(#777, darken(#777, 10%), #777, #777, #777);
+          font-weight: bold;
+          font-size: 13px;
         }
       }
       .address,
