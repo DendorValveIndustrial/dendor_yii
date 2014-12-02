@@ -9,7 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
-	'language'=>'en',
+	'language'=>'pl',
 	//'sourceLanguage'=>'en',
 
 	'aliases' => array(
@@ -51,7 +51,7 @@ return array(
 		'urlManager'=>array(
 			'urlFormat' => 'path',
 			'rules' => array(
-				'home' => 'site/index',
+				'' => 'site/index',
 				'contact' => 'site/contact',
 				'search' => 'site/search',
 				'<view:\w+>' => 'site/page',
