@@ -1,14 +1,21 @@
 <?php
-  class LanguageChange extends CController
-  {
-    private $lang = 'en';
-    private $langParam         = 'language';
-    private $preferredLanguage = false;
+  Yii::import('zii.widgets.CPortlet');
 
-    public function init()
+  class LanguageChange extends CPortlet
+  {
+    private $_lang;
+    private $langParam = 'language';
+    private $preferredLanguage = false;
+    private $_aLangs = array();
+
+    /**
+     * Получаем язык из настроек:
+     *
+     * @return string
+     */
+    public function getDefaultLang()
     {
-      $this->setAppLanguage();
-      parent::init();
+      return $this->_lang = Yii::app()->language;
     }
 
     /**
@@ -21,11 +28,13 @@
       $request = Yii::app()->request;
       try {
         $aLocale = explode('_',$request->preferredLanguage);
-        $lang = $aLocale[0];
+        $this->_lang = ($aLocale[0] != $this->getCookieLang())
+          ? $this->getCookieLang()
+          : $aLocale[0];
       } catch (Exception $e) {
-        $lang = Yii::app()->getLanguage();
+        $this->_lang = $this->getCookieLang();//Yii::app()->getLanguage();
       }
-      return $lang;
+      return $this->_lang;
     }
 
     /**
@@ -33,29 +42,38 @@
      *
      * @return string
      */
-    public function getCoockeLang()
+    public function getCookieLang()
     {
       $request = Yii::app()->request;
       try {
-        $lang = isset($request->cookies[$this->langParam])
+        $this->_lang = isset($request->cookies[$this->langParam])
           ? $request->cookies[$this->langParam]->value
-          : false;
+          : $this->getDefaultLang();
       } catch (Exception $e) {
-        $lang = Yii::app()->getLanguage();
-      }
-      return $lang;
+        $this->_lang = Yii::app()->getLanguage();
+        Yii::app()->user->setFlash(
+          YFlashMessages::ERROR_MESSAGE,
+          $e->getMessage()
+        );
+       }
+      return $this->_lang;
     }
 
     /**
-     * Получаем языки из директории для которых есть переводы,
-     * Массив списка доступных переводов
+     * Получаем массив списка доступных переводов
      *
      * @return array
      */
-    public function getMessageLang()
+    public function getMessageLangDirs()
     {
-      $aLang = array();
+      $translations = array();
       $dirs = new DirectoryIterator(Yii::app()->messages->basePath);
+      foreach ($dirs as $dir)
+          if ($dir->isDir() && !$dir->isDot())
+              $translations[$dir->getFilename()] = $dir->getFilename();
+      return  $this->_aLangs  = in_array($this->getDefaultLang(), $translations)
+                              ? $translations
+                              : array_merge($translations, array($this->getDefaultLang() => $this->getDefaultLang()));
     }
 
     /**
@@ -63,40 +81,39 @@
      *
      * @return void
      */
-    public function setAppLanguage()
+    public function setAppLang($lang = null)
     {
-      //$lang = $this->getCoockeLang();
-      $this->lang = self::getCoockeLang();
-      Yii::app()->setLanguage($this->lang);
+
+      $this->_lang = isset($lang)
+        ? $lang
+        : $this->getPrefLang();
+
+      Yii::app()->getRequest()->cookies->add(
+        $this->langParam, new CHttpCookie(
+          $this->langParam,
+          $this->_lang, array(
+            'expire'   => time() + (60 * 60 * 24 * 365),
+            'httpOnly' => true
+          )
+        )
+      );
+
+      Yii::app()->setLanguage($this->_lang);
     }
 
-
     /**
-    * sets the language and saves to cookie
-    * @param $daysExpires integer number of days which cookie will last
+    * renders CPortlet content
     */
-    /*public static function setLanguage($daysExpires = 100)
+    protected function renderContent()
     {
-      if (Yii::app()->request->getPost('languagePicker') !== null && in_array($_POST['languagePicker'], self::getLanguages(), true))
-      {
-        Yii::app()->setLanguage($_POST['languagePicker']);
-        $cookie = new CHttpCookie('language', $_POST['languagePicker']);
-        $cookie->expire = time() + 60 * 60 * 24 * $daysExpires;
-        Yii::app()->request->cookies['language'] = $cookie;
+      $translations = $this->getMessageLangDirs();
+      echo "<ul>";
+      foreach ($translations as $trans){
+        echo "<li>";
+        echo CHtml::link(strtoupper($trans), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('languageSet'=>$trans)));
+        echo "</li>";
       }
-      else if (isset(Yii::app()->request->cookies['language']) && in_array(Yii::app()->request->cookies['language']->value, self::getLanguages(), true))
-      {
-        Yii::app()->setLanguage(Yii::app()->request->cookies['language']->value);
-      }
-      else if (isset(Yii::app()->request->cookies['language']))
-      {
-        unset(Yii::app()->request->cookies['language']);
-      }
-      else
-      {
-        $preferredLang = explode('_', Yii::app()->getRequest()->getPreferredLanguage());
-        if (in_array($preferredLang[0], self::getLanguages(), true))
-          Yii::app()->setLanguage($preferredLang[0]);
-      }
-    }*/
+      echo "</ul>";
+    }
+
   }

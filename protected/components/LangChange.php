@@ -28,7 +28,7 @@
         $aLocale = explode('_',$request->preferredLanguage);
         $this->_lang = $aLocale[0];
       } catch (Exception $e) {
-        $this->_lang = Yii::app()->getLanguage();
+        $this->_lang = $this->getCookieLang();//Yii::app()->getLanguage();
       }
       return $this->_lang;
     }
@@ -79,9 +79,10 @@
      */
     public function setAppLang($lang = null)
     {
+
       $this->_lang = isset($lang)
         ? $lang
-        : $this->getDefaultLang();
+        : $this->getCookieLang();
 
       Yii::app()->getRequest()->cookies->add(
         $this->langParam, new CHttpCookie(

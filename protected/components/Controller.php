@@ -21,10 +21,10 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
-	/*public function init()
+	public function init()
 	{
 		$object = new LangChange();
 		$object->setAppLang();
 		parent::init();
-	}*/
+	}
 }
