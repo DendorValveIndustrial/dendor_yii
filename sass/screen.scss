@@ -154,3 +154,16 @@ body{
     padding-top: 30px;
   }
 }
+
+.flag-language{
+  padding-left: 35px;
+  &.en{
+    background: url('/img/flags/en.gif') no-repeat 12px 45%;
+  }
+  &.ru{
+    background: url('/img/flags/ru.gif') no-repeat 12px 45%;
+  }
+  &.pl{
+    background: url('/img/flags/pl.gif') no-repeat 12px 45%;
+  }
+}

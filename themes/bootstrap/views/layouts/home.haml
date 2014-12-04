@@ -30,7 +30,7 @@
                         'class'=>'nav',
                     ),
                   ));
-                -$this->widget('ext.langChange.LanguageChange', array('pickerType' => 'flags',))
+                -$this->widget('ext.langChange.LanguageChange', array('pickerType' => 'flags', 'class' => 'nav pull-right country',))
               /
                 %ul.nav.pull-right.country
                   %li= CHtml::link(CHtml::image('/img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))

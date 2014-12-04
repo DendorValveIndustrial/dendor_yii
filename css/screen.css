@@ -1,3 +1,4 @@
+/* $flag-sprite: sprite-map("flags/*", $position: 100%, $spacing: 5px, $repeat: no-repeat); */
 .h1 { color: #9D9D00; font-size: 24px; font-weight: normal; margin: 0 0 10px; }
 
 .h2 { font-size: 18px; font-weight: normal; line-height: inherit; margin-bottom: 15px; margin-top: 0; text-transform: none; }
@@ -28,7 +29,7 @@ html, body { height: 100%; }
 
 .footer { clear: both; position: relative; height: 70px; }
 
-body { overflow-y: scroll; background-image: url('/img/body_bg.png?1391258070'); background-position: top center; background-repeat: no-repeat; }
+body { overflow-y: scroll; background-image: url('/img/body_bg.png?1416006965'); background-position: top center; background-repeat: no-repeat; }
 @media (max-width: 767px) { body { padding: 0; overflow-y: hidden; } }
 
 .header { margin-bottom: 10px; }
@@ -55,3 +56,8 @@ body { overflow-y: scroll; background-image: url('/img/body_bg.png?1391258070');
 
 .footer { position: relative; background-color: #EBECEC; color: #868383; font-size: 12px; /* margin: 40px 0 0; */ -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; }
 .footer .container { padding-top: 30px; }
+
+.flag-language { padding-left: 35px; }
+.flag-language.en { background: url("/img/flags/en.gif") no-repeat 12px 45%; }
+.flag-language.ru { background: url("/img/flags/ru.gif") no-repeat 12px 45%; }
+.flag-language.pl { background: url("/img/flags/pl.gif") no-repeat 12px 45%; }
