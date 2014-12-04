@@ -21,6 +21,8 @@
                 .tel.text-center 48-792-516-591
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
+              -$this->widget('ext.langChange.LanguageChange', array('pickerType' => 'flags',))
+            /
               %ul.inline.pull-right
                 %li= CHtml::link(CHtml::image('/img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))
                 %li= CHtml::link(CHtml::image('/img/icons/pl.gif','Poland', array('width'=>'16', 'height'=>'11')),'http://dendor.pl', array('title'=>'Poland'))

@@ -23,8 +23,7 @@ class Controller extends CController
 
 	public function init()
 	{
-		$object = new LangChange();
-		$object->setAppLang();
+		LanguageChange::instance()->setAppLang();
 		parent::init();
 	}
 }

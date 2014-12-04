@@ -9,6 +9,33 @@
     private $_aLangs = array();
 
     /**
+     * The singleton instances.
+     * @var mixed
+     */
+    static public $instance = NULL;
+
+    /**
+     * Register an existing instance as a singleton.
+     * @return object
+     */
+    static public function instance()
+    {
+        if (is_null(self::$instance))
+        {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+    /**
+    * @var string picker type.
+    * Valid values are 'buttons', 'dropdown' and 'links'.
+    */
+    public $pickerType = 'links';
+
+
+    /**
      * Получаем язык из настроек:
      *
      * @return string
@@ -88,6 +115,8 @@
         ? $lang
         : $this->getPrefLang();
 
+      !is_null(Yii::app()->request->getPost('languageSet')) && $this->_lang = Yii::app()->request->getPost('languageSet');
+
       Yii::app()->getRequest()->cookies->add(
         $this->langParam, new CHttpCookie(
           $this->langParam,
@@ -107,13 +136,38 @@
     protected function renderContent()
     {
       $translations = $this->getMessageLangDirs();
-      echo "<ul>";
-      foreach ($translations as $trans){
-        echo "<li>";
-        echo CHtml::link(strtoupper($trans), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('languageSet'=>$trans)));
-        echo "</li>";
+      switch ($this->pickerType)
+      {
+        case 'links':
+          echo "<ul class='inline'>";
+          foreach ($translations as $trans){
+            echo "<li>";
+            echo CHtml::link(strtoupper($trans), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('languageSet'=>$trans), 'csrf'=>true,));
+            echo "</li>";
+          }
+          echo "</ul>";
+          break;
+
+        case 'flags':
+          echo "<ul class='inline pull-right country'>";
+          foreach ($translations as $trans){
+            echo "<li>";
+            echo CHtml::link(CHtml::image('/img/icons/'.$trans.'.gif', strtoupper($trans), array('width'=>'16', 'height'=>'11')), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('languageSet'=>$trans), 'csrf'=>true,));
+            echo "</li>";
+          }
+          echo "</ul>";
+          break;
+
+        case 'dropdown':
+          $aTranslations = array();
+          foreach ($translations as $k => $v)
+            $aTranslations[$k] = strtoupper($v);
+          echo CHtml::form('', 'post');
+          echo CHtml::dropDownList('languageSet' , Yii::app()->getLanguage(), $aTranslations, array('submit'=>'', 'csrf'=>true, 'class'=>'span2'));
+          echo CHtml::endForm();
+          break;
+
       }
-      echo "</ul>";
     }
 
   }

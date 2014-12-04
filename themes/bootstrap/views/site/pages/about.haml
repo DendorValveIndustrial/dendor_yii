@@ -7,6 +7,5 @@
 %p "Это статическая страница". You may change the content of this page by updating the file
   %code= __FILE__
 
--$this->widget('ext.langChange.LanguageChange')
-
-
+-$this->widget('ext.langChange.LanguageChange', array('pickerType' => 'flags',))
+-$this->widget('ext.langChange.LanguageChange', array('pickerType' => 'dropdown',))
