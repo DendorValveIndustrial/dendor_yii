@@ -21,9 +21,9 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
-	/*public function init()
+	public function init()
 	{
 		LanguageChange::instance()->setAppLang();
 		parent::init();
-	}*/
+	}
 }
