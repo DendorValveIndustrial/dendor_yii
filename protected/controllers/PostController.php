@@ -70,6 +70,17 @@ class PostController extends Controller
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
+
+			//Post_language
+			$model->language_id = $_POST['Post']['language_id'];
+			$model->name = $_POST['Post']['name'];
+			$model->description = $_POST['Post']['description'];
+			$model->text = $_POST['Post']['text'];
+			$model->seo_title = $_POST['Post']['seo_title'];
+			$model->seo_description = $_POST['Post']['seo_description'];
+			$model->seo_keywords = $_POST['Post']['seo_keywords'];
+			//End Post_language
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -94,6 +105,17 @@ class PostController extends Controller
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
+
+			//Post_language
+			$model->language_id = $_POST['Post']['language_id'];
+			$model->name = $_POST['Post']['name'];
+			$model->description = $_POST['Post']['description'];
+			$model->text = $_POST['Post']['text'];
+			$model->seo_title = $_POST['Post']['seo_title'];
+			$model->seo_description = $_POST['Post']['seo_description'];
+			$model->seo_keywords = $_POST['Post']['seo_keywords'];
+			//End Post_language
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -153,6 +175,23 @@ class PostController extends Controller
 	public function loadModel($id)
 	{
 		$model=Post::model()->findByPk($id);
+
+		//PostTranslate
+		$modelPostTranslate = PostTranslate::model()->find(
+			'post_id=:post_id',
+			array(
+				':post_id' => $id
+			)
+		);
+		$model->language_id = $modelPostTranslate->language_id;
+		$model->name = $modelPostTranslate->name;
+		$model->description = $modelPostTranslate->description;
+		$model->text = $modelPostTranslate->text;
+		$model->seo_title = $modelPostTranslate->seo_title;
+		$model->seo_description = $modelPostTranslate->seo_description;
+		$model->seo_keywords = $modelPostTranslate->seo_keywords;
+		//End PostTranslate
+
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

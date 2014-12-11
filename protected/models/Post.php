@@ -145,8 +145,8 @@ class Post extends CActiveRecord
 				),
 				'post_id=:post_id',
 				array(
-					':post_id' => $this->id,
-				),
+					':post_id' => $this->id
+				)
 			);
 		}
 	}
