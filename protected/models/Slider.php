@@ -11,6 +11,9 @@
  * @property string $img
  * @property string $link
  * @property integer $active
+ *
+ * The followings are the available model relations:
+ * @property SliderTranslates[] $sliderTranslates
  */
 class Slider extends CActiveRecord
 {
@@ -30,10 +33,10 @@ class Slider extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('data_slidr', 'required'),
+			array('data_slidr, name, text, link', 'required'),
 			array('active', 'numerical', 'integerOnly'=>true),
-			array('data_slidr, name, img, link', 'length', 'max'=>255),
-			array('text', 'safe'),
+			array('data_slidr', 'length', 'max'=>6),
+			array('name, img, link', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, data_slidr, name, text, img, link, active', 'safe', 'on'=>'search'),
@@ -48,6 +51,7 @@ class Slider extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'sliderTranslates' => array(self::HAS_MANY, 'SliderTranslates', 'slider_id'),
 		);
 	}
 

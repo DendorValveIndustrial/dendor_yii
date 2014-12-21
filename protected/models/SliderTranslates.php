@@ -1,27 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "post_translate".
+ * This is the model class for table "slider_translates".
  *
- * The followings are the available columns in table 'post_translate':
+ * The followings are the available columns in table 'slider_translates':
  * @property integer $id
- * @property integer $post_id
- * @property integer $language_id
+ * @property integer $slider_id
+ * @property string $lang
  * @property string $name
- * @property string $description
  * @property string $text
- * @property string $seo_title
- * @property string $seo_description
- * @property string $seo_keywords
+ *
+ * The followings are the available model relations:
+ * @property Slider $slider
  */
-class PostTranslate extends CActiveRecord
+class SliderTranslates extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'post_translate';
+		return 'slider_translates';
 	}
 
 	/**
@@ -32,13 +31,13 @@ class PostTranslate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('post_id, language_id', 'required'),
-			array('post_id, language_id', 'numerical', 'integerOnly'=>true),
+			array('name, text', 'required'),
+			array('slider_id', 'numerical', 'integerOnly'=>true),
+			array('lang', 'length', 'max'=>6),
 			array('name', 'length', 'max'=>255),
-			array('description, text, seo_title, seo_description, seo_keywords', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, post_id, language_id, name, description, text, seo_title, seo_description, seo_keywords', 'safe', 'on'=>'search'),
+			array('id, slider_id, lang, name, text', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,6 +49,7 @@ class PostTranslate extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'slider' => array(self::BELONGS_TO, 'Slider', 'slider_id'),
 		);
 	}
 
@@ -60,14 +60,10 @@ class PostTranslate extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'post_id' => 'Post',
-			'language_id' => 'Language',
+			'slider_id' => 'Slider',
+			'lang' => 'Lang',
 			'name' => 'Name',
-			'description' => 'Description',
 			'text' => 'Text',
-			'seo_title' => 'Seo Title',
-			'seo_description' => 'Seo Description',
-			'seo_keywords' => 'Seo Keywords',
 		);
 	}
 
@@ -90,14 +86,10 @@ class PostTranslate extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('post_id',$this->post_id);
-		$criteria->compare('language_id',$this->language_id);
+		$criteria->compare('slider_id',$this->slider_id);
+		$criteria->compare('lang',$this->lang,true);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('description',$this->description,true);
 		$criteria->compare('text',$this->text,true);
-		$criteria->compare('seo_title',$this->seo_title,true);
-		$criteria->compare('seo_description',$this->seo_description,true);
-		$criteria->compare('seo_keywords',$this->seo_keywords,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -108,7 +100,7 @@ class PostTranslate extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return PostTranslate the static model class
+	 * @return SliderTranslates the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

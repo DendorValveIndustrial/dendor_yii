@@ -18,7 +18,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'data_slidr'); ?>
-		<?php echo $form->textField($model,'data_slidr',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'data_slidr',array('size'=>6,'maxlength'=>6)); ?>
 	</div>
 
 	<div class="row">

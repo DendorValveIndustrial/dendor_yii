@@ -21,7 +21,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'data_slidr'); ?>
-		<?php echo $form->textField($model,'data_slidr',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'data_slidr',array('size'=>6,'maxlength'=>6)); ?>
 		<?php echo $form->error($model,'data_slidr'); ?>
 	</div>
 
