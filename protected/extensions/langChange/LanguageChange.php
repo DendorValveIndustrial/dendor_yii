@@ -120,7 +120,9 @@
         ? $lang
         : $this->getPrefLang();
 
-      !is_null(Yii::app()->request->getPost('languageSet')) && $this->_lang = Yii::app()->request->getPost('languageSet');
+      $request = Yii::app()->request;
+
+      !is_null($request->getPost('languageSet')) && $this->_lang = $request->getPost('languageSet');
 
       Yii::app()->getRequest()->cookies->add(
         $this->langParam, new CHttpCookie(
@@ -147,7 +149,20 @@
           echo "<ul class='".$this->class."'>";
           foreach ($translations as $trans){
             echo "<li>";
-            echo CHtml::link(strtoupper($trans), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('languageSet'=>$trans), 'csrf'=>true,));
+            echo CHtml::link(strtoupper($trans), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'params'=>array('languageSet'=>$trans), 'csrf'=>true,));
+            /*echo CHtml::ajaxLink(
+              strtoupper($trans),
+              Yii::app()->homeUrl,
+              array(
+                'data'=>array(
+                  'languageSet'=>$trans,
+                ),
+              ),
+              array(
+                'class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''),
+                'csrf'=>true,
+              )
+            );*/
             echo "</li>";
           }
           echo "</ul>";
