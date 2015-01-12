@@ -55,7 +55,9 @@ return array(
 				'contact' => 'site/contact',
 				'search' => 'site/search',
 				'login' => 'site/login',
-				'<view:\w+>' => 'site/page',
+				/*'about' => 'site/page',
+				'<view:\w+>' => 'site/page',*/
+				'<view:about>' => 'site/page',
 				'admin/<controller:\w+>' => '<controller>/admin',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
