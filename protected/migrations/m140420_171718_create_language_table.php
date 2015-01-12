@@ -4,19 +4,26 @@ class m140420_171718_create_language_table extends CDbMigration
 {
 	public function up()
 	{
-		$this->createTable('language', array(
+		$this->createTable('languages', array(
 			'id' => 'pk',
 			'name' => 'string NOT NULL',
 			'code' => 'string NOT NULL',
-			'locate' => 'string NOT NULL',
-			'default' => 'boolean NOT NULL',
-			'img_flag' => 'string NOT NULL',
+			'locale' => 'string NOT NULL',
+			'default' => 'boolean NOT NULL DEFAULT 1',
+			'img_flag' => 'string',
+			'active' => 'boolean NOT NULL DEFAULT 1',
+		));
+
+		$this->insert('language', array(
+			'name' => 'Poland',
+			'code' => 'pl',
+			'locale' => 'pl_PL',
 		));
 	}
 
 	public function down()
 	{
-		$this->dropTable('language');
+		$this->dropTable('languages');
 	}
 
 	/*
