@@ -26,7 +26,7 @@ return array(
 		'bootstrap.helpers.TbHtml',
 		'bootstrap.helpers.TbArray',
 		'bootstrap.behaviors.TbWidget',
-		'ext.langChange.*',
+		'ext.langChange.LanguageChange',
 	),
 
 	'modules'=>array(

@@ -28,6 +28,12 @@
         return self::$instance;
     }
 
+    /*public function init()
+    {
+      $this->setAppLang();
+      parent::init();
+    }*/
+
     /**
     * @var string picker type.
     * Valid values are 'buttons', 'dropdown' and 'links'.
