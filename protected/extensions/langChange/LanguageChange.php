@@ -179,6 +179,16 @@
           foreach ($translations as $trans){
             echo "<li>";
             echo CHtml::link(CHtml::image('/img/icons/flags/'.$trans.'.gif', strtoupper($trans), array('width'=>'16', 'height'=>'11')), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('tl'=>$trans), 'csrf'=>true,));
+            /*echo CHtml::link(
+              CHtml::image('/img/icons/flags/'.$trans.'.gif', strtoupper($trans), array('width'=>'16', 'height'=>'11')),
+              array(
+                Yii::app()->homeUrl,
+                'tl'=>$trans,
+              ),
+              array(
+                'class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''),
+              )
+            );*/
             echo "</li>";
           }
           echo "</ul>";
