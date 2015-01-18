@@ -128,7 +128,7 @@
 
       $request = Yii::app()->request;
 
-      !is_null($request->getPost('languageSet')) && $this->_lang = $request->getPost('languageSet');
+      !is_null($request->getParam('tl')) && $this->_lang = $request->getParam('tl');
 
       Yii::app()->getRequest()->cookies->add(
         $this->langParam, new CHttpCookie(
@@ -155,13 +155,13 @@
           echo "<ul class='".$this->class."'>";
           foreach ($translations as $trans){
             echo "<li>";
-            echo CHtml::link(strtoupper($trans), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'params'=>array('languageSet'=>$trans), 'csrf'=>true,));
+            echo CHtml::link(strtoupper($trans), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'params'=>array('tl'=>$trans), 'csrf'=>true,));
             /*echo CHtml::ajaxLink(
               strtoupper($trans),
               Yii::app()->homeUrl,
               array(
                 'data'=>array(
-                  'languageSet'=>$trans,
+                  'tl'=>$trans,
                 ),
               ),
               array(
@@ -178,7 +178,7 @@
           echo "<ul class='".$this->class."'>";
           foreach ($translations as $trans){
             echo "<li>";
-            echo CHtml::link(CHtml::image('/img/icons/flags/'.$trans.'.gif', strtoupper($trans), array('width'=>'16', 'height'=>'11')), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('languageSet'=>$trans), 'csrf'=>true,));
+            echo CHtml::link(CHtml::image('/img/icons/flags/'.$trans.'.gif', strtoupper($trans), array('width'=>'16', 'height'=>'11')), Yii::app()->homeUrl, array('class'=>(Yii::app()->getLanguage() == $trans ? 'active' : ''), 'submit'=>'', 'params'=>array('tl'=>$trans), 'csrf'=>true,));
             echo "</li>";
           }
           echo "</ul>";
@@ -189,7 +189,7 @@
           foreach ($translations as $k => $v)
             $aTranslations[$k] = strtoupper($v);
           echo CHtml::form('', 'post');
-          echo CHtml::dropDownList('languageSet' , Yii::app()->getLanguage(), $aTranslations, array('submit'=>'', 'csrf'=>true, 'class'=> $this->class . ' ' . Yii::app()->getLanguage() ));
+          echo CHtml::dropDownList('tl' , Yii::app()->getLanguage(), $aTranslations, array('submit'=>'', 'csrf'=>true, 'class'=> $this->class . ' ' . Yii::app()->getLanguage() ));
           echo CHtml::endForm();
           break;
 
