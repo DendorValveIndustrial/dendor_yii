@@ -110,6 +110,9 @@ return array(
 		'bootstrap' => array(
 			'class' => 'bootstrap.components.TbApi',
 		),
+		'languageManager'=>array(
+			'class'=>'LanguageManager',
+		),
 	),
 
 	// application-level parameters that can be accessed

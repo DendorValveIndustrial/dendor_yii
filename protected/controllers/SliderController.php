@@ -122,7 +122,10 @@ class SliderController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Slider');
+		$currAppLang = Yii::app()->languageManager->getIdByCode();
+		$model = new Slider('search');
+		$dataProvider = $model->language($currAppLang)->search();
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -152,7 +155,11 @@ class SliderController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Slider::model()->findByPk($id);
+		//$model=Slider::model()->findByPk($id);
+		$currAppLang = Yii::app()->languageManager->getIdByCode();
+		$model = Slider::model()
+			->language($currAppLang)
+			->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

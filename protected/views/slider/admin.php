@@ -42,18 +42,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'slider-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->language(Yii::app()->languageManager->getIdByCode())->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
 		'data_slidr',
 		'name',
-		'text',
+		//'text',
 		'img',
 		'link',
-		/*
 		'active',
-		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -5,8 +5,13 @@ class SliderHome extends CWidget {
   }
 
   public function run(){
-    $slides = Slider::model()->findAll();
-    $this->render('sliderHome',array('slides'=>$slides));
+    $slides = Slider::model()
+      ->language(Yii::app()->languageManager->getIdByCode())
+      ->findAll();
+    $this->render(
+      'sliderHome',
+      array('slides'=>$slides)
+      );
   }
 
   public function publishAssets(){

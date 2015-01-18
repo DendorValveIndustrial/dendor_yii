@@ -1,22 +1,36 @@
 <?php
 
+Yii::import('application.models.SliderTranslates');
 /**
  * This is the model class for table "slider".
  *
  * The followings are the available columns in table 'slider':
  * @property integer $id
  * @property string $data_slidr
- * @property string $name
- * @property string $text
  * @property string $img
  * @property string $link
  * @property integer $active
+ *
+ * The followings are the available columns in table 'SliderTranslates':
+ * @property string $name
+ * @property string $text
  *
  * The followings are the available model relations:
  * @property SliderTranslates[] $sliderTranslates
  */
 class Slider extends CActiveRecord
 {
+	/**
+	 * Multilingual attrs
+	 */
+	public $name;
+	public $text;
+
+	/**
+	 * Name of the translations model.
+	 */
+	public $translateModelName = 'SliderTranslates';
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -33,13 +47,12 @@ class Slider extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('data_slidr, name, text, link', 'required'),
 			array('active', 'numerical', 'integerOnly'=>true),
 			array('data_slidr', 'length', 'max'=>6),
-			array('name, img, link', 'length', 'max'=>255),
+			array('img, link, name, text', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, data_slidr, name, text, img, link, active', 'safe', 'on'=>'search'),
+			array('id, data_slidr, img, link, active, name, text', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,9 +64,27 @@ class Slider extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'sliderTranslates' => array(self::HAS_MANY, 'SliderTranslates', 'slider_id'),
+			//'sliderTranslates' => array(self::HAS_MANY, 'SliderTranslates', 'object_id'),
+			'translate' => array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 		);
 	}
+
+	/**
+	 * @return array
+	 */
+	public function behaviors()
+	{
+		return array(
+			'STranslateBehavior'=>array(
+				'class'=>'ext.behaviors.TranslateBehavior',
+				'translateAttributes'=>array(
+					'name',
+					'text',
+				),
+			),
+		);
+	}
+
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -63,11 +94,12 @@ class Slider extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'data_slidr' => 'Data Slidr',
-			'name' => 'Name',
-			'text' => 'Text',
 			'img' => 'Img',
 			'link' => 'Link',
 			'active' => 'Active',
+			//SliderTranslates
+			'name' => 'Name',
+			'text' => 'Text',
 		);
 	}
 
@@ -89,17 +121,35 @@ class Slider extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('data_slidr',$this->data_slidr,true);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('text',$this->text,true);
-		$criteria->compare('img',$this->img,true);
-		$criteria->compare('link',$this->link,true);
-		$criteria->compare('active',$this->active);
+		$criteria->with = array('translate');
+    // $criteria->condition='`translate`.`language_id` = :language_id';
+    // $criteria->params=array(':language_id'=> 1);
+
+		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.data_slidr',$this->data_slidr,true);
+		$criteria->compare('t.img',$this->img,true);
+		$criteria->compare('t.link',$this->link,true);
+		$criteria->compare('t.active',$this->active);
+		//SliderTranslates
+		$criteria->compare('translate.name',$this->name,true);
+		$criteria->compare('translate.text',$this->text,true);
+		//$criteria->compare('translate.language_id',2);
+
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function beforeSave()
+	{
+		if(!$this->data_slidr && $this->isNewRecord)
+			$this->data_slidr = date('Y-m-d H:i:s');
+
+		return parent::beforeSave();
 	}
 
 	/**
