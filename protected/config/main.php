@@ -50,6 +50,10 @@ return array(
 
 		'urlManager'=>array(
 			'urlFormat' => 'path',
+			'class'=>'UrlManager',
+			'showScriptName'=>false,
+			//'useStrictParsing'=>true,
+			'urlSuffix'=>'.html',
 			'rules' => array(
 				'' => 'site/index',
 				'contact' => 'site/contact',
@@ -63,8 +67,6 @@ return array(
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
-			'showScriptName'=>false,
-			'urlSuffix'=>'.html',
 		),
 
 		/*'db'=>array(
