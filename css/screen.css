@@ -29,7 +29,7 @@ html, body { height: 100%; }
 
 .footer { clear: both; position: relative; height: 70px; }
 
-body { overflow-y: scroll; background-image: url('/img/body_bg.png?1416006965'); background-position: top center; background-repeat: no-repeat; }
+body { overflow-y: scroll; background-image: url('/img/body_bg.png?1391258070'); background-position: top center; background-repeat: no-repeat; }
 @media (max-width: 767px) { body { padding: 0; overflow-y: hidden; } }
 
 .header { margin-bottom: 10px; }
@@ -54,7 +54,7 @@ body { overflow-y: scroll; background-image: url('/img/body_bg.png?1416006965');
 .main .contact-form .warning { display: none; margin-top: 3px; font-size: 11px; color: #9F6000; background: #FFF9D5; border: 1px solid #FFD324; padding: 5px; text-align: center; }
 .main .contact-form .captcha > img { vertical-align: baseline; margin-left: 20px; }
 
-.footer { position: relative; background-color: #EBECEC; color: #868383; font-size: 12px; /* margin: 40px 0 0; */ -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; }
+.footer { position: relative; background-color: #EBECEC; color: #868383; font-size: 12px; /* margin: 40px 0 0; */ -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; box-shadow: rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset; }
 .footer .container { padding-top: 30px; }
 
 .flag-language { padding-left: 35px; }
