@@ -90,10 +90,10 @@ class SystemLanguage extends CActiveRecord
         return parent::beforeDelete();
     }
 
-    /*public static function getFlagImagesList()
+    public static function getFlagImagesList()
     {
         Yii::import('system.utils.CFileHelper');
-        $flagsPath = 'application.modules.admin.assets.images.flags.png';
+        $flagsPath = 'ext.langChange.assets.images.flags.png';
         $result = array();
         $flags  = CFileHelper::findFiles(Yii::getPathOfAlias($flagsPath));
         foreach($flags as $f)
@@ -103,5 +103,5 @@ class SystemLanguage extends CActiveRecord
             $result[$fileName] = $fileName;
         }
         return $result;
-    }*/
+    }
 }

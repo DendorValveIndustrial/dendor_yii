@@ -10,7 +10,7 @@ return array(
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
 	'language'=>'pl',
-	//'sourceLanguage'=>'en',
+	//'sourceLanguage'=>'pl',
 
 	'aliases' => array(
 		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
@@ -23,10 +23,11 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.widgets.*',
 		'bootstrap.helpers.TbHtml',
 		'bootstrap.helpers.TbArray',
 		'bootstrap.behaviors.TbWidget',
-		'ext.langChange.LanguageChange',
+		//'ext.langChange.LanguageChange',
 	),
 
 	'modules'=>array(
@@ -56,11 +57,7 @@ return array(
 			'urlSuffix'=>'.html',
 			'rules' => array(
 				'' => 'site/index',
-				'contact' => 'site/contact',
-				'search' => 'site/search',
-				'login' => 'site/login',
-				/*'about' => 'site/page',
-				'<view:\w+>' => 'site/page',*/
+				'<action:(contact|search|login|logout)>' => 'site/<action>',
 				'<view:about>' => 'site/page',
 				'admin/<controller:\w+>' => '<controller>/admin',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
@@ -81,7 +78,13 @@ return array(
 			'password' => '',
 			'charset' => 'utf8',
 		),
-
+		'request'=>array(
+			'class'=>'HttpRequest',
+			'enableCsrfValidation'=>true,
+			'enableCookieValidation'=>true,
+			'noCsrfValidationRoutes'=>array(
+			)
+		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
