@@ -36,8 +36,8 @@ class HttpRequest extends CHttpRequest
         $langCode = $parts[0];
 
         // If language code is equal default - show 404 page
-        // if($langCode === Yii::app()->languageManager->default->code)
-        //   throw new CHttpException(404, 'Страница не найдена.');
+        if($langCode === Yii::app()->languageManager->default->code)
+          throw new CHttpException(404, 'Страница не найдена.');
 
         unset($parts[0]);
         $pathInfo = implode($parts, '/');

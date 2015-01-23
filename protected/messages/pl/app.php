@@ -3,6 +3,8 @@ return array(
   'HOME' => 'Główna',
   'CONTACT_US' => 'Kontakt',
   'CONTACT' => 'Kontakt',
+  'READ_MORE'=> 'czytaj więcej',
+
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
   'NAME' => 'Name', //en
   'EMAIL' => 'Email', //en

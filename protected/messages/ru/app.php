@@ -3,6 +3,8 @@ return array(
   'HOME' => 'Главная',
   'CONTACT_US' => 'Контакты',
   'CONTACT' => 'Контакты',
+  'READ_MORE'=> 'читать далее',
+
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',
   'EMAIL' => 'Email',
