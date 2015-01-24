@@ -15,18 +15,13 @@
         .container.top-header
           .row
             .span6
-              = CHtml::link(CHtml::image('/img/logo/logo-blue193.png',CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),'/')
+              = CHtml::link(CHtml::image('/img/logo/logo-blue193.png',CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),Yii::app()->createUrl('site/index'))
             .span4
               .top-contact.pull-right
                 .tel.text-center 48-792-516-591
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
-              -$this->widget('application.components.LanguageChange', array('pickerType' => 'flags', 'class' => 'inline pull-right',))
-            /
-              %ul.inline.pull-right
-                %li= CHtml::link(CHtml::image('/img/icons/us.gif','U.S.', array('width'=>'16', 'height'=>'11')),'http://dendor-valve.com', array('title'=>'U.S.'))
-                %li= CHtml::link(CHtml::image('/img/icons/pl.gif','Poland', array('width'=>'16', 'height'=>'11')),'http://dendor.pl', array('title'=>'Poland'))
-                %li= CHtml::link(CHtml::image('/img/icons/ru.gif','Русский', array('width'=>'16', 'height'=>'11')),'http://dendor.ru', array('title'=>'Русский'))
+              -$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('class'=>'nav pull-right country'))
         / top-header
         .navbar.navbar-inverse.navbar-static-top(role="navigation")
           .navbar-inner
