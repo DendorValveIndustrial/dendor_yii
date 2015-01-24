@@ -53,7 +53,7 @@ return array(
 			'urlFormat' => 'path',
 			'class'=>'UrlManager',
 			'showScriptName'=>false,
-			//'useStrictParsing'=>true,
+			'useStrictParsing'=>true,
 			'urlSuffix'=>'.html',
 			'rules' => array(
 				'' => 'site/index',
