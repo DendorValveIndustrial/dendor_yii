@@ -26,7 +26,7 @@ class LangSwitchWidget extends CWidget {
       if($currentId != $lang->id)
       {
         $langs[] = array(
-          'label'=>$this->getFlagImage($lang),//.CHtml::encode($lang['code'])
+          'label'=>$this->getFlagImage($lang),//.CHtml::encode($lang['code']),
           'url'=>CHtml::normalizeUrl($prefixLang.urldecode($url)),
           'linkOptions'=>array('title'=>CHtml::encode($lang['name'])),
         );
@@ -46,8 +46,8 @@ class LangSwitchWidget extends CWidget {
 
   public function getUrl($ampersand = '&')
   {
-    $controller = Yii::app()->controller;
-    $result = Yii::app()->urlManager->createUrl($controller->id.'/'.$controller->action->id, $_GET, $ampersand, false);
+    $object = Yii::app()->controller;
+    $result = Yii::app()->urlManager->createUrl($object->id.'/'.$object->action->id, $_GET, $ampersand, false);
     return $result;
   }
 
@@ -58,7 +58,6 @@ class LangSwitchWidget extends CWidget {
    */
   public function getFlagImage(SystemLanguage $lang)
   {
-    //$adminAssetsUrl = Yii::app()->getModule('admin')->assetsUrl;
     $assets = dirname(__FILE__) . '/assets';
     $baseUrl = Yii::app() -> assetManager -> publish($assets);
 

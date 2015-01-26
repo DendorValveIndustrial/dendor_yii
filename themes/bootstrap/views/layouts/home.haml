@@ -20,10 +20,11 @@
                 :php
                   $this->widget('zii.widgets.CMenu',array(
                     'items'=>array(
-                      array('label'=>Yii::t('app', 'HOME'), 'url'=>array('site/index')),
-                      array('label'=>Yii::t('app', 'ABOUT'), 'url'=>array('site/page', 'view'=>'about')),
-                      array('label'=>Yii::t('app', 'CONTACT'), 'url'=>array('site/contact')),
-                      array('label'=>Yii::t('app', 'LOGOUT').' ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                      array('label'=>Yii::t('app', 'home'), 'url'=>array('site/index')),
+                      array('label'=>Yii::t('app', 'about'), 'url'=>array('site/page', 'view'=>'about')),
+                      array('label'=>Yii::t('app', 'news'), 'url'=>array('/news/default/index')),
+                      array('label'=>Yii::t('app', 'contact'), 'url'=>array('site/contact')),
+                      array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
                     'activeCssClass'=>'active',
                     'htmlOptions'=>array(

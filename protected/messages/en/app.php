@@ -1,9 +1,11 @@
 <?php
 return array(
-  'HOME' => 'Home',
-  'CONTACT_US' => 'Contact Us',
-  'CONTACT' => 'Contact',
-  'READ_MORE'=> 'Read more',
+  'home' => 'Home',
+  'contact_us' => 'Contact Us',
+  'contact' => 'Contact',
+  'read_more'=> 'Read more',
+  'news' => 'News',
+  'about' => 'About',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.',
   'NAME' => 'Name',
@@ -22,7 +24,6 @@ return array(
   'OR' => 'or',
   'PLACES' => 'Places',
   'USERS' => 'Users',
-  'ABOUT' => 'About',
   'LOGOUT' => 'Logout',
   'OPERATIONS' => 'Operations',
   'LIST_USERS' => 'List Users',

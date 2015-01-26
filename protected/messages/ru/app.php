@@ -1,9 +1,11 @@
 <?php
 return array(
-  'HOME' => 'Главная',
-  'CONTACT_US' => 'Контакты',
-  'CONTACT' => 'Контакты',
-  'READ_MORE'=> 'читать далее',
+  'home' => 'Главная',
+  'contact_us' => 'Контакты',
+  'contact' => 'Контакты',
+  'read_more'=> 'читать далее',
+  'news' => 'Новости',
+  'about' => 'О компании',
 
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',
@@ -22,7 +24,6 @@ return array(
   'OR' => 'или',
   'PLACES' => 'Объекты',
   'USERS' => 'Пользователи',
-  'ABOUT' => 'О компании',
   'LOGOUT' => 'Выход',
   'OPERATIONS' => 'Действия',
   'LIST_USERS' => 'Список пользователей',

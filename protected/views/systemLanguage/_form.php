@@ -45,8 +45,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'flag_name'); ?>
-		<?php echo $form->textField($model,'flag_name',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'flag_name'); ?>
+		<?php echo $form->dropDownList($model,'flag_name',SystemLanguage::getFlagImagesList()); ?>
 	</div>
 
 	<div class="row buttons">

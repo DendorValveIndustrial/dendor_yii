@@ -39,6 +39,7 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 			'generatorPaths' => array('bootstrap.gii'),
 		),
+		'news',
 	),
 
 	// application components
@@ -53,13 +54,19 @@ return array(
 			'urlFormat' => 'path',
 			'class'=>'UrlManager',
 			'showScriptName'=>false,
-			//'useStrictParsing'=>true,
+			'useStrictParsing'=>true,
 			'urlSuffix'=>'.html',
 			'rules' => array(
-				'' => 'site/index',
+				'' => array('site/index', 'urlSuffix'=>''),
 				'<action:(contact|search|login|logout)>' => 'site/<action>',
 				'<view:about>' => 'site/page',
 				'admin/<controller:\w+>' => '<controller>/admin',
+
+				'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
+				'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+				'<module:\w+>/<controller:\w+>' => '<module>/<controller>/index',
+				'<module:\w+>' => '<module>/default/index',
+
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',

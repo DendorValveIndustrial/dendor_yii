@@ -1,9 +1,11 @@
 <?php
 return array(
-  'HOME' => 'Główna',
-  'CONTACT_US' => 'Kontakt',
-  'CONTACT' => 'Kontakt',
-  'READ_MORE'=> 'czytaj więcej',
+  'home' => 'Główna',
+  'contact_us' => 'Kontakt',
+  'contact' => 'Kontakt',
+  'read_more'=> 'czytaj więcej',
+  'news' => 'Aktualności',
+  'about' => 'O nas',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
   'NAME' => 'Name', //en

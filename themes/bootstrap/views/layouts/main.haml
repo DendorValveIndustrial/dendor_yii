@@ -21,7 +21,7 @@
                 .tel.text-center 48-792-516-591
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
-              -$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('class'=>'nav pull-right country'))
+              -$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('class'=>'inline pull-right'))
         / top-header
         .navbar.navbar-inverse.navbar-static-top(role="navigation")
           .navbar-inner
@@ -30,10 +30,11 @@
                 :php
                   $this->widget('zii.widgets.CMenu',array(
                     'items'=>array(
-                      array('label'=>Yii::t('app', 'HOME'), 'url'=>array('/site/index')),
-                      array('label'=>Yii::t('app', 'ABOUT'), 'url'=>array('/site/page', 'view'=>'about')),
-                      array('label'=>Yii::t('app', 'CONTACT'), 'url'=>array('/site/contact')),
-                      array('label'=>Yii::t('app', 'LOGOUT').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                      array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
+                      array('label'=>Yii::t('app', 'about'), 'url'=>array('site/page', 'view'=>'about')),
+                      array('label'=>Yii::t('app', 'news'), 'url'=>array('/news/default/index')),
+                      array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
+                      array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
                     'activeCssClass'=>'active',
                     'htmlOptions'=>array(

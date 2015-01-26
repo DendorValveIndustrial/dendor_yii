@@ -1,13 +1,14 @@
 :php
-  $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('app', 'ABOUT');
+  $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('app', 'about');
   $this->breadcrumbs=array(
-    Yii::t('app', 'ABOUT'),
+    Yii::t('app', 'about'),
   );
-%h1=Yii::t('app', 'ABOUT')
+%h1=Yii::t('app', 'about')
 %p "Это статическая страница". You may change the content of this page by updating the file
   %code= __FILE__
 
 -$this->widget('application.components.LanguageChange', array('pickerType' => 'flags',))
 -$this->widget('application.components.LanguageChange', array('pickerType' => 'dropdown', 'class'=>'input-small flag-language'))
--$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('ulClass'=>'inline'))
+-$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('class'=>'inline'))
 
+-var_dump($this->id)
