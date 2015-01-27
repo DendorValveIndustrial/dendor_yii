@@ -27,6 +27,6 @@ class NewsModule extends CWebModule
 	}
 
 	public $urlRules = array(
-		'news' => 'news/default/index',
+		'news' => 'news/news/index',
 	);
 }
