@@ -15,5 +15,3 @@ in the "<?php echo $this->module->id; ?>" module.
 <p>
 You may customize this page by editing <tt><?php echo __FILE__; ?></tt>
 </p>
-
-<?php var_dump($this->module->id); ?>

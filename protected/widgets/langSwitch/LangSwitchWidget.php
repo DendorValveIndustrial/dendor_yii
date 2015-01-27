@@ -1,6 +1,7 @@
 <?php
 class LangSwitchWidget extends CWidget {
 
+  public $url;
   public $class = 'inline';
 
   /*public function init(){
@@ -44,12 +45,12 @@ class LangSwitchWidget extends CWidget {
     ));
   }
 
-  public function getUrl($ampersand = '&')
+  /*public function getUrl($ampersand = '&')
   {
     $object = Yii::app()->controller;
     $result = Yii::app()->urlManager->createUrl($object->id.'/'.$object->action->id, $_GET, $ampersand, false);
     return $result;
-  }
+  }*/
 
   /**
    * Create flag image for lang

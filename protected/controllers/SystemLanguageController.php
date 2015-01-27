@@ -180,4 +180,10 @@ class SystemLanguageController extends Controller
 		return urldecode(parent::createUrl($route,$params,$ampersand));
 	}
 
+	public function getUrl($ampersand = '&')
+  {
+    $result = Yii::app()->urlManager->createUrl($this->id.'/'.$this->action->id, $_GET, $ampersand, false);
+    return $result;
+  }
+
 }

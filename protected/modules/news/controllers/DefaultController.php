@@ -7,12 +7,9 @@ class DefaultController extends Controller
 		$this->render('index');
 	}
 
-  /**
-   * Override default method to return category full_url without encoded slash.
-   * TODO: Find right solution for '/' in url params.
-   */
-  public function createUrl($route,$params=array(),$ampersand='&')
+  public function getUrl($ampersand = '&')
   {
-    return urldecode(parent::createUrl($route,$params,$ampersand));
+    $result = Yii::app()->urlManager->createUrl($this->module->id, $_GET, $ampersand, false);
+    return $result;
   }
 }

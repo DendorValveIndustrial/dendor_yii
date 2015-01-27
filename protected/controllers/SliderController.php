@@ -177,4 +177,11 @@ class SliderController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	public function getUrl($ampersand = '&')
+  {
+    $result = Yii::app()->urlManager->createUrl($this->id.'/'.$this->action->id, $_GET, $ampersand, false);
+    return $result;
+  }
+
 }

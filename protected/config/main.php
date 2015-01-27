@@ -27,7 +27,6 @@ return array(
 		'bootstrap.helpers.TbHtml',
 		'bootstrap.helpers.TbArray',
 		'bootstrap.behaviors.TbWidget',
-		//'ext.langChange.LanguageChange',
 	),
 
 	'modules'=>array(
@@ -60,16 +59,16 @@ return array(
 				'' => array('site/index', 'urlSuffix'=>''),
 				'<action:(contact|search|login|logout)>' => 'site/<action>',
 				'<view:about>' => 'site/page',
+				'admin'=>array('site/login', 'urlSuffix'=>''),
 				'admin/<controller:\w+>' => '<controller>/admin',
-
-				'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
-				'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
-				'<module:\w+>/<controller:\w+>' => '<module>/<controller>/index',
-				'<module:\w+>' => '<module>/default/index',
 
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+
+				'gii'=>array('gii/default/login','urlSuffix'=>''),
+				'gii/<controller:\w+>'=>array('gii/<controller>','urlSuffix'=>''),
+				'gii/<controller:\w+>/<action:\w+>'=>array('gii/<controller>/<action>','urlSuffix'=>''),
 			),
 		),
 
@@ -125,6 +124,10 @@ return array(
 		'languageManager'=>array(
 			'class'=>'LanguageManager',
 		),
+	),
+
+	'onBeginRequest' => array(
+		'ModuleUrlManager', 'collectRules'
 	),
 
 	// application-level parameters that can be accessed

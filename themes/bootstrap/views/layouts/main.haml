@@ -21,7 +21,7 @@
                 .tel.text-center 48-792-516-591
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
-              -$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('class'=>'inline pull-right'))
+              -$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'class'=>'inline pull-right'))
         / top-header
         .navbar.navbar-inverse.navbar-static-top(role="navigation")
           .navbar-inner
@@ -31,8 +31,8 @@
                   $this->widget('zii.widgets.CMenu',array(
                     'items'=>array(
                       array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
-                      array('label'=>Yii::t('app', 'about'), 'url'=>array('site/page', 'view'=>'about')),
-                      array('label'=>Yii::t('app', 'news'), 'url'=>array('news/default/index')),
+                      array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
+                      array('label'=>Yii::t('app', 'news'), 'url'=>array('/news')),
                       array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
                       array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
@@ -57,20 +57,6 @@
                   ));
                 }
           = $content
-          :php
-            $langCode = null;
-            $url = Yii::app()->request->pathInfo;
-            $parts = explode('/', $url);
-            if (in_array($parts[0], Yii::app()->languageManager->getCodes()))
-            {
-              unset($parts[0]);
-              $url = implode($parts, '/');
-            }
-
-            var_dump($url);
-            var_dump(Yii::app()->controller);
-            //$url = Yii::app()->urlManager->removeUrlSuffix($url, '.html');
-            //var_dump(Yii::app()->urlManager->parseUrl($url));
         / content
       .layout-footer
     %footer.footer
