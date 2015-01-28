@@ -261,7 +261,7 @@ class News extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 		$criteria=new CDbCriteria;
 
-		$criteria->with = array('author','translate');
+		$criteria->with = array('translate');
 
 		$criteria->compare('t.id',$this->id);
 		$criteria->compare('t.category_id',$this->category_id);

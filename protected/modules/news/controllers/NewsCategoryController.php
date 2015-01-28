@@ -1,6 +1,6 @@
 <?php
 
-class NewsController extends BaseModuleController
+class NewsCategoryController extends BaseModuleController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,16 +62,16 @@ class NewsController extends BaseModuleController
 	 */
 	public function actionCreate()
 	{
-		$model=new News;
+		$model=new NewsCategory;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['News']))
-		{
-			$model->attributes=$_POST['News'];
-			if($model->save())
+		if (isset($_POST['NewsCategory'])) {
+			$model->attributes=$_POST['NewsCategory'];
+			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -91,11 +91,11 @@ class NewsController extends BaseModuleController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['News']))
-		{
-			$model->attributes=$_POST['News'];
-			if($model->save())
+		if (isset($_POST['NewsCategory'])) {
+			$model->attributes=$_POST['NewsCategory'];
+			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
@@ -110,11 +110,17 @@ class NewsController extends BaseModuleController
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		if (Yii::app()->request->isPostRequest) {
+			// we only allow deletion via POST request
+			$this->loadModel($id)->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if (!isset($_GET['ajax'])) {
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			}
+		} else {
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		}
 	}
 
 	/**
@@ -122,7 +128,7 @@ class NewsController extends BaseModuleController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('News');
+		$dataProvider=new CActiveDataProvider('NewsCategory');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +139,11 @@ class NewsController extends BaseModuleController
 	 */
 	public function actionAdmin()
 	{
-		$model=new News('search');
+		$model=new NewsCategory('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['News']))
-			$model->attributes=$_GET['News'];
+		if (isset($_GET['NewsCategory'])) {
+			$model->attributes=$_GET['NewsCategory'];
+		}
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -145,12 +152,11 @@ class NewsController extends BaseModuleController
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param News $model the model to be validated
+	 * @param NewsCategory $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='news-form')
-		{
+		if (isset($_POST['ajax']) && $_POST['ajax']==='news-category-form') {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
@@ -160,18 +166,19 @@ class NewsController extends BaseModuleController
    * Returns the data model based on the primary key given in the GET variable.
    * If the data model is not found, an HTTP exception will be raised.
    * @param integer $id the ID of the model to be loaded
-   * @return News the loaded model
+   * @return NewsCategory the loaded model
    * @throws CHttpException
    */
   public function loadModel($id)
   {
-    //$model=News::model()->findByPk($id);
+    //$model=NewsCategory::model()->findByPk($id);
     $currAppLang = Yii::app()->languageManager->getIdByCode();
-    $model = News::model()
+    $model = NewsCategory::model()
       ->language($currAppLang)
       ->findByPk($id);
     if($model===null)
       throw new CHttpException(404,'The requested page does not exist.');
     return $model;
   }
+
 }

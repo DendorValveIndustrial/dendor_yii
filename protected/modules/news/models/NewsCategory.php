@@ -17,12 +17,11 @@ Yii::import('application.modules.news.models.NewsCategoryTranslate');
  * @property integer $page_size
  *
  * The followings are the available columns in table 'NewsCategoryTranslate':
+ * @property string $name
+ * @property string $description
  * @property string $meta_title
  * @property string $meta_description
  * @property string $meta_keywords
- * @property integer $page_size
- * @property string $created
- * @property string $updated
  *
  *
  * The followings are the available model relations:
@@ -258,13 +257,13 @@ class NewsCategory extends CActiveRecord
 		if(!$this->updated)
 			$this->updated = date('Y-m-d H:i:s');
 
-		if (empty($this->url))
+		/*if (empty($this->url))
 		{
 			Yii::import('ext.SlugHelper.SlugHelper');
 			$this->url = SlugHelper::run($this->name);
 		}
 
-		/*// Check if url available
+		// Check if url available
 		if($this->isNewRecord)
 		{
 			$test = PageCategory::model()
@@ -349,7 +348,7 @@ class NewsCategory extends CActiveRecord
 	 */
 	public function getUpdateLink()
 	{
-		return CHtml::link(CHtml::encode($this->name), array('/news/admin/category/update', 'id'=>$this->id));
+		return CHtml::link(CHtml::encode($this->name), array('/news/newsCategory/update', 'id'=>$this->id));
 	}
 
 	/**
@@ -361,11 +360,11 @@ class NewsCategory extends CActiveRecord
 		return urldecode(Yii::app()->createUrl('news/news/list', array('url'=>$this->full_url)));
 	}
 
-	public function afterSave()
+	/*public function afterSave()
 	{
 		Yii::app()->cache->delete('news_category_'.$this->url);
 		return parent::afterSave();
-	}
+	}*/
 
 	public function afterDelete()
 	{

@@ -30,5 +30,11 @@ $this->menu=array(
 		'status',
 		'layout',
 		'view',
+		'title',
+		'short_description',
+		'full_description',
+		'meta_title',
+		'meta_keywords',
+		'meta_description',
 	),
 )); ?>
