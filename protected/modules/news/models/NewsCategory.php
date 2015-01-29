@@ -50,6 +50,8 @@ class NewsCategory extends CActiveRecord
 	 */
 	public $_nameWithLevel;
 
+	private $_list = array();
+
 	/**
 	 * Translate-able
 	 */
@@ -182,7 +184,7 @@ class NewsCategory extends CActiveRecord
 	 */
 	public static function keyValueList()
 	{
-		$models = PageCategory::model()->findAll();
+		$models = NewsCategory::model()->findAll();
 		$tree = new PageCategoryTree($models);
 		return CHtml::listData($tree->buildTree(), 'id', 'nameWithLevel');
 	}
@@ -254,16 +256,23 @@ class NewsCategory extends CActiveRecord
 	{
 		if(!$this->created && $this->isNewRecord)
 			$this->created = date('Y-m-d H:i:s');
+
 		if(!$this->updated)
 			$this->updated = date('Y-m-d H:i:s');
 
-		/*if (empty($this->url))
+		if($this->meta_title === '')
+			$this->meta_title = $this->name;
+
+		if($this->meta_description === '')
+			$this->meta_description = substr($this->description, 0, 120);
+
+		if (empty($this->url))
 		{
 			Yii::import('ext.SlugHelper.SlugHelper');
 			$this->url = SlugHelper::run($this->name);
 		}
 
-		// Check if url available
+		/*// Check if url available
 		if($this->isNewRecord)
 		{
 			$test = PageCategory::model()
@@ -360,17 +369,33 @@ class NewsCategory extends CActiveRecord
 		return urldecode(Yii::app()->createUrl('news/news/list', array('url'=>$this->full_url)));
 	}
 
+	/**
+	 * Get list to form object on front
+	 * @return array
+	 */
+	public function getListCategory()
+	{
+		$this->_list[0]='...';
+
+		$aCategory = NewsCategory::model()->findAll();
+		foreach ($aCategory as $oCategory) {
+			$this->_list[$oCategory->id]=$oCategory->name;
+		}
+
+		return $this->_list;
+	}
+
 	/*public function afterSave()
 	{
 		Yii::app()->cache->delete('news_category_'.$this->url);
 		return parent::afterSave();
-	}*/
+	}
 
 	public function afterDelete()
 	{
 		Yii::app()->cache->delete('news_category_'.$this->url);
 		return parent::afterSave();
-	}
+	}*/
 
 	/**
 	 * @return string

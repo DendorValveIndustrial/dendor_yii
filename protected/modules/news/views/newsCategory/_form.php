@@ -26,7 +26,7 @@
 			</div>
 			<div class="span3">
 
-				<?php echo $form->textFieldControlGroup($model,'parent_id',array('span'=>12)); ?>
+				<?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listCategory); ?>
 
 			</div>
 		</div>
