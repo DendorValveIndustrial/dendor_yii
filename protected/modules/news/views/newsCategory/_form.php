@@ -15,58 +15,58 @@
 		'enableAjaxValidation'=>false,
 	)); ?>
 
-	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
+		<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
-		<div class="row-fluid">
-			<div class="span6">
+		<?php echo $form->errorSummary($model); ?>
+			<div class="row-fluid">
+				<div class="span6">
 
-				<?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
+					<?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
 
+				</div>
+				<div class="span3">
+
+					<?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listCategory); ?>
+
+				</div>
 			</div>
-			<div class="span3">
+			<div class="line line-dotted"></div>
+			<div class="row-fluid">
+				<div class="span6">
 
-				<?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listCategory); ?>
+					<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
 
+					<?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'layout',array('span'=>12,'maxlength'=>255)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'view',array('span'=>12,'maxlength'=>255)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'created',array('span'=>12)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'updated',array('span'=>12)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'page_size',array('span'=>12)); ?>
+
+				</div>
+				<div class="span6">
+
+					<?php echo $form->textFieldControlGroup($model,'meta_title',array('span'=>12,'maxlength'=>255)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'meta_description',array('span'=>12,'maxlength'=>255)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'meta_keywords',array('span'=>12,'maxlength'=>255)); ?>
+
+					<?php echo $form->textAreaControlGroup($model,'full_url',array('rows'=>6,'span'=>12)); ?>
+				</div>
 			</div>
+
+		<div class="form-actions">
+			<?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
+				'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
+				'size'=>TbHtml::BUTTON_SIZE_LARGE,
+			)); ?>
 		</div>
-		<div class="line line-dotted"></div>
-		<div class="row-fluid">
-			<div class="span6">
-
-				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
-
-				<?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
-
-				<?php echo $form->textFieldControlGroup($model,'layout',array('span'=>12,'maxlength'=>255)); ?>
-
-				<?php echo $form->textFieldControlGroup($model,'view',array('span'=>12,'maxlength'=>255)); ?>
-
-				<?php echo $form->textFieldControlGroup($model,'created',array('span'=>12)); ?>
-
-				<?php echo $form->textFieldControlGroup($model,'updated',array('span'=>12)); ?>
-
-				<?php echo $form->textFieldControlGroup($model,'page_size',array('span'=>12)); ?>
-
-			</div>
-			<div class="span6">
-
-				<?php echo $form->textFieldControlGroup($model,'meta_title',array('span'=>12,'maxlength'=>255)); ?>
-
-				<?php echo $form->textFieldControlGroup($model,'meta_description',array('span'=>12,'maxlength'=>255)); ?>
-
-				<?php echo $form->textFieldControlGroup($model,'meta_keywords',array('span'=>12,'maxlength'=>255)); ?>
-
-				<?php echo $form->textAreaControlGroup($model,'full_url',array('rows'=>6,'span'=>12)); ?>
-			</div>
-		</div>
-
-	<div class="form-actions">
-		<?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
-			'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
-			'size'=>TbHtml::BUTTON_SIZE_LARGE,
-		)); ?>
-	</div>
 
 	<?php $this->endWidget(); ?>
 

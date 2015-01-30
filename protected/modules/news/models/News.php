@@ -154,7 +154,7 @@ class News extends CActiveRecord
 			array('category_id', 'numerical', 'integerOnly'=>true),
 			array('short_description, full_description', 'type', 'type'=>'string'),
 			array('status', 'in', 'range'=>array_keys(self::statuses())),
-			array('title, status, publish_date', 'required'),
+			array('title, status', 'required'),
 			array('url', 'LocalUrlValidator'),
 			array('publish_date', 'date', 'format'=>'yyyy-MM-dd HH:mm:ss'),
 			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout, view', 'length', 'max'=>255),
@@ -305,6 +305,8 @@ class News extends CActiveRecord
 			$this->created = date('Y-m-d H:i:s');
 		if(!$this->updated)
 			$this->updated = date('Y-m-d H:i:s');
+		if(!$this->publish_date && $this->isNewRecord)
+			$this->publish_date = date('Y-m-d H:i:s');
 
 		/*if (!Yii::app()->user->isGuest)
 			$this->user_id = Yii::app()->user->id;
