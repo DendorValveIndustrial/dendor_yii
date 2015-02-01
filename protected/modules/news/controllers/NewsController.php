@@ -28,7 +28,7 @@ class NewsController extends BaseModuleController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'list'),
+				'actions'=>array('index','view','list'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -48,9 +48,9 @@ class NewsController extends BaseModuleController
 	/**
 	 * Filter pages by category
 	 */
-	public function actionList()
+	public function actionList($category)
 	{
-		$model = $this->loadCategoryModel();
+		$model = $this->loadCategoryModel($category);
 
 		if(!$model)
 			throw new CHttpException(404, Yii::t('admin', 'Категория не найдена.'));
@@ -207,23 +207,11 @@ class NewsController extends BaseModuleController
     return $model;
   }
 
-  public function loadCategoryModel($url=null)
+  public function loadCategoryModel($url)
 	{
-		if(!$url)
-			$url = Yii::app()->request->getParam('url');
-
 		return NewsCategory::model()
-			->withFullUrl($url)
+			->withUrl($url)
 			->find();
-	}
-
-	/**
-	 * Override default method to return category full_url without encoded slash.
-	 * TODO: Find right solution for '/' in url params.
-	 */
-	public function createUrl($route,$params=array(),$ampersand='&')
-	{
-		return urldecode(parent::createUrl($route,$params,$ampersand));
 	}
 
 }

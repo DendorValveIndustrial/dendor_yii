@@ -21,4 +21,22 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
+	/**
+	 * Set layout and view
+	 * @param mixed $model
+	 * @param string $view Default view name
+	 * @return string
+	 */
+	protected function setDesign($model, $view)
+	{
+		// Set layout
+		if ($model->layout)
+			$this->layout = $model->layout;
+
+		// Use custom page view
+		if ($model->view)
+			$view = $model->view;
+
+		return $view;
+	}
 }

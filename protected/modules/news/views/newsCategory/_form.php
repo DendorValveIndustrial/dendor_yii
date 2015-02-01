@@ -36,17 +36,13 @@
 
 					<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
 
+					<?php echo $form->textFieldControlGroup($model,'full_url',array('span'=>12)); ?>
+
 					<?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
 
 					<?php echo $form->textFieldControlGroup($model,'layout',array('span'=>12,'maxlength'=>255)); ?>
 
 					<?php echo $form->textFieldControlGroup($model,'view',array('span'=>12,'maxlength'=>255)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'created',array('span'=>12)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'updated',array('span'=>12)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'page_size',array('span'=>12)); ?>
 
 				</div>
 				<div class="span6">
@@ -57,7 +53,12 @@
 
 					<?php echo $form->textFieldControlGroup($model,'meta_keywords',array('span'=>12,'maxlength'=>255)); ?>
 
-					<?php echo $form->textAreaControlGroup($model,'full_url',array('rows'=>6,'span'=>12)); ?>
+					<?php echo $form->textFieldControlGroup($model,'created',array('span'=>12)); ?>
+
+					<?php echo $form->textFieldControlGroup($model,'updated',array('span'=>12)); ?>
+
+					<?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>3)); ?>
+
 				</div>
 			</div>
 

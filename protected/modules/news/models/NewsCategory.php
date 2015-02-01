@@ -101,8 +101,9 @@ class NewsCategory extends CActiveRecord
 			array('description, layout, view', 'type', 'type'=>'string'),
 			array('name', 'required'),
 			array('url', 'LocalUrlValidator'),
+			array('url', 'unique'),
 			array('parent_id, page_size', 'numerical', 'integerOnly'=>true),
-			array('name, url, layout, view, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
+			array('name, url, full_url, layout, view, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			// The following rule is used by search().
 			array('id, parent_id, name, url, description, layout, view, meta_title, meta_description, meta_keywords, created, updated', 'safe', 'on'=>'search'),
 		);
@@ -272,6 +273,14 @@ class NewsCategory extends CActiveRecord
 			$this->url = SlugHelper::run($this->name);
 		}
 
+		$this->full_url = (!empty($this->parent_id))
+			? NewsCategory::model()->findByPk($this->parent_id)->url.'/'.$this->url
+			: $this->url;
+
+		if (empty($this->page_size)) {
+			$this->page_size = $this->defaultPageSize;
+		}
+
 		/*// Check if url available
 		if($this->isNewRecord)
 		{
@@ -301,7 +310,7 @@ class NewsCategory extends CActiveRecord
 	 * Delete category pages and childs.
 	 * @return boolean
 	 */
-	public function beforeDelete()
+	/*public function beforeDelete()
 	{
 		// Delete pages
 		$pages = $this->pages;
@@ -323,7 +332,7 @@ class NewsCategory extends CActiveRecord
 
 		return parent::beforeDelete();
 	}
-
+*/
 	/**
 	 * Count and cache categories by url
 	 *

@@ -334,6 +334,6 @@ class News extends CActiveRecord
 		if($this->category)
 			$data['url'] = $this->category->full_url . '/' . $this->url;
 
-		return urldecode(Yii::app()->createUrl('news/pages/view', $data));
+		return urldecode(Yii::app()->createUrl('news/news/view', $data));
 	}
 }
