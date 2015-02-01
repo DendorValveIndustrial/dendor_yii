@@ -160,20 +160,20 @@ class NewsCategory extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'parent_id' => 'Parent',
-			'url' => 'Url',
-			'full_url' => 'Full Url',
-			'layout' => 'Layout',
-			'view' => 'View',
-			'created' => 'Created',
-			'updated' => 'Updated',
-			'page_size' => 'Page Size',
+			'parent_id' => Yii::t('admin', 'parent_category'),
+			'url' => Yii::t('admin', 'url'),
+			'full_url' => Yii::t('admin', 'full_url'),
+			'layout' => Yii::t('admin', 'layout'),
+			'view' => Yii::t('admin', 'view'),
+			'created' => Yii::t('admin', 'created'),
+			'updated' => Yii::t('admin', 'updated'),
+			'page_size' => Yii::t('admin', 'page_size'),
 			//NewsCategoryTranslate
-			'name' => 'Name',
-			'description' => 'Description',
-			'meta_title' => 'Meta Title',
-			'meta_description' => 'Meta Description',
-			'meta_keywords' => 'Meta Keywords',
+			'name' => Yii::t('admin', 'title'),
+			'description' => Yii::t('admin', 'description'),
+			'meta_title' => Yii::t('admin', 'meta_title'),
+			'meta_description' => Yii::t('admin', 'meta_description'),
+			'meta_keywords' => Yii::t('admin', 'meta_keywords'),
 		);
 	}
 

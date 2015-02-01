@@ -28,7 +28,7 @@ class NewsController extends BaseModuleController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'list'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -44,6 +44,38 @@ class NewsController extends BaseModuleController
 			),
 		);
 	}
+
+	/**
+	 * Filter pages by category
+	 */
+	public function actionList()
+	{
+		$model = $this->loadCategoryModel();
+
+		if(!$model)
+			throw new CHttpException(404, Yii::t('admin', 'Категория не найдена.'));
+
+		$criteria = News::model()
+			->published()
+			->filterByCategory($model)
+			->getDbCriteria();
+
+		$count = News::model()->count($criteria);
+
+		$pagination = new CPagination($count);
+		$pagination->pageSize = ($model->page_size > 0) ? $model->page_size: $model->defaultPageSize;
+		$pagination->applyLimit($criteria);
+
+		$pages = News::model()->findAll($criteria);
+		$view  = $this->setDesign($model, 'list');
+
+		$this->render($view, array(
+			'model'      => $model,
+			'pages'      => $pages,
+			'pagination' => $pagination
+		));
+	}
+
 
 	/**
 	 * Displays a particular model.
@@ -174,4 +206,24 @@ class NewsController extends BaseModuleController
       throw new CHttpException(404,'The requested page does not exist.');
     return $model;
   }
+
+  public function loadCategoryModel($url=null)
+	{
+		if(!$url)
+			$url = Yii::app()->request->getParam('url');
+
+		return NewsCategory::model()
+			->withFullUrl($url)
+			->find();
+	}
+
+	/**
+	 * Override default method to return category full_url without encoded slash.
+	 * TODO: Find right solution for '/' in url params.
+	 */
+	public function createUrl($route,$params=array(),$ampersand='&')
+	{
+		return urldecode(parent::createUrl($route,$params,$ampersand));
+	}
+
 }

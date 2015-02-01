@@ -133,21 +133,6 @@ class News extends CActiveRecord
 	/**
 	 * @return array validation rules for model attributes.
 	 */
-	/*public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('category_id', 'numerical', 'integerOnly'=>true),
-			array('url, status, view', 'length', 'max'=>255),
-			array('layout', 'length', 'max'=>2555),
-			array('created, updated, publish_date', 'safe'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, category_id, url, created, updated, publish_date, status, layout, view', 'safe', 'on'=>'search'),
-		);
-	}*/
-
 	public function rules()
 	{
 		return array(
@@ -204,21 +189,21 @@ class News extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'category_id' => 'Category',
-			'url' => 'Url',
-			'created' => 'Created',
-			'updated' => 'Updated',
-			'publish_date' => 'Publish Date',
-			'status' => 'Status',
-			'layout' => 'Layout',
-			'view' => 'View',
+			'category_id' => Yii::t('admin', 'category'),
+			'url' => Yii::t('admin', 'url'),
+			'created' => Yii::t('admin', 'created'),
+			'updated' => Yii::t('admin', 'updated'),
+			'publish_date' => Yii::t('admin', 'publish_date'),
+			'status' => Yii::t('admin', 'status'),
+			'layout' => Yii::t('admin', 'layout'),
+			'view' => Yii::t('admin', 'view'),
 			//NewsTranslate
-			'title' => 'Title',
-			'short_description' => 'Short Description',
-			'full_description' => 'Full Description',
-			'meta_title' => 'Meta Title',
-			'meta_keywords' => 'Meta Keywords',
-			'meta_description' => 'Meta Description',
+			'title' => Yii::t('admin', 'title'),
+			'short_description' => Yii::t('admin', 'short_description'),
+			'full_description' => Yii::t('admin', 'full_description'),
+			'meta_title' => Yii::t('admin', 'meta_title'),
+			'meta_keywords' => Yii::t('admin', 'meta_keywords'),
+			'meta_description' => Yii::t('admin', 'meta_description'),
 		);
 	}
 
