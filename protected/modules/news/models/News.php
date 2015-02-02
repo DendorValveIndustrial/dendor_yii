@@ -141,6 +141,7 @@ class News extends CActiveRecord
 			array('status', 'in', 'range'=>array_keys(self::statuses())),
 			array('title, status', 'required'),
 			array('url', 'LocalUrlValidator'),
+			array('url', 'unique'),
 			array('publish_date', 'date', 'format'=>'yyyy-MM-dd HH:mm:ss'),
 			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout, view', 'length', 'max'=>255),
 			// The following rule is used by search().

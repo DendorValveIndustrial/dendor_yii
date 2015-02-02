@@ -87,16 +87,6 @@ class NewsCategory extends CActiveRecord
 	 */
 	public function rules()
 	{
-		/*// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('parent_id, page_size', 'numerical', 'integerOnly'=>true),
-			array('url, layout, view', 'length', 'max'=>255),
-			array('full_url, created, updated', 'safe'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, parent_id, url, full_url, layout, view, created, updated, page_size', 'safe', 'on'=>'search'),
-		);*/
 		return array(
 			array('description, layout, view', 'type', 'type'=>'string'),
 			array('name', 'required'),

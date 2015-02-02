@@ -12,11 +12,12 @@ $this->menu=array(
 );
 ?>
 
-<h1>News</h1>
+<!-- <h1>News</h1> -->
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
+  'summaryText' => false,
 )); ?>
 
 <?php echo CHtml::link('Category', array('list', 'category'=>'exhibitions')); ?>

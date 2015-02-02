@@ -22,6 +22,12 @@ class Controller extends CController
 	public $breadcrumbs=array();
 
 	/**
+	 * Page title
+	 * @var string
+	 */
+	public $pageHeader;
+
+	/**
 	 * Set layout and view
 	 * @param mixed $model
 	 * @param string $view Default view name

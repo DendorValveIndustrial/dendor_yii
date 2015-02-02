@@ -154,6 +154,8 @@ class NewsController extends BaseModuleController
 	 */
 	public function actionIndex()
 	{
+		$this->pageHeader = 'News';
+
 		$dataProvider=new CActiveDataProvider('News');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

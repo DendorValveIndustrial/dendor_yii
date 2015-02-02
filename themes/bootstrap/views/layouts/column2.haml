@@ -1,11 +1,25 @@
 = $this->beginContent('//layouts/main')
-.row-fluid
-  .span9
-    #content
+.row
+  .span9.offset3
+    = CHtml::tag('h1',array('class'=>'h1'),$this->pageHeader)
+.row
+  .span9.pull-right
+    .main-content#content
       = $content
-  .span3
+  .span3.pull-left.left-bar.text-right
     #sidebar
       :php
+        $this->widget('bootstrap.widgets.TbNav', array(
+          'type' => TbHtml::NAV_TYPE_LIST,
+          'items' => array(
+            array('label' => 'List header'),
+            array('label' => 'Home', 'url' => '#', 'active' => true),
+            array('label' => 'Library', 'url' => '#'),
+            array('label' => 'Applications', 'url' => '#'),
+            array('label' => 'Another list header'),
+            array('label' => 'Profile', 'url' => '#'),
+            array('label' => 'Settings', 'url' => '#'),
+          )));
         $this->beginWidget('zii.widgets.CPortlet', array(
           'title'=>'Operations',
         ));

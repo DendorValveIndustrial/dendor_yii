@@ -57,7 +57,7 @@ return array(
 			'urlSuffix'=>'.html',
 			'rules' => array(
 				'' => array('site/index', 'urlSuffix'=>''),
-				'<action:(contact|search|login|logout)>' => 'site/<action>',
+				'<action:(contact|search|login|logout|captcha)>' => 'site/<action>',
 				'<view:about>' => 'site/page',
 				'admin'=>array('site/login', 'urlSuffix'=>''),
 				'admin/<controller:\w+>' => '<controller>/admin',
