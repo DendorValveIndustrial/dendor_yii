@@ -12,20 +12,17 @@
         $this->widget('bootstrap.widgets.TbNav', array(
           'type' => TbHtml::NAV_TYPE_LIST,
           'items' => array(
-            array('label' => 'List header'),
-            array('label' => 'Home', 'url' => '#', 'active' => true),
-            array('label' => 'Library', 'url' => '#'),
-            array('label' => 'Applications', 'url' => '#'),
-            array('label' => 'Another list header'),
-            array('label' => 'Profile', 'url' => '#'),
-            array('label' => 'Settings', 'url' => '#'),
-          )));
-        $this->beginWidget('zii.widgets.CPortlet', array(
-          'title'=>'Operations',
+            array('label' => 'Info'),
+            array('label' => 'Article', 'url' => $this->createUrl('list', array('category'=>'article'))),
+            array('label' => 'Exhibitions', 'url' => $this->createUrl('list', array('category'=>'exhibitions'))),
+            TbHtml::menuDivider(),
+            array('label' => 'all news...', 'url' => $this->createUrl('index')),
+          ),
         ));
-        $this->widget('zii.widgets.CMenu', array(
-          'items'=>$this->menu,
-          'htmlOptions'=>array('class'=>'operations'),
-        ));
-        $this->endWidget();
+
+        if(!Yii::app()->user->isGuest)
+          $this->widget('bootstrap.widgets.TbNav', array(
+            'type' => TbHtml::NAV_TYPE_LIST,
+            'items' => $this->menu,
+          ));
 = $this->endContent()

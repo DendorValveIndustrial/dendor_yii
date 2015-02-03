@@ -3,45 +3,13 @@
 /* @var $data News */
 ?>
 
-<div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('category_id')); ?>:</b>
-	<?php echo CHtml::encode($data->category_id); ?>
-	<br />
+<section>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('url')); ?>:</b>
-	<?php echo CHtml::encode($data->url); ?>
-	<br />
+	<?php echo CHtml::tag('h2',array('class'=>'h2'),CHtml::link(CHtml::encode($data->title), array('index', 'url'=>$data->url))); ?>
+	<?php echo CHtml::tag('p',array(),CHtml::encode($data->short_description)); ?>
+	<?php echo CHtml::tag('p',array('class'=>'text-right'),CHtml::link(Yii::t('app','read_more').'...', array('view', 'id'=>$data->id), array('class'=>'btn btn-link'))); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('created')); ?>:</b>
-	<?php echo CHtml::encode($data->created); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('updated')); ?>:</b>
-	<?php echo CHtml::encode($data->updated); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('publish_date')); ?>:</b>
-	<?php echo CHtml::encode($data->publish_date); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
-	<?php echo CHtml::encode($data->status); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('layout')); ?>:</b>
-	<?php echo CHtml::encode($data->layout); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('view')); ?>:</b>
-	<?php echo CHtml::encode($data->view); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+</section>
+<div class="line line-dotted"></div>
