@@ -21,4 +21,10 @@ return array(
   'layout' => 'Układ',
   'view' => 'Widok',
   'page_size' => 'Rozmiar strony',
+  'new_category' => 'Nowa kategoria',
+  'fields_required'=>'Pola wymagane są oznaczone <span class="required">*</span>.',
+  'published'=>'Opublikowany',
+  'waiting'=>'Wyczekiwanie',
+  'draft'=>'Projekt',
+  'archive'=>'Archiwum',
 );

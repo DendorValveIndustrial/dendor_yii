@@ -12,7 +12,7 @@
 		'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
 	)); ?>
 
-		<?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, 'Fields with <span class="required">*</span> are required.', array('class'=>'text-center')); ?>
+		<?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
 
 		<?php echo $form->errorSummary($model); ?>
 		<div class="row-fluid">
@@ -20,7 +20,7 @@
 				<?php echo $form->dropDownListControlGroup($model, 'category_id', NewsCategory::model()->listCategory); ?>
 			</div>
 			<div class="span6">
-				<?php echo TbHtml::link('Новая категория', Yii::app()->createUrl('news/newsCategory/create')); ?>
+				<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('news/newsCategory/create')); ?>
 			</div>
 		</div>
 		<div class="row-fluid">
@@ -30,23 +30,25 @@
 			<?php
 				$this->widget('bootstrap.widgets.TbTabs', array(
 					'tabs' => array(
-						array('label' => Yii::t('admin', 'content'), 'content' =>
-							$form->textAreaControlGroup($model,'short_description',array('rows'=>6,'span'=>12)).
-							$form->textAreaControlGroup($model,'full_description',array('rows'=>6,'span'=>12))
-						 , 'active' => true),
-						array('label' => Yii::t('admin', 'seo'), 'content' =>
-							$form->textFieldControlGroup($model,'meta_title',array('span'=>12)).
-							$form->textAreaControlGroup($model,'meta_description',array('rows'=>6,'span'=>12)).
-							$form->textFieldControlGroup($model,'meta_keywords',array('span'=>12))
-						),
 						array('label' => Yii::t('admin', 'additionally'), 'content' =>
 							$form->textFieldControlGroup($model,'created',array('span'=>12)).
 							$form->textFieldControlGroup($model,'updated',array('span'=>12)).
 							$form->textFieldControlGroup($model,'publish_date',array('span'=>12)).
-							$form->textFieldControlGroup($model,'status',array('span'=>12)).
+							$form->dropDownListControlGroup($model, 'status', News::statuses()).
 							$form->textFieldControlGroup($model,'layout',array('span'=>12)).
 							$form->textFieldControlGroup($model,'view',array('span'=>12))
+							, 'htmlOptions'=>array('class'=>'pull-right')
 						),
+						array('label' => Yii::t('admin', 'seo'), 'content' =>
+							$form->textFieldControlGroup($model,'meta_title',array('span'=>12)).
+							$form->textAreaControlGroup($model,'meta_description',array('rows'=>6,'span'=>12)).
+							$form->textFieldControlGroup($model,'meta_keywords',array('span'=>12))
+							, 'htmlOptions'=>array('class'=>'pull-right')
+						),
+						array('label' => Yii::t('admin', 'content'), 'content' =>
+							$form->textAreaControlGroup($model,'short_description',array('rows'=>6,'span'=>12)).
+							$form->textAreaControlGroup($model,'full_description',array('rows'=>6,'span'=>12))
+						 , 'active' => true, 'htmlOptions'=>array('class'=>'pull-right')),
 					),
 					//'placement' => TbHtml::TABS_PLACEMENT_RIGHT,
 					)

@@ -6,6 +6,7 @@ return array(
   'read_more'=> 'читать далее',
   'news' => 'Новости',
   'about' => 'О компании',
+  'category'=>'По категориям',
 
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',

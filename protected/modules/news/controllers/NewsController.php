@@ -154,9 +154,10 @@ class NewsController extends BaseModuleController
 	 */
 	public function actionIndex()
 	{
-		$this->pageHeader = 'News';
+		$this->pageHeader = Yii::t('app','news');
 
 		$dataProvider=new CActiveDataProvider('News');
+		$this->layout = 'column2';
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

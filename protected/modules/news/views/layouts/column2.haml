@@ -1,0 +1,29 @@
+= $this->beginContent('//layouts/main')
+.row-fluid
+  .span8.offset4
+    = CHtml::tag('h1',array('class'=>'h1'),$this->pageHeader)
+.row-fluid
+  .span8.offset1.pull-right
+    .main-content#content
+      = $content
+  .span3.pull-left.left-bar.text-right
+    #sidebar
+      :php
+        $this->widget('bootstrap.widgets.TbNav', array(
+          'type' => TbHtml::NAV_TYPE_LIST,
+          'items' => array(
+            array('label' => Yii::t('app','category')),
+            array('label' => 'Article', 'url' => $this->createUrl('list', array('category'=>'article'))),
+            array('label' => 'Exhibitions', 'url' => $this->createUrl('list', array('category'=>'exhibitions'))),
+            TbHtml::menuDivider(),
+            array('label' => 'all news...', 'url' => $this->createUrl('index')),
+          ),
+        ));
+
+        if(!Yii::app()->user->isGuest)
+          echo CHtml::tag('br');
+          $this->widget('bootstrap.widgets.TbNav', array(
+            'type' => TbHtml::NAV_TYPE_LIST,
+            'items' => $this->menu,
+          ));
+= $this->endContent()

@@ -21,4 +21,11 @@ return array(
   'layout' => 'Макет',
   'view' => 'Шаблон',
   'page_size' => 'Записей на странице',
+  'new_category' => 'Новая категория',
+  'fields_required'=>'Поля, отмеченные <span class="required">*</span> обязательны к заполнению.',
+  'published'=>'Опубликован',
+  'waiting'=>'Ждет одобрения',
+  'draft'=>'Черновик',
+  'archive'=>'Архив',
+
 );

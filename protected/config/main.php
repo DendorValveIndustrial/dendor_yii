@@ -61,10 +61,9 @@ return array(
 				'<view:about>' => 'site/page',
 				'admin'=>array('site/login', 'urlSuffix'=>''),
 				'admin/<controller:\w+>' => '<controller>/admin',
-
-				/*'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',*/
+				//'<controller:\w+>/<id:\d+>'=>'<controller>/view',
+				'admin/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+				'admin/<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 
 				'gii'=>array('gii/default/login','urlSuffix'=>''),
 				'gii/<controller:\w+>'=>array('gii/<controller>','urlSuffix'=>''),

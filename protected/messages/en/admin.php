@@ -21,4 +21,11 @@ return array(
   'layout' => 'Layout',
   'view' => 'View',
   'page_size' => 'Page size',
+  'new_category' => 'New category',
+  'fields_required'=>'Fields with <span class="required">*</span> are required.',
+  'published'=>'Published',
+  'waiting'=>'Waiting',
+  'draft'=>'Draft',
+  'archive'=>'Archive',
+
 );

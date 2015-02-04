@@ -6,6 +6,7 @@ return array(
   'read_more'=> 'czytaj więcej',
   'news' => 'Aktualności',
   'about' => 'O nas',
+  'category'=>'Według kategorii',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
   'NAME' => 'Name', //en

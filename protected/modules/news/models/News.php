@@ -214,10 +214,10 @@ class News extends CActiveRecord
 	public static function statuses()
 	{
 		return array(
-			'published'=>'Опубликован',
-			'waiting'=>'Ждет одобрения',
-			'draft'=>'Черновик',
-			'archive'=>'Архив',
+			'published'=>Yii::t('admin','published'),
+			'waiting'=>Yii::t('admin','waiting'),
+			'draft'=>Yii::t('admin','draft'),
+			'archive'=>Yii::t('admin','archive'),
 		);
 	}
 
