@@ -380,7 +380,6 @@ class NewsCategory extends CActiveRecord
 		foreach ($aCategory as $oCategory) {
 			$this->_list[$oCategory->id]=$oCategory->name;
 		}
-
 		return $this->_list;
 	}
 

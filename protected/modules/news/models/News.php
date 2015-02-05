@@ -289,10 +289,24 @@ class News extends CActiveRecord
 	{
 		if(!$this->created && $this->isNewRecord)
 			$this->created = date('Y-m-d H:i:s');
+
 		if(!$this->updated)
 			$this->updated = date('Y-m-d H:i:s');
+
 		if(!$this->publish_date && $this->isNewRecord)
 			$this->publish_date = date('Y-m-d H:i:s');
+
+		if($this->meta_title === '')
+			$this->meta_title = $this->title;
+
+		if($this->meta_description === '')
+			$this->meta_description = substr($this->short_description, 0, 120);
+
+		if (empty($this->url))
+		{
+			Yii::import('ext.SlugHelper.SlugHelper');
+			$this->url = SlugHelper::run($this->title);
+		}
 
 		/*if (!Yii::app()->user->isGuest)
 			$this->user_id = Yii::app()->user->id;
@@ -322,6 +336,13 @@ class News extends CActiveRecord
 			$this->url .= '-'.date('YmdHis');*/
 
 		return parent::beforeSave();
+	}
+
+	public function beforeValidate()
+	{
+		$parser = new CMarkdownParser;
+		$this->full_description = $parser->transform($this->full_description);
+		return parent::beforeValidate();
 	}
 
 	/**

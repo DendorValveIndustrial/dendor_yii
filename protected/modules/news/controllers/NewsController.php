@@ -48,16 +48,16 @@ class NewsController extends BaseModuleController
 	/**
 	 * Filter pages by category
 	 */
-	public function actionList($category)
+	public function actionList($path)
 	{
-		$model = $this->loadCategoryModel($category);
+		$category = $this->loadCategoryModel($path);
 
-		if(!$model)
+		if(!$category)
 			throw new CHttpException(404, Yii::t('admin', 'Категория не найдена.'));
 
 		$criteria = News::model()
 			->published()
-			->filterByCategory($model)
+			->filterByCategory($category)
 			->getDbCriteria();
 
 		$count = News::model()->count($criteria);
@@ -66,14 +66,18 @@ class NewsController extends BaseModuleController
 		$pagination->pageSize = ($model->page_size > 0) ? $model->page_size: $model->defaultPageSize;
 		$pagination->applyLimit($criteria);
 
-		$pages = News::model()->findAll($criteria);
-		$view  = $this->setDesign($model, 'list');
-
-		$this->render($view, array(
-			'model'      => $model,
-			'pages'      => $pages,
-			'pagination' => $pagination
+		$dataProvider=new CActiveDataProvider('News', array(
+			'criteria'=>$criteria,
 		));
+
+		$this->layout = 'column2';
+		$this->pageHeader = $category->name;
+		$this->render('list',array(
+			'dataProvider'=>$dataProvider,
+			'category'=>$category,
+			'pagination' => $pagination,
+		));
+		//var_dump($pagination);
 	}
 
 
@@ -83,8 +87,13 @@ class NewsController extends BaseModuleController
 	 */
 	public function actionView($id)
 	{
+		$model = $this->loadModel($id);
+		$category = NewsCategory::model()->findByPk($model->category_id);
+
+		$this->layout = 'column2';
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
+			'category'=>$category,
 		));
 	}
 
@@ -103,7 +112,8 @@ class NewsController extends BaseModuleController
 		{
 			$model->attributes=$_POST['News'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				//$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(

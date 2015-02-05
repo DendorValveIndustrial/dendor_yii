@@ -7,6 +7,7 @@ return array(
   'news' => 'Aktualności',
   'about' => 'O nas',
   'category'=>'Według kategorii',
+  'all_news'=>'wszystkie wiadomości...',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
   'NAME' => 'Name', //en

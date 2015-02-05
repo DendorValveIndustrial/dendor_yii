@@ -7,6 +7,7 @@ return array(
   'news' => 'Новости',
   'about' => 'О компании',
   'category'=>'По категориям',
+  'all_news'=>'все новости...',
 
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',

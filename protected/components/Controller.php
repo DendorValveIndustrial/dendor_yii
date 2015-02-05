@@ -28,6 +28,12 @@ class Controller extends CController
 	public $pageHeader;
 
 	/**
+	 * Page sidebar
+	 * @var array
+	 */
+	public $sidebar=array();
+
+	/**
 	 * Set layout and view
 	 * @param mixed $model
 	 * @param string $view Default view name

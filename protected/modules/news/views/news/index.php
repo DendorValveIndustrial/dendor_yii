@@ -6,6 +6,15 @@ $this->breadcrumbs=array(
 	'News',
 );
 
+$this->sidebar[] = array('label' => Yii::t('app','category'));
+$aCategory = NewsCategory::model()->findAll();
+foreach ($aCategory as $oCategory) {
+  $this->sidebar[]=array('label' => $oCategory->name, 'url' => Yii::app()->createUrl('news/news/list', array('path'=>$oCategory->url)));
+}
+$this->sidebar[] = TbHtml::menuDivider();
+$this->sidebar[] = array('label' => Yii::t('app','all_news'), 'url' => Yii::app()->createUrl('news/news/index'));
+
+
 $this->menu=array(
   array('label'=>'Admin'),
 	array('label'=>'Create News', 'url'=>array('create')),
