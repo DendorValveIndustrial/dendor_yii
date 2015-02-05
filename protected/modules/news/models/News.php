@@ -143,7 +143,8 @@ class News extends CActiveRecord
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('publish_date', 'date', 'format'=>'yyyy-MM-dd HH:mm:ss'),
-			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout, view', 'length', 'max'=>255),
+			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout', 'length', 'max'=>255),
+			array('view','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			array('id, title, url, short_description, full_description, meta_title, meta_description, meta_keywords, created, updated, publish_date', 'safe', 'on'=>'search'),
 		);

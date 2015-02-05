@@ -10,6 +10,7 @@
 		'id'=>'news-form',
 		'enableAjaxValidation'=>false,
 		'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
+		'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	)); ?>
 
 		<?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
@@ -23,6 +24,7 @@
 				<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('news/newsCategory/create')); ?>
 			</div>
 		</div>
+		<?php echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->view); ?>
 		<div class="row-fluid">
 			<?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>
 			<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12)); ?>
@@ -36,6 +38,7 @@
 							$form->textFieldControlGroup($model,'publish_date',array('span'=>12)).
 							$form->dropDownListControlGroup($model, 'status', News::statuses()).
 							$form->textFieldControlGroup($model,'layout',array('span'=>12)).
+							$form->fileFieldControlGroup($model,'view').
 							$form->textFieldControlGroup($model,'view',array('span'=>12))
 							, 'htmlOptions'=>array('class'=>'pull-right')
 						),

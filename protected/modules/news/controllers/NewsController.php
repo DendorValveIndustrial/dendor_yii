@@ -111,9 +111,11 @@ class NewsController extends BaseModuleController
 		if(isset($_POST['News']))
 		{
 			$model->attributes=$_POST['News'];
+			$model->view=CUploadedFile::getInstance($model,'view');
 			if($model->save())
-				//$this->redirect(array('view','id'=>$model->id));
-				$this->redirect(array('admin'));
+				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->view->getName();
+        $model->view->saveAs($path);
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -136,8 +138,14 @@ class NewsController extends BaseModuleController
 		if(isset($_POST['News']))
 		{
 			$model->attributes=$_POST['News'];
+			$model->view=CUploadedFile::getInstance($model,'view');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			{
+				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->view->getName();
+        $model->view->saveAs($path);
+        var_dump($path);
+				//$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

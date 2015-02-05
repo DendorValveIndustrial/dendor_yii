@@ -135,5 +135,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'admin@dendor.pl',
 		'officeEmail'=>'info@dendor.pl',
+		'uploadPath'=>Yii::getPathOfAlias('webroot').'/upload/',
 	),
 );
