@@ -24,27 +24,4 @@ $this->pageHeader = $model->title;
 	<?php echo $model->full_description; ?>
 </div>
 
-<?php var_dump($category->url); ?>
-<!-- <h1>View News #<?php echo $model->id; ?></h1> -->
-
-<?php /*$this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'viewPath'=>'_view',
-	'attributes'=>array(
-		'id',
-		'category_id',
-		'url',
-		'created',
-		'updated',
-		'publish_date',
-		'status',
-		'layout',
-		'view',
-		'title',
-		'short_description',
-		'full_description:html',
-		'meta_title',
-		'meta_keywords',
-		'meta_description',
-	),
-));*/ ?>
+<?php var_dump(Yii::getPathOfAlias('webroot.upload')); ?>

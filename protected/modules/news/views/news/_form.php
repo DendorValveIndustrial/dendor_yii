@@ -17,18 +17,27 @@
 
 		<?php echo $form->errorSummary($model); ?>
 		<div class="row-fluid">
-			<div class="span6">
-				<?php echo $form->dropDownListControlGroup($model, 'category_id', NewsCategory::model()->listCategory); ?>
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span9">
+						<?php echo $form->dropDownListControlGroup($model, 'category_id', NewsCategory::model()->listCategory); ?>
+					</div>
+					<div class="span3">
+						<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('news/newsCategory/create')); ?>
+					</div>
+				</div>
+				<?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>
+				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12)); ?>
+				<?php echo $form->fileFieldControlGroup($model,'image') ?>
 			</div>
-			<div class="span6">
-				<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('news/newsCategory/create')); ?>
+			<div class="span2">
+				<?php
+					if($model->image) echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->image, $model->title);
+				?>
 			</div>
 		</div>
-		<?php echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->view); ?>
+		<div class="line line-dotted"></div>
 		<div class="row-fluid">
-			<?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>
-			<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12)); ?>
-			<div class="line line-dotted"></div>
 			<?php
 				$this->widget('bootstrap.widgets.TbTabs', array(
 					'tabs' => array(
@@ -37,9 +46,7 @@
 							$form->textFieldControlGroup($model,'updated',array('span'=>12)).
 							$form->textFieldControlGroup($model,'publish_date',array('span'=>12)).
 							$form->dropDownListControlGroup($model, 'status', News::statuses()).
-							$form->textFieldControlGroup($model,'layout',array('span'=>12)).
-							$form->fileFieldControlGroup($model,'view').
-							$form->textFieldControlGroup($model,'view',array('span'=>12))
+							$form->textFieldControlGroup($model,'layout',array('span'=>12))
 							, 'htmlOptions'=>array('class'=>'pull-right')
 						),
 						array('label' => Yii::t('admin', 'seo'), 'content' =>

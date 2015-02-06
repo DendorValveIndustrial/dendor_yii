@@ -52,8 +52,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'view'); ?>
-		<?php echo $form->textField($model,'view',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->label($model,'image'); ?>
+		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row buttons">

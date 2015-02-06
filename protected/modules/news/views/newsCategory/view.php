@@ -31,7 +31,7 @@ $this->menu=array(
 		'url',
 		'full_url',
 		'layout',
-		'view',
+		'image',
 		'created',
 		'updated',
 		'page_size',

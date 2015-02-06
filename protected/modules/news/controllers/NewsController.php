@@ -111,11 +111,11 @@ class NewsController extends BaseModuleController
 		if(isset($_POST['News']))
 		{
 			$model->attributes=$_POST['News'];
-			$model->view=CUploadedFile::getInstance($model,'view');
+			$model->image=CUploadedFile::getInstance($model,'image');
 			if($model->save())
-				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->view->getName();
-        $model->view->saveAs($path);
-				$this->redirect(array('view','id'=>$model->id));
+				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->image->getName();
+        $model->image->saveAs($path);
+				$this->redirect(array('image','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -138,13 +138,13 @@ class NewsController extends BaseModuleController
 		if(isset($_POST['News']))
 		{
 			$model->attributes=$_POST['News'];
-			$model->view=CUploadedFile::getInstance($model,'view');
+			$model->image=CUploadedFile::getInstance($model,'image');
 			if($model->save())
 			{
-				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->view->getName();
-        $model->view->saveAs($path);
+				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->image->getName();
+        $model->image->saveAs($path);
         var_dump($path);
-				//$this->redirect(array('view','id'=>$model->id));
+				//$this->redirect(array('image','id'=>$model->id));
 			}
 		}
 

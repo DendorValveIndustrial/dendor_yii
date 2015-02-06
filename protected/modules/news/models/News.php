@@ -15,7 +15,7 @@ Yii::import('application.modules.news.models.NewsCategory');
  * @property string $publish_date
  * @property string $status
  * @property string $layout
- * @property string $view
+ * @property string $image
  *
  * The followings are the available columns in table 'NewsTranslate':
  * @property string $title
@@ -144,7 +144,7 @@ class News extends CActiveRecord
 			array('url', 'unique'),
 			array('publish_date', 'date', 'format'=>'yyyy-MM-dd HH:mm:ss'),
 			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout', 'length', 'max'=>255),
-			array('view','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
+			array('image','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			array('id, title, url, short_description, full_description, meta_title, meta_description, meta_keywords, created, updated, publish_date', 'safe', 'on'=>'search'),
 		);
@@ -198,7 +198,7 @@ class News extends CActiveRecord
 			'publish_date' => Yii::t('admin', 'publish_date'),
 			'status' => Yii::t('admin', 'status'),
 			'layout' => Yii::t('admin', 'layout'),
-			'view' => Yii::t('admin', 'view'),
+			'image' => Yii::t('admin', 'image'),
 			//NewsTranslate
 			'title' => Yii::t('admin', 'title'),
 			'short_description' => Yii::t('admin', 'short_description'),

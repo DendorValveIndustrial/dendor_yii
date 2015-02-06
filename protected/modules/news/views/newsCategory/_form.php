@@ -42,7 +42,7 @@
 
 					<?php echo $form->textFieldControlGroup($model,'layout',array('span'=>12,'maxlength'=>255)); ?>
 
-					<?php echo $form->textFieldControlGroup($model,'view',array('span'=>12,'maxlength'=>255)); ?>
+					<?php echo $form->textFieldControlGroup($model,'image',array('span'=>12,'maxlength'=>255)); ?>
 
 				</div>
 				<div class="span6">

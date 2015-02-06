@@ -21,7 +21,7 @@
 
                     <?php echo $form->textFieldControlGroup($model,'layout',array('span'=>5,'maxlength'=>255)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'view',array('span'=>5,'maxlength'=>255)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'image',array('span'=>5,'maxlength'=>255)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'created',array('span'=>5)); ?>
 

@@ -11,7 +11,7 @@ Yii::import('application.modules.news.models.NewsCategoryTranslate');
  * @property string $url
  * @property string $full_url
  * @property string $layout
- * @property string $view
+ * @property string $image
  * @property string $created
  * @property string $updated
  * @property integer $page_size
@@ -88,14 +88,14 @@ class NewsCategory extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('description, layout, view', 'type', 'type'=>'string'),
+			array('description, layout, image', 'type', 'type'=>'string'),
 			array('name', 'required'),
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('parent_id, page_size', 'numerical', 'integerOnly'=>true),
-			array('name, url, full_url, layout, view, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
+			array('name, url, full_url, layout, image, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			// The following rule is used by search().
-			array('id, parent_id, name, url, description, layout, view, meta_title, meta_description, meta_keywords, created, updated', 'safe', 'on'=>'search'),
+			array('id, parent_id, name, url, description, layout, image, meta_title, meta_description, meta_keywords, created, updated', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -155,7 +155,7 @@ class NewsCategory extends CActiveRecord
 			'url' => Yii::t('admin', 'url'),
 			'full_url' => Yii::t('admin', 'full_url'),
 			'layout' => Yii::t('admin', 'layout'),
-			'view' => Yii::t('admin', 'view'),
+			'image' => Yii::t('admin', 'image'),
 			'created' => Yii::t('admin', 'created'),
 			'updated' => Yii::t('admin', 'updated'),
 			'page_size' => Yii::t('admin', 'page_size'),
@@ -215,7 +215,7 @@ class NewsCategory extends CActiveRecord
 		$criteria->compare('url',$this->url,true);
 		$criteria->compare('translate.description',$this->description,true);
 		$criteria->compare('layout',$this->layout,true);
-		$criteria->compare('view',$this->view,true);
+		$criteria->compare('image',$this->image,true);
 		$criteria->compare('translate.meta_title',$this->meta_title,true);
 		$criteria->compare('translate.meta_description',$this->meta_description,true);
 		$criteria->compare('translate.meta_keywords',$this->meta_keywords,true);
