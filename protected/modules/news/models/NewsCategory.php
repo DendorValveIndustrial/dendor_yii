@@ -53,7 +53,7 @@ class NewsCategory extends CActiveRecord
 	private $_list = array();
 
 	/**
-	 * Translate-able
+	 * Translate-table
 	 */
 	public $name;
 	public $description;
@@ -322,7 +322,7 @@ class NewsCategory extends CActiveRecord
 
 		return parent::beforeDelete();
 	}
-*/
+	*/
 	/**
 	 * Count and cache categories by url
 	 *
@@ -402,5 +402,4 @@ class NewsCategory extends CActiveRecord
 	{
 		return $this->name;
 	}
-
 }

@@ -1,0 +1,7 @@
+= $this->beginContent('//layouts/main')
+.row-fluid
+  .span9.offset3
+    = CHtml::tag('h1',array('class'=>'h1'),$this->pageHeader)
+.row-fluid
+  = $content
+= $this->endContent()

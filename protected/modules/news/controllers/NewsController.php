@@ -63,7 +63,7 @@ class NewsController extends BaseModuleController
 		$count = News::model()->count($criteria);
 
 		$pagination = new CPagination($count);
-		$pagination->pageSize = ($model->page_size > 0) ? $model->page_size: $model->defaultPageSize;
+		$pagination->pageSize = ($category->page_size > 0) ? $category->page_size: $category->defaultPageSize;
 		$pagination->applyLimit($criteria);
 
 		$dataProvider=new CActiveDataProvider('News', array(
@@ -85,12 +85,12 @@ class NewsController extends BaseModuleController
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	public function actionView($url)
 	{
-		$model = $this->loadModel($id);
+		$model = News::model()->withUrl($url)->find();
 		$category = NewsCategory::model()->findByPk($model->category_id);
 
-		$this->layout = 'column2';
+		$this->layout = 'column1';
 		$this->render('view',array(
 			'model'=>$model,
 			'category'=>$category,
@@ -108,14 +108,23 @@ class NewsController extends BaseModuleController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
+		$dir = Yii::getPathOfAlias('webroot.upload');
+
 		if(isset($_POST['News']))
 		{
 			$model->attributes=$_POST['News'];
-			$model->image=CUploadedFile::getInstance($model,'image');
+			$model->img = CUploadedFile::getInstance($model,'img');
+
+			if($model->img)
+				$model->image = $model->img->getName();
+
 			if($model->save())
-				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->image->getName();
-        $model->image->saveAs($path);
-				$this->redirect(array('image','id'=>$model->id));
+			{
+				if (is_object($model->img)) {
+	        $model->img->saveAs($dir.'/'.$model->img->getName());
+				}
+				$this->redirect(array('update','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -131,20 +140,26 @@ class NewsController extends BaseModuleController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+
+		$dir = Yii::getPathOfAlias('webroot.upload');
 
 		if(isset($_POST['News']))
 		{
 			$model->attributes=$_POST['News'];
-			$model->image=CUploadedFile::getInstance($model,'image');
+			$model->img = CUploadedFile::getInstance($model,'img');
+
+			if($model->img)
+				$model->image = $model->img->getName();
+
 			if($model->save())
 			{
-				$path=Yii::getPathOfAlias('webroot').'/upload/'.$model->image->getName();
-        $model->image->saveAs($path);
-        var_dump($path);
-				//$this->redirect(array('image','id'=>$model->id));
+				if (is_object($model->img)) {
+	        $model->img->saveAs($dir.'/'.$model->img->getName());
+				}
+				//$this->redirect(array('update','id'=>$model->id));
+				$this->refresh();
 			}
 		}
 
@@ -174,7 +189,11 @@ class NewsController extends BaseModuleController
 	{
 		$this->pageHeader = Yii::t('app','news');
 
-		$dataProvider=new CActiveDataProvider('News');
+		$dataProvider=new CActiveDataProvider('News', array(
+			'pagination'=>array(
+				'pageSize'=>5,
+			),
+		));
 		$this->layout = 'column2';
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

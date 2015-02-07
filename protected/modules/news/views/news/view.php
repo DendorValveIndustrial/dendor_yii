@@ -8,6 +8,9 @@ $this->breadcrumbs=array(
 	$model->title,
 );
 
+if (empty($category))
+	unset($this->breadcrumbs['']);
+
 $this->menu=array(
 	array('label'=>'List News', 'url'=>array('index')),
 	array('label'=>'Create News', 'url'=>array('create')),
@@ -19,12 +22,18 @@ $this->menu=array(
 
 $this->pageHeader = $model->title;
 ?>
-
-<div class="text-item">
-	<?php echo $model->full_description; ?>
+<div class="span9 pull-right">
+	<div class="main-content" id="content">
+		<div class="text-item">
+			<?php echo $model->full_description; ?>
+		</div>
+	</div>
 </div>
+  <div class="span3 pull-left left-bar text-right">
+  	<?php if($model->image) echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->image, $model->title, array('class'=>'span10')); ?>
+  </div>
 
 <?php
 	//$this->sidebar = CMap::mergeArray($this->sidebar, array('label' => Yii::t('app','category')));
-	//var_dump(CMap::mergeArray($this->menu, array('label' => Yii::t('app','category'))));
+	//var_dump($this->breadcrumbs['']);
 ?>

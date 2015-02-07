@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'News',
+	Yii::t('app','news'),
 );
 
 $this->sidebar[] = array('label' => Yii::t('app','category'));
@@ -16,18 +16,17 @@ $this->sidebar[] = array('label' => Yii::t('app','all_news'), 'url' => Yii::app(
 
 
 $this->menu=array(
-  array('label'=>'Admin'),
 	array('label'=>'Create News', 'url'=>array('create')),
   array('label'=>'Manage News', 'url'=>array('admin')),
   array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 ?>
 
-<!-- <h1>News</h1> -->
-
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-  'summaryText' => 'Страница {page}',
+  'summaryText' => Yii::t('app','page').' {page}',
   'template' => '{items}{pager}{summary}',
+  'pager' => array('class' => 'bootstrap.widgets.TbPager'),
+  'pagerCssClass' => 'pagination pagination-centered',
 )); ?>

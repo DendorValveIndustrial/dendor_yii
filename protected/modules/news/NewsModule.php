@@ -28,9 +28,11 @@ class NewsModule extends CWebModule
 
 	public $urlRules = array(
 		'news' => 'news/news/index',
+		//'news/<controller:\w+>/<id:\d+>'=>'news/<controller>/view',
+		'news/<controller:\w+>/<action:update|delete>/<id:\d+>'=>'news/<controller>/<action>',
+		'news/<controller:\w+>/<action:create|admin>'=>'news/<controller>/<action>',
 		'news/<path:\w+>'=>'news/news/list',
-		'news/<controller:\w+>/<id:\d+>'=>'news/<controller>/view',
-		'news/<controller:\w+>/<action:\w+>/<id:\d+>'=>'news/<controller>/<action>',
-		'news/<controller:\w+>/<action:\w+>'=>'news/<controller>/<action>',
+		'news/<category:\w+>/<url>'=>'news/news/view',
+		'news/<url>'=>'news/news/view',
 	);
 }

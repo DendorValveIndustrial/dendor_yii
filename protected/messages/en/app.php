@@ -9,6 +9,7 @@ return array(
   'category'=>'Category',
   'all_news'=>'all news...',
   'admin'=>'Admin',
+  'page' => 'Page',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.',
   'NAME' => 'Name',

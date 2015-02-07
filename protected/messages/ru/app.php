@@ -9,6 +9,7 @@ return array(
   'category'=>'По категориям',
   'all_news'=>'все новости...',
   'admin'=>'Админ',
+  'page' => 'Страница',
 
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',

@@ -28,7 +28,7 @@
 				</div>
 				<?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>
 				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12)); ?>
-				<?php echo $form->fileFieldControlGroup($model,'image') ?>
+				<?php echo $form->fileFieldControlGroup($model,'img') ?>
 			</div>
 			<div class="span2">
 				<?php

@@ -57,6 +57,11 @@ class News extends CActiveRecord
 	public $translateModelName = 'NewsTranslate';
 
 	/**
+	 * Upload image file.
+	 */
+	public $img;
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
@@ -143,8 +148,8 @@ class News extends CActiveRecord
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('publish_date', 'date', 'format'=>'yyyy-MM-dd HH:mm:ss'),
-			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout', 'length', 'max'=>255),
-			array('image','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
+			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout, image', 'length', 'max'=>255),
+			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			array('id, title, url, short_description, full_description, meta_title, meta_description, meta_keywords, created, updated, publish_date', 'safe', 'on'=>'search'),
 		);
@@ -198,7 +203,7 @@ class News extends CActiveRecord
 			'publish_date' => Yii::t('admin', 'publish_date'),
 			'status' => Yii::t('admin', 'status'),
 			'layout' => Yii::t('admin', 'layout'),
-			'image' => Yii::t('admin', 'image'),
+			'img' => Yii::t('admin', 'image'),
 			//NewsTranslate
 			'title' => Yii::t('admin', 'title'),
 			'short_description' => Yii::t('admin', 'short_description'),
@@ -309,6 +314,7 @@ class News extends CActiveRecord
 			$this->url = SlugHelper::run($this->title);
 		}
 
+
 		/*if (!Yii::app()->user->isGuest)
 			$this->user_id = Yii::app()->user->id;
 
@@ -355,7 +361,7 @@ class News extends CActiveRecord
 		$data = array('url'=>$this->url);
 
 		if($this->category)
-			$data['url'] = $this->category->full_url . '/' . $this->url;
+			$data['category'] = $this->category->url;
 
 		return urldecode(Yii::app()->createUrl('news/news/view', $data));
 	}

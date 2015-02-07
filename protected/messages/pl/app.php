@@ -9,6 +9,7 @@ return array(
   'category'=>'Według kategorii',
   'all_news'=>'wszystkie wiadomości...',
   'admin'=>'Admin',
+  'page' => 'Strona',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
   'NAME' => 'Name', //en
