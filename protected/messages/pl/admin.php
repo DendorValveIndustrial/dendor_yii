@@ -20,6 +20,7 @@ return array(
   'status' => 'Status',
   'layout' => 'Układ',
   'view' => 'Widok',
+  'image' => 'Obraz',
   'page_size' => 'Rozmiar strony',
   'new_category' => 'Nowa kategoria',
   'fields_required'=>'Pola wymagane są oznaczone <span class="required">*</span>.',

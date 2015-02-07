@@ -20,6 +20,7 @@ return array(
   'status' => 'Status',
   'layout' => 'Layout',
   'view' => 'View',
+  'image' => 'Image',
   'page_size' => 'Page size',
   'new_category' => 'New category',
   'fields_required'=>'Fields with <span class="required">*</span> are required.',

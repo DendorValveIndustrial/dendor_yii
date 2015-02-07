@@ -11,6 +11,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create NewsCategory','url'=>array('create')),
 	array('label'=>'Manage NewsCategory','url'=>array('admin')),
+  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 ?>
 

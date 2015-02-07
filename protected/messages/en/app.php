@@ -8,6 +8,7 @@ return array(
   'about' => 'About',
   'category'=>'Category',
   'all_news'=>'all news...',
+  'admin'=>'Admin',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.',
   'NAME' => 'Name',

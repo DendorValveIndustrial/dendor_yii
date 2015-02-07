@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Create News', 'url'=>array('create')),
 	array('label'=>'View News', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage News', 'url'=>array('admin')),
+  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 ?>
 

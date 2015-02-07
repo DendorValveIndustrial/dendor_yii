@@ -15,6 +15,7 @@ $this->menu=array(
 	array('label'=>'Create NewsCategory', 'url'=>array('create')),
 	array('label'=>'View NewsCategory', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage NewsCategory', 'url'=>array('admin')),
+  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 ?>
 

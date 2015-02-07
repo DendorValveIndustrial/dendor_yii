@@ -15,6 +15,7 @@ $this->menu=array(
 	array('label'=>'Update NewsCategory', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete NewsCategory', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage NewsCategory', 'url'=>array('admin')),
+  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 ?>
 

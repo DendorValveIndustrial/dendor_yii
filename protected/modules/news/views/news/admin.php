@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List News', 'url'=>array('index')),
 	array('label'=>'Create News', 'url'=>array('create')),
+  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

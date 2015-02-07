@@ -11,6 +11,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List NewsCategory', 'url'=>array('index')),
 	array('label'=>'Create NewsCategory', 'url'=>array('create')),
+  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

@@ -23,28 +23,52 @@
             .span2
               -$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'class'=>'inline pull-right'))
         / top-header
-        .navbar.navbar-inverse.navbar-static-top(role="navigation")
-          .navbar-inner
-            .container
-              .nav-collapse.collapse
-                :php
-                  $this->widget('zii.widgets.CMenu',array(
-                    'items'=>array(
-                      array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
-                      array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
-                      array('label'=>Yii::t('app', 'news'), 'url'=>array('/news/news/index'), 'active'=>$this->id === 'news'),
-                      array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
-                      array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-                    ),
-                    'activeCssClass'=>'active',
-                    'activateParents'=>true,
-                    'htmlOptions'=>array(
-                        'class'=>'nav',
-                    ),
-                  ));
-                = TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_SEARCH, Yii::app()->createUrl('site/search'), 'get', array('class'=>'navbar-search pull-right'))
-                = TbHtml::searchQueryField('q', '', array('placeholder'=>Yii::t('app', 'SEARCH'), 'class' => 'search-query'))
-                = TbHtml::endForm()
+        :php
+          $this->widget('bootstrap.widgets.TbNavbar', array(
+            'brandLabel' => false,
+            'display' => TbHtml::NAVBAR_DISPLAY_STATICTOP,
+            'color' => TbHtml::NAVBAR_COLOR_INVERSE,
+            'items' => array(
+              array(
+                'class' => 'bootstrap.widgets.TbNav',
+                'items' => array(
+                  array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
+                  array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
+                  array('label'=>Yii::t('app', 'news'), 'url'=>array('/news/news/index'), 'active'=>$this->id === 'news'),
+                  array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
+                  array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest && !$this->menu)),
+                  array('label'=>Yii::t('app', 'admin'), 'items'=>$this->menu, 'visible'=>(!Yii::app()->user->isGuest && $this->menu)),
+                ),
+              ),
+              TbHtml::navbarSearchForm(Yii::app()->createUrl('site/search'), 'get', array('class'=>'pull-right')),
+            ),
+          ));
+        /
+          .navbar.navbar-inverse.navbar-static-top(role="navigation")
+            .navbar-inner
+              .container
+                .nav-collapse.collapse
+                  :php
+                    $this->widget('zii.widgets.CMenu',array(
+                      'items'=>array(
+                        array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
+                        array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
+                        array('label'=>Yii::t('app', 'news'), 'url'=>array('/news/news/index'), 'active'=>$this->id === 'news'),
+                        array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
+                        array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest && !$this->menu)),
+                      ),
+                      'activeCssClass'=>'active',
+                      'activateParents'=>true,
+                      'htmlOptions'=>array(
+                          'class'=>'nav',
+                      ),
+                    ));
+                  :php
+                    if(!Yii::app()->user->isGuest && $this->menu)
+                      echo TbHtml::buttonDropdown('Admin', $this->menu);
+                  = TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_SEARCH, Yii::app()->createUrl('site/search'), 'get', array('class'=>'navbar-search pull-right'))
+                  = TbHtml::searchQueryField('q', '', array('placeholder'=>Yii::t('app', 'SEARCH'), 'class' => 'search-query'))
+                  = TbHtml::endForm()
         / navbar
       / header
       %main.main

@@ -20,6 +20,7 @@ $this->menu=array(
   array('label'=>'Create News', 'url'=>array('create')),
   array('label'=>'Manage News', 'url'=>array('admin')),
   array('label'=>'Manage News Category', 'url'=>array('newsCategory/admin')),
+  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 ?>
 

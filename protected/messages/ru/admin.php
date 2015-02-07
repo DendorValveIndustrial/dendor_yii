@@ -20,6 +20,7 @@ return array(
   'status' => 'Статус',
   'layout' => 'Макет',
   'view' => 'Шаблон',
+  'image' => 'Изображение',
   'page_size' => 'Записей на странице',
   'new_category' => 'Новая категория',
   'fields_required'=>'Поля, отмеченные <span class="required">*</span> обязательны к заполнению.',

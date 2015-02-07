@@ -8,6 +8,7 @@ return array(
   'about' => 'О компании',
   'category'=>'По категориям',
   'all_news'=>'все новости...',
+  'admin'=>'Админ',
 
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',
