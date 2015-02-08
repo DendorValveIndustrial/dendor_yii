@@ -28,6 +28,18 @@ class Controller extends CController
 	public $pageHeader;
 
 	/**
+	 * Page title
+	 * @var string
+	 */
+	public $metaDescription = '';
+
+	/**
+	 * Page title
+	 * @var string
+	 */
+	public $metaKeywords = '';
+
+	/**
 	 * Page sidebar
 	 * @var array
 	 */

@@ -1,6 +1,9 @@
 <?php
 /* @var $this NewsController */
 /* @var $model News */
+$this->pageTitle = CHtml::encode($model->meta_title);
+$this->metaDescription = CHtml::encode($model->meta_description);
+$this->metaKeywords = CHtml::encode($model->meta_keywords);
 
 $this->breadcrumbs=array(
 	Yii::t('app','news')=>array('index'),

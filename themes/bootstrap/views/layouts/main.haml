@@ -4,6 +4,9 @@
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")/
     %meta(http-equiv="Content-Language" content="#{Yii::app()->getLanguage()}")/
     %title= $this->pageTitle
+    :php
+      echo CHtml::metaTag($this->metaDescription, 'description');
+      echo CHtml::metaTag($this->metaKeywords, 'keywords');
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
     = Yii::app()->bootstrap->register()
     %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/screen.css")/
