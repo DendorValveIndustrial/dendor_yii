@@ -29,7 +29,7 @@ html, body { height: 100%; }
 
 .footer { clear: both; position: relative; height: 70px; }
 
-body { overflow-y: scroll; background-image: url('/img/body_bg.png?1391258070'); background-position: top center; background-repeat: no-repeat; }
+body { overflow-y: scroll; background-image: url('/img/body_bg.png?1416006965'); background-position: top center; background-repeat: no-repeat; }
 @media (max-width: 767px) { body { padding: 0; overflow-y: hidden; } }
 
 .header { margin-bottom: 10px; }
@@ -48,6 +48,7 @@ body { overflow-y: scroll; background-image: url('/img/body_bg.png?1391258070');
 .main .left-bar .nav > li > a:hover { color: #022e65; }
 .main .left-bar .nav .disabled > a:hover { color: #999; }
 .main .left-bar .nav-header { color: inherit; font-size: 12px; font-weight: bold; text-transform: uppercase; border-bottom: 1px dotted #524E4E; margin-bottom: 10px; }
+.main .row-fluid > .left-bar { height: 100%; min-height: 38.125rem; border-style: solid; border-color: #D7DCD2; border-width: 0 1px 0 0; padding-right: 30px; }
 .main .contact-form .required:after { content: "*"; color: red; margin-left: 5px; }
 .main .contact-form .error { display: none; margin-top: 3px; margin-bottom: 5px; font-size: 11px; border: 1px solid #FF4F4F; color: #D6000E; background: #FFF2F2; padding: 5px; text-align: center; }
 .main .contact-form .success { display: none; margin-top: 3px; margin-bottom: 5px; border: 1px solid #00CC00; color: #4F8A10; background: #F2FFF2; font-size: 11px; padding: 5px; text-align: center; }

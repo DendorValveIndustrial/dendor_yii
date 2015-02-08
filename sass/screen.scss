@@ -95,6 +95,18 @@ body{
       margin-bottom: 10px;
     }
   }
+  .row-fluid {
+    >.left-bar{
+      height: 100%;
+      min-height: 38.125rem;
+      border:{
+        style: solid;
+        color: #D7DCD2;
+        width: 0 1px 0 0;
+      }
+      padding-right: 30px;
+    }
+  }
   .contact-form{
     .required{
       &:after{

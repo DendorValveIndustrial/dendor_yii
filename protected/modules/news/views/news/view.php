@@ -29,9 +29,12 @@ $this->pageHeader = $model->title;
 		</div>
 	</div>
 </div>
-  <div class="span3 pull-left left-bar text-right">
-  	<?php if($model->image) echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->image, $model->title, array('class'=>'span10')); ?>
-  </div>
+<div class="span3 pull-left left-bar text-right">
+	<div class="span10">
+	<?php if($model->image) echo TbHtml::tag('p',array(),TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->image, $model->title)); ?>
+	<?php echo TbHtml::muted(TbHtml::icon(TbHtml::ICON_CALENDAR).' '.TbHtml::i(Yii::app()->dateFormatter->format('d MMMM yyyy', $model->publish_date))); ?>
+	</div>
+</div>
 
 <?php
 	//$this->sidebar = CMap::mergeArray($this->sidebar, array('label' => Yii::t('app','category')));
