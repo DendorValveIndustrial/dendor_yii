@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('application.models.SliderTranslates');
+//Yii::import('application.models.SliderTranslates');
 /**
  * This is the model class for table "slider".
  *
