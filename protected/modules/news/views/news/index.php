@@ -18,6 +18,7 @@ $this->sidebar[] = array('label' => Yii::t('app','all_news'), 'url' => Yii::app(
 $this->menu=array(
 	array('label'=>'Create News', 'url'=>array('admin/default/create')),
   array('label'=>'Manage News', 'url'=>array('admin/default')),
+  array('label'=>'Manage News Category', 'url'=>array('admin/newsCategory/admin')),
   array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
 ?>

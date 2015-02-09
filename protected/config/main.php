@@ -69,11 +69,6 @@ return array(
 				'admin/<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/admin/<controller>/<action>',
 				'admin/<module:\w+>/<controller:\w+>/<action:\w+>/*'=>'<module>/admin/<controller>/<action>',
 
-				'admin/<controller:\w+>' => '<controller>/admin',
-				//'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'admin/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'admin/<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-
 				'gii'=>array('gii/default/login','urlSuffix'=>''),
 				'gii/<controller:\w+>'=>array('gii/<controller>','urlSuffix'=>''),
 				'gii/<controller:\w+>/<action:\w+>'=>array('gii/<controller>/<action>','urlSuffix'=>''),

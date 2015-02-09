@@ -93,7 +93,7 @@ class SystemLanguage extends CActiveRecord
     public static function getFlagImagesList()
     {
         Yii::import('system.utils.CFileHelper');
-        $flagsPath = 'application.widgets.langSwitch.assets.images.flags.png';
+        $flagsPath = 'application.modules.languages.widgets.langSwitch.assets.images.flags.png';
         $result = array();
         $flags  = CFileHelper::findFiles(Yii::getPathOfAlias($flagsPath));
         foreach($flags as $f)
