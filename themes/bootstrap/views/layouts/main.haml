@@ -24,7 +24,7 @@
                 .tel.text-center 48-792-516-591
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
-              -$this->widget('application.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'class'=>'inline pull-right'))
+              -$this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'class'=>'inline pull-right'))
         / top-header
         :php
           $this->widget('bootstrap.widgets.TbNavbar', array(

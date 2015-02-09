@@ -239,12 +239,6 @@ class News extends CActiveRecord
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
@@ -313,34 +307,6 @@ class News extends CActiveRecord
 			Yii::import('ext.SlugHelper.SlugHelper');
 			$this->url = SlugHelper::run($this->title);
 		}
-
-
-		/*if (!Yii::app()->user->isGuest)
-			$this->user_id = Yii::app()->user->id;
-
-		if (empty($this->url))
-		{
-			// Create slug
-			Yii::import('ext.SlugHelper.SlugHelper');
-			$this->url = SlugHelper::run($this->title);
-		}
-
-		// Check if url available
-		if($this->isNewRecord)
-		{
-			$test = Page::model()
-				->withUrl($this->url)
-				->count();
-		}
-		else
-		{
-			$test = Page::model()
-				->withUrl($this->url)
-				->count('id!=:id', array(':id'=>$this->id));
-		}
-
-		if ($test > 0)
-			$this->url .= '-'.date('YmdHis');*/
 
 		return parent::beforeSave();
 	}

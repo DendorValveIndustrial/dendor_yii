@@ -1,6 +1,6 @@
 <?php
 
-class NewsModule extends CWebModule
+class LanguagesModule extends CWebModule
 {
 	public function init()
 	{
@@ -9,8 +9,8 @@ class NewsModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'news.models.*',
-			'news.components.*',
+			'languages.models.*',
+			'languages.components.*',
 		));
 	}
 
@@ -25,15 +25,4 @@ class NewsModule extends CWebModule
 		else
 			return false;
 	}
-
-	public $urlRules = array(
-		'news' => 'news/news/index',
-		//'admin/news'=>'news/news/admin/default/index',
-		//'news/<controller:\w+>/<id:\d+>'=>'news/<controller>/view',
-		'news/<controller:\w+>/<action:update|delete>/<id:\d+>'=>'news/<controller>/<action>',
-		'news/<controller:\w+>/<action:create|admin>'=>'news/<controller>/<action>',
-		'news/<path:\w+>'=>'news/news/list',
-		'news/<category:\w+>/<url>'=>'news/news/view',
-		'news/<url>'=>'news/news/view',
-	);
 }

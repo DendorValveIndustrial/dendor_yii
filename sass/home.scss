@@ -52,9 +52,7 @@ body{
       }
       .email{
         >a{
-          @include link-colors(#777, darken(#777, 10%), #777, #777, #777);
-          font-weight: bold;
-          font-size: 13px;
+          @include link-colors(#fff, darken(#fff, 10%), #fff, #fff, #fff);
         }
       }
       .address,
@@ -67,6 +65,7 @@ body{
     margin: 10px 0;
     padding:20px 5px;
     background-color: rgba(255,255,255, 0.3);
+    height: 300px;
     > h1{
       color: #fff;
       font:{
@@ -125,7 +124,7 @@ body{
       }
       .slider-item{
         position: relative;
-        height: 300px;
+        display: none;
         margin: 0 0 0 70px;
         color: #fff;
         max-width: 500px;
@@ -146,6 +145,9 @@ body{
             }
           }
         }
+        &:first-child{
+          display: block;
+        }
       }
     }
   }
@@ -159,6 +161,7 @@ body{
     border: 1px solid #ccc;
     margin-bottom: 20px;
     margin-top: -83px;
+    position: relative;
     .nav-list{
       >li{
         border-bottom: 1px solid #e4e4e4;
@@ -175,6 +178,16 @@ body{
           padding: 10px 17px;
           color: inherit;
         }
+      }
+      &:after{
+        content: "";
+        width: 94%;
+        height: 1px;
+        display: block;
+        position: absolute;
+        left: 3%;
+        z-index: -1;
+        @include box-shadow(rgba(0,0,0,.6) 0 0 8px 2px);
       }
     }
   }
@@ -196,6 +209,16 @@ body{
         left: 50px;
       }
       font-size: 16px;
+      >p{
+        &:last-child{
+          margin-top: 30px;
+        }
+        .h1{
+          color: inherit;
+          font-weight: bold;
+          margin-right: 3px;
+        }
+      }
     }
     blockquote{
       margin-bottom: 40px;
@@ -215,5 +238,42 @@ body{
   @include box-shadow (rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset);
   .container{
     padding-top: 30px;
+  }
+}
+.modal{
+  width: 600px;
+  margin-left: -300px;
+  padding: 5px;
+  border-radius: 0;
+  .wrap{
+    margin: 0;
+    border: 1px solid #eee;
+    .modal-header{
+      .modal-label{
+        font:{
+          size: 20px; //13px;
+        }
+        color: #da4e49;//#999;
+        margin: 15px 0;
+        line-height: 20px;
+        text:{
+          transform: uppercase;
+        }
+      }
+      .close{
+        margin-top: 12px;
+      }
+    }
+    .modal-body{
+      padding: 30px 20px;
+    }
+    .modal-footer{
+      text-align: center;
+    }
+  }
+  &.fade{
+    &.in{
+      top: 25%;
+    }
   }
 }

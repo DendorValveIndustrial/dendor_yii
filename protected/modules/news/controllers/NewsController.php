@@ -6,47 +6,39 @@ class NewsController extends BaseModuleController
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='column2';
 
 	/**
 	 * @return array action filters
 	 */
-	public function filters()
+	/*public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
 		);
-	}
+	}*/
 
 	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
+	 * Lists all models.
 	 */
-	public function accessRules()
+	public function actionIndex()
 	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','list'),
-				'users'=>array('*'),
+		$this->pageHeader = Yii::t('app','news');
+
+		$dataProvider=new CActiveDataProvider('News', array(
+			'pagination'=>array(
+				'pageSize'=>5,
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
+		));
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
 	}
 
 	/**
-	 * Filter pages by category
+	 * Lists pages by category
+	 * @param string $path the Url of the category to be displayed
 	 */
 	public function actionList($path)
 	{
@@ -70,20 +62,18 @@ class NewsController extends BaseModuleController
 			'criteria'=>$criteria,
 		));
 
-		$this->layout = 'column2';
 		$this->pageHeader = $category->name;
 		$this->render('list',array(
 			'dataProvider'=>$dataProvider,
 			'category'=>$category,
 			'pagination' => $pagination,
 		));
-		//var_dump($pagination);
 	}
 
 
 	/**
 	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
+	 * @param string $url the Url of the model to be displayed
 	 */
 	public function actionView($url)
 	{
@@ -97,123 +87,6 @@ class NewsController extends BaseModuleController
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new News;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		$dir = Yii::getPathOfAlias('webroot.upload');
-
-		if(isset($_POST['News']))
-		{
-			$model->attributes=$_POST['News'];
-			$model->img = CUploadedFile::getInstance($model,'img');
-
-			if($model->img)
-				$model->image = $model->img->getName();
-
-			if($model->save())
-			{
-				if (is_object($model->img)) {
-	        $model->img->saveAs($dir.'/'.$model->img->getName());
-				}
-				$this->redirect(array('update','id'=>$model->id));
-			}
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		$dir = Yii::getPathOfAlias('webroot.upload');
-
-		if(isset($_POST['News']))
-		{
-			$model->attributes=$_POST['News'];
-			$model->img = CUploadedFile::getInstance($model,'img');
-
-			if($model->img)
-				$model->image = $model->img->getName();
-
-			if($model->save())
-			{
-				if (is_object($model->img)) {
-	        $model->img->saveAs($dir.'/'.$model->img->getName());
-				}
-				//$this->redirect(array('update','id'=>$model->id));
-				$this->refresh();
-			}
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$this->pageHeader = Yii::t('app','news');
-
-		$dataProvider=new CActiveDataProvider('News', array(
-			'pagination'=>array(
-				'pageSize'=>5,
-			),
-		));
-		$this->layout = 'column2';
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new News('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['News']))
-			$model->attributes=$_GET['News'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
 
 	/**
 	 * Performs the AJAX validation.

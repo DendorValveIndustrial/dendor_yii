@@ -31,6 +31,8 @@ return array(
 
 	'modules'=>array(
 		'news',
+		'sliders',
+		'languages',
 		// uncomment the following to enable the Gii tool
 		/*'gii'=>array(
 			'class'=>'system.gii.GiiModule',
@@ -59,7 +61,14 @@ return array(
 				'' => array('site/index', 'urlSuffix'=>''),
 				'<action:(contact|search|login|logout|captcha)>' => 'site/<action>',
 				'<view:about>' => 'site/page',
+
 				'admin'=>array('site/login', 'urlSuffix'=>''),
+
+				'admin/<module:\w+>'=>'<module>/admin/default',
+				'admin/<module:\w+>/<controller:\w+>'=>'<module>/admin/<controller>',
+				'admin/<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/admin/<controller>/<action>',
+				'admin/<module:\w+>/<controller:\w+>/<action:\w+>/*'=>'<module>/admin/<controller>/<action>',
+
 				'admin/<controller:\w+>' => '<controller>/admin',
 				//'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'admin/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

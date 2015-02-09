@@ -19,8 +19,8 @@ $this->sidebar[] = TbHtml::menuDivider();
 $this->sidebar[] = array('label' => Yii::t('app','all_news'), 'url' => Yii::app()->createUrl('news/news/index'));
 
 $this->menu=array(
-  array('label'=>'Create News', 'url'=>array('create')),
-  array('label'=>'Manage News', 'url'=>array('admin')),
+  array('label'=>'Create News', 'url'=>array('admin/default/create')),
+  array('label'=>'Manage News', 'url'=>array('admin/default')),
   array('label'=>'Manage News Category', 'url'=>array('newsCategory/admin')),
   array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
 );
