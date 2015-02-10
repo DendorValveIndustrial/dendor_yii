@@ -1,6 +1,7 @@
 <?php
 return array(
   'home' => 'Главная',
+  'pipeline_valves'=>'Трубопродная арматура',
   'contact_us' => 'Контакты',
   'contact' => 'Контакты',
   'read_more'=> 'читать далее',

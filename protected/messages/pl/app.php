@@ -1,6 +1,7 @@
 <?php
 return array(
   'home' => 'Główna',
+  'pipeline_valves'=>'Armatura przemysłowa',
   'contact_us' => 'Kontakt',
   'contact' => 'Kontakt',
   'read_more'=> 'czytaj więcej',

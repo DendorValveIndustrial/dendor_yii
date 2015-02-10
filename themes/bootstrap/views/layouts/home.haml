@@ -37,35 +37,27 @@
               .logo= CHtml::image('/img/logo/logo-wite270.png',CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82'))
               .contact-top.text-center(role="contentinfo")
                 .address
-                  ul. Romualda Traugutta 29,
+                  ul. Jaśkowa Dolina 81
                   %br/
-                  80-229, Gdańsk, Polska
-                .tel 48-792-516-591
+                  80-286, Gdańsk, Polska
+                .tel +48 58 523 75 60
                 .email
                   = TbHtml::icon(TbHtml::ICON_ENVELOPE, array('color'=>TbHtml::ICON_COLOR_WHITE))
                   = TbHtml::mailto(Yii::app()->params['officeEmail'],Yii::app()->params['officeEmail'], array('itemprop'=>'email'))
             .span9
               .wrap-slider
-                %h1.pull-left Armatura przemysłowa
+                %h1.pull-left= Yii::t('app', 'pipeline_valves')
                 .pull-right.img-slider= CHtml::image('/img/slide1.png','Armatura przemysłowa', array('width'=>'245', 'height'=>'395'))
                 .slider#slider
                   = $this->widget('ext.slidr.SliderHome',array(), true)
         / head
       / header
-      %main.main
+      %main.main(role="main")
         .container
-          .row
-            .span12
-              :php
-                if(isset($this->breadcrumbs)){
-                  $this->widget('bootstrap.widgets.TbBreadcrumb', array(
-                    'links'=>$this->breadcrumbs,
-                  ));
-                }
           = $content
         / content
       .layout-footer
-    %footer.footer
+    %footer.footer(role="contentinfo")
       .container
         .row
           .text-center

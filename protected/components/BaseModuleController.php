@@ -19,4 +19,14 @@ class BaseModuleController extends Controller {
   {
     return $this->_title;
   }
+
+  public function createDir($dir, $mode = 0775)
+  {
+    if (is_dir($dir)) {
+      return true;
+    }
+    $result = mkdir($dir, $mode);
+    chmod($dir, $mode);
+    return $result;
+  }
 }

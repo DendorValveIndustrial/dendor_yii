@@ -1,6 +1,7 @@
 <?php
 return array(
   'home' => 'Home',
+  'pipeline_valves'=>'Pipeline valves',
   'contact_us' => 'Contact Us',
   'contact' => 'Contact',
   'read_more'=> 'Read more',
