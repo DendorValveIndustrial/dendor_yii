@@ -25,4 +25,12 @@ class PagesModule extends CWebModule
 		else
 			return false;
 	}
+
+	public $urlRules = array(
+		'home' => array('pages/pages/index', 'urlSuffix'=>''),
+		//'news/<path:\w+>'=>'news/news/list',
+		//'news/<category:\w+>/<url>'=>'news/news/view',
+		//'news/<url>'=>'news/news/view',
+	);
+
 }
