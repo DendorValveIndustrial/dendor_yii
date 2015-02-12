@@ -82,14 +82,30 @@ class Pages extends CActiveRecord
 	/**
 	 * Find page by url.
 	 * Scope.
-	 * @param string News url
-	 * @return News
+	 * @param string Page url
+	 * @return Page
 	 */
 	public function withUrl($url)
 	{
 		$this->getDbCriteria()->mergeWith(array(
 			'condition'=>'url=:url',
 			'params'=>array(':url'=>$url)
+		));
+
+		return $this;
+	}
+
+	/**
+	 * Find page by category.
+	 * Scope.
+	 * @param string Page category
+	 * @return Page
+	 */
+	public function pageCategory($category)
+	{
+		$this->getDbCriteria()->mergeWith(array(
+			'condition'=>'category=:category',
+			'params'=>array(':category'=>$category)
 		));
 
 		return $this;

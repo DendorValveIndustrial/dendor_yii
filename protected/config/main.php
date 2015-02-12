@@ -60,7 +60,7 @@ return array(
 			'urlSuffix'=>'.html',
 			'rules' => array(
 				'' => array('site/index', 'urlSuffix'=>''),
-				//'' => array('pages/pages/index', 'urlSuffix'=>''),
+				//'' => array('pages/pages/home', 'urlSuffix'=>''),
 				'<action:(contact|search|login|logout|captcha)>' => 'site/<action>',
 				'<view:about>' => 'site/page',
 

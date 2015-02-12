@@ -27,7 +27,7 @@ class PagesModule extends CWebModule
 	}
 
 	public $urlRules = array(
-		'home' => array('pages/pages/index', 'urlSuffix'=>''),
+		'home' => array('pages/pages/index', 'urlSuffix'=>'.html'),
 		//'news/<path:\w+>'=>'news/news/list',
 		//'news/<category:\w+>/<url>'=>'news/news/view',
 		//'news/<url>'=>'news/news/view',

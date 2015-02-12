@@ -3,7 +3,22 @@
 ?>
 <div class="row">
   <div class="span3">
-    <div class="aside-sidebar"></div>
+    <div class="aside-sidebar">
+      <ul class="nav nav-list" role="navigation">
+        <li class="nav-header">Kategorie produktów</li>
+        <li><a href="#">Przepustnice</a></li>
+        <li><a href="#">Zasuwy</a></li>
+        <li><a href="#">Zawory zwrotne</a></li>
+        <li><a href="#">Zawory elektromagnetyczne</a></li>
+        <li><a href="#">Zawory bezpieczeństwa</a></li>
+        <li><a href="#">Filtry</a></li>
+        <li><a href="#">Kurki kulowe</a></li>
+        <li><a href="#">Napędy elektryczne</a></li>
+        <li><a href="#">Kompensatory</a></li>
+        <li><a href="#">Kształtki</a></li>
+        <li><a href="#">Akcesoria</a></li>
+      </ul>
+    </div>
   </div>
   <div class="span9">
     <div class="row-fluid">
@@ -11,15 +26,24 @@
         <div class="home-title">
           <h2><?php echo CHtml::encode(Yii::app()->name); ?></h2>
           <div class="about">
-            <p><?php echo CHtml::tag('span',array('class'=>'h1'),'D'); ?>ziałamy na rynku materiałów instalacyjnych w charakterze producenta i dostawcy urządzeń armatury przemysłowej.</p>
-            <p><?php echo CHtml::tag('span',array('class'=>'h1'),'E'); ?>lastycznie podchodzimy do potrzeb naszych Kontrahentów współpracując z dużymi i małymi przedsiębiorstwami.</p>
-            <p><?php echo CHtml::tag('span',array('class'=>'h1'),'N'); ?>adążamy za wdrażaniem nowych rozwiązań i materiałów zapewniających spełnianie najwyższych europejskich standardów technologicznych.</p>
-            <p><?php echo CHtml::tag('span',array('class'=>'h1'),'D'); ?>ążymy do doskonałości zarówno w sferze obsługi Klienta, jak i w sferze jakości naszych wyrobów stosując nadzór na wszystkich etapach produkcji.</p>
-            <p><?php echo CHtml::tag('span',array('class'=>'h1'),'O'); ?>ferujemy bezpieczne dla środowiska i energooszczędne urządzenia m.in. dla przemysłu papierniczego, cukierniczego, spożywczego, stoczniowego.</p>
-            <p><?php echo CHtml::tag('span',array('class'=>'h1'),'R'); ?>ealizujemy zamówienia w sposób rzetelny i kreatywny przyczyniając się do sukcesu Państwa firmy i dając obu stronom efekt synergii.</p>
-            <p>Zapraszamy Państwa do zapoznania się z naszą ofertą!</p>
+            <?php echo $model->full_description; ?>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="line line-dotted"></div>
+    <div class="row-fluid">
+      <div class="span4">
+        <h2 class="h2">Jakość Produktów</h2>
+        <p>Dendor Valve Industrial zawsze troszczy się o jakość swoich produktów i potrzeby Klientów dążąc do świadczenia jak najlepszej jakości usług dla naszych wszystkich Kontrahentów.</p>
+      </div>
+      <div class="span4">
+        <h2 class="h2">Kontrola Jakości</h2>
+        <p>Dendor Valve Industrial zapewnia możliwość kontroli jakości wszystkich procesów produkcyjnych i gwarantuje ich  jakość sprawdzając na najnowszej generacji aparaturze badawczo-kontrolnej.</p>
+      </div>
+      <div class="span4">
+        <h2 class="h2">Zastosowanie Techniczne</h2>
+        <p>Dendor Valve Industrial nie ogranicza się tylko do projektowania i wytwarzania standardowych elementów,  ale również pomaga i doradza znalezienie prawidłowych rozwiązań w Państwa branży.</p>
       </div>
     </div>
   </div>

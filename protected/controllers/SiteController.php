@@ -27,10 +27,10 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->layout = 'home';
-		$this->render('index');
+    $pages = new Pages;
+    $model = $pages->pageCategory('home')->find();
+		$this->layout = '//layouts/home';
+    $this->render('index', array('model'=>$model));
 	}
 
 	/**
