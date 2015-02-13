@@ -50,6 +50,9 @@ class NewsCategory extends CActiveRecord
 	 */
 	public $_nameWithLevel;
 
+	/**
+	 * @var array
+	 */
 	private $_list = array();
 
 	/**

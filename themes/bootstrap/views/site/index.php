@@ -31,19 +31,28 @@
         </div>
       </div>
     </div>
-    <div class="line line-dotted"></div>
-    <div class="row-fluid">
-      <div class="span4">
-        <h2 class="h2">Jakość Produktów</h2>
-        <p>Dendor Valve Industrial zawsze troszczy się o jakość swoich produktów i potrzeby Klientów dążąc do świadczenia jak najlepszej jakości usług dla naszych wszystkich Kontrahentów.</p>
+    <div class='line line-dotted'></div>
+    <div class='row-fluid'>
+      <div class='span6'>
+        <h2 class='h1'>Aktualności</h2>
+        <p>Firma Dendor Valve Industrial była wystawcą na ХХII Międzynarodowych Targach Maszyn i Urządzeń dla Wodociągów i Kanalizacji WOD-KAN 2014 w Bydgoszczy (Polska). Przedstawiony przez spółkę szeroki asortyment armatury przemysłowej dla przemysłu i gospodarki komunalnej wzbudzał żywe zainteresowanie licznych odwiedzających...</p>
+        <p class='text-right'><a href="#">czytaj więcej...</a></p>
       </div>
-      <div class="span4">
-        <h2 class="h2">Kontrola Jakości</h2>
-        <p>Dendor Valve Industrial zapewnia możliwość kontroli jakości wszystkich procesów produkcyjnych i gwarantuje ich  jakość sprawdzając na najnowszej generacji aparaturze badawczo-kontrolnej.</p>
-      </div>
-      <div class="span4">
-        <h2 class="h2">Zastosowanie Techniczne</h2>
-        <p>Dendor Valve Industrial nie ogranicza się tylko do projektowania i wytwarzania standardowych elementów,  ale również pomaga i doradza znalezienie prawidłowych rozwiązań w Państwa branży.</p>
+      <div class='span6'>
+        <ul class='thumbnails'>
+          <li class='span5 offset1'>
+            <div class='thumbnail text-center'>
+              <a href="#"><img alt="lorem_image" height="180" src="http://placehold.it/180x180" width="180" /></a>
+              <h5>Сertificate</h5>
+            </div>
+          </li>
+          <li class='span5 offset1'>
+            <div class='thumbnail text-center'>
+              <a href="#"><img alt="lorem_image" height="180" src="http://placehold.it/180x180" width="180" /></a>
+              <h5>Catalogue</h5>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
