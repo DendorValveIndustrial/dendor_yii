@@ -217,7 +217,7 @@ class CatalogGroup extends CActiveRecord
 	{
 		$this->_list[0]='...';
 
-		$aCategory = NewsCategory::model()->findAll();
+		$aCategory = CatalogGroup::model()->findAll();
 		foreach ($aCategory as $oCategory) {
 			$this->_list[$oCategory->id]=$oCategory->name;
 		}
