@@ -1,6 +1,6 @@
 <?php
 
-class NewsCategoryController extends BaseModuleController
+class NewsCategoryController extends BaseAdminController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning

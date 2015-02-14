@@ -4,7 +4,6 @@ CREATE TABLE IF NOT EXISTS `CatalogGroup` (
   `image` varchar(255) NOT NULL DEFAULT '',
   `url` varchar(255) NOT NULL DEFAULT '',
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `layout` varchar(255) DEFAULT '',
   `sorting` smallint(6) NOT NULL DEFAULT '0',
   `page_size` smallint(6) NOT NULL DEFAULT '10',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',

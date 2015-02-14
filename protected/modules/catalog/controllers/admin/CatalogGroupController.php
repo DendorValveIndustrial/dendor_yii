@@ -1,6 +1,6 @@
 <?php
 
-class CatalogGroupController extends BaseModuleController
+class CatalogGroupController extends BaseAdminController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning

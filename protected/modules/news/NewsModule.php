@@ -27,9 +27,9 @@ class NewsModule extends CWebModule
 	}
 
 	public $urlRules = array(
-		'news' => 'news/news/index',
-		'news/<path:\w+>'=>'news/news/list',
-		'news/<category:\w+>/<url>'=>'news/news/view',
-		'news/<url>'=>'news/news/view',
+		'news' => array('news/news/index', 'urlSuffix'=>'.html'),
+		'news/<path:\w+>'=>array('news/news/list', 'urlSuffix'=>'.html'),
+		'news/<category:\w+>/<url>'=>array('news/news/view', 'urlSuffix'=>'.html'),
+		'news/<url>'=>array('news/news/view', 'urlSuffix'=>'.html')
 	);
 }

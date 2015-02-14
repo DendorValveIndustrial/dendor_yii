@@ -35,14 +35,15 @@ return array(
 		'languages',
 		'pages',
 		'catalog',
+		'admin',
 		// uncomment the following to enable the Gii tool
-		'gii'=>array(
+		/*'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'12345qwerty',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 			'generatorPaths' => array('bootstrap.gii'),
-		),
+		),*/
 	),
 
 	// application components
@@ -58,23 +59,23 @@ return array(
 			'class'=>'UrlManager',
 			'showScriptName'=>false,
 			'useStrictParsing'=>true,
-			'urlSuffix'=>'.html',
 			'rules' => array(
 				'' => array('site/index', 'urlSuffix'=>''),
-				//'' => array('pages/pages/home', 'urlSuffix'=>''),
-				'<action:(contact|search|login|logout|captcha)>' => 'site/<action>',
-				'<view:about>' => 'site/page',
+				'<action:(contact|search|login)>' => array('site/<action>', 'urlSuffix'=>'.html'),
+				'<action:(logout|captcha)>' => 'site/<action>',
+				'<view:about>' => array('site/page', 'urlSuffix'=>'.html'),
 
-				'admin'=>array('site/login', 'urlSuffix'=>''),
+				//'admin'=>'site/login',
+				'admin'=>'admin/default/index',
 
 				'admin/<module:\w+>'=>'<module>/admin/default',
 				'admin/<module:\w+>/<controller:\w+>'=>'<module>/admin/<controller>',
 				'admin/<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/admin/<controller>/<action>',
 				'admin/<module:\w+>/<controller:\w+>/<action:\w+>/*'=>'<module>/admin/<controller>/<action>',
 
-				'gii'=>array('gii/default/login','urlSuffix'=>''),
-				'gii/<controller:\w+>'=>array('gii/<controller>','urlSuffix'=>''),
-				'gii/<controller:\w+>/<action:\w+>'=>array('gii/<controller>/<action>','urlSuffix'=>''),
+				'gii'=>'gii/default/login',
+				'gii/<controller:\w+>'=>'gii/<controller>',
+				'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
 			),
 		),
 
