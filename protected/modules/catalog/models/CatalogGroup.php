@@ -45,7 +45,16 @@ class CatalogGroup extends CActiveRecord
 	public $meta_description;
 	public $meta_keywords;
 
+	/**
+	 * Name of the translations model.
+	 */
 	public $translateModelName = 'CatalogGroupTranslate';
+
+	/**
+	 * Upload image file.
+	 */
+	public $img;
+
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -74,12 +83,13 @@ class CatalogGroup extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
+			array('name, url', 'required'),
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('parent_id, active, sorting, page_size, deleted', 'numerical', 'integerOnly'=>true),
-			array('name, meta_title, meta_description, meta_keywords, image, url, layout', 'length', 'max'=>255),
+			array('name, meta_title, meta_description, meta_keywords, image, url', 'length', 'max'=>255),
 			array('description', 'safe'),
+			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, parent_id, image, url, active, sorting, page_size, deleted', 'safe', 'on'=>'search'),
@@ -110,6 +120,7 @@ class CatalogGroup extends CActiveRecord
 			'id' => 'ID',
 			'parent_id' => Yii::t('admin', 'parent_category'),
 			'image' => Yii::t('admin', 'image'),
+			'img' => Yii::t('admin', 'image'),
 			'url' => Yii::t('admin', 'url'),
 			'active' => 'Active',
 			'sorting' => 'Sorting',
@@ -173,6 +184,16 @@ class CatalogGroup extends CActiveRecord
 		);
 	}
 
+	public function beforeValidate()
+	{
+		if (empty($this->url))
+		{
+			Yii::import('ext.SlugHelper.SlugHelper');
+			$this->url = SlugHelper::run($this->name);
+		}
+		return parent::beforeValidate();
+	}
+
 	public function beforeSave()
 	{
 		if($this->meta_title === '')
@@ -181,11 +202,11 @@ class CatalogGroup extends CActiveRecord
 		if($this->meta_description === '')
 			$this->meta_description = substr($this->description, 0, 120);
 
-		if (empty($this->url))
+		/*if (empty($this->url))
 		{
 			Yii::import('ext.SlugHelper.SlugHelper');
 			$this->url = SlugHelper::run($this->name);
-		}
+		}*/
 
 		if (empty($this->page_size)) {
 			$this->page_size = $this->defaultPageSize;

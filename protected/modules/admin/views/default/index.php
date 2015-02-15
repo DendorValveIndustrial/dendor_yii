@@ -4,6 +4,7 @@
 $this->breadcrumbs=array(
 	$this->module->id,
 );
+
 ?>
 <?php echo TbHtml::pageHeader(Yii::t('admin', 'modules'),''); ?>
 

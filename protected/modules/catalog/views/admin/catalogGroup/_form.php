@@ -13,6 +13,8 @@
         // There is a call to performAjaxValidation() commented in generated controller code.
         // See class documentation of CActiveForm for details on this.
         'enableAjaxValidation'=>false,
+        //'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
+        'htmlOptions'=>array('enctype'=>'multipart/form-data'),
     )); ?>
 
         <p class="help-block">Fields with <span class="required">*</span> are required.</p>
@@ -40,22 +42,24 @@
 
                     <?php echo $form->textFieldControlGroup($model,'image',array('span'=>12,'maxlength'=>255)); ?>
 
+                    <?php echo $form->fileFieldControlGroup($model,'img') ?>
+
                 </div>
                 <div class="span6">
+
+                    <?php echo $form->checkBoxControlGroup($model, 'active'); ?>
+
+                    <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>2)); ?>
+
+                    <?php //echo $form->checkBoxControlGroup($model,'deleted'); ?>
+
+                    <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>2)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'meta_title',array('span'=>12,'maxlength'=>255)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'meta_description',array('span'=>12,'maxlength'=>255)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'meta_keywords',array('span'=>12,'maxlength'=>255)); ?>
-
-                    <?php echo $form->textFieldControlGroup($model,'active',array('span'=>12)); ?>
-
-                    <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>12)); ?>
-
-                    <?php echo $form->textFieldControlGroup($model,'deleted',array('span'=>12)); ?>
-
-                    <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>3)); ?>
 
                 </div>
             </div>

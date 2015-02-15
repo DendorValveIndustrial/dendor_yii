@@ -4,6 +4,11 @@
 $this->breadcrumbs=array(
 	$this->module->id,
 );
+
+$this->menu=array(
+  array('label'=>'Manage Catalog Group','url'=>array('/catalog/admin/catalogGroup/admin')),
+);
+
 ?>
 <h1><?php echo $this->uniqueId . '/' . $this->action->id; ?></h1>
 
