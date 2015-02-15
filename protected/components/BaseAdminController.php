@@ -1,7 +1,7 @@
 <?php
 class BaseAdminController extends BaseModuleController {
 
-  public $layout='application.modules.admin.views.layouts.main';
+  public $layout='application.modules.admin.views.layouts.column2';
 
   /**
    * Specifies the access control rules.

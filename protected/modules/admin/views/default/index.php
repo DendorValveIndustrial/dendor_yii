@@ -5,13 +5,19 @@ $this->breadcrumbs=array(
 	$this->module->id,
 );
 ?>
-<h1><?php echo $this->uniqueId . '/' . $this->action->id; ?></h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin', 'modules'),''); ?>
 
-<p>
-This is the view content for action "<?php echo $this->action->id; ?>".
-The action belongs to the controller "<?php echo get_class($this); ?>"
-in the "<?php echo $this->module->id; ?>" module.
-</p>
-<p>
-You may customize this page by editing <tt><?php echo __FILE__; ?></tt>
-</p>
+
+<?php
+  echo TbHtml::thumbnails(
+    array(
+      array('url' => Yii::app()->createUrl('/catalog/admin/default'), 'label' => Yii::t('admin','catalog')),
+      array('url' => Yii::app()->createUrl('/languages/admin/default'), 'label' => Yii::t('admin','languages')),
+      array('url' => Yii::app()->createUrl('/news/admin/default'), 'label' => Yii::t('admin','news')),
+      array('url' => Yii::app()->createUrl('/pages/admin/default'), 'label' => Yii::t('admin','pages')),
+      array('url' => Yii::app()->createUrl('/sliders/admin/default'), 'label' => Yii::t('admin','sliders')),
+      //array('image' => 'http://placehold.it/180x180', 'url' => '#', 'label' => 'Thumbnail label', 'caption' => '...'),
+    ),
+    array('span' => 2, 'class' => 'text-center')
+  );
+?>

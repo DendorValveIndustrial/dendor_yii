@@ -22,14 +22,14 @@
                       array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
                       array('label'=>Yii::t('app', 'news'), 'url'=> array('/news/news/index')),
                       array('label'=>Yii::t('app', 'contact'), 'url'=>array('site/contact')),
-                      array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                      array('label'=>Yii::t('app', 'admin').' ('.Yii::app()->user->name.')', 'url'=>array('admin/default/index'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
                     'activeCssClass'=>'active',
                     'htmlOptions'=>array(
                         'class'=>'nav',
                     ),
                   ));
-                -$this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'class'=>'nav pull-right country'))
+                -$this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'nav pull-right country')))
         / navbar
         .container
           .row.head

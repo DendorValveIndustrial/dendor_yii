@@ -29,4 +29,13 @@ return array(
   'draft'=>'Черновик',
   'archive'=>'Архив',
 
+  'web_app' => 'На сайт',
+
+  'modules' => 'Модули',
+  'catalog' => 'Каталог',
+  'languages' => 'Языки',
+  'news' => 'Новости',
+  'pages' => 'Страницы',
+  'sliders' => 'Слайдер',
+
 );

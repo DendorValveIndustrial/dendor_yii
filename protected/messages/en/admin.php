@@ -29,4 +29,13 @@ return array(
   'draft'=>'Draft',
   'archive'=>'Archive',
 
+  'web_app' => 'Web app',
+
+  'modules' => 'Modules',
+  'catalog' => 'Catalog',
+  'languages' => 'Languages',
+  'news' => 'News',
+  'pages' => 'Pages',
+  'sliders' => 'Sliders',
+
 );

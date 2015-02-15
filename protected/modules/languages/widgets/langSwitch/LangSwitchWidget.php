@@ -4,6 +4,11 @@ class LangSwitchWidget extends CWidget {
   public $url;
   public $class = 'inline';
 
+  /**
+   * @var array HTML attributes for the menu's root container tag.
+   */
+  public $htmlOptions = array();
+
   /*public function init(){
     $this->getUrl();
     $this->getFlagImage();
@@ -37,9 +42,7 @@ class LangSwitchWidget extends CWidget {
     }
 
     $this->widget('zii.widgets.CMenu', array(
-      'htmlOptions'=>array(
-          'class'=>$this->class,
-        ),
+      'htmlOptions'=> $this->htmlOptions,
       'items'=>$langs,
       'encodeLabel'=>false
     ));

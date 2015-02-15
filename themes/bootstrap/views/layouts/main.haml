@@ -24,7 +24,7 @@
                 .tel.text-center 48-792-516-591
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
-              -$this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'class'=>'inline pull-right'))
+              -$this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'inline pull-right')))
         / top-header
         :php
           $this->widget('bootstrap.widgets.TbNavbar', array(
@@ -39,8 +39,8 @@
                   array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
                   array('label'=>Yii::t('app', 'news'), 'url'=>array('/news/news/index'), 'active'=>$this->id === 'news'),
                   array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
-                  array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest && !$this->menu)),
-                  array('label'=>Yii::t('app', 'admin'), 'items'=>$this->menu, 'visible'=>(!Yii::app()->user->isGuest && $this->menu)),
+                  array('label'=>Yii::t('app', 'admin').' ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/index'), 'visible'=>(!Yii::app()->user->isGuest)),
+                  //array('label'=>Yii::t('app', 'admin'), 'items'=>$this->menu, 'visible'=>(!Yii::app()->user->isGuest && $this->menu)),
                 ),
               ),
               TbHtml::navbarSearchForm(Yii::app()->createUrl('site/search'), 'get', array('class'=>'pull-right', 'inputOptions'=>array('name'=>'q'))),

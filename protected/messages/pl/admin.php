@@ -28,4 +28,13 @@ return array(
   'waiting'=>'Wyczekiwanie',
   'draft'=>'Projekt',
   'archive'=>'Archiwum',
+
+  'web_app' => 'Web app',
+
+  'modules' => 'Moduły',
+  'catalog' => 'Katalog',
+  'languages' => 'Języki',
+  'news' => 'Aktualności',
+  'pages' => 'Strony',
+  'sliders' => 'Suwaki',
 );

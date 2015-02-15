@@ -16,6 +16,7 @@
   <?php
     $this->widget('bootstrap.widgets.TbNavbar', array(
       'brandLabel' => 'Dendor Admin',
+      'brandUrl' => Yii::app()->createUrl('/admin/default/index'),
       'collapse' => true,
       'display' => TbHtml::NAVBAR_DISPLAY_FIXEDTOP,
       'color' => TbHtml::NAVBAR_COLOR_INVERSE,
@@ -23,18 +24,21 @@
         array(
           'class' => 'bootstrap.widgets.TbNav',
           'items' => array(
-            array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
-            array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
-            array('label'=>Yii::t('app', 'news'), 'url'=>array('/news/news/index'), 'active'=>$this->id === 'news'),
-            array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
+            array('label'=>Yii::t('admin', 'web_app'), 'url'=>array('/site/index')),
+            array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest)),
           ),
         ),
-        array(
+        /*array(
           'class' => 'bootstrap.widgets.TbNav',
           'items' => array(
             array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest && !$this->menu)),
           ),
           'htmlOptions' => array('class' => 'pull-right'),
+        ),*/
+        array(
+          'class' => 'application.modules.languages.widgets.langSwitch.LangSwitchWidget',
+          'url'=>$this->url,
+          'htmlOptions' => array('class' => 'nav pull-right country'),
         ),
       ),
       'htmlOptions' => array(
@@ -42,12 +46,6 @@
       ),
     ));
   ?>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span12">
-        <?php echo $content; ?>
-      </div>
-    </div>
-  </div>
+  <?php echo $content; ?>
 </body>
 </html>

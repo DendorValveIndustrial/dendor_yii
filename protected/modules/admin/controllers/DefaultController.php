@@ -2,7 +2,9 @@
 
 class DefaultController extends BaseAdminController
 {
-	public function actionIndex()
+	public $layout='column1';
+
+  public function actionIndex()
 	{
 		$this->render('index');
 	}
