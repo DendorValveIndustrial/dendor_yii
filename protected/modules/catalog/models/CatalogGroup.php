@@ -106,8 +106,8 @@ class CatalogGroup extends CActiveRecord
 		return array(
 			//'catalogGroupTranslates' => array(self::HAS_MANY, 'CatalogGroupTranslate', 'object_id'),
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
-			// 'pages'=>array(self::HAS_MANY, 'News', 'group_id'),
-			// 'pageCount'=>array(self::STAT, 'News', 'group_id'),
+			'pages'=>array(self::HAS_MANY, 'CatalogItems', 'group_id'),
+			'pageCount'=>array(self::STAT, 'CatalogItems', 'group_id'),
 		);
 	}
 
@@ -201,12 +201,6 @@ class CatalogGroup extends CActiveRecord
 
 		if($this->meta_description === '')
 			$this->meta_description = substr($this->description, 0, 120);
-
-		/*if (empty($this->url))
-		{
-			Yii::import('ext.SlugHelper.SlugHelper');
-			$this->url = SlugHelper::run($this->name);
-		}*/
 
 		if (empty($this->page_size)) {
 			$this->page_size = $this->defaultPageSize;

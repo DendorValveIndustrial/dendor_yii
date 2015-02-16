@@ -17,6 +17,7 @@ return array(
   'created' => 'Stworzony',
   'updated' => 'Zaktualizowano',
   'publish_date' => 'Data publikacji',
+  'end_date' => 'Data end',
   'status' => 'Status',
   'layout' => 'Układ',
   'view' => 'Widok',
@@ -37,4 +38,12 @@ return array(
   'news' => 'Aktualności',
   'pages' => 'Strony',
   'sliders' => 'Suwaki',
+
+  'items_group' => 'Grupy przedmioty',
+  'modification' => 'Modyfikacja',
+  'price' => 'Cena',
+  'active' => 'Aktywne',
+  'sorting' => 'Sortowanie',
+  'deleted' => 'Usunięte',
+
 );

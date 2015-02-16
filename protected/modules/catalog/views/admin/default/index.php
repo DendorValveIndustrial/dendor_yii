@@ -1,22 +1,22 @@
 <?php
-/* @var $this DefaultController */
+/* @var $this CatalogItemsController */
+/* @var $dataProvider CActiveDataProvider */
+?>
 
+<?php
 $this->breadcrumbs=array(
-	$this->module->id,
+	'Catalog Items',
 );
 
 $this->menu=array(
-  array('label'=>'Manage Catalog Group','url'=>array('/catalog/admin/catalogGroup/admin')),
+	array('label'=>'Create CatalogItems','url'=>array('create')),
+	array('label'=>'Manage CatalogItems','url'=>array('admin')),
 );
-
 ?>
-<h1><?php echo $this->uniqueId . '/' . $this->action->id; ?></h1>
 
-<p>
-This is the view content for action "<?php echo $this->action->id; ?>".
-The action belongs to the controller "<?php echo get_class($this); ?>"
-in the "<?php echo $this->module->id; ?>" module.
-</p>
-<p>
-You may customize this page by editing <tt><?php echo __FILE__; ?></tt>
-</p>
+<h1>Catalog Items</h1>
+
+<?php $this->widget('bootstrap.widgets.TbListView',array(
+	'dataProvider'=>$dataProvider,
+	'itemView'=>'_view',
+)); ?>

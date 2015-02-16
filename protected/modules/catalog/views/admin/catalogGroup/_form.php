@@ -28,7 +28,7 @@
                 </div>
                 <div class="span3">
 
-                    <?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listCategory); ?>
+                    <?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listSelect); ?>
 
                 </div>
             </div>

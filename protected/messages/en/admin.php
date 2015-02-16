@@ -17,6 +17,7 @@ return array(
   'created' => 'Created',
   'updated' => 'Updated',
   'publish_date' => 'Publish Date',
+  'end_date' => 'End Date',
   'status' => 'Status',
   'layout' => 'Layout',
   'view' => 'View',
@@ -37,5 +38,12 @@ return array(
   'news' => 'News',
   'pages' => 'Pages',
   'sliders' => 'Sliders',
+
+  'items_group' => 'Items group',
+  'modification' => 'Modification',
+  'price' => 'Price',
+  'active' => 'Active',
+  'sorting' => 'Sorting',
+  'deleted' => 'Deleted',
 
 );
