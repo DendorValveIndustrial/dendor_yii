@@ -4,20 +4,12 @@
 <div class="row">
   <div class="span3">
     <div class="aside-sidebar">
-      <ul class="nav nav-list" role="navigation">
-        <li class="nav-header">Kategorie produktów</li>
-        <li><a href="#">Przepustnice</a></li>
-        <li><a href="#">Zasuwy</a></li>
-        <li><a href="#">Zawory zwrotne</a></li>
-        <li><a href="#">Zawory elektromagnetyczne</a></li>
-        <li><a href="#">Zawory bezpieczeństwa</a></li>
-        <li><a href="#">Filtry</a></li>
-        <li><a href="#">Kurki kulowe</a></li>
-        <li><a href="#">Napędy elektryczne</a></li>
-        <li><a href="#">Kompensatory</a></li>
-        <li><a href="#">Kształtki</a></li>
-        <li><a href="#">Akcesoria</a></li>
-      </ul>
+      <?php
+        $this->widget('bootstrap.widgets.TbNav', array(
+          'type' => TbHtml::NAV_TYPE_LIST,
+          'items' => CatalogGroup::model()->getListMenu(Yii::t('app','productions'))
+        ));
+      ?>
     </div>
   </div>
   <div class="span9">

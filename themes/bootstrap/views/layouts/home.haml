@@ -18,8 +18,9 @@
                 :php
                   $this->widget('zii.widgets.CMenu',array(
                     'items'=>array(
-                      array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
+                      //array('label'=>Yii::t('app', 'home'), 'url'=>array('/site/index')),
                       array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
+                      array('label'=>Yii::t('app', 'production'), 'url'=>array('/catalog/catalog/index')),
                       array('label'=>Yii::t('app', 'news'), 'url'=> array('/news/news/index')),
                       array('label'=>Yii::t('app', 'contact'), 'url'=>array('site/contact')),
                       array('label'=>Yii::t('app', 'admin').' ('.Yii::app()->user->name.')', 'url'=>array('admin/default/index'), 'visible'=>!Yii::app()->user->isGuest)

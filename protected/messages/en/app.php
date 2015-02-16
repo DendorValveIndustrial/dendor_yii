@@ -12,6 +12,9 @@ return array(
   'admin'=>'Admin',
   'page' => 'Page',
 
+  'productions'=>'Productions',
+  'production'=>'Production',
+
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.',
   'NAME' => 'Name',
   'EMAIL' => 'Email',

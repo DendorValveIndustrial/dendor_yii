@@ -12,6 +12,10 @@ return array(
   'admin'=>'Admin',
   'page' => 'Strona',
 
+  'productions'=>'Kategorie produktów',
+  'production'=>'Oferta',
+
+
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
   'NAME' => 'Name', //en
   'EMAIL' => 'Email', //en

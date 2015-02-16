@@ -12,6 +12,9 @@ return array(
   'admin'=>'Админ',
   'page' => 'Страница',
 
+  'productions'=>'Продукция',
+  'production'=>'Продукция',
+
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',
   'EMAIL' => 'Email',

@@ -231,10 +231,10 @@ class CatalogGroup extends CActiveRecord
 	}
 
 	/**
-	 * Get list to form object on front
+	 * Get list on select to form object on front
 	 * @return array
 	 */
-	public function getListCategory()
+	public function getListSelect()
 	{
 		$this->_list[0]='...';
 
@@ -243,6 +243,32 @@ class CatalogGroup extends CActiveRecord
 			$this->_list[$oCategory->id]=$oCategory->name;
 		}
 		return $this->_list;
+	}
+
+	/**
+	 * Get list on menu to form object on front
+	 * @return array
+	 */
+	public function getListMenu($navHeader = null)
+	{
+		$aCategory = CatalogGroup::model()->findAll();
+
+		if (!is_null($navHeader))
+			$this->_list[0] = array('label'=>$navHeader);
+
+		foreach ($aCategory as $oCategory) {
+			$this->_list[] = array('label'=>$oCategory->name, 'url'=>Yii::app()->createUrl('catalog/catalog/list', array('group'=>$oCategory->url)));
+		}
+		return $this->_list;
+	}
+
+	/**
+	 * Get url to view object on front
+	 * @return string
+	 */
+	public function getViewUrl()
+	{
+		return urldecode(Yii::app()->createUrl('catalog/catalog/list', array('group'=>$this->url)));
 	}
 
 }

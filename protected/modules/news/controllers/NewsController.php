@@ -6,7 +6,7 @@ class NewsController extends BaseModuleController
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='column2';
+	public $layout='//layouts/news/column2';
 
 	/**
 	 * @return array action filters
@@ -77,7 +77,7 @@ class NewsController extends BaseModuleController
 		$model = News::model()->withUrl($url)->find();
 		$category = NewsCategory::model()->findByPk($model->category_id);
 
-		$this->layout = 'column1';
+		$this->layout = '//layouts/news/column1';
 		$this->render('view',array(
 			'model'=>$model,
 			'category'=>$category,
