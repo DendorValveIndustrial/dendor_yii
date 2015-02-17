@@ -23,7 +23,7 @@
 						<?php echo $form->dropDownListControlGroup($model, 'category_id', NewsCategory::model()->listCategory); ?>
 					</div>
 					<div class="span3">
-						<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('news/newsCategory/create')); ?>
+						<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('/news/admin/newsCategory/create')); ?>
 					</div>
 				</div>
 				<?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>

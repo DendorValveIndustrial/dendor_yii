@@ -51,8 +51,6 @@
 
                     <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>2)); ?>
 
-                    <?php //echo $form->checkBoxControlGroup($model,'deleted'); ?>
-
                     <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>2)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'meta_title',array('span'=>12,'maxlength'=>255)); ?>

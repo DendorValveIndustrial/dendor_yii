@@ -1,7 +1,7 @@
 <?php
 
-// Yii::import('application.modules.news.models.CatalogItemsTranslate');
-// Yii::import('application.modules.news.models.CatalogGroup');
+Yii::import('application.modules.catalog.models.CatalogItemsTranslate');
+Yii::import('application.modules.catalog.models.CatalogGroup');
 
 /**
  * This is the model class for table "CatalogItems".
@@ -79,7 +79,7 @@ class CatalogItems extends CActiveRecord
 			array('url, image', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>12),
 			array('created, publish, end_date', 'safe'),
-			array('name, url', 'required'),
+			array('name, url, group_id', 'required'),
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
@@ -227,17 +227,20 @@ class CatalogItems extends CActiveRecord
 	 */
 	public function beforeSave()
 	{
-		if(!$this->created && $this->isNewRecord)
+		if(empty($this->created) && $this->isNewRecord)
 			$this->created = date('Y-m-d H:i:s');
 
-		if(!$this->publish && $this->isNewRecord)
+		if(empty($this->publish) && $this->isNewRecord)
 			$this->publish = date('Y-m-d H:i:s');
 
-		if($this->meta_title === '')
+		if(empty($this->meta_title))
 			$this->meta_title = $this->name;
 
-		if($this->meta_description === '')
+		if(empty($this->meta_description) && !empty($this->short_description))
 			$this->meta_description = substr($this->short_description, 0, 120);
+
+		if(empty($this->modification_id))
+			$this->modification_id = 0;
 
 		return parent::beforeSave();
 	}

@@ -1,5 +1,7 @@
 <?php
 
+Yii::import('application.modules.catalog.models.CatalogGroupTranslate');
+
 /**
  * This is the model class for table "CatalogGroup".
  *

@@ -10,8 +10,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CatalogItems', 'url'=>array('index')),
-	array('label'=>'Manage CatalogItems', 'url'=>array('admin')),
+  array('label'=>'Catalog Items'),
+	array('label'=>'List Items', 'url'=>array('admin')),
+  array('label'=>'Catalog Group'),
+  array('label'=>'List Group', 'url'=>array('/catalog/admin/catalogGroup/admin')),
 );
 ?>
 
