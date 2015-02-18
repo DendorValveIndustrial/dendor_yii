@@ -11,10 +11,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CatalogItems', 'url'=>array('index')),
-	array('label'=>'Create CatalogItems', 'url'=>array('create')),
-	array('label'=>'View CatalogItems', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage CatalogItems', 'url'=>array('admin')),
+  array('label'=>'Catalog Items'),
+  array('label'=>'Create', 'url'=>array('create')),
+  array('label'=>'View', 'url'=>array('view', 'id'=>$model->id)),
+  array('label'=>'Manage', 'url'=>array('admin')),
+	array('label'=>'Catalog Group'),
+	array('label'=>'Manage', 'url'=>array('/catalog/admin/catalogGroup/admin')),
 );
 ?>
 

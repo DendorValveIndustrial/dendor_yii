@@ -27,9 +27,7 @@
 
                 </div>
                 <div class="span3">
-
                     <?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listSelect); ?>
-
                 </div>
             </div>
             <div class="line line-dotted"></div>
