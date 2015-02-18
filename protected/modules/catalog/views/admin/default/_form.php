@@ -6,12 +6,12 @@
 
 <div class="form">
 
-		<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-	'id'=>'catalog-items-form',
-	'enableAjaxValidation'=>false,
+	<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+		'id'=>'catalog-items-form',
+		'enableAjaxValidation'=>false,
 		'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
 		'htmlOptions'=>array('enctype'=>'multipart/form-data'),
-)); ?>
+	)); ?>
 
 		<?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
 

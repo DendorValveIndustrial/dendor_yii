@@ -33,7 +33,8 @@ class CatalogGroupController extends BaseAdminController
 			$model->attributes=$_POST['CatalogGroup'];
 
 			if($model->validate())
-				$dir = $dir.DIRECTORY_SEPARATOR.$model->url;
+				$model->upload_path = $model->url;
+				$dir = $dir.DIRECTORY_SEPARATOR.$model->upload_path;
 			$this->createDir($dir);
 
 			$model->img = CUploadedFile::getInstance($model,'img');
@@ -158,6 +159,22 @@ class CatalogGroupController extends BaseAdminController
 		}
 		return $model;
 	}
+
+  public function getUploadPath($group_id)
+  {
+    $path = Yii::getPathOfAlias('webroot.upload.catalog');
+
+    $oGroup = CatalogGroup::model()
+      ->findByPk($group_id);
+    if($oGroup===null)
+      throw new CHttpException(404,'The requested page does not exist.');
+
+    if(!empty($oGroup->upload_path))
+      $path .= DIRECTORY_SEPARATOR.$oGroup->upload_path.DIRECTORY_SEPARATOR;
+
+    return $path;
+  }
+
 
 	/**
 	 * Performs the AJAX validation.

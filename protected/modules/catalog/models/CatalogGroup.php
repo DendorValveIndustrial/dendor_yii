@@ -13,6 +13,7 @@ Yii::import('application.modules.catalog.models.CatalogGroupTranslate');
  * @property integer $active
  * @property integer $sorting
  * @property integer $page_size
+ * @property integer $upload_path
  * @property integer $deleted
  *
  * The followings are the available columns in table 'CatalogGroupTranslate':
@@ -89,7 +90,7 @@ class CatalogGroup extends CActiveRecord
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('parent_id, active, sorting, page_size, deleted', 'numerical', 'integerOnly'=>true),
-			array('name, meta_title, meta_description, meta_keywords, image, url', 'length', 'max'=>255),
+			array('name, meta_title, meta_description, meta_keywords, image, url, upload_path', 'length', 'max'=>255),
 			array('description', 'safe'),
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
@@ -124,10 +125,11 @@ class CatalogGroup extends CActiveRecord
 			'image' => Yii::t('admin', 'image'),
 			'img' => Yii::t('admin', 'image'),
 			'url' => Yii::t('admin', 'url'),
-			'active' => 'Active',
-			'sorting' => 'Sorting',
+			'active' => Yii::t('admin', 'active'),
+			'sorting' => Yii::t('admin', 'sorting'),
 			'page_size' =>  Yii::t('admin', 'page_size'),
-			'deleted' => 'Deleted',
+			'upload_path' =>  Yii::t('admin', 'upload_path'),
+			'deleted' => Yii::t('admin', 'deleted'),
 			//CatalogGroupTranslate
 			'name' => Yii::t('admin', 'title'),
 			'description' => Yii::t('admin', 'description'),

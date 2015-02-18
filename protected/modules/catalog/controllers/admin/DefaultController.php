@@ -133,6 +133,21 @@ class DefaultController extends BaseAdminController
       ->find();
   }
 
+  public function getUploadPath($group_id)
+  {
+    $path = Yii::getPathOfAlias('webroot.upload.catalog');
+
+    $oGroup = CatalogGroup::model()
+      ->findByPk($group_id);
+    if($oGroup===null)
+      throw new CHttpException(404,'The requested page does not exist.');
+
+    if(!empty($oGroup->upload_path))
+      $path .= DIRECTORY_SEPARATOR.$oGroup->upload_path.DIRECTORY_SEPARATOR;
+
+    return $path;
+  }
+
   /**
    * Performs the AJAX validation.
    * @param CatalogItems $model the model to be validated

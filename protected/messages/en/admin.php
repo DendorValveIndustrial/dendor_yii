@@ -23,6 +23,7 @@ return array(
   'view' => 'View',
   'image' => 'Image',
   'page_size' => 'Page size',
+  'upload_path' => 'Upload dir',
   'new_category' => 'New category',
   'fields_required'=>'Fields with <span class="required">*</span> are required.',
   'published'=>'Published',

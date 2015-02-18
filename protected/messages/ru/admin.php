@@ -23,6 +23,7 @@ return array(
   'view' => 'Шаблон',
   'image' => 'Изображение',
   'page_size' => 'Записей на странице',
+  'upload_path' => 'Директория загрузки',
   'new_category' => 'Новая категория',
   'fields_required'=>'Поля, отмеченные <span class="required">*</span> обязательны к заполнению.',
   'published'=>'Опубликован',
