@@ -22,41 +22,34 @@
         <?php echo $form->errorSummary($model); ?>
             <div class="row-fluid">
                 <div class="span6">
-
                     <?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
-
+                    <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
+                    <div class="row-fluid">
+                        <div class="span6"><?php echo $form->fileFieldControlGroup($model,'img') ?></div>
+                        <div class="span6"><?php echo $form->textFieldControlGroup($model,'upload_path',array('span'=>12,'maxlength'=>255)); ?></div>
+                    </div>
                 </div>
                 <div class="span3">
                     <?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listSelect); ?>
+                    <br>
+                    <?php echo $form->checkBoxControlGroup($model, 'active'); ?>
+                </div>
+                <div class="span3">
+                    <?php if($model->image) echo TbHtml::imagePolaroid($this->getUploadPath($model->id).$model->image, $model->name); ?>
+                    <?php //echo $this->getUploadPath($model->id); ?>
                 </div>
             </div>
-            <div class="line line-dotted"></div>
+            <hr>
             <div class="row-fluid">
                 <div class="span6">
-
-                    <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
-
                     <?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
-
-                    <?php echo $form->textFieldControlGroup($model,'image',array('span'=>12,'maxlength'=>255)); ?>
-
-                    <?php echo $form->fileFieldControlGroup($model,'img') ?>
-
+                    <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>2)); ?>
+                    <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>2)); ?>
                 </div>
                 <div class="span6">
-
-                    <?php echo $form->checkBoxControlGroup($model, 'active'); ?>
-
-                    <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>2)); ?>
-
-                    <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>2)); ?>
-
+                    <?php echo $form->textAreaControlGroup($model,'meta_description',array('rows'=>6,'span'=>12,'maxlength'=>255)); ?>
                     <?php echo $form->textFieldControlGroup($model,'meta_title',array('span'=>12,'maxlength'=>255)); ?>
-
-                    <?php echo $form->textFieldControlGroup($model,'meta_description',array('span'=>12,'maxlength'=>255)); ?>
-
                     <?php echo $form->textFieldControlGroup($model,'meta_keywords',array('span'=>12,'maxlength'=>255)); ?>
-
                 </div>
             </div>
 

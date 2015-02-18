@@ -162,7 +162,7 @@ class CatalogGroupController extends BaseAdminController
 
   public function getUploadPath($group_id)
   {
-    $path = Yii::getPathOfAlias('webroot.upload.catalog');
+    $path = Yii::app()->params['uploadPath'].'catalog';
 
     $oGroup = CatalogGroup::model()
       ->findByPk($group_id);
@@ -170,7 +170,7 @@ class CatalogGroupController extends BaseAdminController
       throw new CHttpException(404,'The requested page does not exist.');
 
     if(!empty($oGroup->upload_path))
-      $path .= DIRECTORY_SEPARATOR.$oGroup->upload_path.DIRECTORY_SEPARATOR;
+      $path .= '/'.$oGroup->upload_path.'/';
 
     return $path;
   }

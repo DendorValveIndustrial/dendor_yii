@@ -9,8 +9,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CatalogGroup', 'url'=>array('index')),
-	array('label'=>'Create CatalogGroup', 'url'=>array('create')),
+	array('label'=>'Catalog Group'),
+	array('label'=>'New catalog group', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -47,9 +47,22 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'parent_id',
-		'image',
+		array(
+			'name' => 'id',
+			'value' => '$data->id',
+			'htmlOptions' => array('class'=>'span1'),
+		),
+		array(
+			'name' => 'parent_id',
+			'value' => $model->getNameById($data->id)
+		),
+		'name',
+		array(
+			'type'=>'raw',
+			'name' => 'image',
+			'value' => 'CHtml::link($data->image, array(Yii::app()->params["uploadPath"]."catalog/".$data->upload_path."/".$data->image));',
+		),
+
 		'url',
 		'active',
 		'sorting',

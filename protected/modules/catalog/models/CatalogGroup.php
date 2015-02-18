@@ -229,6 +229,24 @@ class CatalogGroup extends CActiveRecord
 	}
 
 	/**
+	 * Get name CategoryGroup by ID form object on front
+	 * @return string
+	 */
+	public function getNameById($id)
+	{
+		$name = 'root';
+		if(!empty($id))
+		{
+			$this->getDbCriteria()->mergeWith(array(
+				'condition'=>'id=:id',
+				'params'=>array(':id'=>$id)
+			));
+			$name = $this->name;
+		}
+		return $name;
+	}
+
+	/**
 	 * Get list on select to form object on front
 	 * @return array
 	 */
