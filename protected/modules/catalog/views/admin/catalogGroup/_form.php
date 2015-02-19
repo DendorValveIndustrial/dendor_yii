@@ -24,19 +24,19 @@
                 <div class="span6">
                     <?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
                     <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
-                    <div class="row-fluid">
-                        <div class="span6"><?php echo $form->fileFieldControlGroup($model,'img') ?></div>
-                        <div class="span6"><?php echo $form->textFieldControlGroup($model,'upload_path',array('span'=>12,'maxlength'=>255)); ?></div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listSelect); ?>
-                    <br>
                     <?php echo $form->checkBoxControlGroup($model, 'active'); ?>
                 </div>
                 <div class="span3">
+                    <?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listSelect); ?>
+                    <?php
+                        if($this->action->id === 'create')
+                            echo $form->textFieldControlGroup($model,'upload_path',array('span'=>12,'maxlength'=>255));
+                    ?>
+                    <?php echo $form->fileFieldControlGroup($model,'img') ?>
+                </div>
+                <div class="span3 text-right">
+                    <br>
                     <?php if($model->image) echo TbHtml::imagePolaroid($this->getUploadPath($model->id).$model->image, $model->name); ?>
-                    <?php //echo $this->getUploadPath($model->id); ?>
                 </div>
             </div>
             <hr>

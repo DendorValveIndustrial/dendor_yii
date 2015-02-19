@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Catalog Group'),
-	array('label'=>'New catalog group', 'url'=>array('create')),
+	array('label'=>'Create', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
