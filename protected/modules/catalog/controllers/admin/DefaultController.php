@@ -26,8 +26,20 @@ class DefaultController extends BaseAdminController
 
     if (isset($_POST['CatalogItems'])) {
       $model->attributes=$_POST['CatalogItems'];
+
+      if($model->validate())
+        $dir = Yii::getPathOfAlias('webroot').CatalogGroup::model()->getUploadPath($model->group_id);
+
+      $model->img = CUploadedFile::getInstance($model,'img');
+      if($model->img)
+        $model->image = $model->img->getName();
+
       if ($model->save()) {
-        $this->redirect(array('view','id'=>$model->id));
+
+        if (is_object($model->img))
+          $model->img->saveAs($dir.$model->img->getName());
+
+        $this->redirect(array('update','id'=>$model->id));
       }
     }
 
@@ -50,8 +62,21 @@ class DefaultController extends BaseAdminController
 
     if (isset($_POST['CatalogItems'])) {
       $model->attributes=$_POST['CatalogItems'];
+
+      if($model->validate())
+        $dir = Yii::getPathOfAlias('webroot').CatalogGroup::model()->getUploadPath($model->group_id);
+      //var_dump(Yii::getPathOfAlias('webroot').$dir);
+
+      $model->img = CUploadedFile::getInstance($model,'img');
+      if($model->img)
+        $model->image = $model->img->getName();
+
       if ($model->save()) {
-        $this->redirect(array('view','id'=>$model->id));
+
+        if (is_object($model->img))
+          $model->img->saveAs($dir.$model->img->getName());
+
+        $this->redirect(array('update','id'=>$model->id));
       }
     }
 
@@ -124,13 +149,6 @@ class DefaultController extends BaseAdminController
     if($model===null)
       throw new CHttpException(404,'The requested page does not exist.');
     return $model;
-  }
-
-  public function loadCategoryModel($url)
-  {
-    return CatalogGroup::model()
-      ->withUrl($url)
-      ->find();
   }
 
   public function getUploadPath($group_id)

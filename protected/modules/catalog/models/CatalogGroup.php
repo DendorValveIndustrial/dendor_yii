@@ -86,7 +86,7 @@ class CatalogGroup extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, url', 'required'),
+			array('name, url, upload_path', 'required'),
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('parent_id, active, sorting, page_size, deleted', 'numerical', 'integerOnly'=>true),
@@ -195,6 +195,10 @@ class CatalogGroup extends CActiveRecord
 			Yii::import('ext.SlugHelper.SlugHelper');
 			$this->url = SlugHelper::run($this->name);
 		}
+
+		if (empty($this->upload_path))
+			$this->upload_path = $this->url;
+
 		return parent::beforeValidate();
 	}
 
@@ -277,6 +281,21 @@ class CatalogGroup extends CActiveRecord
 		}
 		return $this->_list;
 	}
+
+  public function getUploadPath($group_id)
+  {
+    $path = Yii::app()->params['uploadPath'].'catalog';
+
+    $oGroup = CatalogGroup::model()
+      ->findByPk($group_id);
+    if($oGroup===null)
+      throw new CHttpException(404, Yii::t('admin', 'Category not found'));
+
+    if(!empty($oGroup->upload_path))
+      $path .= '/'.$oGroup->upload_path.'/';
+
+    return $path;
+  }
 
 	/**
 	 * Get url to view object on front

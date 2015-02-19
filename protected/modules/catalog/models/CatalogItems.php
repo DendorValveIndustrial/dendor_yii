@@ -75,6 +75,7 @@ class CatalogItems extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('group_id, modification_id, active, sorting, deleted', 'numerical', 'integerOnly'=>true),
+			array('group_id', 'numerical', 'min'=>1),
 			array('short_description, full_description', 'type', 'type'=>'string'),
 			array('url, image', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>12),
@@ -94,12 +95,9 @@ class CatalogItems extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
-			//'catalogItemsTranslates' => array(self::HAS_MANY, 'CatalogItemsTranslate', 'object_id'),
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
-			'catalogGroup'=>array(self::BELONGS_TO, 'CatalogGroup', 'group_id'),
+			'group'=>array(self::BELONGS_TO, 'CatalogGroup', 'group_id'),
 		);
 	}
 
@@ -154,12 +152,6 @@ class CatalogItems extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
 	 *
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
@@ -275,7 +267,7 @@ class CatalogItems extends CActiveRecord
 			'published'=>array(
 				'condition'=>'active = :active',
 				'params'=>array(
-					':active'=>$this->active
+					':active'=>1,
 				),
 			),
 		);
@@ -315,4 +307,19 @@ class CatalogItems extends CActiveRecord
 
 		return $this;
 	}
+
+	/**
+	 * Get url to view object on front
+	 * @return string
+	 */
+	public function getViewUrl()
+	{
+		$data = array('url'=>$this->url);
+
+		if($this->group)
+			$data['group'] = $this->group->url;
+
+		return urldecode(Yii::app()->createUrl('catalog/catalog/view', $data));
+	}
+
 }

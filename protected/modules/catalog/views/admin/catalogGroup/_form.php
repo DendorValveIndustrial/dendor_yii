@@ -36,7 +36,7 @@
                 </div>
                 <div class="span3 text-right">
                     <br>
-                    <?php if($model->image) echo TbHtml::imagePolaroid($this->getUploadPath($model->id).$model->image, $model->name); ?>
+                    <?php if($model->image) echo TbHtml::imagePolaroid(CatalogGroup::model()->getUploadPath($model->id).$model->image, $model->name); ?>
                 </div>
             </div>
             <hr>

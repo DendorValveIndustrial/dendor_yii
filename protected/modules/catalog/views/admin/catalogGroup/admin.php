@@ -60,7 +60,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'type'=>'raw',
 			'name' => 'image',
-			'value' => 'CHtml::link($data->image, array(Yii::app()->params["uploadPath"]."catalog/".$data->upload_path."/".$data->image));',
+			'value' => 'CHtml::link($data->image, array(CatalogGroup::model()->getUploadPath($data->id)."/".$data->image));',
 		),
 
 		'url',

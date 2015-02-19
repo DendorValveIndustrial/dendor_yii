@@ -29,6 +29,7 @@ class CatalogModule extends CWebModule
 	public $urlRules = array(
 		'catalog' => array('catalog/catalog/index', 'urlSuffix'=>'.html'),
 		'<group>'=>array('catalog/catalog/list', 'urlSuffix'=>'.html'),
+		'<group>/<url>'=>array('catalog/catalog/view', 'urlSuffix'=>'.html'),
 		// 'catalog/<category:\w+>/<url>'=>array('catalog/catalog/view', 'urlSuffix'=>'.html'),
 		// 'catalog/<url>'=>array('catalog/catalog/view', 'urlSuffix'=>'.html')
 	);
