@@ -2,9 +2,19 @@
 /* @var $this NewsController */
 /* @var $data News */
 ?>
-<section>
+<section class="group-item">
 	<?php echo CHtml::tag('h2',array('class'=>'h2'),CHtml::link(CHtml::encode($data->name), $data->viewUrl)); ?>
-	<?php echo CHtml::tag('p',array(),CHtml::encode($data->short_description)); ?>
-  <?php echo CHtml::tag('p',array('class'=>'text-right'),CHtml::link(Yii::t('app','read_more').'...', $data->viewUrl)); ?>
+  <div class="row-fluid">
+    <div class="span4">
+      <div class="item-image img-hover text-center">
+        <?php echo CHtml::link(CHtml::image(CatalogGroup::model()->getUploadPath($data->group_id).$data->image), $data->viewUrl); ?>
+      </div>
+    </div>
+    <div class="span7 offset1">
+      <div class="main-features-item">
+
+      </div>
+    </div>
+  </div>
 </section>
 <div class="line line-dotted"></div>

@@ -8,10 +8,9 @@
       echo CHtml::metaTag($this->metaDescription, 'description');
       echo CHtml::metaTag($this->metaKeywords, 'keywords');
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
-    = Yii::app()->bootstrap->register()
-    %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/screen.css")/
-    /
-      %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/form.css")/
+    :php
+      Yii::app()->bootstrap->register();
+      Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/screen.css');
   %body#root
     .layout
       %header.header(role="banner")

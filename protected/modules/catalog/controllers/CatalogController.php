@@ -6,7 +6,7 @@ class CatalogController extends BaseModuleController
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/news/column2';
+	public $layout='//layouts/catalog/column2';
 
 	/**
 	 * @return array action filters
@@ -55,13 +55,22 @@ class CatalogController extends BaseModuleController
 			'group'=>$oGroup,
 			'pagination' => $pagination,
 		));
-
-		//$this->render('index');
 	}
 
+	/**
+	 * Displays a particular model.
+	 * @param string $url the Url of the model to be displayed
+	 */
 	public function actionView($url)
 	{
-		$this->render('index');
+		$model = CatalogItems::model()->withUrl($url)->find();
+		$group = CatalogGroup::model()->findByPk($model->group_id);
+
+		$this->layout = '//layouts/catalog/column1';
+		$this->render('view',array(
+			'model'=>$model,
+			'group'=>$group,
+		));
 	}
 
 	public function loadGroupModel($url_group)

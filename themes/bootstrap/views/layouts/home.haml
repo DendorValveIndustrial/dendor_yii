@@ -5,8 +5,9 @@
     %meta(http-equiv="Content-Language" content="#{Yii::app()->getLanguage()}")/
     %title= $this->pageTitle
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
-    = Yii::app()->bootstrap->register()
-    %link(rel="stylesheet" type="text/css" href=" #{Yii::app()->request->baseUrl}/css/home.css")/
+    :php
+      Yii::app()->bootstrap->register();
+      Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/home.css');
   %body#root
     .layout
       %header.header(role="banner")

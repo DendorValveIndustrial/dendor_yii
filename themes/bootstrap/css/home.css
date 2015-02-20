@@ -1,5 +1,5 @@
 /* $flag-sprite: sprite-map("flags/*", $position: 100%, $spacing: 5px, $repeat: no-repeat); */
-.h1 { color: #9D9D00; font-size: 24px; font-weight: normal; margin: 0 0 10px; }
+.h1 { color: #9D9D00; font-size: 24px; font-weight: normal; margin: 0 0 30px; }
 
 .h2 { font-size: 18px; font-weight: normal; line-height: inherit; margin-bottom: 15px; margin-top: 0; text-transform: none; }
 .h2 > a { text-decoration: none; color: #004480; }
@@ -29,10 +29,10 @@ html, body { height: 100%; }
 
 .footer { clear: both; position: relative; height: 70px; }
 
-body { background-image: url('/img/body_bg.png?1391258070'); background-position: top center; background-repeat: no-repeat; }
+body { background-image: url('/img/body_bg.png?1416006965'); background-position: top center; background-repeat: no-repeat; }
 @media (max-width: 767px) { body { padding: 0; } }
 
-.header { height: 450px; background-image: url('/img/body_bg.png?1391258070'); background-position: top center; background-repeat: no-repeat; background-color: #393185; -moz-box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px; -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px; box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px; margin-bottom: 45px; }
+.header { height: 450px; background-image: url('/img/body_bg.png?1416006965'); background-position: top center; background-repeat: no-repeat; background-color: #393185; -moz-box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px; -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px; box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px; margin-bottom: 45px; }
 .header .navbar .country > li > a { padding: 12.5px 6px 12.5px; }
 .header .head { margin-top: 65px; }
 .header .head .logo { margin: 30px 0; }

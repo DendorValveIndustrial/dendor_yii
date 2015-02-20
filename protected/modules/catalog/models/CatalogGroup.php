@@ -277,7 +277,11 @@ class CatalogGroup extends CActiveRecord
 			$this->_list[0] = array('label'=>$navHeader);
 
 		foreach ($aCategory as $oCategory) {
-			$this->_list[] = array('label'=>$oCategory->name, 'url'=>Yii::app()->createUrl('catalog/catalog/list', array('group'=>$oCategory->url)));
+			$this->_list[] = array(
+				'label'=>$oCategory->name,
+				'url'=>Yii::app()->createUrl('catalog/catalog/list', array('group'=>$oCategory->url)),
+				'htmlOptions' => array('class' => (Yii::app()->request->getParam('group') === $oCategory->url) ? 'disabled' : '',),
+			);
 		}
 		return $this->_list;
 	}
