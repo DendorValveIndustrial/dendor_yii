@@ -98,6 +98,10 @@ class CatalogItems extends CActiveRecord
 		return array(
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 			'group'=>array(self::BELONGS_TO, 'CatalogGroup', 'group_id'),
+			'property_values'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
+				'order'=>'property.sorting ASC',
+				'with'=>'property',
+			),
 		);
 	}
 
@@ -250,6 +254,18 @@ class CatalogItems extends CActiveRecord
 
 		return parent::beforeValidate();
 	}
+
+	protected function beforeDelete()
+	{
+		if (parent::beforeDelete())
+		{
+			foreach ($this->property_values as $val)
+				$val->delete();
+			return true;
+		}
+		return false;
+	}
+
 
 	public function defaultScope()
 	{

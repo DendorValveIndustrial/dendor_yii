@@ -1,6 +1,6 @@
 <?php
-/* @var $this NewsController */
-/* @var $data News */
+/* @var $this CatalogController */
+/* @var $data CatalogItems */
 ?>
 <section class="group-item">
 	<?php echo CHtml::tag('h2',array('class'=>'h2'),CHtml::link(CHtml::encode($data->name), $data->viewUrl)); ?>
