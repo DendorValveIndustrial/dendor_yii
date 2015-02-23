@@ -19,4 +19,4 @@ $this->menu=array(
 
 <h1>Create CatalogItems</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model, 'property'=>$properties)); ?>

@@ -1,5 +1,6 @@
 <?php
-
+Yii::import('application.modules.catalog.models.CatalogItems');
+Yii::import('application.modules.catalog.models.Property');
 /**
  * This is the model class for table "PropertyValue".
  *

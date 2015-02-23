@@ -24,6 +24,24 @@ class DefaultController extends BaseAdminController
     // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
 
+    $atts = Property::model()->findAll();
+
+    // Строим массив полей
+    $items = array();
+    foreach ($atts as $attr)
+    {
+      $items[$attr->id] = array(
+        'name'=>$attr->system_name,
+        'value'=>''
+      );
+    }
+
+    // Заполняем текущими значениями
+    $attValues = $model->property_values;
+    foreach ($attValues as $attValue)
+      $items[$attValue->property->id]['value'] = $attValue->value;
+
+
     if (isset($_POST['CatalogItems'])) {
       $model->attributes=$_POST['CatalogItems'];
 
@@ -45,6 +63,7 @@ class DefaultController extends BaseAdminController
 
     $this->render('create',array(
       'model'=>$model,
+      'properties'=>$items,
     ));
   }
 

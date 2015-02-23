@@ -9,8 +9,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CatalogItems', 'url'=>array('index')),
-	array('label'=>'Create CatalogItems', 'url'=>array('create')),
+	array('label'=>'Items'),
+	array('label'=>'Create New Item', 'url'=>array('create')),
+	array('label'=>'Groups'),
+	array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
+	array('label'=>'Property'),
+	array('label'=>'Manage Prperty', 'url'=>array('/catalog/admin/property/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

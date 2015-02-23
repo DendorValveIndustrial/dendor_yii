@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 18 2015 г., 02:58
+-- Время создания: Фев 24 2015 г., 02:51
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.3.29
 
@@ -76,13 +76,13 @@ CREATE TABLE IF NOT EXISTS `CatalogGroupTranslate` (
 
 INSERT INTO `CatalogGroupTranslate` (`id`, `object_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keywords`) VALUES
 (1, 1, 1, 'Przepustnice zwrotne', 'Przepustnice zwrotne znajdują szerokie zastosowanie ze względu na niskie koszty instalacji oraz swoją budowę umożliwiającą szczelność odcinania w obu kierunkach przepływu. Stosowanie przepustnic produkcji Dendor Valve Industrial pozwala zastąpić następujące elementy: zasuwy, zawory, kurki kulowe oraz inne urządzenia armatury zaporowo-regulacyjnej. Przepustnice te są wykonane z żeliwa i w zależności od średnicy są dostarczane w komplecie z dźwignią, kółkiem bądź napędem elektrycznym.', 'Przepustnice zwrotne', 'Przepustnice zwrotne znajdują szerokie zastosowanie ze względu na niskie koszty instalacji oraz swoją budowę umożli', ''),
-(2, 1, 2, 'Затворы дисковые', 'Наиболее распространенным видом запорной трубопроводной арматуры во всем мире является поворотный дисковый затвор. Преимущества этого изделия очевидны – это низкая стоимость монтажа и герметичное перекрытие потока в обоих направлениях. Дисковый затвор имеет минимум подвижных деталей, поэтому срок его службы значительно выше, чем у более сложных запорных систем. Дисковые поворотные затворы производства Dendor Valve Industrial с успехом заменяют задвижки, вентили, клапаны, шаровые краны и другие элементы запорно-регулирующей арматуры.', 'Затворы дисковые', 'Наиболее распространенным видом запорной трубопроводной армату', ''),
+(2, 1, 2, 'Затворы дисковые', 'Наиболее распространенным видом запорной трубопроводной арматуры во всем мире является поворотный дисковый затвор. Преимущества этого изделия очевидны – это низкая стоимость монтажа и герметичное перекрытие потока в обоих направлениях. Дисковый затвор имеет минимум подвижных деталей, поэтому срок его службы значительно выше, чем у более сложных запорных систем. Дисковые поворотные затворы производства Dendor Valve Industrial с успехом заменяют задвижки, вентили, клапаны, шаровые краны и другие элементы запорно-регулирующей арматуры.', 'Затворы дисковые', 'Затворы дисковые поворотные фланцевые производства Dendor Valve Industrial', ''),
 (3, 1, 3, 'Przepustnice zwrotne', 'Przepustnice zwrotne znajdują szerokie zastosowanie ze względu na niskie koszty instalacji oraz swoją budowę umożliwiającą szczelność odcinania w obu kierunkach przepływu. Stosowanie przepustnic produkcji Dendor Valve Industrial pozwala zastąpić następujące elementy: zasuwy, zawory, kurki kulowe oraz inne urządzenia armatury zaporowo-regulacyjnej. Przepustnice te są wykonane z żeliwa i w zależności od średnicy są dostarczane w komplecie z dźwignią, kółkiem bądź napędem elektrycznym.', 'Przepustnice zwrotne', 'Przepustnice zwrotne znajdują szerokie zastosowanie ze względu na niskie koszty instalacji oraz swoją budowę umożli', ''),
 (4, 2, 1, 'Zasuwy z żeliwa klinowe', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania przepływu czynników roboczych o dużej gęstości, emulsji oraz czynników roboczych będących proszkami i granulatami. Zasuwy te są szeroko wykorzystywane w sieciach kanalizacyjnych, oczyszczalniach ścieków, przemyśle wydobywczym, chemicznym, spożywczym, szczególnie wtedy, gdy nie jest wymagana dokładna regulacja przepływającego czynnika roboczego. Ze względu na swoją budowę umożliwiają odcinanie mediów zawierających części stałe.', 'Zasuwy z żeliwa klinowe', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania prze', ''),
-(5, 2, 2, 'Zasuwy z żeliwa klinowe', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania przepływu czynników roboczych o dużej gęstości, emulsji oraz czynników roboczych będących proszkami i granulatami. Zasuwy te są szeroko wykorzystywane w sieciach kanalizacyjnych, oczyszczalniach ścieków, przemyśle wydobywczym, chemicznym, spożywczym, szczególnie wtedy, gdy nie jest wymagana dokładna regulacja przepływającego czynnika roboczego. Ze względu na swoją budowę umożliwiają odcinanie mediów zawierających części stałe.', 'Zasuwy z żeliwa klinowe', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania prze', ''),
+(5, 2, 2, 'Задвижки клиновые', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania przepływu czynników roboczych o dużej gęstości, emulsji oraz czynników roboczych będących proszkami i granulatami. Zasuwy te są szeroko wykorzystywane w sieciach kanalizacyjnych, oczyszczalniach ścieków, przemyśle wydobywczym, chemicznym, spożywczym, szczególnie wtedy, gdy nie jest wymagana dokładna regulacja przepływającego czynnika roboczego. Ze względu na swoją budowę umożliwiają odcinanie mediów zawierających części stałe.', 'Zasuwy z żeliwa klinowe', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania prze', ''),
 (6, 2, 3, 'Zasuwy z żeliwa klinowe', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania przepływu czynników roboczych o dużej gęstości, emulsji oraz czynników roboczych będących proszkami i granulatami. Zasuwy te są szeroko wykorzystywane w sieciach kanalizacyjnych, oczyszczalniach ścieków, przemyśle wydobywczym, chemicznym, spożywczym, szczególnie wtedy, gdy nie jest wymagana dokładna regulacja przepływającego czynnika roboczego. Ze względu na swoją budowę umożliwiają odcinanie mediów zawierających części stałe.', 'Zasuwy z żeliwa klinowe', 'Oprócz zasuw klinowych oferta Dendor Valve Industrial zawiera zasuwy nożowe służące do regulacji lub zamykania prze', ''),
 (7, 3, 1, 'Zawory zwrotne', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku awarii pompy lub uszkodzeniu instalacji. Znajdują zastosowanie w: ciepłownictwie, energetyce, wodociągach i stacjach uzdatniania wody, przemyśle.', 'Zawory zwrotne', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku ', ''),
-(8, 3, 2, 'Zawory zwrotne', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku awarii pompy lub uszkodzeniu instalacji. Znajdują zastosowanie w: ciepłownictwie, energetyce, wodociągach i stacjach uzdatniania wody, przemyśle.', 'Zawory zwrotne', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku ', ''),
+(8, 3, 2, 'Обратные клапаны', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku awarii pompy lub uszkodzeniu instalacji. Znajdują zastosowanie w: ciepłownictwie, energetyce, wodociągach i stacjach uzdatniania wody, przemyśle.', 'Обратные клапаны', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku ', ''),
 (9, 3, 3, 'Zawory zwrotne', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku awarii pompy lub uszkodzeniu instalacji. Znajdują zastosowanie w: ciepłownictwie, energetyce, wodociągach i stacjach uzdatniania wody, przemyśle.', 'Zawory zwrotne', 'Zawory zwrotne przeznaczone są do zabezpieczenia instalacji przed strumieniem powrotnym czynnika roboczego w przypadku ', '');
 
 -- --------------------------------------------------------
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `CatalogItems` (
 --
 
 INSERT INTO `CatalogItems` (`id`, `group_id`, `modification_id`, `created`, `publish`, `end_date`, `url`, `image`, `price`, `active`, `sorting`, `deleted`) VALUES
-(1, 1, 0, '2015-02-18 01:28:19', '2015-02-18 01:28:19', '0000-00-00 00:00:00', '017w', '', '0.00', 1, 0, 0);
+(1, 1, 0, '2015-02-18 01:28:19', '2015-02-18 01:28:19', '0000-00-00 00:00:00', '017w', '017w.jpg', '0.00', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -146,32 +146,6 @@ INSERT INTO `CatalogItemsTranslate` (`id`, `object_id`, `language_id`, `name`, `
 (1, 1, 1, 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', NULL, 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet prze'),
 (2, 1, 2, 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', NULL, 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet prze'),
 (3, 1, 3, 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', NULL, 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet prze');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `languages`
---
-
-CREATE TABLE IF NOT EXISTS `languages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(6) NOT NULL,
-  `locale` varchar(6) NOT NULL,
-  `default` tinyint(1) NOT NULL DEFAULT '1',
-  `img_flag` varchar(255) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Дамп данных таблицы `languages`
---
-
-INSERT INTO `languages` (`id`, `name`, `code`, `locale`, `default`, `img_flag`, `active`) VALUES
-(1, 'Poland', 'pl', 'pl_PL', 1, 'pl.gif', 1),
-(2, 'Русский', 'ru', 'ru_RU', 0, 'ru.gif', 1),
-(3, 'English', 'en', 'en_US', 0, 'en.gif', 1);
 
 -- --------------------------------------------------------
 
@@ -379,6 +353,48 @@ INSERT INTO `PageTranslate` (`id`, `object_id`, `language_id`, `title`, `short_d
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `Property`
+--
+
+CREATE TABLE IF NOT EXISTS `Property` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `system_name` varchar(255) DEFAULT '',
+  `type` tinyint(4) DEFAULT '1',
+  `inshort` tinyint(1) DEFAULT '1',
+  `required` tinyint(1) DEFAULT '0',
+  `sorting` smallint(6) DEFAULT '0',
+  `deleted` tinyint(1) DEFAULT '0',
+  `name` varchar(255) DEFAULT '',
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `Property`
+--
+
+INSERT INTO `Property` (`id`, `system_name`, `type`, `inshort`, `required`, `sorting`, `deleted`, `name`, `description`) VALUES
+(1, 'dn', 1, 1, 0, 0, 0, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `PropertyValue`
+--
+
+CREATE TABLE IF NOT EXISTS `PropertyValue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `property_id` int(11) NOT NULL,
+  `entity_id` int(11) NOT NULL,
+  `value` text,
+  PRIMARY KEY (`id`),
+  KEY `property_id` (`property_id`),
+  KEY `entity_id` (`entity_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `slider`
 --
 
@@ -481,6 +497,12 @@ ALTER TABLE `NewsCategoryTranslate`
 --
 ALTER TABLE `NewsTranslate`
   ADD CONSTRAINT `news_translate` FOREIGN KEY (`object_id`) REFERENCES `News` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `PropertyValue`
+--
+ALTER TABLE `PropertyValue`
+  ADD CONSTRAINT `property_value` FOREIGN KEY (`property_id`) REFERENCES `Property` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `slider_translates`
