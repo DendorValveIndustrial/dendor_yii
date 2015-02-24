@@ -21,6 +21,11 @@ Yii::import('application.modules.catalog.models.PropertyValue');
 class Property extends CActiveRecord
 {
 	/**
+	 * @var array
+	 */
+	private $_list = array();
+
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -118,4 +123,20 @@ class Property extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+		/**
+	 * Get list on select to form object on front
+	 * @return array
+	 */
+	public function getListSelect()
+	{
+		$this->_list[0]='...';
+
+		$aProperty = Property::model()->findAll();
+		foreach ($aProperty as $oProperty) {
+			$this->_list[$oProperty->id]=$oProperty->system_name;
+		}
+		return $this->_list;
+	}
+
 }

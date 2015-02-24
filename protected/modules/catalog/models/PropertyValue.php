@@ -32,6 +32,7 @@ class PropertyValue extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('property_id, entity_id', 'required'),
+			array('property_id', 'numerical', 'min'=>1),
 			array('property_id, entity_id', 'numerical', 'integerOnly'=>true),
 			array('value', 'safe'),
 			// The following rule is used by search().
@@ -48,7 +49,7 @@ class PropertyValue extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'catlog_item' => array(self::BELONGS_TO, 'CatalogItems', 'entity_id'),
+			'catalog_item' => array(self::BELONGS_TO, 'CatalogItems', 'entity_id'),
 			'property' => array(self::BELONGS_TO, 'Property', 'property_id'),
 		);
 	}

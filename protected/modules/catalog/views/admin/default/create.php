@@ -10,13 +10,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-  array('label'=>'Catalog Items'),
-	array('label'=>'List Items', 'url'=>array('admin')),
-  array('label'=>'Catalog Group'),
-  array('label'=>'List Group', 'url'=>array('/catalog/admin/catalogGroup/admin')),
+  array('label'=>'Items'),
+  array('label'=>'Create New Item', 'url'=>array('create')),
+  array('label'=>'Groups'),
+  array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
+  array('label'=>'Property'),
+  array('label'=>'Manage Prperty', 'url'=>array('/catalog/admin/property/admin')),
 );
 ?>
 
-<h1>Create CatalogItems</h1>
+<h1>Create Catalog Item</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model, 'property'=>$properties)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model, 'properties'=>$properties)); ?>

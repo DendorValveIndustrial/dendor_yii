@@ -1,7 +1,19 @@
 <?php
 
-class PropertyController extends BaseAdminController
+class PropertyValueController extends BaseAdminController
 {
+
+	/**
+	 * @return array action filters
+	 */
+	/*public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
+		);
+	}*/
+
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -17,15 +29,19 @@ class PropertyController extends BaseAdminController
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id)
 	{
-		$model=new Property;
+		$model=new PropertyValue;
+
+		$item = CatalogItems::model()->findByPk($id);
+		if ($item===null)
+			throw new CHttpException(404,'Товар не найден.');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['Property'])) {
-			$model->attributes=$_POST['Property'];
+		if (isset($_POST['PropertyValue'])) {
+			$model->attributes=$_POST['PropertyValue'];
 			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->id));
 			}
@@ -33,6 +49,7 @@ class PropertyController extends BaseAdminController
 
 		$this->render('create',array(
 			'model'=>$model,
+			'item'=>$item,
 		));
 	}
 
@@ -48,8 +65,8 @@ class PropertyController extends BaseAdminController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['Property'])) {
-			$model->attributes=$_POST['Property'];
+		if (isset($_POST['PropertyValue'])) {
+			$model->attributes=$_POST['PropertyValue'];
 			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->id));
 			}
@@ -85,7 +102,7 @@ class PropertyController extends BaseAdminController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Property');
+		$dataProvider=new CActiveDataProvider('PropertyValue');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -96,10 +113,10 @@ class PropertyController extends BaseAdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new Property('search');
+		$model=new PropertyValue('search');
 		$model->unsetAttributes();  // clear any default values
-		if (isset($_GET['Property'])) {
-			$model->attributes=$_GET['Property'];
+		if (isset($_GET['PropertyValue'])) {
+			$model->attributes=$_GET['PropertyValue'];
 		}
 
 		$this->render('admin',array(
@@ -111,12 +128,12 @@ class PropertyController extends BaseAdminController
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Property the loaded model
+	 * @return PropertyValue the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Property::model()->findByPk($id);
+		$model=PropertyValue::model()->findByPk($id);
 		if ($model===null) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
@@ -125,11 +142,11 @@ class PropertyController extends BaseAdminController
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Property $model the model to be validated
+	 * @param PropertyValue $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if (isset($_POST['ajax']) && $_POST['ajax']==='property-form') {
+		if (isset($_POST['ajax']) && $_POST['ajax']==='property-value-form') {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}

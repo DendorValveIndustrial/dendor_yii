@@ -1,20 +1,16 @@
 <?php
-/* @var $this CatalogItemsController */
-/* @var $model CatalogItems */
+/* @var $this PropertyValueController */
+/* @var $model PropertyValue */
 
 
 $this->breadcrumbs=array(
-	'Catalog Items'=>array('index'),
+	'Property Values'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'Items'),
-	array('label'=>'Create New Item', 'url'=>array('create')),
-	array('label'=>'Groups'),
-	array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
-	array('label'=>'Property'),
-	array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
+	array('label'=>'List PropertyValue', 'url'=>array('index')),
+	array('label'=>'Create PropertyValue', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +19,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#catalog-items-grid').yiiGridView('update', {
+	$('#property-value-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -31,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Catalog Items</h1>
+<h1>Manage Property Values</h1>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -47,24 +43,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'catalog-items-grid',
+	'id'=>'property-value-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'group_id',
-		'modification_id',
-		'created',
-		'publish',
-		'end_date',
-		/*
-		'url',
-		'image',
-		'price',
-		'active',
-		'sorting',
-		'deleted',
-		*/
+		'property_id',
+		'entity_id',
+		'value',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

@@ -24,24 +24,7 @@ class DefaultController extends BaseAdminController
     // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
 
-    $atts = Property::model()->findAll();
-
-    // Строим массив полей
-    $items = array();
-    foreach ($atts as $attr)
-    {
-      $items[$attr->id] = array(
-        'name'=>$attr->system_name,
-        'value'=>''
-      );
-    }
-
-    // Заполняем текущими значениями
-    $attValues = $model->property_values;
-    foreach ($attValues as $attValue)
-      $items[$attValue->property->id]['value'] = $attValue->value;
-
-
+    //var_dump($_POST);
     if (isset($_POST['CatalogItems'])) {
       $model->attributes=$_POST['CatalogItems'];
 
@@ -63,7 +46,6 @@ class DefaultController extends BaseAdminController
 
     $this->render('create',array(
       'model'=>$model,
-      'properties'=>$items,
     ));
   }
 
@@ -151,6 +133,35 @@ class DefaultController extends BaseAdminController
     ));
   }
 
+  public function actionProperty($id)
+  {
+    $model=$this->loadModel($id);
+    $propertyValues = new PropertyValue;
+
+    /*$aProperty = Property::model()->findAll();
+
+    // Строим массив полей
+    $properties = array();
+    foreach ($aProperty as $Property)
+    {
+      $properties[$Property->id] = array(
+        'property'=>$Property,
+        'value'=>''
+      );
+    }
+
+    // Заполняем текущими значениями
+    $aPropertyValues = $model->property_values;
+    foreach ($aPropertyValues as $property_values)
+      $properties[$property_values->property->id]['value'] = $property_values;*/
+
+
+    $this->render('property',array(
+      'model'=>$model,
+      'property'=>$propertyValues,
+    ));
+  }
+
   /**
    * Returns the data model based on the primary key given in the GET variable.
    * If the data model is not found, an HTTP exception will be raised.
@@ -191,7 +202,7 @@ class DefaultController extends BaseAdminController
    */
   protected function performAjaxValidation($model)
   {
-    if (isset($_POST['ajax']) && $_POST['ajax']==='catalog-items-form') {
+    if (isset($_POST['ajax']) && $_POST['ajax']==='catalog-properties-form') {
       echo CActiveForm::validate($model);
       Yii::app()->end();
     }

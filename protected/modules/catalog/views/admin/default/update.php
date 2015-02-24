@@ -13,10 +13,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
   array('label'=>'Catalog Items'),
   array('label'=>'Create', 'url'=>array('create')),
+  array('label'=>'Property', 'url'=>array('/catalog/admin/propertyValue/create', 'id'=>$model->id)),
   array('label'=>'View', 'url'=>array('view', 'id'=>$model->id)),
   array('label'=>'Manage', 'url'=>array('admin')),
-	array('label'=>'Catalog Group'),
-	array('label'=>'Manage', 'url'=>array('/catalog/admin/catalogGroup/admin')),
+  array('label'=>'Catalog Group'),
+  array('label'=>'Manage', 'url'=>array('/catalog/admin/catalogGroup/admin')),
 );
 ?>
 

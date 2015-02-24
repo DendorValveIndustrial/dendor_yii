@@ -15,7 +15,7 @@
 
 		<?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
 
-		<?php echo $form->errorSummary($model); ?>
+		<?php echo $form->errorSummary($model, $property); ?>
 
 		<div class="row-fluid">
 			<div class="span10">
@@ -38,12 +38,11 @@
 			</div>
 		</div>
 		<div class="line line-dotted"></div>
-		<?php var_dump($property); ?>
 		<div class="row-fluid">
 			<?php
 				$this->widget('bootstrap.widgets.TbTabs', array(
 					'tabs' => array(
-						array('label' => Yii::t('admin', 'property'), 'content' =>TbHtml::textFieldControlGroup($property[1]['name'], $property[1]['value'], array('label' => $property[1]['name']))
+						array('label' => Yii::t('admin', 'property'), 'content' => ''//TbHtml::textFieldControlGroup($property[1]['name'], $property[1]['value'], array('label' => $property[1]['name']))
 							, 'htmlOptions'=>array('class'=>'pull-right')
 						),
 						array('label' => Yii::t('admin', 'additionally'), 'content' =>
