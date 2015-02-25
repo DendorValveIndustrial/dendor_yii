@@ -6,13 +6,14 @@ class PropertyValueController extends BaseAdminController
 	/**
 	 * @return array action filters
 	 */
-	/*public function filters()
+	public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
+			'ajaxOnly + field',
 		);
-	}*/
+	}
 
 	/**
 	 * Displays a particular model.
@@ -100,11 +101,38 @@ class PropertyValueController extends BaseAdminController
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public function actionIndex($id = 1)
 	{
-		$dataProvider=new CActiveDataProvider('PropertyValue');
+		$item = CatalogItems::model()->findByPk($id);
+		if ($item===null)
+			throw new CHttpException(404,'Товар не найден.');
+
+		$models = array();
+		if (!empty($_POST['PropertyValue'])) {
+			foreach ($_POST['PropertyValue'] as $propertyData){
+				$model = new PropertyValue();
+				$model->setAttributes($propertyData);
+				if($model->validate())
+					$models[] = $model;
+			}
+		}
+		if (!empty($models)) {
+
+		}
+		else
+			$models[] = new PropertyValue();
+
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'models'=>$models,
+			'item'=>$item,
+		));
+	}
+
+	public function actionField($index) {
+		$model = new PropertyValue();
+		$this->renderPartial('_property_value', array(
+			'model'=> $model,
+			'index'=> $index,
 		));
 	}
 
