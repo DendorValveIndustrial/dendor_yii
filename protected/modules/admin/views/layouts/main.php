@@ -24,21 +24,25 @@
         array(
           'class' => 'bootstrap.widgets.TbNav',
           'items' => array(
-            array('label'=>Yii::t('admin', 'web_app'), 'url'=>array('/site/index')),
-            array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest)),
+            array('url' => Yii::app()->createUrl('/catalog/admin/default/admin'), 'label' => Yii::t('admin','catalog')),
+            array('url' => Yii::app()->createUrl('/languages/admin/default/admin'), 'label' => Yii::t('admin','languages')),
+            array('url' => Yii::app()->createUrl('/news/admin/default'), 'label' => Yii::t('admin','news')),
+            array('url' => Yii::app()->createUrl('/pages/admin/default/admin'), 'label' => Yii::t('admin','pages')),
+            array('url' => Yii::app()->createUrl('/sliders/admin/default/admin'), 'label' => Yii::t('admin','sliders')),
           ),
         ),
-        /*array(
-          'class' => 'bootstrap.widgets.TbNav',
-          'items' => array(
-            array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest && !$this->menu)),
-          ),
-          'htmlOptions' => array('class' => 'pull-right'),
-        ),*/
         array(
           'class' => 'application.modules.languages.widgets.langSwitch.LangSwitchWidget',
           'url'=>$this->url,
           'htmlOptions' => array('class' => 'nav pull-right country'),
+        ),
+        array(
+          'class' => 'bootstrap.widgets.TbNav',
+          'items' => array(
+            array('label'=>Yii::t('admin', 'web_app'), 'url'=>array('/site/index')),
+            array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest && !$this->menu)),
+          ),
+          'htmlOptions' => array('class' => 'pull-right'),
         ),
       ),
       'htmlOptions' => array(

@@ -96,6 +96,24 @@ class PropertyValue extends CActiveRecord
 	}
 
 	/**
+	 * Filter items by entity_id.
+	 * Scope.
+	 * @param int $entity
+	 * @return PropertyValue
+	 */
+	public function filterByEntity($entity_id)
+	{
+
+		$this->getDbCriteria()->mergeWith(array(
+			'condition'=>'entity_id=:entity_id',
+			'params'=>array(':entity_id'=>$entity_id)
+		));
+
+		return $this;
+	}
+
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.

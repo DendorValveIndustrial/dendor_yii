@@ -9,10 +9,9 @@ class LangSwitchWidget extends CWidget {
    */
   public $htmlOptions = array();
 
-  /*public function init(){
-    $this->getUrl();
-    $this->getFlagImage();
-  }*/
+  public function init(){
+    $this -> publishAssets();
+  }
 
   public function run()
   {
@@ -48,12 +47,17 @@ class LangSwitchWidget extends CWidget {
     ));
   }
 
-  /*public function getUrl($ampersand = '&')
+  public function publishAssets()
   {
-    $object = Yii::app()->controller;
-    $result = Yii::app()->urlManager->createUrl($object->id.'/'.$object->action->id, $_GET, $ampersand, false);
-    return $result;
-  }*/
+    $assets = dirname(__FILE__) . '/assets';
+    $baseUrl = Yii::app() -> assetManager -> publish($assets);
+    if (is_dir($assets)) {
+      $cs = Yii::app()->clientScript;
+      $cs->registerCssFile($baseUrl.'/css/langswitch.css');
+    } else {
+        throw new CHttpException(500, __CLASS__ . ' - Error: Couldn\'t find assets to publish.');
+    }
+  }
 
   /**
    * Create flag image for lang

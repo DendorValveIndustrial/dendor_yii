@@ -8,28 +8,55 @@ $this->breadcrumbs=array(
 	'Property Values',
 );
 
-$this->menu=array(
+/*$this->menu=array(
 	array('label'=>'Create PropertyValue','url'=>array('create')),
 	array('label'=>'Manage PropertyValue','url'=>array('admin')),
-);
+);*/
 ?>
 
 <h1>Property Values</h1>
 
+<?php $this->widget('bootstrap.widgets.TbGridView',array(
+  'id'=>'property-value-grid',
+  'dataProvider'=>$model->search(),
+  'filter'=>$model,
+  'columns'=>array(
+    array(
+      'name' => 'id',
+      'value' => '$data->id',
+      'htmlOptions' => array('class'=>'span2'),
+    ),
+    array(
+      'name' => 'property_id',
+      'value' => '$data->property->system_name',
+      'htmlOptions' => array('class'=>'span3'),
+    ),
+    //'entity_id',
+    'value',
+    array(
+      'class'=>'bootstrap.widgets.TbButtonColumn',
+    ),
+  ),
+)); ?>
+<hr>
 <div class="form">
-  <?php echo CHtml::beginForm();?>
-  <ul class="property">
+  <?php echo TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_HORIZONTAL);?>
+  <div class="property">
     <?php
-      for($i=0; $i<count($models); $i++) {
+      for($i=0; $i<count($new_models); $i++) {
         $this->renderPartial('_property_value', array(
-          'model'=>$models[$i],
+          'model'=>$new_models[$i],
           'index'=>$i,
+          'item'=>$item,
         ));
       }
     ?>
-  </ul>
-  <div class="row buttons">
-    <?php echo CHtml::button('Добавить свойство', array('class'=>'add-property')); ?>
+  </div>
+  <div class="form-actions">
+    <?php echo TbHtml::button('Добавить свойство', array(
+      'class'=>'add-property',
+      'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
+    )); ?>
     <?php Yii::app()->clientScript->registerCoreScript("jquery"); ?>
     <script>
       $(".add-property").click(function(){
@@ -41,13 +68,16 @@ $this->menu=array(
           },
           type: 'get',
           url: '<?php echo $this->createUrl("field"); ?>',
-          data: { index: $(".property li").size() },
+          data: { index: $(".property .field").size() },
           cache: false,
           dataTipe: 'html'
         });
       });
     </script>
-    <?php echo CHtml::submitButton('Сохранить'); ?>
+    <?php echo TbHtml::submitButton('Сохранить',array(
+        //'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
+    )); ?>
+
   </div>
-  <?php echo CHtml::endForm(); ?>
+  <?php echo TbHtml::endForm(); ?>
 </div>

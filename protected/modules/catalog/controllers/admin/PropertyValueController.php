@@ -101,29 +101,37 @@ class PropertyValueController extends BaseAdminController
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex($id = 1)
+	public function actionIndex($item_id)
 	{
-		$item = CatalogItems::model()->findByPk($id);
+		$item = CatalogItems::model()->findByPk($item_id);
 		if ($item===null)
 			throw new CHttpException(404,'Товар не найден.');
 
-		$models = array();
+		$new_models = array();
 		if (!empty($_POST['PropertyValue'])) {
 			foreach ($_POST['PropertyValue'] as $propertyData){
 				$model = new PropertyValue();
 				$model->setAttributes($propertyData);
 				if($model->validate())
-					$models[] = $model;
+					$new_models[] = $model;
 			}
 		}
-		if (!empty($models)) {
-
+		if (!empty($new_models)) {
+			//Мы получили несколько валидных моделей
+			//Если надо сохранять, то это стоит делать здесь
 		}
 		else
-			$models[] = new PropertyValue();
+			$new_models[] = new PropertyValue();
+
+		$model = PropertyValue::model()->filterByEntity($item_id);
+		$model->unsetAttributes();  // clear any default values
+		if (isset($_GET['PropertyValue'])) {
+			$model->attributes=$_GET['PropertyValue'];
+		}
 
 		$this->render('index',array(
-			'models'=>$models,
+			'model'=>$model,
+			'new_models'=>$new_models,
 			'item'=>$item,
 		));
 	}
@@ -139,9 +147,9 @@ class PropertyValueController extends BaseAdminController
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionAdmin($item_id)
 	{
-		$model=new PropertyValue('search');
+		$model = PropertyValue::model()->filterByEntity($item_id);
 		$model->unsetAttributes();  // clear any default values
 		if (isset($_GET['PropertyValue'])) {
 			$model->attributes=$_GET['PropertyValue'];
