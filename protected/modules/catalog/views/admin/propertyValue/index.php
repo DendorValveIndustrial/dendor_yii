@@ -8,10 +8,10 @@ $this->breadcrumbs=array(
 	'Property Values',
 );
 
-/*$this->menu=array(
+$this->menu=array(
 	array('label'=>'Create PropertyValue','url'=>array('create')),
 	array('label'=>'Manage PropertyValue','url'=>array('admin')),
-);*/
+);
 ?>
 
 <h1>Property Values</h1>
