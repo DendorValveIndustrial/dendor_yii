@@ -29,7 +29,7 @@ $this->menu=array(
 		'id',
 		'system_name',
 		'type',
-		'inshort',
+		'main',
 		'required',
 		'sorting',
 		'deleted',

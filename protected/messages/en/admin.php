@@ -48,9 +48,11 @@ return array(
   'sorting' => 'Sorting',
   'deleted' => 'Deleted',
 
+  'dir_id' => 'Group of properties',
   'system_name' => 'System Name',
   'type' => 'Type',
   'required' => 'Required',
+  'main' => 'Main',
 
   'property_id' => 'Property',
   'property' => 'Property',

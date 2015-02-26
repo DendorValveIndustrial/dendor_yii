@@ -54,13 +54,17 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'system_name',
-		'type',
-		'inshort',
-		'required',
+		'name',
+		array(
+			'name' => 'type',
+			'value' => '$data->getTypeTitle($data->type)',
+		),
+
+		'main',
 		'sorting',
 		/*
+		'required',
 		'deleted',
-		'name',
 		'description',
 		*/
 		array(

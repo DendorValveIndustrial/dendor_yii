@@ -23,7 +23,7 @@
 
             <?php echo $form->textFieldControlGroup($model,'type',array('span'=>5)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'inshort',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'main',array('span'=>5)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'required',array('span'=>5)); ?>
 

@@ -48,9 +48,11 @@ return array(
   'sorting' => 'Сортировка',
   'deleted' => 'Удален',
 
+  'dir_id' => 'Группа свойств',
   'system_name' => 'Системное имя',
   'type' => 'Тип',
   'required' => 'Обязательно',
+  'main' => 'Основное',
 
   'property_id' => 'Свойство',
   'property' => 'Свойства товара',

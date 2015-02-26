@@ -17,8 +17,8 @@
 	<?php echo CHtml::encode($data->type); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('inshort')); ?>:</b>
-	<?php echo CHtml::encode($data->inshort); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('main')); ?>:</b>
+	<?php echo CHtml::encode($data->main); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('required')); ?>:</b>

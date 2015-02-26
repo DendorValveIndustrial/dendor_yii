@@ -47,9 +47,12 @@ return array(
   'active' => 'Aktywne',
   'sorting' => 'Sortowanie',
   'deleted' => 'Usunięte',
+
+  'dir_id' => 'Grupa właściwościach',
   'system_name' => 'Name System',
   'type' => 'Typ',
   'required' => 'Wymagany',
+  'main' => 'Główny',
 
   'property_id' => 'Nieruchomości',
   'property' => 'Nieruchomości',

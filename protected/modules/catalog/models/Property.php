@@ -6,9 +6,10 @@ Yii::import('application.modules.catalog.models.PropertyValue');
  *
  * The followings are the available columns in table 'Property':
  * @property integer $id
+ * @property integer $dir_id
  * @property string $system_name
  * @property integer $type
- * @property integer $inshort
+ * @property integer $main
  * @property integer $required
  * @property integer $sorting
  * @property integer $deleted
@@ -21,6 +22,11 @@ Yii::import('application.modules.catalog.models.PropertyValue');
  */
 class Property extends CActiveRecord
 {
+
+	const TYPE_TEXT				= 1;
+	const TYPE_TEXTAREA		= 2;
+	const TYPE_FILE				= 3;
+
 	/**
 	 * Translate-table
 	 */
@@ -53,12 +59,12 @@ class Property extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('type, inshort, required, sorting, deleted', 'numerical', 'integerOnly'=>true),
+			array('dir_id, type, main, required, sorting, deleted', 'numerical', 'integerOnly'=>true),
 			array('system_name, name', 'length', 'max'=>255),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, system_name, type, inshort, required, sorting, deleted, name, description', 'safe', 'on'=>'search'),
+			array('id, system_name, type, main, required, sorting, deleted, name, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -82,9 +88,10 @@ class Property extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'dir_id' => Yii::t('admin', 'dir_id'),
 			'system_name' => Yii::t('admin', 'system_name'),
 			'type' => Yii::t('admin', 'type'),
-			'inshort' => Yii::t('admin', 'inshort'),
+			'main' => Yii::t('admin', 'main'),
 			'required' => Yii::t('admin', 'required'),
 			'sorting' => Yii::t('admin', 'sorting'),
 			'deleted' => Yii::t('admin', 'deleted'),
@@ -114,9 +121,10 @@ class Property extends CActiveRecord
 		$criteria->with = array('translate');
 
 		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.dir_id',$this->dir_id);
 		$criteria->compare('t.system_name',$this->system_name,true);
 		$criteria->compare('t.type',$this->type);
-		$criteria->compare('t.inshort',$this->inshort);
+		$criteria->compare('t.main',$this->main);
 		$criteria->compare('t.required',$this->required);
 		$criteria->compare('t.sorting',$this->sorting);
 		$criteria->compare('t.deleted',$this->deleted);
@@ -152,7 +160,7 @@ class Property extends CActiveRecord
 		return parent::model($className);
 	}
 
-		/**
+	/**
 	 * Get list on select to form object on front
 	 * @return array
 	 */
@@ -165,6 +173,67 @@ class Property extends CActiveRecord
 			$this->_list[$oProperty->id]=$oProperty->name;
 		}
 		return $this->_list;
+	}
+
+	/**
+	 * Get types as key value list
+	 * @static
+	 * @return array
+	 */
+	public static function getTypesList()
+	{
+		return array(
+			self::TYPE_TEXT				=> 'String',
+			self::TYPE_TEXTAREA		=> 'Text',
+			self::TYPE_FILE				=> 'File',
+		);
+	}
+
+	/**
+	 * Get type label
+	 * @static
+	 * @param $type
+	 * @return string
+	 */
+	public static function getTypeTitle($type)
+	{
+		$list = self::getTypesList();
+		return $list[$type];
+	}
+
+	/**
+	 * @param $value
+	 * @return string html field based on attribute type
+	 */
+	public function renderField($value = null)
+	{
+		$name = 'Property['.$this->name.']';
+		switch ($this->type):
+			case self::TYPE_TEXT:
+				return CHtml::textField($name, $this->renderValue($value));
+			break;
+			case self::TYPE_TEXTAREA:
+				return CHtml::textArea($name, $this->renderValue($value));
+			break;
+		endswitch;
+	}
+
+	/**
+	 * Get attribute value
+	 * @param $value
+	 * @return string attribute value
+	 */
+	public function renderValue($value)
+	{
+		switch ($this->type):
+			case self::TYPE_TEXT:
+			case self::TYPE_TEXTAREA:
+				$data = CHtml::listData($this->options, 'id', 'value');
+				if(isset($data[$value]))
+					return $data[$value];
+				return $value;
+			break;
+		endswitch;
 	}
 
 }
