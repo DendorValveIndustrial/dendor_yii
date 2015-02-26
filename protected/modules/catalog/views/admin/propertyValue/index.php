@@ -9,12 +9,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create PropertyValue','url'=>array('create')),
-	array('label'=>'Manage PropertyValue','url'=>array('admin')),
+  array('label'=>'Property'),
+  array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
+  TbHtml::menuDivider(),
+  array('label'=>'Return item','url'=>array('/catalog/admin/default/update', 'id'=>$item->id)),
 );
 ?>
 
-<h1>Property Values</h1>
+<?php echo TbHtml::pageHeader('Property Values', $item->name) ?>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
   'id'=>'property-value-grid',
@@ -28,7 +30,7 @@ $this->menu=array(
     ),
     array(
       'name' => 'property_id',
-      'value' => '$data->property->system_name',
+      'value' => '$data->property->name',
       'htmlOptions' => array('class'=>'span3'),
     ),
     //'entity_id',

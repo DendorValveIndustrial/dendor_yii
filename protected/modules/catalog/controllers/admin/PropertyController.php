@@ -116,7 +116,10 @@ class PropertyController extends BaseAdminController
 	 */
 	public function loadModel($id)
 	{
-		$model=Property::model()->findByPk($id);
+    $currAppLang = Yii::app()->languageManager->getIdByCode();
+		$model=Property::model()
+			->language($currAppLang)
+			->findByPk($id);
 		if ($model===null) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}

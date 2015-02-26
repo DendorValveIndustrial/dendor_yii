@@ -6,6 +6,7 @@ return array(
   'category' => 'Category',
   'parent_category' => 'Parent category',
   'title' => 'Title',
+  'name' => 'Name',
   'url' => 'Url',
   'full_url' => 'Full url',
   'short_description' => 'Short Description',
@@ -46,5 +47,14 @@ return array(
   'active' => 'Active',
   'sorting' => 'Sorting',
   'deleted' => 'Deleted',
+
+  'system_name' => 'System Name',
+  'type' => 'Type',
+  'required' => 'Required',
+
+  'property_id' => 'Property',
+  'property' => 'Property',
+  'entity_id' => 'Entity',
+  'value' => 'Value',
 
 );

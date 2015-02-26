@@ -1,11 +1,12 @@
 <?php
 return array(
-  'content' => 'Содержимое',
+  'content' => 'Описание',
   'additionally' => 'Дополнительно',
   'seo' => 'Мета данные',
   'category' => 'Категория',
   'parent_category' => 'Родительская категория',
   'title' => 'Заголовок',
+  'name' => 'Имя',
   'url' => 'Url',
   'full_url' => 'Full url',
   'short_description' => 'Краткое содержание',
@@ -46,5 +47,14 @@ return array(
   'active' => 'Активность',
   'sorting' => 'Сортировка',
   'deleted' => 'Удален',
+
+  'system_name' => 'Системное имя',
+  'type' => 'Тип',
+  'required' => 'Обязательно',
+
+  'property_id' => 'Свойство',
+  'property' => 'Свойства товара',
+  'entity_id' => 'Товар',
+  'value' => 'Значение',
 
 );

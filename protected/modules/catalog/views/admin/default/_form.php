@@ -42,9 +42,9 @@
 			<?php
 				$this->widget('bootstrap.widgets.TbTabs', array(
 					'tabs' => array(
-						array('label' => Yii::t('admin', 'property'), 'content' => ''//TbHtml::textFieldControlGroup($property[1]['name'], $property[1]['value'], array('label' => $property[1]['name']))
+						/*array('label' => Yii::t('admin', 'property'), 'content' => ''
 							, 'htmlOptions'=>array('class'=>'pull-right')
-						),
+						),*/
 						array('label' => Yii::t('admin', 'additionally'), 'content' =>
 							$form->textFieldControlGroup($model,'created',array('span'=>6)).
 							$form->textFieldControlGroup($model,'publish',array('span'=>6)).

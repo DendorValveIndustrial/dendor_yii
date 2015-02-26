@@ -12,6 +12,7 @@ Yii::import('application.modules.catalog.models.PropertyValue');
  * @property integer $required
  * @property integer $sorting
  * @property integer $deleted
+ *
  * @property string $name
  * @property string $description
  *
@@ -20,6 +21,17 @@ Yii::import('application.modules.catalog.models.PropertyValue');
  */
 class Property extends CActiveRecord
 {
+	/**
+	 * Translate-table
+	 */
+	public $name;
+	public $description;
+
+	/**
+	 * Name of the translations model.
+	 */
+	public $translateModelName = 'PropertyTranslate';
+
 	/**
 	 * @var array
 	 */
@@ -58,6 +70,7 @@ class Property extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 			'propertyValues' => array(self::HAS_MANY, 'PropertyValue', 'property_id'),
 		);
 	}
@@ -69,14 +82,14 @@ class Property extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'system_name' => 'System Name',
-			'type' => 'Type',
-			'inshort' => 'Inshort',
-			'required' => 'Required',
-			'sorting' => 'Sorting',
-			'deleted' => 'Deleted',
-			'name' => 'Name',
-			'description' => 'Description',
+			'system_name' => Yii::t('admin', 'system_name'),
+			'type' => Yii::t('admin', 'type'),
+			'inshort' => Yii::t('admin', 'inshort'),
+			'required' => Yii::t('admin', 'required'),
+			'sorting' => Yii::t('admin', 'sorting'),
+			'deleted' => Yii::t('admin', 'deleted'),
+			'name' => Yii::t('admin', 'name'),
+			'description' => Yii::t('admin', 'description'),
 		);
 	}
 
@@ -98,19 +111,34 @@ class Property extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('system_name',$this->system_name,true);
-		$criteria->compare('type',$this->type);
-		$criteria->compare('inshort',$this->inshort);
-		$criteria->compare('required',$this->required);
-		$criteria->compare('sorting',$this->sorting);
-		$criteria->compare('deleted',$this->deleted);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('description',$this->description,true);
+		$criteria->with = array('translate');
+
+		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.system_name',$this->system_name,true);
+		$criteria->compare('t.type',$this->type);
+		$criteria->compare('t.inshort',$this->inshort);
+		$criteria->compare('t.required',$this->required);
+		$criteria->compare('t.sorting',$this->sorting);
+		$criteria->compare('t.deleted',$this->deleted);
+		$criteria->compare('translate.name',$this->name,true);
+		$criteria->compare('translate.description',$this->description,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function behaviors()
+	{
+		return array(
+			'STranslateBehavior'=>array(
+				'class'=>'ext.behaviors.TranslateBehavior',
+				'translateAttributes'=>array(
+					'name',
+					'description',
+				),
+			),
+		);
 	}
 
 	/**
@@ -134,7 +162,7 @@ class Property extends CActiveRecord
 
 		$aProperty = Property::model()->findAll();
 		foreach ($aProperty as $oProperty) {
-			$this->_list[$oProperty->id]=$oProperty->system_name;
+			$this->_list[$oProperty->id]=$oProperty->name;
 		}
 		return $this->_list;
 	}

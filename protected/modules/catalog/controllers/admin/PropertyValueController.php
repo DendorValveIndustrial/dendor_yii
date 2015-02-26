@@ -117,8 +117,10 @@ class PropertyValueController extends BaseAdminController
 			}
 		}
 		if (!empty($new_models)) {
-			//Мы получили несколько валидных моделей
-			//Если надо сохранять, то это стоит делать здесь
+			//var_dump($new_models);
+			foreach ($new_models as $model) {
+				$model->save();
+			}
 		}
 		else
 			$new_models[] = new PropertyValue();
@@ -169,7 +171,10 @@ class PropertyValueController extends BaseAdminController
 	 */
 	public function loadModel($id)
 	{
-		$model=PropertyValue::model()->findByPk($id);
+		$currAppLang = Yii::app()->languageManager->getIdByCode();
+		$model=PropertyValue::model()
+			->language($currAppLang)
+			->findByPk($id);
 		if ($model===null) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}

@@ -10,15 +10,17 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List PropertyValue', 'url'=>array('index')),
-	array('label'=>'Create PropertyValue', 'url'=>array('create')),
+  array('label'=>'Property Value'),
+	array('label'=>'List PropertyValue', 'url'=>array('index', 'item_id'=>$model->entity_id)),
 	array('label'=>'Update PropertyValue', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete PropertyValue', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage PropertyValue', 'url'=>array('admin')),
+  TbHtml::menuDivider(),
+  array('label'=>'Return Item','url'=>array('/catalog/admin/default/update', 'id'=>$model->entity_id)),
 );
 ?>
 
-<h1>View PropertyValue #<?php echo $model->id; ?></h1>
+<?php echo TbHtml::pageHeader('View  Property Value '.$model->system_name); ?>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(

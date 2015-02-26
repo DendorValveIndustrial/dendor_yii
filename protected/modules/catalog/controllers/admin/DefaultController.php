@@ -133,35 +133,6 @@ class DefaultController extends BaseAdminController
     ));
   }
 
-  public function actionProperty($id)
-  {
-    $model=$this->loadModel($id);
-    $propertyValues = new PropertyValue;
-
-    /*$aProperty = Property::model()->findAll();
-
-    // Строим массив полей
-    $properties = array();
-    foreach ($aProperty as $Property)
-    {
-      $properties[$Property->id] = array(
-        'property'=>$Property,
-        'value'=>''
-      );
-    }
-
-    // Заполняем текущими значениями
-    $aPropertyValues = $model->property_values;
-    foreach ($aPropertyValues as $property_values)
-      $properties[$property_values->property->id]['value'] = $property_values;*/
-
-
-    $this->render('property',array(
-      'model'=>$model,
-      'property'=>$propertyValues,
-    ));
-  }
-
   /**
    * Returns the data model based on the primary key given in the GET variable.
    * If the data model is not found, an HTTP exception will be raised.

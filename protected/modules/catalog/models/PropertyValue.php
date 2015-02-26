@@ -16,6 +16,16 @@ Yii::import('application.modules.catalog.models.Property');
 class PropertyValue extends CActiveRecord
 {
 	/**
+	 * Translate-table
+	 */
+	public $value;
+
+	/**
+	 * Name of the translations model.
+	 */
+	public $translateModelName = 'PropertyValueTranslate';
+
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -49,6 +59,7 @@ class PropertyValue extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 			'catalog_item' => array(self::BELONGS_TO, 'CatalogItems', 'entity_id'),
 			'property' => array(self::BELONGS_TO, 'Property', 'property_id'),
 		);
@@ -61,9 +72,9 @@ class PropertyValue extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'property_id' => 'Property',
-			'entity_id' => 'Entity',
-			'value' => 'Value',
+			'property_id' => Yii::t('admin', 'property_id'),
+			'entity_id' => Yii::t('admin', 'entity_id'),
+			'value' => Yii::t('admin', 'value'),
 		);
 	}
 
@@ -85,14 +96,28 @@ class PropertyValue extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('property_id',$this->property_id);
-		$criteria->compare('entity_id',$this->entity_id);
-		$criteria->compare('value',$this->value,true);
+		$criteria->with = array('translate');
+
+		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.property_id',$this->property_id);
+		$criteria->compare('t.entity_id',$this->entity_id);
+		$criteria->compare('translate.value',$this->value,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function behaviors()
+	{
+		return array(
+			'STranslateBehavior'=>array(
+				'class'=>'ext.behaviors.TranslateBehavior',
+				'translateAttributes'=>array(
+					'value',
+				),
+			),
+		);
 	}
 
 	/**

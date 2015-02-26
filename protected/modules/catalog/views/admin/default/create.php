@@ -15,7 +15,7 @@ $this->menu=array(
   array('label'=>'Groups'),
   array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
   array('label'=>'Property'),
-  array('label'=>'Manage Prperty', 'url'=>array('/catalog/admin/property/admin')),
+  array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
 );
 ?>
 

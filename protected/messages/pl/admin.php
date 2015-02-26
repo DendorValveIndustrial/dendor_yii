@@ -6,6 +6,7 @@ return array(
   'category' => 'Kategoria',
   'parent_category' => 'Kategoria nadrzędna',
   'title' => 'Tytuł',
+  'name' => 'Nazwa',
   'url' => 'Url',
   'full_url' => 'Pełny adres URL',
   'short_description' => 'Krótki opis',
@@ -46,5 +47,12 @@ return array(
   'active' => 'Aktywne',
   'sorting' => 'Sortowanie',
   'deleted' => 'Usunięte',
+  'system_name' => 'Name System',
+  'type' => 'Typ',
+  'required' => 'Wymagany',
 
+  'property_id' => 'Nieruchomości',
+  'property' => 'Nieruchomości',
+  'entity_id' => 'Produkty',
+  'value' => 'Wartość',
 );

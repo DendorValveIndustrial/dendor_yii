@@ -152,7 +152,10 @@ class CatalogGroupController extends BaseAdminController
 	 */
 	public function loadModel($id)
 	{
-		$model=CatalogGroup::model()->findByPk($id);
+		$currAppLang = Yii::app()->languageManager->getIdByCode();
+		$model=CatalogGroup::model()
+			->language($currAppLang)
+			->findByPk($id);
 		if ($model===null) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
