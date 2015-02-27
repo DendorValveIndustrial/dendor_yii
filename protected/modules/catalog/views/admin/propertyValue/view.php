@@ -20,7 +20,7 @@ $this->menu=array(
 );
 ?>
 
-<?php echo TbHtml::pageHeader('View  Property Value '.$model->system_name); ?>
+<?php echo TbHtml::pageHeader('View  Property Value', $model->property->name); ?>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(

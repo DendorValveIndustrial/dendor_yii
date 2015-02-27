@@ -51,7 +51,7 @@ return array(
   'dir_id' => 'Группа свойств',
   'system_name' => 'Системное имя',
   'type' => 'Тип',
-  'required' => 'Обязательно',
+  'required' => 'Обязательное',
   'main' => 'Основное',
 
   'property_id' => 'Свойство',

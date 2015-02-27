@@ -164,6 +164,21 @@ class Property extends CActiveRecord
 	 * Get list on select to form object on front
 	 * @return array
 	 */
+	public function getMain()
+	{
+		$this->getDbCriteria()->mergeWith(array(
+			'condition'=> "main=:main",
+			'params'=>array(
+				':main' => 1,
+			),
+		));
+		return $this;
+	}
+
+	/**
+	 * Get list on select to form object on front
+	 * @return array
+	 */
 	public function getListSelect()
 	{
 		$this->_list[0]='...';

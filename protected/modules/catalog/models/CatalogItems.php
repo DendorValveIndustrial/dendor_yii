@@ -3,6 +3,7 @@
 Yii::import('application.modules.catalog.models.CatalogItemsTranslate');
 Yii::import('application.modules.catalog.models.CatalogGroup');
 Yii::import('application.modules.catalog.models.PropertyValue');
+Yii::import('application.modules.catalog.models.Property');
 
 /**
  * This is the model class for table "CatalogItems".
@@ -99,9 +100,11 @@ class CatalogItems extends CActiveRecord
 		return array(
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 			'group'=>array(self::BELONGS_TO, 'CatalogGroup', 'group_id'),
-			'property_values'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
+			'property_values'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id'),
+			'property_main'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
+				'condition'=>'property.main = 1',
 				'order'=>'property.sorting ASC',
-				'with'=>'property',
+				//'with'=>'property',
 			),
 		);
 	}
