@@ -100,11 +100,14 @@ class CatalogItems extends CActiveRecord
 		return array(
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 			'group'=>array(self::BELONGS_TO, 'CatalogGroup', 'group_id'),
-			'property_values'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id'),
+			'property_values'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
+				// 'order'=>'property.sorting ASC',
+				// 'with'=>'property',
+			),
 			'property_main'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
 				'condition'=>'property.main = 1',
 				'order'=>'property.sorting ASC',
-				//'with'=>'property',
+				'with'=>'property',
 			),
 		);
 	}
@@ -342,4 +345,25 @@ class CatalogItems extends CActiveRecord
 		return urldecode(Yii::app()->createUrl('catalog/catalog/view', $data));
 	}
 
+	public function getValueList($showMain = false)
+  {
+  	$main = 1;
+  	if($showMain != false)
+  		$main = 0;
+
+    $items = array();
+
+    foreach ($this->property_values as $properyValue)
+    {
+      $mainValue = $properyValue->property->main;
+      if($mainValue != $main){
+	      $items[] = array(
+	        'label'=>$properyValue->property->name,
+	        'value'=>$properyValue->value,
+	      );
+      }
+    }
+
+    return $items;
+  }
 }

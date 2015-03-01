@@ -37,7 +37,7 @@ $this->pageHeader = $model->name;
 	    <p>Zakres temp.: <strong>od -25°C do +130°C</strong></p>
 	    <p>max.temp.: <strong>+150°C</strong></p>
 	  </div>
-	  <?php var_dump($model->property_main); ?>
+	  <?php var_dump($model->getValueList(true)); ?>
 	</div>
 </div>
 
