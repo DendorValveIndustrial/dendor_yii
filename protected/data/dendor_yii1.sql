@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 24 2015 г., 02:51
+-- Время создания: Мар 02 2015 г., 01:14
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.3.29
 
@@ -108,14 +108,15 @@ CREATE TABLE IF NOT EXISTS `CatalogItems` (
   KEY `group_id` (`group_id`),
   KEY `modification_id` (`modification_id`),
   KEY `url` (`url`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `CatalogItems`
 --
 
 INSERT INTO `CatalogItems` (`id`, `group_id`, `modification_id`, `created`, `publish`, `end_date`, `url`, `image`, `price`, `active`, `sorting`, `deleted`) VALUES
-(1, 1, 0, '2015-02-18 01:28:19', '2015-02-18 01:28:19', '0000-00-00 00:00:00', '017w', '017w.jpg', '0.00', 1, 0, 0);
+(1, 1, 0, '2015-02-18 01:28:19', '2015-02-18 01:28:19', '0000-00-00 00:00:00', '017w', '017w.jpg', '0.00', 1, 0, 0),
+(2, 1, 0, '2015-03-01 16:01:52', '2015-03-01 16:01:52', '0000-00-00 00:00:00', '017w-disk-vaw', '017w-disk-vaw.jpg', '0.00', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `CatalogItemsTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Дамп данных таблицы `CatalogItemsTranslate`
@@ -145,7 +146,10 @@ CREATE TABLE IF NOT EXISTS `CatalogItemsTranslate` (
 INSERT INTO `CatalogItemsTranslate` (`id`, `object_id`, `language_id`, `name`, `short_description`, `full_description`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
 (1, 1, 1, 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', NULL, 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet prze'),
 (2, 1, 2, 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', NULL, 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet prze'),
-(3, 1, 3, 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', NULL, 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet prze');
+(3, 1, 3, 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - żeliwo niklowane)', NULL, 'Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Do głównych zalet prze'),
+(4, 2, 1, 'Przepustnica międzykołnierzowa 017W (dysk - stal nierdzewna)', '', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - stal nierdzewna)', NULL, NULL),
+(5, 2, 2, 'Przepustnica międzykołnierzowa 017W (dysk - stal nierdzewna)', '', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - stal nierdzewna)', NULL, NULL),
+(6, 2, 3, 'Przepustnica międzykołnierzowa 017W (dysk - stal nierdzewna)', '', '<p>Przepustnice są armaturą pozwalającą na swobodną regulację przepływu czynnika roboczego. Idealną szczelność przepustnic zapewnia dopasowany dysk do pierścienia uszczelniającego.</p>\n\n<p>Przepustnice charakteryzują się kompaktową zwartą budową. Dzięki zastosowaniu specjalnego uszczelnienia kadłub oraz trzpień nie stykają się z przepuszczalnym czynnikiem a co jest równoznaczne ze zwiększeniem odporności i trwałości poszczególnych elementów składowych przepustnic.</p>\n\n<p>Przepustnice międzykołnierzowe zwrotne są dostarczane w komplecie z rączką. Elementem dodatkowym do przepustnic DN350 jest przekładnia ślimakowa.</p>\n\n<p>Każdy typ przepustnic Dendor Valve Industrial na żądanie jest kompletowany napędem elektrycznym, pneumatycznym lub ręcznym z przekładnią ślimakową.</p>\n\n<p>Do głównych zalet przepustnic należą: mała masa, krótka zabudowa, doskonała szczelność w obu kierunkach przepływu, niezawodność i wysoka trwałość, zbędne stosowanie dodatkowych uszczelek na kołnierzu, nie wymagają konserwacji, minimalna strata ciśnień, łatwy montaż i demontaż</p>\n', 'Przepustnica międzykołnierzowa 017W (dysk - stal nierdzewna)', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -358,23 +362,95 @@ INSERT INTO `PageTranslate` (`id`, `object_id`, `language_id`, `title`, `short_d
 
 CREATE TABLE IF NOT EXISTS `Property` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dir_id` int(11) NOT NULL,
   `system_name` varchar(255) DEFAULT '',
   `type` tinyint(4) DEFAULT '1',
-  `inshort` tinyint(1) DEFAULT '1',
+  `main` tinyint(1) DEFAULT '0',
   `required` tinyint(1) DEFAULT '0',
   `sorting` smallint(6) DEFAULT '0',
   `deleted` tinyint(1) DEFAULT '0',
-  `name` varchar(255) DEFAULT '',
-  `description` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  PRIMARY KEY (`id`),
+  KEY `dir_id` (`dir_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Дамп данных таблицы `Property`
 --
 
-INSERT INTO `Property` (`id`, `system_name`, `type`, `inshort`, `required`, `sorting`, `deleted`, `name`, `description`) VALUES
-(1, 'dn', 1, 1, 0, 0, 0, '', '');
+INSERT INTO `Property` (`id`, `dir_id`, `system_name`, `type`, `main`, `required`, `sorting`, `deleted`) VALUES
+(1, 0, 'dn', 1, 1, 0, 0, 0),
+(2, 0, 'pn', 1, 1, 0, 0, 0),
+(3, 0, 'work_temp', 1, 1, 0, 0, 0),
+(4, 0, 'max_temp', 1, 1, 0, 0, 0),
+(5, 0, 'article', 1, 1, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `PropertyDir`
+--
+
+CREATE TABLE IF NOT EXISTS `PropertyDir` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT '',
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `PropertyDirTranslate`
+--
+
+CREATE TABLE IF NOT EXISTS `PropertyDirTranslate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `object_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT '',
+  `description` text,
+  PRIMARY KEY (`id`),
+  KEY `object_id` (`object_id`),
+  KEY `language_id` (`language_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `PropertyTranslate`
+--
+
+CREATE TABLE IF NOT EXISTS `PropertyTranslate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `object_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT '',
+  `description` text,
+  PRIMARY KEY (`id`),
+  KEY `object_id` (`object_id`),
+  KEY `language_id` (`language_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+
+--
+-- Дамп данных таблицы `PropertyTranslate`
+--
+
+INSERT INTO `PropertyTranslate` (`id`, `object_id`, `language_id`, `name`, `description`) VALUES
+(1, 1, 1, 'Zakres średnic', ''),
+(2, 1, 2, 'Условный диаметр', ''),
+(3, 1, 3, 'Zakres średnic', ''),
+(4, 2, 1, 'Ciśnienia pracy', ''),
+(5, 2, 2, 'Раб. давление', 'Рабочее давление'),
+(6, 2, 3, 'Ciśnienia pracy', ''),
+(7, 3, 1, 'Zakres t.', 'Working temperature'),
+(8, 3, 2, 'Темп.раб.', 'Рабочая температура'),
+(9, 3, 3, 'Working temp.', 'Working temperature'),
+(10, 4, 1, 'max.t.', ''),
+(11, 4, 2, 'Темп.макс.', 'Максимальная температура'),
+(12, 4, 3, 'max.temp.', ''),
+(13, 5, 1, 'Typ', ''),
+(14, 5, 2, 'Typ', ''),
+(15, 5, 3, 'Typ', '');
 
 -- --------------------------------------------------------
 
@@ -386,11 +462,62 @@ CREATE TABLE IF NOT EXISTS `PropertyValue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `property_id` int(11) NOT NULL,
   `entity_id` int(11) NOT NULL,
-  `value` text,
   PRIMARY KEY (`id`),
   KEY `property_id` (`property_id`),
   KEY `entity_id` (`entity_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Дамп данных таблицы `PropertyValue`
+--
+
+INSERT INTO `PropertyValue` (`id`, `property_id`, `entity_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 1),
+(6, 5, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `PropertyValueTranslate`
+--
+
+CREATE TABLE IF NOT EXISTS `PropertyValueTranslate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `object_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `value` text,
+  PRIMARY KEY (`id`),
+  KEY `object_id` (`object_id`),
+  KEY `language_id` (`language_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+
+--
+-- Дамп данных таблицы `PropertyValueTranslate`
+--
+
+INSERT INTO `PropertyValueTranslate` (`id`, `object_id`, `language_id`, `value`) VALUES
+(1, 1, 1, 'DN 32-1000'),
+(2, 1, 2, 'DN 32-1000'),
+(3, 1, 3, 'DN 32-1000'),
+(4, 2, 1, 'PN 10, PN 16'),
+(5, 2, 2, 'PN 10, PN 16'),
+(6, 2, 3, 'PN 10, PN 16'),
+(7, 3, 1, 'od -25°C do +130°C'),
+(8, 3, 2, 'от -25°C до +130°C'),
+(9, 3, 3, 'from -25°C to +130°C'),
+(10, 4, 1, ' +150°C'),
+(11, 4, 2, ' +150°C'),
+(12, 4, 3, ' +150°C'),
+(13, 5, 1, '017w'),
+(14, 5, 2, '017w'),
+(15, 5, 3, '017w'),
+(16, 6, 1, '017w'),
+(17, 6, 2, '017w'),
+(18, 6, 3, '017w');
 
 -- --------------------------------------------------------
 
@@ -499,10 +626,28 @@ ALTER TABLE `NewsTranslate`
   ADD CONSTRAINT `news_translate` FOREIGN KEY (`object_id`) REFERENCES `News` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Ограничения внешнего ключа таблицы `PropertyDirTranslate`
+--
+ALTER TABLE `PropertyDirTranslate`
+  ADD CONSTRAINT `property_dir_translate` FOREIGN KEY (`object_id`) REFERENCES `PropertyDir` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `PropertyTranslate`
+--
+ALTER TABLE `PropertyTranslate`
+  ADD CONSTRAINT `property_translate` FOREIGN KEY (`object_id`) REFERENCES `Property` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Ограничения внешнего ключа таблицы `PropertyValue`
 --
 ALTER TABLE `PropertyValue`
   ADD CONSTRAINT `property_value` FOREIGN KEY (`property_id`) REFERENCES `Property` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `PropertyValueTranslate`
+--
+ALTER TABLE `PropertyValueTranslate`
+  ADD CONSTRAINT `property_value_translate` FOREIGN KEY (`object_id`) REFERENCES `PropertyValue` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `slider_translates`

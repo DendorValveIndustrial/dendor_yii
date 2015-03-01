@@ -32,12 +32,15 @@ $this->pageHeader = $model->name;
 	<div class="span10 text-right">
 		<?php if($model->image) echo TbHtml::image(CatalogGroup::model()->getUploadPath($model->group_id).$model->image, $model->name); ?>
 		<div class="main-features-item">
-	    <p>Zakres średnic: <strong>DN 32-1000</strong></p>
-	    <p>Ciśnienia pracy: <strong>PN 10, PN 16</strong></p>
-	    <p>Zakres temp.: <strong>od -25°C do +130°C</strong></p>
-	    <p>max.temp.: <strong>+150°C</strong></p>
+			<?php
+				$dataProvider = new CArrayDataProvider($model->getValueList(true));
+				$this->widget('bootstrap.widgets.TbListView',array(
+				'dataProvider'=>$dataProvider,
+				'itemView'=>'_main_property',
+				'template' => '{items}',
+			));
+			?>
 	  </div>
-	  <?php var_dump($model->getValueList(true)); ?>
 	</div>
 </div>
 

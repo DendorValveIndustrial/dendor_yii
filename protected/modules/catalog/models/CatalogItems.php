@@ -100,15 +100,16 @@ class CatalogItems extends CActiveRecord
 		return array(
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 			'group'=>array(self::BELONGS_TO, 'CatalogGroup', 'group_id'),
+			'property'=>array(self::HAS_MANY,'Property',array('property_id'=>'id'),'through'=>'property_values'),
 			'property_values'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
-				// 'order'=>'property.sorting ASC',
+				// 'order'=>'property_values.property.sorting ASC',
 				// 'with'=>'property',
 			),
-			'property_main'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
+			/*'property_main'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
 				'condition'=>'property.main = 1',
 				'order'=>'property.sorting ASC',
 				'with'=>'property',
-			),
+			),*/
 		);
 	}
 
@@ -345,11 +346,11 @@ class CatalogItems extends CActiveRecord
 		return urldecode(Yii::app()->createUrl('catalog/catalog/view', $data));
 	}
 
-	public function getValueList($showMain = false)
+	public function getValueList($filterMain = null)
   {
-  	$main = 1;
-  	if($showMain != false)
-  		$main = 0;
+  	$main = null;
+  	if(!is_null($filterMain))
+  		$main = ($filterMain)? 0 : 1;
 
     $items = array();
 
@@ -359,11 +360,20 @@ class CatalogItems extends CActiveRecord
       if($mainValue != $main){
 	      $items[] = array(
 	        'label'=>$properyValue->property->name,
+	        'system_name'=>$properyValue->property->system_name,
 	        'value'=>$properyValue->value,
 	      );
       }
     }
 
     return $items;
+  }
+
+  public function getPropertyBySystemName($systemName){
+  	$aProperty = $this->property;
+  	foreach ($aProperty as $Property) {
+  		if($Property->system_name === $systemName)
+  			return $Property;
+  	}
   }
 }

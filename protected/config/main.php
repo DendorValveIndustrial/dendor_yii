@@ -79,18 +79,18 @@ return array(
 			),
 		),
 
-		/*'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),*/
+		'db'=>array(
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/dendor_yii.db',
+		),
 		// uncomment the following to use a MySQL database
 
-		'db'=>array(
+		/*'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=dendor_yii1',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
-		),
+		),*/
 		'request'=>array(
 			'class'=>'HttpRequest',
 			'enableCsrfValidation'=>true,
