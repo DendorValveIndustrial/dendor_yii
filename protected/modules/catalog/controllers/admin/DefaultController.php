@@ -50,6 +50,43 @@ class DefaultController extends BaseAdminController
   }
 
   /**
+   * Copy a model.
+   * If creation is successful, the browser will be redirected to the 'admin' page.
+   */
+  public function actionCopy($id){
+
+    //$model = $this->loadModel($id);
+    $model = CatalogItems::model()->findByPk($id);
+    $new_model = clone $model;
+    $new_model->url = $model->url.'-copy';
+    $new_model->name = $model->name;
+
+
+    if(!$new_model->validate())
+        CVarDumper::dump($new_model->errors, 2, true);
+
+    if ($new_model->save()){
+      //Поля с переводом (будут копии на том языке с которого копируется)
+      $new_model->short_description = $model->short_description;
+      $new_model->full_description = $model->full_description;
+      $new_model->save();
+      foreach($model->property_values as $oPropertyValue){
+        $new_property_value = new PropertyValue;
+        $new_property_value->property_id = $oPropertyValue->property_id;
+        $new_property_value->entity_id = $new_model->id;
+
+        //Значение свойства будет на том языке с которого копируется свойство!!!
+        $new_property_value->value = $oPropertyValue->value;
+        $new_property_value->save();
+      }
+      $this->redirect('admin',array(
+        'model'=>$model,
+      ));
+    }
+
+  }
+
+  /**
    * Updates a particular model.
    * If update is successful, the browser will be redirected to the 'view' page.
    * @param integer $id the ID of the model to be updated

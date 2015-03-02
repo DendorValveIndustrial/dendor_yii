@@ -69,7 +69,8 @@ class PropertyValueController extends BaseAdminController
 		if (isset($_POST['PropertyValue'])) {
 			$model->attributes=$_POST['PropertyValue'];
 			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
+				//$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('index','item_id'=>$model->entity_id));
 			}
 		}
 

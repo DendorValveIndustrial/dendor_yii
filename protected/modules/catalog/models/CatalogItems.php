@@ -36,6 +36,16 @@ Yii::import('application.modules.catalog.models.Property');
 class CatalogItems extends CActiveRecord
 {
 	/**
+	* Normalize AR after cloning.
+	*/
+	public function __clone()
+	{
+	  $this->primaryKey = null;
+	  $this->oldPrimaryKey = null;
+	  $this->isNewRecord = true;
+	}
+
+	/**
 	 * Status to allow display page on the front.
 	 */
 	public $publishStatus = 'published';

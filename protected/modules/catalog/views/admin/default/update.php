@@ -14,6 +14,7 @@ $this->menu=array(
   array('label'=>'Catalog Items'),
   array('label'=>'Manage', 'url'=>array('admin')),
   array('label'=>'Create', 'url'=>array('create')),
+  array('label'=>'Copy', 'url'=>array('copy', 'id'=>$model->id)),
   array('label'=>'View', 'url'=>$model->viewUrl),
   TbHtml::menuDivider(),
   array('label'=>'Property'),
