@@ -193,7 +193,7 @@ INSERT INTO `PageTranslate` (`id`, `object_id`, `language_id`, `title`, `short_d
 -- --------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Property` (
   `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `dir_id` INTEGER NOT NULL,
+  `dir_id` INTEGER NOT NULL DEFAULT '0',
   `system_name` VARCHAR(255) NOT NULL,
   `type` tinyint(4) DEFAULT '1',
   `main` tinyint(1) DEFAULT '0',

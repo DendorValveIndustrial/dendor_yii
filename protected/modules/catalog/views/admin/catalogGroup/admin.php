@@ -54,7 +54,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 		array(
 			'name' => 'parent_id',
-			'value' => $model->getNameById($data->id)
+			'value' => 'CatalogGroup::model()->getNameById($data->parent_id)',
 		),
 		'name',
 		array(

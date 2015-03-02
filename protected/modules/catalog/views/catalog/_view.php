@@ -13,11 +13,10 @@
     <div class="span7 offset1">
       <div class="main-features-item">
       <?php
-        $dataProvider = new CArrayDataProvider($data->getValueList(true));
-          $this->widget('bootstrap.widgets.TbListView',array(
-          'dataProvider'=>$dataProvider,
-          'itemView'=>'_main_property',
-          'template' => '{items}',
+        $aProperty = $data->property(array('condition'=>'main=1'));
+        $this->renderPartial('_main_property', array(
+          'model'=>$data,
+          'aProperty'=>$aProperty,
         ));
       ?>
       </div>

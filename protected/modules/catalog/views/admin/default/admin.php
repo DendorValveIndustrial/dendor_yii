@@ -51,22 +51,36 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'group_id',
+		array(
+			'name'=>'id',
+			'value' => '$data->id',
+			'htmlOptions'=>array('class'=>'span1'),
+		),
+		array(
+			'name'=>'group_id',
+			'value'=>'CatalogGroup::model()->getNameById($data->group_id)',
+		),
+		'name',
+		array(
+			'name'=>'url',
+			'value'=>'CHtml::link($data->url, $data->viewUrl)',
+			'type'=>'raw',
+		),
+
+		'active',
+		'sorting',
+		/*
 		'modification_id',
 		'created',
 		'publish',
 		'end_date',
-		/*
-		'url',
 		'image',
 		'price',
-		'active',
-		'sorting',
 		'deleted',
 		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'viewButtonUrl'=>'$data->viewUrl',
 		),
 	),
 )); ?>

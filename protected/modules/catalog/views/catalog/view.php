@@ -26,6 +26,24 @@ $this->pageHeader = $model->name;
 		<div class="text-item">
 			<?php echo $model->full_description; ?>
 		</div>
+		<div class="properties">
+			<?php
+				$aProperty = $model->property(array('condition'=>'main=0'));
+				$this->renderPartial('_view_property', array(
+					'model'=>$model,
+					'aProperty'=>$aProperty,
+				));
+				/*foreach($aProperty as $oProperty){
+					echo CHtml::openTag('div', array('class'=>'item-property'));
+					echo CHtml::tag('h3', array('class'=>'h3'), $oProperty->name);
+					echo CHtml::openTag('ul');
+					foreach ($oProperty->propertyValues(array('condition'=>'entity_id='.$model->id)) as $propertyValue)
+						echo CHtml::tag('li', array(), $propertyValue->value);
+					echo CHtml::closeTag('ul');
+					echo CHtml::closeTag('div');
+				}*/
+			?>
+		</div>
 	</div>
 </div>
 <div class="span3 pull-left left-bar">
@@ -33,12 +51,11 @@ $this->pageHeader = $model->name;
 		<?php if($model->image) echo TbHtml::image(CatalogGroup::model()->getUploadPath($model->group_id).$model->image, $model->name); ?>
 		<div class="main-features-item">
 			<?php
-				$dataProvider = new CArrayDataProvider($model->getValueList(true));
-				$this->widget('bootstrap.widgets.TbListView',array(
-				'dataProvider'=>$dataProvider,
-				'itemView'=>'_main_property',
-				'template' => '{items}',
-			));
+				$aProperty = $model->property(array('condition'=>'main=1'));
+				$this->renderPartial('_main_property', array(
+					'model'=>$model,
+					'aProperty'=>$aProperty,
+				));
 			?>
 	  </div>
 	</div>

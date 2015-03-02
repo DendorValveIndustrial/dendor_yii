@@ -59,6 +59,7 @@ class Property extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('system_name', 'required'),
 			array('dir_id, type, main, required, sorting, deleted', 'numerical', 'integerOnly'=>true),
 			array('system_name, name', 'length', 'max'=>255),
 			array('description', 'safe'),

@@ -117,7 +117,6 @@ class PropertyValueController extends BaseAdminController
 			}
 		}
 		if (!empty($new_models)) {
-			//var_dump($new_models);
 			foreach ($new_models as $model) {
 				$model->save();
 			}
@@ -138,11 +137,13 @@ class PropertyValueController extends BaseAdminController
 		));
 	}
 
-	public function actionField($index) {
+	public function actionField($index, $item_id) {
 		$model = new PropertyValue();
+		$item = CatalogItems::model()->findByPk($item_id);
 		$this->renderPartial('_property_value', array(
 			'model'=> $model,
 			'index'=> $index,
+			'item'=>$item,
 		));
 	}
 

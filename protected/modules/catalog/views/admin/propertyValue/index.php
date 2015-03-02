@@ -70,7 +70,7 @@ $this->menu=array(
           },
           type: 'get',
           url: '<?php echo $this->createUrl("field"); ?>',
-          data: { index: $(".property .field").size() },
+          data: { index: $(".property .field").size(), item_id: <?php echo $item->id; ?> },
           cache: false,
           dataTipe: 'html'
         });

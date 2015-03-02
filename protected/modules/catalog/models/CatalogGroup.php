@@ -239,13 +239,10 @@ class CatalogGroup extends CActiveRecord
 	public function getNameById($id)
 	{
 		$name = 'root';
-		if(!empty($id))
+		if($id != 0)
 		{
-			$this->getDbCriteria()->mergeWith(array(
-				'condition'=>'id=:id',
-				'params'=>array(':id'=>$id)
-			));
-			$name = $this->name;
+			$group = CatalogGroup::model()->findByPk($id);
+			$name = $group->name;
 		}
 		return $name;
 	}
