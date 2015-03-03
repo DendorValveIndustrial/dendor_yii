@@ -55,21 +55,29 @@ class DefaultController extends BaseAdminController
    */
   public function actionCopy($id){
 
-    //$model = $this->loadModel($id);
-    $model = CatalogItems::model()->findByPk($id);
-    $new_model = clone $model;
-    $new_model->url = $model->url.'-copy';
+    //$model = CatalogItems::model()->findByPk($id);
+    //$new_model = clone $model;
+
+    $model = $this->loadModel($id);
+    $new_model = new CatalogItems;
+
+    //Обязательные
     $new_model->name = $model->name;
+    $new_model->group_id = $model->group_id;
+    $new_model->url = $model->url.'-copy'; //должно быть уникальным
+
+    $new_model->short_description = $model->short_description;
+    $new_model->full_description = $model->full_description;
+    $new_model->price = $model->price;
+    $new_model->modification_id = $model->modification_id;
+    $new_model->active = 1;
 
 
     if(!$new_model->validate())
         CVarDumper::dump($new_model->errors, 2, true);
 
     if ($new_model->save()){
-      //Поля с переводом (будут копии на том языке с которого копируется)
-      $new_model->short_description = $model->short_description;
-      $new_model->full_description = $model->full_description;
-      $new_model->save();
+      //После сохранения копируем свойства
       foreach($model->property_values as $oPropertyValue){
         $new_property_value = new PropertyValue;
         $new_property_value->property_id = $oPropertyValue->property_id;
@@ -79,11 +87,8 @@ class DefaultController extends BaseAdminController
         $new_property_value->value = $oPropertyValue->value;
         $new_property_value->save();
       }
-      $this->redirect('admin',array(
-        'model'=>$model,
-      ));
+      $this->redirect(array('update', 'id'=>$new_model->id));
     }
-
   }
 
   /**
@@ -100,6 +105,12 @@ class DefaultController extends BaseAdminController
 
     if (isset($_POST['CatalogItems'])) {
       $model->attributes=$_POST['CatalogItems'];
+
+      //var_dump($model->getAttributes('meta_title'));
+
+      if(!$model->validate())
+        CVarDumper::dump($model->errors, 2, true);
+
 
       if($model->validate())
         $dir = Yii::getPathOfAlias('webroot').CatalogGroup::model()->getUploadPath($model->group_id);

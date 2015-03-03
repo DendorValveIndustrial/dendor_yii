@@ -18,6 +18,8 @@ $this->menu=array(
 
 <?php echo TbHtml::pageHeader('Property Values', $item->name) ?>
 
+<?php echo TbHtml::alert(TbHtml::ALERT_COLOR_SUCCESS, Yii::t('admin','language'), array('class'=>'text-center')); ?>
+
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
   'id'=>'property-value-grid',
   'dataProvider'=>$model->search(),

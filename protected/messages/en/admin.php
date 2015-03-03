@@ -59,4 +59,5 @@ return array(
   'entity_id' => 'Entity',
   'value' => 'Value',
 
+  'language' => '<strong>ENGLISH !</strong>',
 );

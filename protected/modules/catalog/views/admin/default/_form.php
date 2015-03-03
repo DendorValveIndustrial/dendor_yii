@@ -13,6 +13,7 @@
 		'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	)); ?>
 
+		<?php echo TbHtml::alert(TbHtml::ALERT_COLOR_SUCCESS, Yii::t('admin','language'), array('class'=>'text-center')); ?>
 		<?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
 
 		<?php echo $form->errorSummary($model, $property); ?>
@@ -60,8 +61,8 @@
 							, 'htmlOptions'=>array('class'=>'pull-right')
 						),
 						array('label' => Yii::t('admin', 'content'), 'content' =>
-							$form->textAreaControlGroup($model,'short_description',array('rows'=>6,'span'=>12)).
-							$form->textAreaControlGroup($model,'full_description',array('rows'=>6,'span'=>12)).
+							$form->textAreaControlGroup($model,'full_description',array('rows'=>9,'span'=>12)).
+							$form->textAreaControlGroup($model,'short_description',array('rows'=>3,'span'=>12)).
 							$form->textFieldControlGroup($model,'price',array('span'=>2,'maxlength'=>12)).
 							$form->textFieldControlGroup($model,'modification_id',array('span'=>2))
 							, 'active' => true

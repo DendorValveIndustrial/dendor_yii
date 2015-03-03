@@ -59,4 +59,5 @@ return array(
   'entity_id' => 'Товар',
   'value' => 'Значение',
 
+  'language' => '<strong>РУССКИЙ !</strong>',
 );

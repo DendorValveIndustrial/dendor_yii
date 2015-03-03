@@ -88,7 +88,7 @@ class CatalogItems extends CActiveRecord
 		return array(
 			array('group_id, modification_id, active, sorting, deleted', 'numerical', 'integerOnly'=>true),
 			array('group_id', 'numerical', 'min'=>1),
-			array('short_description, full_description', 'type', 'type'=>'string'),
+			array('meta_title, meta_description, meta_keywords, name, short_description, full_description', 'type', 'type'=>'string'),
 			array('url, image', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>12),
 			array('created, publish, end_date', 'safe'),
@@ -250,9 +250,6 @@ class CatalogItems extends CActiveRecord
 
 		if(empty($this->meta_description) && !empty($this->short_description))
 			$this->meta_description = substr($this->short_description, 0, 120);
-
-		if(empty($this->modification_id))
-			$this->modification_id = 0;
 
 		return parent::beforeSave();
 	}
