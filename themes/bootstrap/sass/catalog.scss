@@ -16,7 +16,7 @@
       .group-head{
         position: absolute;
         min-width: 250px;
-        background-color: #136FA5;
+        background-color: #136FA5;//#3A3287;
         border: 1px solid #0A5B8B;
         color: #fff;
         font: bold 0.85em/1.5 Arial,Helvetica,sans-serif;
@@ -42,7 +42,8 @@
         }
       }
       .group-items{
-        margin: 40px 0 0 20px;
+        margin: 50px 0px 0px 10px;
+        width: 71%;
         .list-items{
           >li{
             margin-bottom: 5px;

@@ -109,7 +109,7 @@ class CatalogGroup extends CActiveRecord
 		return array(
 			//'catalogGroupTranslates' => array(self::HAS_MANY, 'CatalogGroupTranslate', 'object_id'),
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
-			'pages'=>array(self::HAS_MANY, 'CatalogItems', 'group_id'),
+			'groupItems'=>array(self::HAS_MANY, 'CatalogItems', 'group_id'),
 			'pageCount'=>array(self::STAT, 'CatalogItems', 'group_id'),
 		);
 	}

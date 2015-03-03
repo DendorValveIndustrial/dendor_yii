@@ -282,7 +282,6 @@ class Pages extends CActiveRecord
 		return parent::beforeValidate();
 	}
 
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
