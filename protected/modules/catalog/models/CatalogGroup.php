@@ -190,6 +190,9 @@ class CatalogGroup extends CActiveRecord
 
 	public function beforeValidate()
 	{
+		$parser = new CMarkdownParser;
+		$this->description = $parser->transform($this->description);
+
 		if (empty($this->url))
 		{
 			Yii::import('ext.SlugHelper.SlugHelper');

@@ -23,9 +23,10 @@ Yii::import('application.modules.catalog.models.PropertyValue');
 class Property extends CActiveRecord
 {
 
-	const TYPE_TEXT				= 1;
-	const TYPE_TEXTAREA		= 2;
-	const TYPE_FILE				= 3;
+	const TYPE_TEXT = 1;
+	const TYPE_TEXTAREA = 2;
+	const TYPE_TEXTAREA_HTML = 3;
+	const TYPE_FILE = 4;
 
 	/**
 	 * Translate-table
@@ -199,9 +200,10 @@ class Property extends CActiveRecord
 	public static function getTypesList()
 	{
 		return array(
-			self::TYPE_TEXT				=> 'String',
-			self::TYPE_TEXTAREA		=> 'Text',
-			self::TYPE_FILE				=> 'File',
+			self::TYPE_TEXT => 'String',
+			self::TYPE_TEXTAREA => 'Text',
+			self::TYPE_TEXTAREA_HTML => 'Html',
+			self::TYPE_FILE => 'File',
 		);
 	}
 
@@ -229,6 +231,7 @@ class Property extends CActiveRecord
 				return CHtml::textField($name, $this->renderValue($value));
 			break;
 			case self::TYPE_TEXTAREA:
+			case self::TYPE_TEXTAREA_HTML:
 				return CHtml::textArea($name, $this->renderValue($value));
 			break;
 		endswitch;
@@ -244,6 +247,7 @@ class Property extends CActiveRecord
 		switch ($this->type):
 			case self::TYPE_TEXT:
 			case self::TYPE_TEXTAREA:
+			case self::TYPE_TEXTAREA_HTML:
 				$data = CHtml::listData($this->options, 'id', 'value');
 				if(isset($data[$value]))
 					return $data[$value];

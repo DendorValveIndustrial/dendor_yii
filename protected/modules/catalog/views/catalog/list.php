@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 $this->sidebar = CatalogGroup::model()->getListMenu(Yii::t('app','productions'));
 ?>
 <div class="text-item">
-  <?php echo CHtml::encode($group->description); ?>
+  <?php echo $group->description; ?>
 </div>
 <div class="line line-dotted"></div>
 <?php $this->widget('zii.widgets.CListView', array(

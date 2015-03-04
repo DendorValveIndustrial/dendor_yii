@@ -11,10 +11,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List PropertyValue', 'url'=>array('index')),
-	array('label'=>'Create PropertyValue', 'url'=>array('create')),
-	array('label'=>'View PropertyValue', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage PropertyValue', 'url'=>array('admin')),
+  array('label'=>'Property'),
+  array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
+  TbHtml::menuDivider(),
+  array('label'=>'Return','url'=>array('/catalog/admin/propertyValue/index', 'item_id'=>$model->entity_id)),
 );
 ?>
 

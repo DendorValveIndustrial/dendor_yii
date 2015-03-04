@@ -19,18 +19,18 @@ class PropertyValueController extends BaseAdminController
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	/*public function actionView($id)
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
-	}
+	}*/
 
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($id)
+	/*public function actionCreate($id)
 	{
 		$model=new PropertyValue;
 
@@ -52,7 +52,7 @@ class PropertyValueController extends BaseAdminController
 			'model'=>$model,
 			'item'=>$item,
 		));
-	}
+	}*/
 
 	/**
 	 * Updates a particular model.
@@ -148,10 +148,27 @@ class PropertyValueController extends BaseAdminController
 		));
 	}
 
+	public function renrerActionFormField($model, $fieldName, $htmlOptions = array()){
+		$typeField = $model->property->type;
+		switch ($typeField) {
+			case 1:
+				return TbHtml::activeTextFieldControlGroup($model, $fieldName, array('span'=>6));
+				break;
+
+			case 2:
+				return TbHtml::activeTextAreaControlGroup($model, $fieldName, array('rows'=>3,'span'=>8));
+				break;
+
+			default:
+				return TbHtml::activeTextFieldControlGroup($model, $fieldName, $htmlOptions);
+				break;
+		}
+	}
+
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin($item_id)
+	/*public function actionAdmin($item_id)
 	{
 		$model = PropertyValue::model()->filterByEntity($item_id);
 		$model->unsetAttributes();  // clear any default values
@@ -162,7 +179,7 @@ class PropertyValueController extends BaseAdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
-	}
+	}*/
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
