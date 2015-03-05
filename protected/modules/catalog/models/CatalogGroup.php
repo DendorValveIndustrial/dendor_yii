@@ -190,8 +190,12 @@ class CatalogGroup extends CActiveRecord
 
 	public function beforeValidate()
 	{
+		if($this->meta_description === '')
+			$this->meta_description = substr($this->description, 0, 120);
+
 		$parser = new CMarkdownParser;
 		$this->description = $parser->transform($this->description);
+
 
 		if (empty($this->url))
 		{
@@ -209,9 +213,6 @@ class CatalogGroup extends CActiveRecord
 	{
 		if($this->meta_title === '')
 			$this->meta_title = $this->name;
-
-		if($this->meta_description === '')
-			$this->meta_description = substr($this->description, 0, 120);
 
 		if (empty($this->page_size)) {
 			$this->page_size = $this->defaultPageSize;

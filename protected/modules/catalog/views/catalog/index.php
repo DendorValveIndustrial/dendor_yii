@@ -11,10 +11,7 @@ $this->breadcrumbs=array(
 	Yii::t('app', 'production'),
 );
 
-$countGroup = count(CatalogGroup::model()->findAll());
-$column = ceil($countGroup/2);
-
-$aCatalogGroup_chunk = array_chunk(CatalogGroup::model()->findAll(), $column, true);
+$aCatalogGroup_chunk = array_chunk(CatalogGroup::model()->findAll(), 2, true);
 
 ?>
 
