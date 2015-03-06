@@ -39,10 +39,19 @@ $this->menu=array(
     'value',
     array(
       'class'=>'bootstrap.widgets.TbButtonColumn',
+      'buttons'=>array(
+        'delete'=>array(
+          'visible'=>'Yii::app()->user->name === "admin"',
+        ),
+        'view' => array(
+          'visible'=>'false',
+        ),
+      ),
     ),
   ),
 )); ?>
 <hr>
+<?php if(Yii::app()->user->name === 'admin'): ?>
 <div class="form">
   <?php echo TbHtml::beginFormTb(TbHtml::FORM_LAYOUT_HORIZONTAL);?>
   <div class="property">
@@ -81,7 +90,7 @@ $this->menu=array(
     <?php echo TbHtml::submitButton('Сохранить',array(
         //'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
     )); ?>
-
   </div>
   <?php echo TbHtml::endForm(); ?>
+<?php endif; ?>
 </div>

@@ -9,21 +9,12 @@ return array(
 	// preloading 'log' component
 	'preload'=>array('log'),
 
+	'import'=>require(dirname(__FILE__).'/import.php'),
+
 	// application components
 	'components'=>array(
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
-		// uncomment the following to use a MySQL database
-		/*
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
-			'charset' => 'utf8',
-		),
-		*/
+		'db'=>require(dirname(__FILE__).'/db.php'),
+		'db2'=>require(dirname(__FILE__).'/db2.php'),
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -34,4 +25,6 @@ return array(
 			),
 		),
 	),
+
+	'params'=>require(dirname(__FILE__).'/params.php'),
 );

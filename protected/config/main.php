@@ -16,18 +16,9 @@ return array(
 		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
 	),
 
-	// preloading 'log' component
 	'preload'=>array('log'),
 
-	// autoloading model and component classes
-	'import'=>array(
-		'application.models.*',
-		'application.components.*',
-		'application.widgets.*',
-		'bootstrap.helpers.TbHtml',
-		'bootstrap.helpers.TbArray',
-		'bootstrap.behaviors.TbWidget',
-	),
+	'import'=>require(dirname(__FILE__).'/import.php'),
 
 	'modules'=>array(
 		'news',
@@ -36,6 +27,7 @@ return array(
 		'pages',
 		'catalog',
 		'admin',
+		'users',
 		// uncomment the following to enable the Gii tool
 		/*'gii'=>array(
 			'class'=>'system.gii.GiiModule',
@@ -49,48 +41,17 @@ return array(
 	// application components
 	'components'=>array(
 		'user'=>array(
-			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
-
 		'urlManager'=>array(
 			'urlFormat' => 'path',
 			'class'=>'UrlManager',
 			'showScriptName'=>false,
 			'useStrictParsing'=>true,
-			'rules' => array(
-				'' => array('site/index', 'urlSuffix'=>''),
-				'<action:(contact|search|login)>' => array('site/<action>', 'urlSuffix'=>'.html'),
-				'<action:(logout|captcha)>' => 'site/<action>',
-				'<view:about>' => array('site/page', 'urlSuffix'=>'.html'),
-
-				//'admin'=>'site/login',
-				'admin'=>'admin/default/index',
-
-				'admin/<module:\w+>'=>'<module>/admin/default',
-				'admin/<module:\w+>/<controller:\w+>'=>'<module>/admin/<controller>',
-				'admin/<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/admin/<controller>/<action>',
-				'admin/<module:\w+>/<controller:\w+>/<action:\w+>/*'=>'<module>/admin/<controller>/<action>',
-
-				'gii'=>'gii/default/login',
-				'gii/<controller:\w+>'=>'gii/<controller>',
-				'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
-			),
+			'rules' => require(dirname(__FILE__).'/routes.php'),
 		),
-
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/dendor_yii.db',
-		),
-		// uncomment the following to use a MySQL database
-
-		/*'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=dendor_yii1',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
-			'charset' => 'utf8',
-		),*/
+		'db'=>require(dirname(__FILE__).'/db.php'),
+		'db2'=>require(dirname(__FILE__).'/db2.php'),
 		'request'=>array(
 			'class'=>'HttpRequest',
 			'enableCsrfValidation'=>true,
@@ -99,7 +60,6 @@ return array(
 			)
 		),
 		'errorHandler'=>array(
-			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
 		'log'=>array(
@@ -137,12 +97,5 @@ return array(
 		'ModuleUrlManager', 'collectRules'
 	),
 
-	// application-level parameters that can be accessed
-	// using Yii::app()->params['paramName']
-	'params'=>array(
-		// this is used in contact page
-		'adminEmail'=>'admin@dendor.pl',
-		'officeEmail'=>'info@dendor.pl',
-		'uploadPath'=>Yii::getPathOfAlias('webroot').'/upload/',
-	),
+	'params'=>require(dirname(__FILE__).'/params.php'),
 );

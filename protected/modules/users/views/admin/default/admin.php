@@ -1,16 +1,16 @@
 <?php
-/* @var $this PropertyValueController */
-/* @var $model PropertyValue */
+/* @var $this UserController */
+/* @var $model User */
 
 
 $this->breadcrumbs=array(
-	'Property Values'=>array('index'),
+	'Users'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List PropertyValue', 'url'=>array('index')),
-	array('label'=>'Create PropertyValue', 'url'=>array('create')),
+	array('label'=>'User'),
+	array('label'=>'Create User', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -19,7 +19,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#property-value-grid').yiiGridView('update', {
+	$('#user-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Property Values</h1>
+<h1>Manage Users</h1>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -43,24 +43,21 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'property-value-grid',
+	'id'=>'user-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'property_id',
-		'entity_id',
-		'value',
+		'username',
+		'email',
+		'role',
+		/*
+		'title',
+		'profile',
+		'password',
+		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
-			'buttons'=>array(
-				'delete'=>array(
-					'visible'=>'Yii::app()->user->name === "admin"',
-				),
-				'view' => array(
-					'visible'=>'false',
-				),
-			),
 		),
 	),
 )); ?>

@@ -40,7 +40,7 @@
           'class' => 'bootstrap.widgets.TbNav',
           'items' => array(
             array('label'=>Yii::t('admin', 'web_app'), 'url'=>array('/site/index')),
-            array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>(!Yii::app()->user->isGuest && !$this->menu)),
+            array('label'=>Yii::t('app', 'logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
           ),
           'htmlOptions' => array('class' => 'pull-right'),
         ),

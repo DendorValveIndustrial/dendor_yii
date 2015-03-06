@@ -4,6 +4,17 @@ class BaseAdminController extends BaseModuleController {
   public $layout='application.modules.admin.views.layouts.column2';
 
   /**
+   * @return array action filters
+   */
+  public function filters()
+  {
+    return array(
+      'accessControl', // perform access control for CRUD operations
+      'postOnly + delete', // we only allow deletion via POST request
+    );
+  }
+
+  /**
    * Specifies the access control rules.
    * This method is used by the 'accessControl' filter.
    * @return array access control rules
@@ -23,7 +34,11 @@ class BaseAdminController extends BaseModuleController {
         'actions'=>array('admin','delete'),
         'users'=>array('admin'),
       ),*/
-      array('allow', // allow admin user to perform 'admin' and 'delete' actions
+      array('allow',
+        'actions'=>array('index','admin','view','update'),
+        'users'=>array('moderator'),
+      ),
+      array('allow',
         'users'=>array('admin'),
       ),
       array('deny',  // deny all users

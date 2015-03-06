@@ -13,8 +13,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
   array('label'=>'Catalog Items'),
   array('label'=>'Manage', 'url'=>array('admin')),
-  array('label'=>'Create', 'url'=>array('create')),
-  array('label'=>'Copy', 'url'=>array('copy', 'id'=>$model->id)),
+  array('label'=>'Create', 'url'=>array('create'), 'visible'=>(Yii::app()->user->name === 'admin')),
+  array('label'=>'Copy', 'url'=>array('copy', 'id'=>$model->id), 'visible'=>(Yii::app()->user->name === 'admin')),
   array('label'=>'View', 'url'=>$model->viewUrl),
   TbHtml::menuDivider(),
   array('label'=>'Property'),
