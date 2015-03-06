@@ -60,4 +60,6 @@ return array(
   'value' => 'Wartość',
 
   'language' => '<strong>POLAND !</strong>',
+
+  'users' => 'Użytkownicy', //en
 );

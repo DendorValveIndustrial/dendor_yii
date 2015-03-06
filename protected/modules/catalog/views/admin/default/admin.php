@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Items'),
-	array('label'=>'Create New Item', 'url'=>array('create')),
+	array('label'=>'Create New Item', 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
 	array('label'=>'Groups'),
 	array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
 	array('label'=>'Property'),
@@ -59,6 +59,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'name'=>'group_id',
 			'value'=>'CatalogGroup::model()->getNameById($data->group_id)',
+			'filter'=>TbHtml::activeDropDownList($model,'group_id',CatalogGroup::model()->listSelect),
 		),
 		'name',
 		array(
@@ -66,9 +67,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'value'=>'CHtml::link($data->url, $data->viewUrl)',
 			'type'=>'raw',
 		),
-
-		'active',
-		'sorting',
+		array(
+			'name'=>'active',
+			'value' => '$data->active',
+			'htmlOptions'=>array('class'=>'span1'),
+		),
+		array(
+			'name'=>'sorting',
+			'value' => '$data->sorting',
+			'htmlOptions'=>array('class'=>'span1'),
+		),
 		/*
 		'modification_id',
 		'created',

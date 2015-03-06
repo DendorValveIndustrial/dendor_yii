@@ -60,4 +60,6 @@ return array(
   'value' => 'Value',
 
   'language' => '<strong>ENGLISH !</strong>',
+
+  'users' => 'Users',
 );
