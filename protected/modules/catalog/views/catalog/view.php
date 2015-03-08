@@ -10,22 +10,14 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
-/*$this->menu=array(
-	array('label'=>'Manage News', 'url'=>array('admin/default')),
-	array('label'=>'Create News', 'url'=>array('admin/default/create')),
-	array('label'=>'Update News', 'url'=>array('admin/default/update', 'id'=>$model->id)),
-	array('label'=>'Delete News', 'url'=>'#', 'linkOptions'=>array('submit'=>array('admin/default/delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-  array('label'=>'Manage News Category', 'url'=>array('admin/newsCategory/admin')),
-  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
-);
-*/
 $this->pageHeader = $model->name;
 ?>
 <div class="span9 pull-right">
 	<div class="main-content" id="content">
-		<div class="text-item">
-			<?php echo $model->full_description; ?>
-		</div>
+		<?php
+			if (trim($model->full_description) != '')
+				echo TbHtml::tag('div', array('class'=>'text-item'), $model->full_description);
+		?>
 		<div class="properties">
 			<?php
 				$aProperty = $model->property(array('condition'=>'main=0'));
@@ -33,15 +25,6 @@ $this->pageHeader = $model->name;
 					'model'=>$model,
 					'aProperty'=>$aProperty,
 				));
-				/*foreach($aProperty as $oProperty){
-					echo CHtml::openTag('div', array('class'=>'item-property'));
-					echo CHtml::tag('h3', array('class'=>'h3'), $oProperty->name);
-					echo CHtml::openTag('ul');
-					foreach ($oProperty->propertyValues(array('condition'=>'entity_id='.$model->id)) as $propertyValue)
-						echo CHtml::tag('li', array(), $propertyValue->value);
-					echo CHtml::closeTag('ul');
-					echo CHtml::closeTag('div');
-				}*/
 			?>
 		</div>
 	</div>

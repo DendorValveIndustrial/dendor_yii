@@ -61,5 +61,5 @@ return array(
 
   'language' => '<strong>POLAND !</strong>',
 
-  'users' => 'Użytkownicy', //en
+  'users' => 'Użytkownicy',
 );

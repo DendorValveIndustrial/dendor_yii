@@ -42,6 +42,8 @@ textarea { resize: vertical; }
 .main .main-content .group-item .main-features-item .name-type { font-weight: bold; color: #393185; font-size: 1.5em; margin-top: 20px; }
 .main .main-content .group-item .nav-tabs > li > a { font-weight: bold; font-size: 13px; }
 .main .main-content .group-item .nav-tabs > li > a:hover { cursor: pointer; }
+.main .main-content .properties .item-property { margin-bottom: 20px; }
+.main .main-content .properties .item-property .h3 { margin-top: 0; }
 .main .left-bar .main-features-item { margin-top: 40px; }
 .main .left-bar .main-features-item p { margin-bottom: 3px; }
 .main .left-bar .main-features-item .name-type { font-weight: bold; color: #393185; font-size: 1.5em; margin-top: 20px; }
