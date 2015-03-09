@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Items'),
+	//array('label'=>'Items'),
 	array('label'=>'Create New Item', 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
 	array('label'=>'Groups'),
 	array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),

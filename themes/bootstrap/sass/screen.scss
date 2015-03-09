@@ -63,6 +63,14 @@ body{
         }
       }
     }
+    span{
+      &.h1{
+        color: inherit;
+        font-weight: bold;
+        margin-right: 3px;
+        padding-left: 0;
+      }
+    }
   }
   .breadcrumb{
     background-color: transparent;

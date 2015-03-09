@@ -51,8 +51,8 @@
                             , 'htmlOptions'=>array('class'=>'pull-right')
                         ),
                         array('label' => Yii::t('admin', 'content'), 'content' =>
-                            $form->textAreaControlGroup($model,'short_description',array('rows'=>6,'span'=>12)).
-                            $form->textAreaControlGroup($model,'full_description',array('rows'=>6,'span'=>12))
+                            $form->textAreaControlGroup($model,'full_description',array('rows'=>30,'span'=>12)).
+                            $form->textAreaControlGroup($model,'short_description',array('rows'=>6,'span'=>12))
                          , 'active' => true, 'htmlOptions'=>array('class'=>'pull-right')),
                     ),
                     //'placement' => TbHtml::TABS_PLACEMENT_RIGHT,
