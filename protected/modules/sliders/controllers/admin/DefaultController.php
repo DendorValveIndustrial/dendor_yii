@@ -85,10 +85,7 @@ class DefaultController extends BaseAdminController
    */
   public function actionIndex()
   {
-    $currAppLang = Yii::app()->languageManager->getIdByCode();
-    $model = new Slider('search');
-    $dataProvider = $model->language($currAppLang)->search();
-
+    $dataProvider=new CActiveDataProvider('Slider');
     $this->render('index',array(
       'dataProvider'=>$dataProvider,
     ));

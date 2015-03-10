@@ -207,9 +207,9 @@ class CatalogItems extends CActiveRecord
 		$sort=new CSort;
 		$sort->attributes=array(
 			'*',
-			'name' => array(
-				'asc'   => 'translate.name',
-				'desc'  => 'translate.name DESC',
+			'sorting' => array(
+				'asc'   => 't.sorting',
+				'desc'  => 't.sorting DESC',
 			)
 		);
 
@@ -217,7 +217,7 @@ class CatalogItems extends CActiveRecord
 			'criteria'=>$criteria,
 			'sort'=>$sort,
 			'pagination'=>array(
-				'pageSize'=>10,
+				'pageSize'=>15,
 			)
 		));
 

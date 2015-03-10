@@ -10,15 +10,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-  array('label'=>'Items'),
-  array('label'=>'Create New Item', 'url'=>array('create')),
-  array('label'=>'Groups'),
-  array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
-  array('label'=>'Property'),
-  array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
+  array('label'=>Yii::t('admin','Items')),
+  array('label'=>Yii::t('admin','Manage Items'), 'url'=>array('admin')),
+  array('label'=>Yii::t('admin','Groups')),
+  array('label'=>Yii::t('admin','Manage Groups'), 'url'=>array('/catalog/admin/catalogGroup/admin')),
+  array('label'=>Yii::t('admin','Property')),
+  array('label'=>Yii::t('admin','Manage Property'), 'url'=>array('/catalog/admin/property/admin')),
 );
 ?>
 
-<h1>Create Catalog Item</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Create New Item'),''); ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model, 'properties'=>$properties)); ?>

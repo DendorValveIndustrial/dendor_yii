@@ -10,11 +10,11 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>'Items'),
-	array('label'=>'Create New Item', 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
-	array('label'=>'Groups'),
-	array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
-	array('label'=>'Property'),
-	array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
+	array('label'=>Yii::t('admin','Create New Item'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
+	array('label'=>Yii::t('admin','Groups')),
+	array('label'=>Yii::t('admin','Manage Groups'), 'url'=>array('/catalog/admin/catalogGroup/admin')),
+	array('label'=>Yii::t('admin','Property')),
+	array('label'=>Yii::t('admin','Manage Property'), 'url'=>array('/catalog/admin/property/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -31,7 +31,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Catalog Items</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Items'),''); ?>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>

@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
   echo TbHtml::thumbnails(
     array(
       array('url' => Yii::app()->createUrl('/catalog/admin/default/admin'), 'label' => Yii::t('admin','catalog')),
-      array('url' => Yii::app()->createUrl('/languages/admin/default/admin'), 'label' => Yii::t('admin','languages')),
+      array('url' => Yii::app()->createUrl('/languages/admin/default/admin'), 'label' => Yii::t('admin','languages'), 'visible' => Yii::app()->user->name === 'admin'),
       array('url' => Yii::app()->createUrl('/news/admin/default'), 'label' => Yii::t('admin','news')),
       array('url' => Yii::app()->createUrl('/pages/admin/default/admin'), 'label' => Yii::t('admin','pages')),
       array('url' => Yii::app()->createUrl('/sliders/admin/default/admin'), 'label' => Yii::t('admin','sliders')),

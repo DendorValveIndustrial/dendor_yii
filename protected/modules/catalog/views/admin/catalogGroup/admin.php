@@ -10,9 +10,9 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>'Группы товаров'),
-	array('label'=>'Новая группа', 'url'=>array('create')),
-	array('label'=>'Товары'),
-	array('label'=>'Список товаров', 'url'=>array('/catalog/admin/default/admin')),
+	array('label'=>Yii::t('admin','Create New Group'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
+	array('label'=>Yii::t('admin','Items')),
+	array('label'=>Yii::t('admin','Manage Items'), 'url'=>array('/catalog/admin/default/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -29,13 +29,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Catalog Groups</h1>
+<?php echo TbHtml::pageHeader( Yii::t('admin','Groups'),''); ?>
 
-<p>
-    You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
-        &lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+<p>You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.</p>
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
 <div class="search-form" style="display:none">
@@ -62,10 +58,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'type'=>'raw',
 			'name' => 'image',
-			'value' => 'CHtml::link($data->image, array(CatalogGroup::model()->getUploadPath($data->id)."/".$data->image));',
+			'value' => 'CHtml::link($data->image, array(CatalogGroup::model()->getUploadPath($data->id).$data->image))',
+		),
+		array(
+			'type'=>'raw',
+			'name'=>'url',
+			'value'=>'CHtml::link($data->url, $data->viewUrl)',
 		),
 
-		'url',
 		'active',
 		'sorting',
 		/*
@@ -74,6 +74,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'buttons'=>array(
+				'delete'=>array(
+					'visible'=>'Yii::app()->user->name === "admin"',
+				),
+			),
+			'viewButtonUrl'=>'$data->viewUrl',
 		),
 	),
 )); ?>

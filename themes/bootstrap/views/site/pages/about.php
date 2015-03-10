@@ -20,7 +20,13 @@
   </div>
 </div>
 <div class="span3 pull-left left-bar text-right">
-  <div class="span10">
-    <?php if($model->image) echo TbHtml::tag('p',array(),TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].'pages/'.$model->image, $model->title)); ?>
+  <div class="span11">
+    <?php
+      $this->widget('bootstrap.widgets.TbNav', array(
+        'type' => TbHtml::NAV_TYPE_LIST,
+        'items' => CatalogGroup::model()->getListMenu(Yii::t('app','productions'))
+      ));
+    ?>
   </div>
+
 </div>

@@ -167,8 +167,21 @@ class CatalogGroup extends CActiveRecord
 		$criteria->compare('t.page_size',$this->page_size);
 		$criteria->compare('t.deleted',$this->deleted);
 
+		$sort=new CSort;
+		$sort->attributes=array(
+			'*',
+			'sorting' => array(
+				'asc'   => 't.sorting',
+				'desc'  => 't.sorting DESC',
+			)
+		);
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>$sort,
+			'pagination'=>array(
+				'pageSize'=>15,
+			)
 		));
 	}
 

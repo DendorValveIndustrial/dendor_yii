@@ -8,12 +8,12 @@ class CatalogGroupController extends BaseAdminController
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	/*public function actionView($id)
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
-	}
+	}*/
 
 	/**
 	 * Creates a new model.
@@ -121,10 +121,11 @@ class CatalogGroupController extends BaseAdminController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('CatalogGroup');
+		/*$dataProvider=new CActiveDataProvider('CatalogGroup');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
+		));*/
+		$this->actionAdmin();
 	}
 
 	/**

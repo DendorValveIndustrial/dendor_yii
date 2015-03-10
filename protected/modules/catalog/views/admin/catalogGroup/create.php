@@ -10,11 +10,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CatalogGroup', 'url'=>array('index')),
-	array('label'=>'Manage CatalogGroup', 'url'=>array('admin')),
+	array('label'=>Yii::t('admin','Groups')),
+	array('label'=>Yii::t('admin','Manage Groups'), 'url'=>array('admin')),
+  array('label'=>Yii::t('admin','Items')),
+  array('label'=>Yii::t('admin','Manage Items'), 'url'=>array('/catalog/admin/default/admin')),
 );
 ?>
 
-<h1>Create CatalogGroup</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Create New Group'),''); ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

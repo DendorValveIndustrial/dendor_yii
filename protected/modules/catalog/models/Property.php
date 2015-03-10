@@ -133,8 +133,21 @@ class Property extends CActiveRecord
 		$criteria->compare('translate.name',$this->name,true);
 		$criteria->compare('translate.description',$this->description,true);
 
+		$sort=new CSort;
+		$sort->attributes=array(
+			'*',
+			'sorting' => array(
+				'asc'   => 't.sorting',
+				'desc'  => 't.sorting DESC',
+			)
+		);
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>$sort,
+			'pagination'=>array(
+				'pageSize'=>15,
+			)
 		));
 	}
 

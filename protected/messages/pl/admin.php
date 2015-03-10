@@ -62,4 +62,20 @@ return array(
   'language' => '<strong>POLAND !</strong>',
 
   'users' => 'Użytkownicy',
+
+  'Groups' => 'Groups',
+  'Manage Groups' => 'Manage Groups',
+  'Create New Group' => 'Create New Group',
+  'View Group' => 'View Group',
+
+
+  'Items' => 'Items',
+  'Create New Item' => 'Create New Item',
+  'Copy Item' => 'Copy Item',
+  'Manage Items' => 'Manage Items',
+
+  'Property' => 'Property',
+  'Manage Property' => 'Manage Property',
+  'Property values item' => 'Property values item',
+  'Create Property' => 'Create Property',
 );

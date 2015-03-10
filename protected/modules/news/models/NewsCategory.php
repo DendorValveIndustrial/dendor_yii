@@ -386,6 +386,17 @@ class NewsCategory extends CActiveRecord
 		return $this->_list;
 	}
 
+	public function getNameById($id)
+	{
+		$name = 'root';
+		if($id != 0)
+		{
+			$category = NewsCategory::model()->findByPk($id);
+			$name = $category->name;
+		}
+		return $name;
+	}
+
 	/*public function afterSave()
 	{
 		Yii::app()->cache->delete('news_category_'.$this->url);

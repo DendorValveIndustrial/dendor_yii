@@ -9,12 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Items'),
-	array('label'=>'Manage Items', 'url'=>array('/catalog/admin/default/admin')),
-	array('label'=>'Groups'),
-	array('label'=>'Manage Groups', 'url'=>array('/catalog/admin/catalogGroup/admin')),
-	array('label'=>'Property'),
-	array('label'=>'Create Property', 'url'=>array('create')),
+	array('label'=>Yii::t('admin','Create Property'), 'url'=>array('create')),
+  array('label'=>Yii::t('admin','Items')),
+	array('label'=>Yii::t('admin','Manage Items'), 'url'=>array('/catalog/admin/default/admin')),
+  array('label'=>Yii::t('admin','Groups')),
+  array('label'=>Yii::t('admin','Manage Groups'), 'url'=>array('/catalog/admin/catalogGroup/admin')),
 
 );
 
@@ -32,7 +31,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Properties</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Property'),''); ?>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -69,6 +68,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'buttons'=>array(
+				'delete'=>array(
+					'visible'=>'Yii::app()->user->name === "admin"',
+				),
+				'view' => array(
+					'visible'=>'false',
+				),
+			),
 		),
 	),
 )); ?>

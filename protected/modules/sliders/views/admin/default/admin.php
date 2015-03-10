@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Slider', 'url'=>array('index')),
-	array('label'=>'Create Slider', 'url'=>array('create')),
+	array('label'=>'Create Slider', 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -40,12 +40,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'id'=>'slider-grid',
 	'dataProvider'=>$model->language(Yii::app()->languageManager->getIdByCode())->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+    array(
+      'name'=>'id',
+      'value' => '$data->id',
+      'htmlOptions'=>array('class'=>'span1'),
+    ),
 		'data_slidr',
 		'name',
 		//'text',
@@ -53,7 +57,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'link',
 		'active',
 		array(
-			'class'=>'CButtonColumn',
+      'class'=>'bootstrap.widgets.TbButtonColumn',
+      'buttons'=>array(
+        'delete'=>array(
+          'visible'=>'Yii::app()->user->name === "admin"',
+        ),
+        'view'=>array(
+          'visible'=>'false',
+        ),
+      ),
 		),
 	),
 )); ?>

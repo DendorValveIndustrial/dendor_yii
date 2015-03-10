@@ -62,4 +62,20 @@ return array(
   'language' => '<strong>РУССКИЙ !</strong>',
 
   'users' => 'Users',
+
+  'View' => 'Посмотреть на сайте',
+
+  'Groups' => 'Группы товаров',
+  'Manage Groups' => 'Список групп',
+  'Create New Group' => 'Новая группа',
+
+  'Items' => 'Товары',
+  'Create New Item' => 'Новый товар',
+  'Copy Item' => 'Копировать товар',
+  'Manage Items' => 'Список товаров',
+
+  'Property' => 'Свойства',
+  'Manage Property' => 'Список свойств',
+  'Property values item' => 'ЗНАЧЕНИЯ свойств товара!',
+  'Create Property' => 'Новое свойство',
 );
