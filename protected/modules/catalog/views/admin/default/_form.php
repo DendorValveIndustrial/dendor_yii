@@ -25,11 +25,14 @@
 						<?php echo $form->dropDownListControlGroup($model, 'group_id', CatalogGroup::model()->listSelect); ?>
 					</div>
 					<div class="span3">
-						<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('/catalog/admin/catalogGroup/create')); ?>
+						<?php
+							if(Yii::app()->user->name === 'admin')
+								echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('/catalog/admin/catalogGroup/create'));
+						?>
 					</div>
 				</div>
 				<?php echo $form->textFieldControlGroup($model,'name',array('span'=>12,'maxlength'=>255)); ?>
-				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12)); ?>
+				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
 				<?php echo $form->fileFieldControlGroup($model,'img'); ?>
 			</div>
 			<div class="span2">

@@ -8,8 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-  array('label'=>'Manage Category News', 'url'=>array('/news/admin/newsCategory/admin')),
-  array('label'=>'Create News', 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
+  array('label'=>Yii::t('admin','Create'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
+  TbHtml::menuDivider(),
+  array('label'=>Yii::t('admin','Category')),
+  array('label'=>Yii::t('admin','Manage Category'), 'url'=>array('/news/admin/newsCategory/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +28,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage News</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Manage'),Yii::t('app','news')); ?>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
   'model'=>$model,
@@ -61,10 +63,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
       'type'=>'raw',
     ),
     'status',
-    'created',
-    /*
-    'updated',
     'publish_date',
+    /*
+    'created',
+    'updated',
     'layout',
     'image',
     */

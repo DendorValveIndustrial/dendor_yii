@@ -9,14 +9,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-  array('label'=>'Property'),
-  array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
+  array('label'=>Yii::t('admin','Property')),
+  array('label'=>Yii::t('admin','Manage Property'), 'url'=>array('/catalog/admin/property/admin')),
   TbHtml::menuDivider(),
-  array('label'=>'Return item','url'=>array('/catalog/admin/default/update', 'id'=>$item->id)),
+  array('label'=>Yii::t('admin','Return item'),'url'=>array('/catalog/admin/default/update', 'id'=>$item->id)),
 );
 ?>
 
-<?php echo TbHtml::pageHeader('Property Values', $item->name) ?>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Property values item'), $item->name) ?>
 
 <?php echo TbHtml::alert(TbHtml::ALERT_COLOR_SUCCESS, Yii::t('admin','language'), array('class'=>'text-center')); ?>
 

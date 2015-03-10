@@ -7,12 +7,12 @@ class NewsCategoryController extends BaseAdminController
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	/*public function actionView($id)
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
-	}
+	}*/
 
 	/**
 	 * Creates a new model.
@@ -28,7 +28,7 @@ class NewsCategoryController extends BaseAdminController
 		if (isset($_POST['NewsCategory'])) {
 			$model->attributes=$_POST['NewsCategory'];
 			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('update','id'=>$model->id));
 			}
 		}
 
@@ -86,10 +86,11 @@ class NewsCategoryController extends BaseAdminController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('NewsCategory');
+		/*$dataProvider=new CActiveDataProvider('NewsCategory');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
+		));*/
+	 $this->actionAdmin();
 	}
 
 	/**

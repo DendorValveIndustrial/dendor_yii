@@ -23,7 +23,7 @@
             <div class="row-fluid">
                 <div class="span6">
                     <?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
-                    <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
                     <?php echo $form->checkBoxControlGroup($model, 'active'); ?>
                 </div>
                 <div class="span3">

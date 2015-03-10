@@ -21,8 +21,6 @@
 
 		<?php echo $form->hiddenField($model,'entity_id',array('value'=>$item->id)); ?>
 
-		<?php //echo $form->textAreaControlGroup($model,'value',array('rows'=>2,'span'=>8)); ?>
-
 		<?php echo $this->renrerActionFormField($model, 'value'); ?>
 
 		<div class="form-actions">

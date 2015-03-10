@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Property</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Create Property'),''); ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

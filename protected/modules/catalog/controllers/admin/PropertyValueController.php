@@ -16,25 +16,14 @@ class PropertyValueController extends BaseAdminController
 	}
 
 	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	/*public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}*/
-
-	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	/*public function actionCreate($id)
+	public function actionCreate($item_id)
 	{
 		$model=new PropertyValue;
 
-		$item = CatalogItems::model()->findByPk($id);
+		$item = CatalogItems::model()->findByPk($item_id);
 		if ($item===null)
 			throw new CHttpException(404,'Товар не найден.');
 
@@ -44,7 +33,7 @@ class PropertyValueController extends BaseAdminController
 		if (isset($_POST['PropertyValue'])) {
 			$model->attributes=$_POST['PropertyValue'];
 			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('index','item_id'=>$item->id));
 			}
 		}
 
@@ -52,7 +41,7 @@ class PropertyValueController extends BaseAdminController
 			'model'=>$model,
 			'item'=>$item,
 		));
-	}*/
+	}
 
 	/**
 	 * Updates a particular model.
@@ -168,18 +157,10 @@ class PropertyValueController extends BaseAdminController
 	/**
 	 * Manages all models.
 	 */
-	/*public function actionAdmin($item_id)
+	public function actionAdmin($item_id)
 	{
-		$model = PropertyValue::model()->filterByEntity($item_id);
-		$model->unsetAttributes();  // clear any default values
-		if (isset($_GET['PropertyValue'])) {
-			$model->attributes=$_GET['PropertyValue'];
-		}
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}*/
+		$this->actionIndex($item_id);
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

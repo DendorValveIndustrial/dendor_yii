@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'Pages':
  * @property integer $id
- * @property string $category
+ * @property string $system_name
  * @property string $layout
  * @property string $url
  * @property string $created
@@ -96,16 +96,16 @@ class Pages extends CActiveRecord
 	}
 
 	/**
-	 * Find page by category.
+	 * Find page by system_name.
 	 * Scope.
-	 * @param string Page category
+	 * @param string Page system_name
 	 * @return Page
 	 */
-	public function pageCategory($category)
+	public function pageCategory($system_name)
 	{
 		$this->getDbCriteria()->mergeWith(array(
-			'condition'=>'category=:category',
-			'params'=>array(':category'=>$category)
+			'condition'=>'system_name=:system_name',
+			'params'=>array(':system_name'=>$system_name)
 		));
 
 		return $this;
@@ -119,17 +119,17 @@ class Pages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('category, layout, url, image, title, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
+			array('system_name, layout, url, image, title, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			array('short_description, full_description', 'type', 'type'=>'string'),
 			array('status', 'in', 'range'=>array_keys(self::statuses())),
-			array('category, title, status', 'required'),
+			array('system_name, title, status', 'required'),
 			array('url', 'LocalUrlValidator'),
-			array('category, url', 'unique'),
+			array('system_name, url', 'unique'),
 			array('created', 'safe'),
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, category, url, created, status, image', 'safe', 'on'=>'search'),
+			array('id, system_name, url, created, status, image', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -173,7 +173,7 @@ class Pages extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'category' => Yii::t('admin','category'),
+			'system_name' => Yii::t('admin','system_name'),
 			'layout' => Yii::t('admin','layout'),
 			'url' => Yii::t('admin','url'),
 			'created' => Yii::t('admin','created'),
@@ -225,7 +225,7 @@ class Pages extends CActiveRecord
 		$criteria->with = array('translate');
 
 		$criteria->compare('t.id',$this->id);
-		$criteria->compare('t.category',$this->category);
+		$criteria->compare('t.system_name',$this->system_name);
 		$criteria->compare('translate.title',$this->title,true);
 		$criteria->compare('t.url',$this->url,true);
 		$criteria->compare('translate.short_description',$this->short_description,true);
@@ -270,7 +270,7 @@ class Pages extends CActiveRecord
 			$this->meta_description = substr($this->short_description, 0, 120);
 
 		if (empty($this->url) && $this->isNewRecord)
-			$this->url = $this->category;
+			$this->url = $this->system_name;
 
 		return parent::beforeSave();
 	}
@@ -292,4 +292,19 @@ class Pages extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	/**
+	 * Get url to view object on front
+	 * @return string
+	 */
+	public function getViewUrl()
+	{
+		/*$data = array('url'=>$this->url);
+
+		if($this->category)
+			$data['category'] = $this->category->url;*/
+
+		return urldecode(Yii::app()->createUrl($this->url));
+	}
+
 }

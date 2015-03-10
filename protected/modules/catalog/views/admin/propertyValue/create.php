@@ -10,8 +10,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List PropertyValue', 'url'=>array('index')),
-	array('label'=>'Manage PropertyValue', 'url'=>array('admin')),
+	array('label'=>Yii::t('admin','Property')),
+	array('label'=>Yii::t('admin','Property values item'), 'url'=>array('admin', 'item_id'=>$item->id)),
 );
 ?>
 

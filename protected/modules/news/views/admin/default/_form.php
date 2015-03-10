@@ -23,11 +23,11 @@
 						<?php echo $form->dropDownListControlGroup($model, 'category_id', NewsCategory::model()->listCategory); ?>
 					</div>
 					<div class="span3">
-						<?php echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('/news/admin/newsCategory/create')); ?>
+						<?php if(Yii::app()->user->name === 'admin') echo TbHtml::link(Yii::t('admin','new_category'), Yii::app()->createUrl('/news/admin/newsCategory/create')); ?>
 					</div>
 				</div>
 				<?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>
-				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12)); ?>
+				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
 				<?php echo $form->fileFieldControlGroup($model,'img') ?>
 			</div>
 			<div class="span2">
@@ -56,8 +56,8 @@
 							, 'htmlOptions'=>array('class'=>'pull-right')
 						),
 						array('label' => Yii::t('admin', 'content'), 'content' =>
-							$form->textAreaControlGroup($model,'short_description',array('rows'=>6,'span'=>12)).
-							$form->textAreaControlGroup($model,'full_description',array('rows'=>6,'span'=>12))
+							$form->textAreaControlGroup($model,'full_description',array('rows'=>35,'span'=>12)).
+							$form->textAreaControlGroup($model,'short_description',array('rows'=>4,'span'=>12))
 						 , 'active' => true, 'htmlOptions'=>array('class'=>'pull-right')),
 					),
 					//'placement' => TbHtml::TABS_PLACEMENT_RIGHT,

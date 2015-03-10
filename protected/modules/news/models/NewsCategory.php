@@ -368,7 +368,7 @@ class NewsCategory extends CActiveRecord
 	 */
 	public function getViewUrl()
 	{
-		return urldecode(Yii::app()->createUrl('news/news/list', array('url'=>$this->full_url)));
+		return urldecode(Yii::app()->createUrl('news/news/list', array('path'=>$this->full_url)));
 	}
 
 	/**

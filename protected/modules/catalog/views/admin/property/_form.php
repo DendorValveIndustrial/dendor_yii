@@ -19,13 +19,13 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'system_name',array('span'=>5,'maxlength'=>255)); ?>
+            <?php echo $form->textFieldControlGroup($model,'system_name',array('span'=>5,'maxlength'=>255, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
 
             <?php echo $form->textFieldControlGroup($model,'name',array('span'=>5,'maxlength'=>255)); ?>
 
             <?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>5)); ?>
 
-            <?php echo $form->dropDownListControlGroup($model,'type',$model->typesList); ?>
+            <?php echo $form->dropDownListControlGroup($model,'type',$model->typesList,array('disabled'=>Yii::app()->user->name != 'admin')); ?>
 
             <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>5)); ?>
 

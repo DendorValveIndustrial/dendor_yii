@@ -11,8 +11,8 @@ class DefaultController extends BaseAdminController
   /**
    * Lists all models.
    */
-	public function actionIndex()
-	{
+  public function actionIndex()
+  {
     $model=new News('search');
     $model->unsetAttributes();  // clear any default values
     if(isset($_GET['News']))
@@ -21,6 +21,11 @@ class DefaultController extends BaseAdminController
     $this->render('index',array(
       'model'=>$model,
     ));
+  }
+
+	public function actionAdmin()
+	{
+    $this->actionIndex();
 	}
 
   /**

@@ -9,9 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List NewsCategory', 'url'=>array('index')),
-	array('label'=>'Create NewsCategory', 'url'=>array('create')),
-  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
+	array('label'=>Yii::t('admin','Create'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
+  TbHtml::menuDivider(),
+  array('label'=>Yii::t('app','news')),
+  array('label'=>Yii::t('admin','Manage'), 'url'=>array('/news/admin/default/index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -28,7 +29,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage News Categories</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Manage Category'),Yii::t('app','news')); ?>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -48,11 +49,25 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'parent_id',
+    array(
+      'name'=>'id',
+      'value' => '$data->id',
+      'htmlOptions'=>array('class'=>'span1'),
+    ),
+    array(
+      'name'=>'parent_id',
+      'value'=>'NewsCategory::model()->getNameById($data->parent_id)',
+      'filter'=>TbHtml::activeDropDownList($model,'parent_id',NewsCategory::model()->listCategory)
+    ),
 		'name',
-		'url',
+    array(
+      'name'=>'url',
+      'value'=>'CHtml::link($data->url, $data->viewUrl)',
+      'type'=>'raw',
+    ),
 		/*
+		'parent_id',
+		'url',
 		'full_url',
 		'layout',
 		'image',
@@ -62,6 +77,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
+      'buttons'=>array(
+        'delete'=>array(
+          'visible'=>'Yii::app()->user->name === "admin"',
+        ),
+      ),
+      'viewButtonUrl'=>'$data->viewUrl',
+    ),
 	),
 )); ?>

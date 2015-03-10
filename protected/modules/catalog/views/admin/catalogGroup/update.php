@@ -21,6 +21,6 @@ $this->menu=array(
 );
 ?>
 
-<?php echo TbHtml::pageHeader('Update Catalog Group',$model->name); ?>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Update'),$model->name); ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -11,13 +11,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-  array('label'=>'Property'),
-  array('label'=>'Manage Property', 'url'=>array('/catalog/admin/property/admin')),
+  array('label'=>Yii::t('admin','Create Property Value'),'url'=>array('/catalog/admin/propertyValue/create', 'item_id'=>$model->entity_id), 'visible'=>(Yii::app()->user->name === 'admin')),
+  array('label'=>Yii::t('admin','Property')),
+  array('label'=>Yii::t('admin','Manage Property'), 'url'=>array('/catalog/admin/property/admin')),
   TbHtml::menuDivider(),
-  array('label'=>'Return','url'=>array('/catalog/admin/propertyValue/index', 'item_id'=>$model->entity_id)),
+  array('label'=>'Return Manage','url'=>array('/catalog/admin/propertyValue/index', 'item_id'=>$model->entity_id)),
 );
 ?>
 
-    <h1>Update PropertyValue <?php echo $model->id; ?></h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Update Property Value'),$model->catalog_item->name) ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

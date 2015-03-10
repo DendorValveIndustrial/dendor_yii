@@ -18,7 +18,7 @@ $this->menu=array(
   array('label'=>Yii::t('admin','Manage Items'), 'url'=>array('admin')),
   TbHtml::menuDivider(),
   array('label'=>Yii::t('admin','Property')),
-  array('label'=>Yii::t('admin','Manage Property'), 'url'=>array('/catalog/admin/property/admin')),
+  //array('label'=>Yii::t('admin','Manage Property'), 'url'=>array('/catalog/admin/property/admin')),
   array('label'=>Yii::t('admin','Property values item'), 'url'=>array('/catalog/admin/propertyValue/index', 'item_id'=>$model->id)),
   TbHtml::menuDivider(),
   array('label'=>Yii::t('admin','Groups')),
@@ -26,6 +26,6 @@ $this->menu=array(
 );
 ?>
 
-<?php echo TbHtml::pageHeader('Update', $model->name) ?>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Update'), $model->name) ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

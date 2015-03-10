@@ -20,7 +20,7 @@
             <div class="span10">
                 <div class="row-fluid">
                     <div class="span9">
-                        <?php echo $form->textFieldControlGroup($model, 'category', array('span'=>12,'maxlength'=>255)); ?>
+                        <?php echo $form->textFieldControlGroup($model, 'system_name', array('span'=>12,'maxlength'=>255)); ?>
                     </div>
                 </div>
                 <?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>

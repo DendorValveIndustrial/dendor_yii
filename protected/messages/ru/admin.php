@@ -64,6 +64,17 @@ return array(
   'users' => 'Users',
 
   'View' => 'Посмотреть на сайте',
+  'Update' => 'Редактировать',
+  'Create' => 'Создать',
+  'Manage' => 'Список',
+
+  'Category' => 'Категории',
+  'Manage Category' => 'Список категорий',
+  'Manage News' => 'Список новостей',
+  'Manage Page' => 'Список страниц',
+  'Manage Sliders' => 'Список слайдов',
+  'Manage Languages' => 'Список Языков',
+  'Manage Users' => 'Список пользователей',
 
   'Groups' => 'Группы товаров',
   'Manage Groups' => 'Список групп',
@@ -76,6 +87,8 @@ return array(
 
   'Property' => 'Свойства',
   'Manage Property' => 'Список свойств',
-  'Property values item' => 'ЗНАЧЕНИЯ свойств товара!',
+  'Property values item' => 'СВОЙСТВА ТОВАРА!',
   'Create Property' => 'Новое свойство',
+  'Create Property Value' => 'Добавить значение',
+  'Update Property Value' => 'Редактировать значение свойства',
 );

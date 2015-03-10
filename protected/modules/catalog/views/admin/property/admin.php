@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>Yii::t('admin','Create Property'), 'url'=>array('create')),
+	array('label'=>Yii::t('admin','Create Property'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
   array('label'=>Yii::t('admin','Items')),
 	array('label'=>Yii::t('admin','Manage Items'), 'url'=>array('/catalog/admin/default/admin')),
   array('label'=>Yii::t('admin','Groups')),

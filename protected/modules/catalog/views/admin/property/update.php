@@ -11,13 +11,18 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Property', 'url'=>array('index')),
-	array('label'=>'Create Property', 'url'=>array('create')),
-	array('label'=>'View Property', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Property', 'url'=>array('admin')),
+	array('label'=>Yii::t('admin','Property')),
+	array('label'=>Yii::t('admin','Create Property'), 'url'=>array('create'), 'visible'=>(Yii::app()->user->name === 'admin')),
+	array('label'=>Yii::t('admin','Manage Property'), 'url'=>array('admin')),
+  TbHtml::menuDivider(),
+  array('label'=>Yii::t('admin','Groups')),
+  array('label'=>Yii::t('admin','Manage Groups'), 'url'=>array('/catalog/admin/catalogGroup/admin')),
+  TbHtml::menuDivider(),
+  array('label'=>Yii::t('admin','Items')),
+  array('label'=>Yii::t('admin','Manage Items'), 'url'=>array('/catalog/admin/default/admin')),
 );
 ?>
 
-    <h1>Update Property <?php echo $model->id; ?></h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Update'), $model->name) ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

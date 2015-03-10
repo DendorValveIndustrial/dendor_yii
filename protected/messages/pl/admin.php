@@ -63,10 +63,22 @@ return array(
 
   'users' => 'Użytkownicy',
 
+  'View' => 'View',
+  'Update' => 'Update',
+  'Create' => 'Create',
+  'Manage' => 'Manage',
+
+  'Category' => 'Category',
+  'Manage Category' => 'Manage Category',
+  'Manage News' => 'Manage News',
+  'Manage Page' => 'Manage Page',
+  'Manage Sliders' => 'Manage Sliders',
+  'Manage Languages' => 'Manage Languages',
+  'Manage Users' => 'Manage Users',
+
   'Groups' => 'Groups',
   'Manage Groups' => 'Manage Groups',
   'Create New Group' => 'Create New Group',
-  'View Group' => 'View Group',
 
 
   'Items' => 'Items',
@@ -78,4 +90,6 @@ return array(
   'Manage Property' => 'Manage Property',
   'Property values item' => 'Property values item',
   'Create Property' => 'Create Property',
+  'Create Property Value' => 'Create Property Value',
+  'Update Property Value' => 'Update Property Value',
 );
