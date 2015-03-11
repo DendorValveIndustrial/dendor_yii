@@ -22,6 +22,11 @@ body{
   @include box-shadow(rgba(0, 0, 0, 0.5) 0 5px 15px);
   margin-bottom: 45px;
   .navbar{
+    .brand{
+      @media (max-width: 767px){
+        width: auto;
+      }
+    }
     .country{
       >li{
         >a{
@@ -30,10 +35,29 @@ body{
       }
     }
   }
+  .navbar-fixed-top{
+    @media (max-width: 767px){
+      margin:{
+        left: 0;
+        right: 0;
+        bottom: 15px;
+      }
+    }
+  }
+
+  .nav-collapse, .nav-collapse.collapse {
+    @media (max-width: 767px){
+      position: absolute;
+    }
+  }
   .head{
     margin-top: 65px;
     .logo{
       margin: 30px 0;
+      @media (max-width: 480px){
+        margin-top: 0;
+        text-align: center;
+      }
     }
     .contact-top{
       color: #fff;
@@ -59,6 +83,9 @@ body{
       .email{
         @include text-shadow(rgba(0,0,0,0.2) 0 -1px 0);
       }
+    }
+    @media (max-width: 480px){
+      margin-top: 0;
     }
   }
   .wrap-slider{
@@ -150,6 +177,17 @@ body{
         }
       }
     }
+    @media (max-width: 480px){
+      overflow: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+  @media (max-width: 767px){
+    height: 350px;
+    margin-bottom: 0px;
   }
 }
 .main{
@@ -162,6 +200,12 @@ body{
     margin-bottom: 20px;
     margin-top: -83px;
     position: relative;
+    @media (max-width: 480px){
+      position: absolute;
+      margin: 0;
+      top: -390px;
+      left: -300px;
+    }
     .nav-list{
       >li{
         border-bottom: 1px solid #e4e4e4;
@@ -276,6 +320,14 @@ body{
   &.fade{
     &.in{
       top: 25%;
+    }
+  }
+}
+.container{
+  @media (max-width: 767px){
+    padding:{
+      left: 20px;
+      right: 20px;
     }
   }
 }

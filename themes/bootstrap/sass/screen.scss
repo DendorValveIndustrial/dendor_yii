@@ -174,7 +174,6 @@ body{
     padding-top: 30px;
   }
 }
-
 .flag-language{
   padding-left: 35px;
   &.en{
@@ -185,5 +184,11 @@ body{
   }
   &.pl{
     background: url('/img/flags/pl.gif') no-repeat 12px 45%;
+  }
+}
+
+.container{
+  @media (max-width: 480px){
+    padding: 0 20px;
   }
 }

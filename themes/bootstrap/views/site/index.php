@@ -1,7 +1,7 @@
 <?php
   $this->pageTitle = Yii::t('app','pipeline_valves').' - '.CHtml::encode(Yii::app()->name);;
 ?>
-<div class="row">
+<div class="row-fluid">
   <div class="span3">
     <div class="aside-sidebar">
       <?php
