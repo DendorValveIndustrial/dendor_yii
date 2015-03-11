@@ -17,31 +17,38 @@
       <div class="span10 offset1">
         <div class="home-title">
           <h2><?php echo CHtml::encode(Yii::app()->name); ?></h2>
-          <div class="about">
-            <?php echo $model->full_description; ?>
-          </div>
+          <?php echo TbHtml::quote(CHtml::encode($model->short_description), array(
+            'source' => TbHtml::link(Yii::t('app','more_info'),array('/site/page', 'view'=>'about'),array()),
+          )); ?>
         </div>
       </div>
     </div>
     <div class='line line-dotted'></div>
     <div class='row-fluid'>
       <div class='span6'>
-        <h2 class='h1'>Aktualności</h2>
-        <p>Firma Dendor Valve Industrial była wystawcą na ХХII Międzynarodowych Targach Maszyn i Urządzeń dla Wodociągów i Kanalizacji WOD-KAN 2014 w Bydgoszczy (Polska). Przedstawiony przez spółkę szeroki asortyment armatury przemysłowej dla przemysłu i gospodarki komunalnej wzbudzał żywe zainteresowanie licznych odwiedzających...</p>
-        <p class='text-right'><a href="#">czytaj więcej...</a></p>
+        <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','news')) ?>
+        <p>
+          <?php
+            $latest_news = News::model()->find();
+            echo CHtml::encode($latest_news->short_description);
+          ?>
+        </p>
+        <p class='text-right'>
+          <?php echo CHtml::link(Yii::t('app','read_more'),$latest_news->viewUrl); ?>
+        </p>
       </div>
       <div class='span6'>
         <ul class='thumbnails'>
           <li class='span5 offset1'>
             <div class='thumbnail text-center'>
               <a href="#"><img alt="lorem_image" height="180" src="http://placehold.it/180x180" width="180" /></a>
-              <h5>Сertificate</h5>
+              <h5>Catalogue</h5>
             </div>
           </li>
           <li class='span5 offset1'>
             <div class='thumbnail text-center'>
               <a href="#"><img alt="lorem_image" height="180" src="http://placehold.it/180x180" width="180" /></a>
-              <h5>Catalogue</h5>
+              <h5>Сertificate</h5>
             </div>
           </li>
         </ul>

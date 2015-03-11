@@ -221,10 +221,12 @@ body{
       }
     }
     blockquote{
-      margin-bottom: 40px;
+      /* margin-bottom: 40px; */
       >p {
-        color: #999;
-        line-height: 1.5;
+        font-size: inherit;
+        margin-bottom: inherit;
+        /* color: #999;
+        line-height: 1.5; */
       }
     }
   }

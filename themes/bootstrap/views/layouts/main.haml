@@ -20,7 +20,7 @@
               = CHtml::link(CHtml::image('/img/logo/logo-blue193.png',CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),Yii::app()->createUrl('site/index'))
             .span4
               .top-contact.pull-right
-                .tel.text-center 48-792-516-591
+                .tel.text-center= CHtml::encode(Yii::app()->params['telOfficePol'])
                 .mail.text-center= CHtml::mailto(Yii::app()->params['officeEmail'])
             .span2
               -$this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'inline pull-right')))

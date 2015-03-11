@@ -43,9 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `username`, `title`, `password`, `email`, `role`, `profile`) VALUES
 (1, 'admin', 'admin', '$2a$13$MmuWDmRGK6ZejRIq2fd3p.8/GTq.hGIFiesd9sIr0aFf41hbaLxY6', 'test1@example.com', 'administrator', ''),
-(2, 'moderator', '', '$2a$13$16vGw6QAJ0SwhQIf2EzZw.0Edoz8aSiAThRxHBFTBG9zuk7s.8kjO', 'test2@example.com', 'moderator', ''),
-(3, 'test3', '', 'pass3', 'test3@example.com', 'user', NULL),
-(4, 'test4', '', 'pass4', 'test4@example.com', 'banned', NULL);
+(2, 'moderator', '', '$2a$13$16vGw6QAJ0SwhQIf2EzZw.0Edoz8aSiAThRxHBFTBG9zuk7s.8kjO', 'test2@example.com', 'moderator', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
