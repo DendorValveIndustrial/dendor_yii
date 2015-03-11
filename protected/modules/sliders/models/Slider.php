@@ -21,6 +21,11 @@
 class Slider extends CActiveRecord
 {
 	/**
+	 * Upload image file.
+	 */
+	public $img_file;
+
+	/**
 	 * Multilingual attrs
 	 */
 	public $name;
@@ -48,8 +53,10 @@ class Slider extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('active', 'numerical', 'integerOnly'=>true),
+			array('data_slidr', 'required'),
 			array('data_slidr', 'length', 'max'=>6),
 			array('img, link, name, text', 'length', 'max'=>255),
+			array('img_file','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, data_slidr, img, link, active, name, text', 'safe', 'on'=>'search'),
@@ -94,7 +101,8 @@ class Slider extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'data_slidr' => 'Data Slidr',
-			'img' => 'Img',
+			'img' => 'Image',
+			'img_file' => 'Image File',
 			'link' => 'Link',
 			'active' => 'Active',
 			//SliderTranslates

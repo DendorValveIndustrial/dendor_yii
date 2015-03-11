@@ -19,7 +19,7 @@
 
                     <?php echo $form->textFieldControlGroup($model,'main',array('span'=>5)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'required',array('span'=>5)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'hidden',array('span'=>5)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>5)); ?>
 

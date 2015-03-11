@@ -8,59 +8,51 @@
 
 	<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 		'id'=>'news-category-form',
-		// Please note: When you enable ajax validation, make sure the corresponding
-		// controller action is handling ajax validation correctly.
-		// There is a call to performAjaxValidation() commented in generated controller code.
-		// See class documentation of CActiveForm for details on this.
 		'enableAjaxValidation'=>false,
+		'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
+		'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	)); ?>
 
-		<p class="help-block">Fields with <span class="required">*</span> are required.</p>
+		<?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
 
 		<?php echo $form->errorSummary($model); ?>
-			<div class="row-fluid">
-				<div class="span6">
-
-					<?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
-
-				</div>
-				<div class="span3">
-
-					<?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listCategory); ?>
-
-				</div>
+		<div class="row-fluid">
+			<div class="span10">
+				<?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listCategory); ?>
+				<?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
+				<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
+				<?php echo $form->textFieldControlGroup($model,'full_url',array('span'=>12, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
+				<?php //echo $form->textFieldControlGroup($model,'image',array('span'=>12,'maxlength'=>255)); ?>
 			</div>
-			<div class="line line-dotted"></div>
-			<div class="row-fluid">
-				<div class="span6">
-
-					<?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'full_url',array('span'=>12)); ?>
-
-					<?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'layout',array('span'=>12,'maxlength'=>255)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'image',array('span'=>12,'maxlength'=>255)); ?>
-
-				</div>
-				<div class="span6">
-
-					<?php echo $form->textFieldControlGroup($model,'meta_title',array('span'=>12,'maxlength'=>255)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'meta_description',array('span'=>12,'maxlength'=>255)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'meta_keywords',array('span'=>12,'maxlength'=>255)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'created',array('span'=>12)); ?>
-
-					<?php echo $form->textFieldControlGroup($model,'updated',array('span'=>12)); ?>
-
-					<?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>3)); ?>
-
-				</div>
+			<div class="span2">
+				<?php if($model->image) echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->image, $model->title); ?>
 			</div>
+		</div>
+		<div class="line line-dotted"></div>
+		<div class="row-fluid">
+			<?php
+				$this->widget('bootstrap.widgets.TbTabs', array(
+					'tabs' => array(
+						array('label' => Yii::t('admin', 'additionally'), 'content' =>
+							$form->textFieldControlGroup($model,'created',array('span'=>12)).
+							$form->textFieldControlGroup($model,'updated',array('span'=>12)).
+							$form->numberFieldControlGroup($model,'page_size',array('span'=>3))
+							, 'htmlOptions'=>array('class'=>'pull-right'),
+						),
+						array('label' => Yii::t('admin', 'seo'), 'content' =>
+							$form->textFieldControlGroup($model,'meta_title',array('span'=>12,'maxlength'=>255)).
+							$form->textAreaControlGroup($model,'meta_description',array('rows'=>6,'span'=>12,'maxlength'=>255)).
+							$form->textFieldControlGroup($model,'meta_keywords',array('span'=>12,'maxlength'=>255))
+							, 'htmlOptions'=>array('class'=>'pull-right'),
+						),
+						array('label' => Yii::t('admin', 'content'), 'content' =>
+							$form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12))
+							, 'active' => true, 'htmlOptions'=>array('class'=>'pull-right')),
+						),
+					)
+				);
+			?>
+		</div>
 
 		<div class="form-actions">
 			<?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(

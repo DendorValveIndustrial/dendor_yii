@@ -31,7 +31,7 @@
 
             <?php echo $form->checkBoxControlGroup($model,'main'); ?>
 
-            <?php echo $form->checkBoxControlGroup($model,'required'); ?>
+            <?php echo $form->checkBoxControlGroup($model,'hidden'); ?>
 
         <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(

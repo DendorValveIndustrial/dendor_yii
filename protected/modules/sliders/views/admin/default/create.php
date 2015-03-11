@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Slider', 'url'=>array('index')),
-	array('label'=>'Manage Slider', 'url'=>array('admin')),
+  array('label'=>Yii::t('admin','sliders')),
+	array('label'=>Yii::t('admin','Manage'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Slider</h1>
-
+<?php echo TbHtml::pageHeader(Yii::t('admin','Create'),Yii::t('admin','sliders')); ?>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

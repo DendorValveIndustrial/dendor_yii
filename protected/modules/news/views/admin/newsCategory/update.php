@@ -11,14 +11,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List NewsCategory', 'url'=>array('index')),
-	array('label'=>'Create NewsCategory', 'url'=>array('create')),
-	array('label'=>'View NewsCategory', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage NewsCategory', 'url'=>array('admin')),
-  array('label'=>Yii::t('app', 'logout'), 'url'=>array('/site/logout')),
+  array('label'=>Yii::t('admin', 'Category')),
+  array('label'=>Yii::t('admin','Create'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
+  array('label'=>Yii::t('admin','Manage'), 'url'=>array('admin')),
+  TbHtml::menuDivider(),
+  array('label'=>Yii::t('admin','news')),
+  array('label'=>Yii::t('admin','Manage'), 'url'=>array('/news/admin/default/index')),
 );
 ?>
 
-    <h1>Update NewsCategory <?php echo $model->id; ?></h1>
-
+<?php echo TbHtml::pageHeader(Yii::t('admin','Update'),$model->name); ?>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

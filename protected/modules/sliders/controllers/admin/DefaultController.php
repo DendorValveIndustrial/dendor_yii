@@ -2,22 +2,6 @@
 
 class DefaultController extends BaseAdminController
 {
-  /**
-   * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-   * using two-column layout. See 'protected/views/layouts/column2.php'.
-   */
-  //public $layout='//layouts/column2';
-
-  /**
-   * Displays a particular model.
-   * @param integer $id the ID of the model to be displayed
-   */
-  public function actionView($id)
-  {
-    $this->render('view',array(
-      'model'=>$this->loadModel($id),
-    ));
-  }
 
   /**
    * Creates a new model.
@@ -30,11 +14,24 @@ class DefaultController extends BaseAdminController
     // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
 
+    $dir = Yii::getPathOfAlias('webroot.upload.sliders');
+    $this->createDir($dir);
+
     if(isset($_POST['Slider']))
     {
       $model->attributes=$_POST['Slider'];
-      if($model->save())
-        $this->redirect(array('view','id'=>$model->id));
+
+      $model->img_file = CUploadedFile::getInstance($model,'img_file');
+      if($model->img_file)
+        $model->img = $model->img_file->getName();
+
+      if($model->save()){
+
+        if (is_object($model->img_file))
+          $model->img_file->saveAs($dir.'/'.$model->img_file->getName());
+
+        $this->redirect(array('update','id'=>$model->id));
+      }
     }
 
     $this->render('create',array(
@@ -54,11 +51,22 @@ class DefaultController extends BaseAdminController
     // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
 
+    $dir = Yii::getPathOfAlias('webroot.upload.sliders');
+    $this->createDir($dir);
+
     if(isset($_POST['Slider']))
     {
       $model->attributes=$_POST['Slider'];
-      if($model->save())
-        $this->redirect(array('view','id'=>$model->id));
+
+      $model->img_file = CUploadedFile::getInstance($model,'img_file');
+      if($model->img_file)
+        $model->img = $model->img_file->getName();
+
+      if($model->save()){
+        if (is_object($model->img_file))
+          $model->img_file->saveAs($dir.'/'.$model->img_file->getName());
+        $this->redirect(array('update','id'=>$model->id));
+      }
     }
 
     $this->render('update',array(
@@ -85,10 +93,11 @@ class DefaultController extends BaseAdminController
    */
   public function actionIndex()
   {
-    $dataProvider=new CActiveDataProvider('Slider');
+    /*$dataProvider=new CActiveDataProvider('Slider');
     $this->render('index',array(
       'dataProvider'=>$dataProvider,
-    ));
+    ));*/
+    $this->actionAdmin();
   }
 
   /**

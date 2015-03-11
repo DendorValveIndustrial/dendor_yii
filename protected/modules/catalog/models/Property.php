@@ -10,7 +10,7 @@ Yii::import('application.modules.catalog.models.PropertyValue');
  * @property string $system_name
  * @property integer $type
  * @property integer $main
- * @property integer $required
+ * @property integer $hidden
  * @property integer $sorting
  * @property integer $deleted
  *
@@ -61,12 +61,12 @@ class Property extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('system_name', 'required'),
-			array('dir_id, type, main, required, sorting, deleted', 'numerical', 'integerOnly'=>true),
+			array('dir_id, type, main, hidden, sorting, deleted', 'numerical', 'integerOnly'=>true),
 			array('system_name, name', 'length', 'max'=>255),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, system_name, type, main, required, sorting, deleted, name, description', 'safe', 'on'=>'search'),
+			array('id, system_name, type, main, hidden, sorting, deleted, name, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -94,7 +94,7 @@ class Property extends CActiveRecord
 			'system_name' => Yii::t('admin', 'system_name'),
 			'type' => Yii::t('admin', 'type'),
 			'main' => Yii::t('admin', 'main'),
-			'required' => Yii::t('admin', 'required'),
+			'hidden' => Yii::t('admin', 'hidden'),
 			'sorting' => Yii::t('admin', 'sorting'),
 			'deleted' => Yii::t('admin', 'deleted'),
 			'name' => Yii::t('admin', 'name'),
@@ -127,7 +127,7 @@ class Property extends CActiveRecord
 		$criteria->compare('t.system_name',$this->system_name,true);
 		$criteria->compare('t.type',$this->type);
 		$criteria->compare('t.main',$this->main);
-		$criteria->compare('t.required',$this->required);
+		$criteria->compare('t.hidden',$this->hidden);
 		$criteria->compare('t.sorting',$this->sorting);
 		$criteria->compare('t.deleted',$this->deleted);
 		$criteria->compare('translate.name',$this->name,true);

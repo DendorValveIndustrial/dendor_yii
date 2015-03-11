@@ -1,64 +1,42 @@
 <?php
 /* @var $this SliderController */
 /* @var $model Slider */
-/* @var $form CActiveForm */
+/* @var $form TbActiveForm */
 ?>
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'slider-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
+
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
 
-	<?php echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'data_slidr'); ?>
-		<?php echo $form->textField($model,'data_slidr',array('size'=>6,'maxlength'=>6)); ?>
-		<?php echo $form->error($model,'data_slidr'); ?>
-	</div>
+            <?php echo $form->textFieldControlGroup($model,'data_slidr',array('span'=>6,'maxlength'=>6, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
+            <?php echo $form->textFieldControlGroup($model,'name',array('span'=>6,'maxlength'=>255)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'text'); ?>
-		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'text'); ?>
-	</div>
+            <?php echo $form->textAreaControlGroup($model,'text',array('rows'=>4, 'span'=>6,'maxlength'=>255)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'img'); ?>
-		<?php echo $form->textField($model,'img',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'img'); ?>
-	</div>
+						<?php if($model->img) echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].'sliders/'.$model->img, $model->name); ?>
+            <?php echo $form->fileFieldControlGroup($model,'img_file') ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'link'); ?>
-		<?php echo $form->textField($model,'link',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'link'); ?>
-	</div>
+            <?php echo $form->textFieldControlGroup($model,'link',array('span'=>5,'maxlength'=>255)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'active'); ?>
-		<?php echo $form->textField($model,'active'); ?>
-		<?php echo $form->error($model,'active'); ?>
-	</div>
+            <?php echo $form->checkBoxControlGroup($model,'active'); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+        <div class="form-actions">
+        <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
+		    'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
+		    'size'=>TbHtml::BUTTON_SIZE_LARGE,
+		)); ?>
+    </div>
 
-<?php $this->endWidget(); ?>
+    <?php $this->endWidget(); ?>
 
 </div><!-- form -->

@@ -20,11 +20,11 @@
             <div class="span10">
                 <div class="row-fluid">
                     <div class="span9">
-                        <?php echo $form->textFieldControlGroup($model, 'system_name', array('span'=>12,'maxlength'=>255)); ?>
+                        <?php echo $form->textFieldControlGroup($model, 'system_name', array('span'=>12,'maxlength'=>255, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
                     </div>
                 </div>
                 <?php echo $form->textFieldControlGroup($model,'title',array('span'=>12,'maxlength'=>255)); ?>
-                <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12)); ?>
+                <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
                 <?php echo $form->fileFieldControlGroup($model,'img') ?>
             </div>
             <div class="span2">

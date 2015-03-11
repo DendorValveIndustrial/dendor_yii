@@ -8,7 +8,8 @@
  * @property string $code Url prefix
  * @property string $locale Language locale
  * @property boolean $default Is lang default
- * @property boolean $flag_name Flag image name
+ * @property string $flag_name Flag image name
+ * @property boolean $active Active language
  */
 class SystemLanguage extends CActiveRecord
 {
@@ -38,8 +39,8 @@ class SystemLanguage extends CActiveRecord
             array('name, locale', 'length', 'max'=>100),
             array('flag_name', 'length', 'max'=>255),
             array('code', 'length', 'max'=>25),
-            array('default', 'in', 'range'=>array(0,1)),
-            array('id, name, code, locale', 'safe', 'on'=>'search'),
+            array('default, active', 'in', 'range'=>array(0,1)),
+            array('id, name, code, locale, active', 'safe', 'on'=>'search'),
         );
     }
     /**
@@ -54,6 +55,7 @@ class SystemLanguage extends CActiveRecord
             'locale'    => 'Кодировка',
             'default'   => 'По умолчанию',
             'flag_name' => 'Флаг',
+            'active' => 'Активный',
         );
     }
     /**
@@ -68,6 +70,7 @@ class SystemLanguage extends CActiveRecord
         $criteria->compare('code',$this->code,true);
         $criteria->compare('locale',$this->locale,true);
         $criteria->compare('`default`',$this->default);
+        $criteria->compare('active',$this->active);
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));
