@@ -30,7 +30,10 @@ body{
     .country{
       >li{
         >a{
-          padding: 12.5px 6px 12.5px
+          padding: 12.5px 6px 12.5px;
+          >img{
+            padding-bottom: 2px;
+          }
         }
       }
     }

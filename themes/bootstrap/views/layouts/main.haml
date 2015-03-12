@@ -10,14 +10,14 @@
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
     :php
       Yii::app()->bootstrap->register();
-      Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/screen.css');
+      Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/screen.css'));
   %body#root
     .layout
       %header.header(role="banner")
         .container.top-header
           .row
             .span6
-              = CHtml::link(CHtml::image('/img/logo/logo-blue193.png',CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),Yii::app()->createUrl('site/index'))
+              = CHtml::link(CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-blue193.png'),CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),Yii::app()->createUrl('site/index'))
             .span4
               .top-contact.pull-right
                 .tel.text-center= CHtml::encode(Yii::app()->params['telOfficePol'])

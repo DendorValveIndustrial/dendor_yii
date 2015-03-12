@@ -14,6 +14,7 @@ return array(
 
 	'aliases' => array(
 		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
+		'fontawesome' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/fontAwesome',
 	),
 
 	'preload'=>array('log'),
@@ -87,6 +88,9 @@ return array(
 		),
 		'bootstrap' => array(
 			'class' => 'bootstrap.components.TbApi',
+		),
+		'fontawesome' => array(
+			'class' => 'fontawesome.components.FaApi',
 		),
 		'languageManager'=>array(
 			'class'=>'LanguageManager',
