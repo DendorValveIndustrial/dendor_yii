@@ -1,5 +1,7 @@
 <?php
-  $this->pageTitle = Yii::t('app','pipeline_valves').' - '.CHtml::encode(Yii::app()->name);;
+  $this->pageTitle = CHtml::encode($model->meta_title).' - '.CHtml::encode(Yii::app()->name);
+  $this->metaDescription = CHtml::encode($model->meta_description);
+  $this->metaKeywords = CHtml::encode($model->meta_keywords);
 ?>
 <div class="row-fluid">
   <div class="span3">

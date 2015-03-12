@@ -71,11 +71,9 @@ class LangSwitchWidget extends CWidget {
 
     if($lang->flag_name)
     {
-      return CHtml::image($baseUrl.'/images/flags/png/'.$lang->flag_name, null, array(
+      return CHtml::image($baseUrl.'/images/flags/png/'.$lang->flag_name, $lang->name, array(
         'width'=>16,
         'height'=>11,
-        'align'=>'absmiddle',
-        'style'=>'margin-bottom:2px',
       )).' ';
     }
   }

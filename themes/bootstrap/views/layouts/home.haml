@@ -2,12 +2,15 @@
 %html(lang = "#{Yii::app()->getLanguage()}")
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")/
-    %meta(http-equiv="Content-Language" content="#{Yii::app()->getLanguage()}")/
+    //%meta(http-equiv="Content-Language" content="#{Yii::app()->getLanguage()}")/
     %title= $this->pageTitle
+    %meta{:name=>'description', :content=>"#{$this->metaDescription}" }/
+    %meta{:name=>'keywords', :content=>"#{$this->metaKeywords}" }/
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    = $this->renderPartial('//layouts/_head');
     :php
       Yii::app()->bootstrap->register();
-      Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/home.css');
+      Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/home.css'));
   %body#root
     .layout
       %header.header(role="banner")
@@ -45,11 +48,11 @@
                 .tel= CHtml::encode(Yii::app()->params['telOfficePol'])
                 .email
                   = TbHtml::icon(TbHtml::ICON_ENVELOPE, array('color'=>TbHtml::ICON_COLOR_WHITE))
-                  = TbHtml::mailto(Yii::app()->params['officeEmail'],Yii::app()->params['officeEmail'], array('itemprop'=>'email'))
+                  = TbHtml::mailto(Yii::app()->params['officeEmail'],Yii::app()->params['officeEmail'])
             .span9
               .wrap-slider
                 %h1.pull-left= Yii::t('app', 'pipeline_valves')
-                .pull-right.img-slider= CHtml::image(Yii::app()->theme->baseUrl.'/img/slide1.png','Armatura przemysłowa', array('width'=>'245', 'height'=>'395'))
+                .pull-right.img-slider= CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/slide1.png'),'Armatura przemysłowa', array('width'=>'245', 'height'=>'395'))
                 .slider#slider
                   = $this->widget('ext.slidr.SliderHome',array(), true)
         / head
@@ -63,5 +66,5 @@
       .container
         .row
           .text-center
-            Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}. Yii v.#{CHtml::encode(Yii::getVersion())}
+            Copyright &copy; #{date('Y')} by #{CHtml::encode(Yii::app()->name)}.
     / footer
