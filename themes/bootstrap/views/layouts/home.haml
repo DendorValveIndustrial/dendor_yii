@@ -39,7 +39,7 @@
         .container
           .row-fluid.head
             .span3
-              .logo= CHtml::image('/img/logo/logo-wite270.png',CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82'))
+              .logo= CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-wite270.png'),CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82'))
               .contact-top.text-center(role="contentinfo")
                 .address
                   ul. Jaśkowa Dolina 81
