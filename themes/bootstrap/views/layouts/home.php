@@ -13,6 +13,8 @@
     Yii::app()->bootstrap->register();
     Yii::app()->fontawesome->register();
     Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/home.css'));
+    Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/classie.js'),CClientScript::POS_END);
+    Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/script.js'),CClientScript::POS_END);
   ?>
 </head>
 <body>
@@ -21,8 +23,8 @@
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-inner">
           <div class="container">
-            <?php echo CHtml::link('Dendor Valve', Yii::app()->createUrl('site/index'), array('class'=>'brand span2')); ?>
-            <div class="nav-collapse collapse">
+            <?php echo CHtml::link('Dendor', Yii::app()->createUrl('site/index'), array('class'=>'brand span2')); ?>
+            <div class="main-menu" id="mainMenu">
               <?php
                 $this->widget('zii.widgets.CMenu',array(
                   'items'=>array(
@@ -40,9 +42,9 @@
                 ));
               ?>
             </div>
-            <ul class="nav pull-right">
+            <ul class="nav pull-right main-menu-show">
               <li class="divider-vertical"></li>
-              <li><a href=""><i class="fa fa-align-justify fa-fw"></i></a></li>
+              <li><a href="#mainMenu" id="mainMenuShow"><i class="fa fa-align-justify fa-fw"></i></a></li>
             </ul>
             <?php $this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'nav pull-right country'))); ?>
           </div>
