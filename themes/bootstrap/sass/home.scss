@@ -47,13 +47,18 @@ body{
         }
         @include box-shadow(rgba(0, 0, 0, 0.3) 5px 0 8px);
         >.nav{
-          margin-bottom: 0;
-          margin-top: 20px;
+          margin:{
+            bottom: 0;
+            top: 15px;
+            right: 0;
+          }
+          float: none;
           >li{
             border-bottom: 1px solid #e4e4e4;
+            float: none;
             >a{
               color: inherit;
-              padding: 9px 20px;
+              padding: 15px 20px;
               @include text-shadow(rgb(255, 255, 255) 0px 1px 0px);
               &:hover{
                 background-color: rgba(238, 238, 238, .9);
@@ -75,6 +80,7 @@ body{
     }
     .main-menu-show{
       display: none;
+      /* padding: 0; */
       @media (max-width: 480px){
         display: block;
         .active-menu{

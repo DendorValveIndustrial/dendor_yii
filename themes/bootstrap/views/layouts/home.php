@@ -42,10 +42,11 @@
                 ));
               ?>
             </div>
-            <ul class="nav pull-right main-menu-show">
+            <button id="mainMenuShow" class="btn btn-navbar pull-right main-menu-show"><i class="fa fa-align-justify fa-fw"></i></button>
+            <!-- <ul class="nav pull-right main-menu-show">
               <li class="divider-vertical"></li>
               <li><a href="#mainMenu" id="mainMenuShow"><i class="fa fa-align-justify fa-fw"></i></a></li>
-            </ul>
+            </ul> -->
             <?php $this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'nav pull-right country'))); ?>
           </div>
         </div>
