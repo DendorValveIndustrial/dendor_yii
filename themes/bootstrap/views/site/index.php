@@ -2,6 +2,7 @@
   $this->pageTitle = CHtml::encode($model->meta_title).' - '.CHtml::encode(Yii::app()->name);
   $this->metaDescription = CHtml::encode($model->meta_description);
   $this->metaKeywords = CHtml::encode($model->meta_keywords);
+  $this->pageHeaderBrand = 'Valve';
 ?>
 <div class="row-fluid">
   <div class="span3">
@@ -27,7 +28,7 @@
     </div>
     <div class='line line-dotted'></div>
     <div class='row-fluid'>
-      <div class='span6'>
+      <div class='span6 home-news'>
         <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','news')) ?>
         <p>
           <?php
@@ -39,7 +40,7 @@
           <?php echo CHtml::link(Yii::t('app','read_more'),$latest_news->viewUrl); ?>
         </p>
       </div>
-      <div class='span6'>
+      <div class='span6 home-news-box'>
         <ul class='thumbnails'>
           <li class='span5 offset1'>
             <div class='thumbnail text-center'>

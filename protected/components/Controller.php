@@ -28,6 +28,12 @@ class Controller extends CController
 	public $pageHeader;
 
 	/**
+	 * Page Brand menu title
+	 * @var string
+	 */
+	public $pageHeaderBrand = '';
+
+	/**
 	 * Page title
 	 * @var string
 	 */

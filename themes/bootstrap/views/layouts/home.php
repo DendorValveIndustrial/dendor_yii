@@ -23,7 +23,7 @@
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-inner">
           <div class="container">
-            <?php echo CHtml::link('Dendor', Yii::app()->createUrl('site/index'), array('class'=>'brand span2')); ?>
+            <?php echo CHtml::link('Dendor '.$this->pageHeaderBrand, Yii::app()->createUrl('site/index'), array('class'=>'brand span3')); ?>
             <div class="main-menu" id="mainMenu">
               <?php
                 $this->widget('zii.widgets.CMenu',array(
@@ -42,11 +42,7 @@
                 ));
               ?>
             </div>
-            <button id="mainMenuShow" class="btn btn-navbar pull-right main-menu-show"><i class="fa fa-align-justify fa-fw"></i></button>
-            <!-- <ul class="nav pull-right main-menu-show">
-              <li class="divider-vertical"></li>
-              <li><a href="#mainMenu" id="mainMenuShow"><i class="fa fa-align-justify fa-fw"></i></a></li>
-            </ul> -->
+            <button id="mainMenuShow" class="btn btn-navbar pull-right main-menu-show"><i class="fa fa-bars fa-fw"></i></button>
             <?php $this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'nav pull-right country'))); ?>
           </div>
         </div>
