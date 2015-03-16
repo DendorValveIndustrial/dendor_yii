@@ -133,20 +133,16 @@ textarea{
   line-height: normal;
 }
 
-/* SCSS */
-/* $small: 543px;
-$medium: 794px;
-$fence-sm: $small $medium;
-
-#foo {
-  content: 'No Media Queries';
-
-  @include breakpoint($small) {
-    content: 'Small Media Query';
+/* .container{
+  @media (max-width: 1024px){
+    max-width: 940px;
+    width: auto;
+    padding: 0px 20px;
   }
-
-  @include breakpoint($fence-sm) {
-    content: 'Fenced Media Query';
+  @media (max-width: 767px){
+    padding:{
+      left: 20px;
+      right: 20px;
+    }
   }
-}
- */
+} */

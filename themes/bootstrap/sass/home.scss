@@ -7,9 +7,6 @@ body{
     position: top center;
     repeat: no-repeat;
   }
-  @media (max-width: 767px){
-    padding: 0;
-  }
 }
 .header{
   height: 450px;
@@ -22,52 +19,6 @@ body{
   @include box-shadow(rgba(0, 0, 0, 0.5) 0 5px 15px);
   margin-bottom: 45px;
   .navbar{
-    .brand{
-      @media (max-width: 767px){
-        width: auto;
-      }
-    }
-    .main-menu {
-      @media (max-width: 480px){
-        position: fixed;
-        height: auto;
-        min-height: 1000px;
-        z-index: 1000;
-        width: 262px;
-        border: 1px solid #ccc;
-        background: #f3f3f3;
-        color: rgba(0, 0, 0, 0.6);
-        top: 0;
-        left: -270px;//0;
-        @include transition-property(left);
-        @include transition-duration(.3s);
-        @include transition-timing-function(ease-out);
-        &.open{
-          left: 0;
-        }
-        @include box-shadow(rgba(0, 0, 0, 0.3) 5px 0 8px);
-        >.nav{
-          margin:{
-            bottom: 0;
-            top: 15px;
-            right: 0;
-          }
-          float: none;
-          >li{
-            border-bottom: 1px solid #e4e4e4;
-            float: none;
-            >a{
-              color: inherit;
-              padding: 15px 20px;
-              @include text-shadow(rgb(255, 255, 255) 0 1px 0);
-              &:hover{
-                background-color: rgba(238, 238, 238, .9);
-              }
-            }
-          }
-        }
-      }
-    }
     .country{
       >li{
         >a{
@@ -81,46 +32,17 @@ body{
     .main-menu-show{
       display: none;
       padding: 4px 12px;
-      @media (max-width: 480px){
-        display: block;
-        &.active-menu{
-          >.fa-bars{
-            &:before{
-              content: "\2715";
-            }
-          }
-        }
-      }
     }
   }
-  .navbar-fixed-top{
-    @media (max-width: 768px){
-      margin:{
-        left: 0;
-        right: 0;
-        bottom: 15px;
-      }
-      position: fixed;
-    }
-  }
-
   .head{
     margin-top: 65px;
     .logo{
       margin: 30px 0;
-      @media (max-width: 640px){
-        margin-top: 20px;
-        text-align: center;
-      }
-      @media (max-width: 480px){
-        margin-top: 0;
-      }
     }
     .contact-top{
       color: #fff;
       .tel{
         font:{
-          /* family: Impact,sans-serif; */
           size: 24px;
           weight: normal;
         }
@@ -141,35 +63,6 @@ body{
         @include text-shadow(rgba(0,0,0,0.2) 0 -1px 0);
       }
     }
-    .span3{
-      @media (max-width: 768px ){
-        display: block;
-        box-sizing: border-box;
-        float: left;
-        margin-left: 0;
-        width: 31.4917%;
-      }
-    }
-    .span9{
-      @media (max-width: 768px ){
-        display: block;
-        box-sizing: border-box;
-        float: left;
-        margin-left: 2%;
-        width: 65.7459%;
-      }
-    }
-    .span3,
-    .span9{
-      @media (max-width: 640px ){
-        float: none;
-        width: 100%;
-        margin-left: 0px;
-      }
-    }
-    @media (max-width: 480px){
-      margin-top: 75px;
-    }
   }
   .wrap-slider{
     margin: 10px 0;
@@ -188,17 +81,9 @@ body{
         left: 70px;
         top: 50px;
       }
-      @media (max-width: 640px){
-        margin:0;
-        padding: 0;
-        text-align: center;
-      }
     }
     .img-slider{
       margin-right: 40px;
-      @media (max-width: 768px){
-        @include hide-box();
-      }
     }
     .slider{
       height: 300px;
@@ -267,21 +152,7 @@ body{
           display: block;
         }
       }
-      @media (max-width: 768px){
-        @include hide-box();
-      }
     }
-    @media (max-width: 768px){
-      height: 200px;
-      margin-top: 20px;
-    }
-    @media (max-width: 640px){
-      @include hide-box();
-    }
-  }
-  @media (max-width: 768px){
-    height: 350px;
-    margin-bottom: 0;
   }
 }
 .main{
@@ -294,9 +165,6 @@ body{
     margin-bottom: 20px;
     margin-top: -83px;
     position: relative;
-    @media (max-width: 640px){
-      @include hide-box();
-    }
     .nav-list{
       >li{
         border-bottom: 1px solid #e4e4e4;
@@ -356,64 +224,19 @@ body{
       }
     }
     blockquote{
-      /* margin-bottom: 40px; */
       >p {
         font-size: inherit;
         margin-bottom: inherit;
-        /* color: #999;
-        line-height: 1.5; */
       }
     }
   }
-  .home-news-box{
-    .thumbnails{
-      .span5{
-        @media (max-width: 640px){
-          display: block;
-          box-sizing: border-box;
-          float: left;
-          margin-left: 2%;
-          width: 49%;
-          &:first-child {
-            margin-left: 0;
-          }
-          .thumbnail{
-            max-width: 180px;
-            margin: 0 auto;
-          }
-
-        }
+  .home-news{
+    .thumbnail{
+      .caption{
+        line-height: 20px;
       }
+      text-decoration: none;
     }
-  }
-  .span3{
-    @media (max-width: 768px ){
-      display: block;
-      box-sizing: border-box;
-      float: left;
-      margin-left: 0;
-      width: 31.4917%;
-    }
-  }
-  .span9{
-    @media (max-width: 768px ){
-      display: block;
-      box-sizing: border-box;
-      float: left;
-      margin-left: 2%;
-      width: 65.7459%;
-    }
-  }
-  .span3,
-  .span9{
-    @media (max-width: 640px ){
-      float: none;
-      width: 100%;
-      margin-left: 0px;
-    }
-  }
-  @media (max-width: 640px){
-    margin-bottom: 0;
   }
 }
 .footer{
@@ -464,11 +287,8 @@ body{
     }
   }
 }
-.container{
-  @media (max-width: 767px){
-    padding:{
-      left: 20px;
-      right: 20px;
-    }
-  }
-}
+
+@import "home/_responsitive-max1024.scss";
+@import "home/_responsitive-max979.scss";
+@import "home/_responsitive-max767.scss";
+@import "home/_responsitive-max480.scss";

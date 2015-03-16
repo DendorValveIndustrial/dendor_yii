@@ -1,0 +1,24 @@
+@media (max-width: 1024px){
+  .container{
+    max-width: 940px;
+    width: auto;
+    padding: 0px 20px;
+  }
+  .header{
+    .head{
+      .logo{
+        margin-top: 60px;
+      }
+    }
+    .wrap-slider{
+      .img-slider{
+        margin-right: 0;
+      }
+      .slider{
+        .slider-item{
+          max-width: 400px;
+        }
+      }
+    }
+  }
+}
