@@ -22,16 +22,34 @@ class Controller extends CController
 	public $breadcrumbs=array();
 
 	/**
-	 * Page title
+	 * Page header
 	 * @var string
 	 */
 	public $pageHeader;
 
 	/**
+	 * Subtext header in TbHtml::pageHeader
+	 * @var string
+	 */
+	public $subtextHeader = '';
+
+	/**
+	 * Show slider in Page
+	 * @var bool
+	 */
+	public $showSlider = false;
+
+	/**
+	 * Slider image
+	 * @var string
+	 */
+	public $imgSlider;
+
+	/**
 	 * Page Brand menu title
 	 * @var string
 	 */
-	public $pageHeaderBrand = '';
+	public $pageHeaderBrand = 'Valve';
 
 	/**
 	 * Page title

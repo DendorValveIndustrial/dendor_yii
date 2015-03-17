@@ -1,4 +1,4 @@
-<?php Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/catalog.css'); ?>
+<?php Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/catalog.css')); ?>
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="row-fluid">
   <div class="span9 offset3">

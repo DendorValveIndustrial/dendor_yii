@@ -9,7 +9,7 @@ body{
   }
 }
 .header{
-  height: 450px;
+  height: 300px;
   background:{
     image: image-url("body_bg.png");
     position: top center;
@@ -17,7 +17,7 @@ body{
     color: #393185;
   }
   @include box-shadow(rgba(0, 0, 0, 0.5) 0 5px 15px);
-  margin-bottom: 45px;
+  margin-bottom: 15px;
   .navbar{
     .country{
       >li{
@@ -37,7 +37,8 @@ body{
   .head{
     margin-top: 65px;
     .logo{
-      margin: 30px 0;
+      margin-bottom: 20px;
+      margin-top: 30px;
     }
     .contact-top{
       color: #fff;
@@ -46,7 +47,7 @@ body{
           size: 24px;
           weight: normal;
         }
-        line-height: 40px;
+        line-height: 32px;
         @include text-shadow(rgba(0,0,0,0.2) 3px 3px 4px);
       }
       .address{
@@ -67,100 +68,41 @@ body{
   .wrap-slider{
     position: relative;
     margin: 10px 0;
-    padding:20px 5px;
+    padding:20px 45px;
     background-color: rgba(255,255,255, 0.3);
-    height: 300px;
+    height: 160px;
     > h1{
       color: #fff;
       font:{
         family: Impact, sans-serif;
         weight: normal;
       }
+      margin:{
+        bottom: 20px;
+      }
       @include text-shadow(rgba(0,0,0,0.2) 3px 3px 4px);
       max-width: 500px;
-      margin:{
-        left: 70px;
-        top: 50px;
-      }
+    }
+    .subtext-header{
+      color: rgb(255,255,255);
+      text-shadow: rgba(0,0,0,0.2) 0 -1px 0;
+      font-size: 17.5px;
+      max-width: 500px;
     }
     .img-slider{
       position: absolute;
       top: 20px;
       right: 45px;
     }
-    .slider{
-      height: 300px;
-      width: 100%;
-      aside[id="slider-control"]{
-        .slidr-control{
-          &.right,
-          &.left{
-            opacity: 0.4;
-            width: 44px;
-            height: 118px;
-            top: 50%;
-            margin-top: -59px;
-            &:hover{opacity: 1;}
-          }
-          &:after{
-            border-color: transparent;
-          }
-          &.right{
-            background: sprite($arrow-sprite, right, 0, 0) no-repeat;
-            right: 0;
-            &:hover{
-              background: sprite($arrow-sprite, right-hover, 0, 0) no-repeat;
-            }
-          }
-          &.left{
-            background: sprite($arrow-sprite, left, 0, 0) no-repeat;
-            left: 0;
-            &:hover{
-              background: sprite($arrow-sprite, left-hover, 0, 0) no-repeat;
-            }
-          }
-        }
-      }
-      aside[id="slider-breadcrumbs"]{
-        left: 0;
-        .slidr-breadcrumbs{
-          margin-bottom: 0;
-          margin-left: 60px;
-        }
-      }
-      .slider-item{
-        position: relative;
-        display: none;
-        margin: 0 0 0 70px;
-        color: #fff;
-        max-width: 500px;
-        .h3{
-          margin-top: 90px;
-          @include text-shadow(rgba(0,0,0,0.2) 0 -1px 0);
-          font-size: 31.5px;
-        }
-        .item-content{
-          margin-top: 145px;
-          @include text-shadow(rgba(0,0,0,0.2) 0 -1px 0);
-          font-size: 17.5px;
-          a {
-            @include link-colors(#fff, darken(#fff, 10%), #fff, #fff, #fff);
-            @include text-shadow(rgba(0,0,0,0.2) 0 -1px 0);
-            &:hover{
-              text-decoration: none;
-            }
-          }
-        }
-        &:first-child{
-          display: block;
-        }
-      }
-    }
   }
 }
 .main{
   position: relative;
   margin-bottom: 40px;
+  .breadcrumb{
+    background-color: transparent;
+    margin-bottom: 10px;
+  }
   .aside-sidebar{
     min-height: 20px;
     background-color: #f9f9f9;

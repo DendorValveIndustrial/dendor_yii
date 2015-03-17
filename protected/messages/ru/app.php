@@ -1,20 +1,24 @@
 <?php
 return array(
   'home' => 'Главная',
+  'about' => 'О компании',
+  'production'=>'Продукция',
+  'news' => 'Новости',
+  'contact' => 'Контакты',
+  'price' => 'Цены',
+
   'pipeline_valves'=>'Трубопродная арматура',
   'contact_us' => 'Контакты',
-  'contact' => 'Контакты',
   'read_more'=> 'читать далее...',
   'more_info'=> 'подробнее...',
-  'news' => 'Новости',
-  'about' => 'О компании',
   'category'=>'По категориям',
   'all_news'=>'все новости...',
   'admin'=>'Админ',
   'page' => 'Страница',
-
   'productions'=>'Продукция',
-  'production'=>'Продукция',
+  'search' => 'Поиск',
+
+
 
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',
@@ -50,7 +54,6 @@ return array(
   'MANAGE' => 'Управление',
   'YOU_MAY_ENTER_COMPARISON_OPERATOR' => 'Вы можете использовать операторы сравнения',
   'AT_THE_BEGINNING' => 'перед значением, которое указываете в строке поиска',
-  'SEARCH' => 'Поиск',
   'ADVANCED_SEARCH' => 'Расширенный поиск',
   'VIEW_USERS' => 'Просмотр пользователя',
 );

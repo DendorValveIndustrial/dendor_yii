@@ -1,20 +1,22 @@
 <?php
 return array(
   'home' => 'Home',
+  'about' => 'About',
+  'production'=>'Production',
+  'news' => 'News',
+  'contact' => 'Contact',
+  'price' => 'Price',
+
   'pipeline_valves'=>'Pipeline valves',
   'contact_us' => 'Contact Us',
-  'contact' => 'Contact',
   'read_more'=> 'read more...',
   'more_info'=> 'read more...',
-  'news' => 'News',
-  'about' => 'About',
   'category'=>'Category',
   'all_news'=>'all news...',
   'admin'=>'Admin',
   'page' => 'Page',
-
   'productions'=>'Productions',
-  'production'=>'Production',
+  'search' => 'Search',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.',
   'NAME' => 'Name',
@@ -50,7 +52,6 @@ return array(
   'MANAGE' => 'Manage',
   'YOU_MAY_ENTER_COMPARISON_OPERATOR' => 'You may optionally enter a comparison operator',
   'AT_THE_BEGINNING' => 'at the beginning of each of your search values to specify how the comparison should be done',
-  'SEARCH' => 'Search',
   'ADVANCED_SEARCH' => 'Advanced Search',
   'VIEW_USERS' => 'View User',
 );

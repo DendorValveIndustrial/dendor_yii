@@ -7,6 +7,9 @@ $this->metaKeywords = CHtml::encode($pagePropuctions->meta_keywords);
 
 $this->pageHeader =  CHtml::encode($pagePropuctions->title);
 
+$this->imgSlider = CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/slide1.png');
+$this->showSlider = true;
+
 $this->breadcrumbs=array(
 	Yii::t('app', 'production'),
 );
@@ -14,6 +17,15 @@ $this->breadcrumbs=array(
 $aCatalogGroup_chunk = array_chunk(CatalogGroup::model()->findAll(), 2, true);
 
 ?>
+
+<div class="row-fluid">
+  <!-- <div class="span6">
+    <?php echo TbHtml::tag('h2', array('class'=>'h1'),Yii::t('app','productions')) ?>
+  </div> -->
+  <div class="span12">
+    <?php echo TbHtml::navbarSearchForm(Yii::app()->createUrl('site/search'), 'get', array('class'=>'', 'inputOptions'=>array('name'=>'q', 'placeholder'=>Yii::t('app','search')))); ?>
+  </div>
+</div>
 
 <?php foreach ($aCatalogGroup_chunk as $aCatalogGroup): ?>
   <div class="line line-dotted"></div>

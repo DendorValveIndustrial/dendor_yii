@@ -23,8 +23,8 @@
             <div class="row-fluid">
                 <div class="span6">
                     <?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'title',array('span'=>12)); ?>
                     <?php echo $form->textFieldControlGroup($model,'url',array('span'=>12,'maxlength'=>255, 'disabled'=>Yii::app()->user->name != 'admin')); ?>
-                    <?php echo $form->checkBoxControlGroup($model, 'active'); ?>
                 </div>
                 <div class="span3">
                     <?php echo $form->dropDownListControlGroup($model, 'parent_id', $model->listSelect); ?>
@@ -33,6 +33,8 @@
                             echo $form->textFieldControlGroup($model,'upload_path',array('span'=>12,'maxlength'=>255));
                     ?>
                     <?php echo $form->fileFieldControlGroup($model,'img') ?>
+                    <br/><br/>
+                    <?php echo $form->checkBoxControlGroup($model, 'active'); ?>
                 </div>
                 <div class="span3 text-right">
                     <br>
@@ -43,6 +45,7 @@
             <div class="row-fluid">
                 <div class="span6">
                     <?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
+                    <?php echo $form->textAreaControlGroup($model,'short_description',array('rows'=>5,'span'=>12)); ?>
                     <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>2)); ?>
                     <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>2)); ?>
                 </div>

@@ -3,6 +3,9 @@
   $this->metaDescription = CHtml::encode($model->meta_description);
   $this->metaKeywords = CHtml::encode($model->meta_keywords);
   $this->pageHeaderBrand = 'Valve';
+  $this->pageHeader = Yii::t('app', 'pipeline_valves');
+  $this->imgSlider = CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/slide1.png');
+  $this->showSlider = true;
 ?>
 <div class="row-fluid">
   <div class="span3">

@@ -43,7 +43,9 @@ class CatalogGroup extends CActiveRecord
 	 * Translate-table
 	 */
 	public $name;
+	public $title;
 	public $description;
+	public $short_description;
 	public $meta_title;
 	public $meta_description;
 	public $meta_keywords;
@@ -90,7 +92,7 @@ class CatalogGroup extends CActiveRecord
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
 			array('parent_id, active, sorting, page_size, deleted', 'numerical', 'integerOnly'=>true),
-			array('name, meta_title, meta_description, meta_keywords, image, url, upload_path', 'length', 'max'=>255),
+			array('name, title, short_description, meta_title, meta_description, meta_keywords, image, url, upload_path', 'length', 'max'=>255),
 			array('description', 'safe'),
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
@@ -131,8 +133,10 @@ class CatalogGroup extends CActiveRecord
 			'upload_path' =>  Yii::t('admin', 'upload_path'),
 			'deleted' => Yii::t('admin', 'deleted'),
 			//CatalogGroupTranslate
-			'name' => Yii::t('admin', 'title'),
+			'name' => Yii::t('admin', 'name'),
+			'title' => Yii::t('admin', 'title'),
 			'description' => Yii::t('admin', 'description'),
+			'short_description' => Yii::t('admin', 'short_description'),
 			'meta_title' => Yii::t('admin', 'meta_title'),
 			'meta_description' => Yii::t('admin', 'meta_description'),
 			'meta_keywords' => Yii::t('admin', 'meta_keywords'),
@@ -156,9 +160,11 @@ class CatalogGroup extends CActiveRecord
 		$criteria->compare('t.id',$this->id);
 		$criteria->compare('t.parent_id',$this->parent_id);
 		$criteria->compare('translate.name',$this->name,true);
+		$criteria->compare('translate.title',$this->title,true);
 		$criteria->compare('t.image',$this->image,true);
 		$criteria->compare('t.url',$this->url,true);
 		$criteria->compare('translate.description',$this->description,true);
+		$criteria->compare('translate.short_description',$this->short_description,true);
 		$criteria->compare('translate.meta_title',$this->meta_title,true);
 		$criteria->compare('translate.meta_description',$this->meta_description,true);
 		$criteria->compare('translate.meta_keywords',$this->meta_keywords,true);
@@ -192,7 +198,9 @@ class CatalogGroup extends CActiveRecord
 				'class'=>'ext.behaviors.TranslateBehavior',
 				'translateAttributes'=>array(
 					'name',
+					'title',
 					'description',
+					'short_description',
 					'meta_title',
 					'meta_description',
 					'meta_keywords',

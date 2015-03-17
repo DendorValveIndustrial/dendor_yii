@@ -8,7 +8,7 @@
     echo CHtml::metaTag($this->metaKeywords,'keywords');
     echo CHtml::linkTag('shortcut icon', 'image/x-icon', '/favicon.ico');
 
-    $this->renderPartial('//layouts/_head');
+    $this->renderPartial('//layouts/_meta_head');
 
     Yii::app()->bootstrap->register();
     Yii::app()->fontawesome->register();
@@ -32,7 +32,7 @@
                     array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
                     array('label'=>Yii::t('app', 'production'), 'url'=>array('/catalog/catalog/index')),
                     array('label'=>Yii::t('app', 'news'), 'url'=> array('/news/news/index')),
-                    array('label'=>Yii::t('app', 'contact'), 'url'=>array('site/contact')),
+                    array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
                     array('label'=>Yii::t('app', 'admin').' ('.Yii::app()->user->name.')', 'url'=>array('admin/default/index'), 'visible'=>!Yii::app()->user->isGuest)
                   ),
                   'activeCssClass'=>'active',
@@ -49,29 +49,7 @@
       </div>
       <div class="container">
         <div class="row-fluid head">
-          <div class="span3">
-            <div class="logo">
-              <?php echo CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-wite270.png'),CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82')); ?>
-            </div>
-            <div class="contact-top text-center" role="contentinfo">
-              <div class="address">ul. Jaśkowa Dolina 81<br/>80-286 Gdańsk, Polska</div>
-              <div class="tel"><?php echo CHtml::encode(Yii::app()->params['telOfficePol']);?></div>
-              <div class="email">
-                <?php
-                  echo TbHtml::icon(TbHtml::ICON_ENVELOPE, array('color'=>TbHtml::ICON_COLOR_WHITE));
-                  echo "&#xa0;";
-                  echo TbHtml::mailto(Yii::app()->params['officeEmail'],Yii::app()->params['officeEmail']);
-                ?>
-              </div>
-            </div>
-          </div>
-          <div class="span9">
-            <div class="wrap-slider">
-              <h1 class="pull-left"><?php echo Yii::t('app', 'pipeline_valves'); ?></h1>
-              <div class="pull-right img-slider"><?php echo CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/slide1.png'),'Armatura przemysłowa', array('width'=>'245', 'height'=>'395')); ?></div>
-              <div class="slider" id="slider"><?php echo $this->widget('ext.slidr.SliderHome',array(), true); ?></div>
-            </div>
-          </div>
+          <?php $this->renderPartial('//layouts/_head_slider'); ?>
         </div>
       </div>
     </header>

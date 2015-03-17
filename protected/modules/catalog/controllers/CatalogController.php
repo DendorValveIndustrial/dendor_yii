@@ -50,7 +50,6 @@ class CatalogController extends BaseModuleController
 			'criteria'=>$criteria,
 		));
 
-		$this->pageHeader = $oGroup->name;
 		$this->render('list',array(
 			'dataProvider'=>$dataProvider,
 			'group'=>$oGroup,

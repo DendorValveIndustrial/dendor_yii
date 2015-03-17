@@ -1,20 +1,22 @@
 <?php
 return array(
   'home' => 'Główna',
+  'about' => 'O nas',
+  'production'=>'Oferta',
+  'news' => 'Aktualności',
+  'contact' => 'Kontakt',
+  'price' => 'Cennik',
+
   'pipeline_valves'=>'Armatura przemysłowa',
   'contact_us' => 'Kontakt',
-  'contact' => 'Kontakt',
   'read_more'=> 'czytaj więcej...',
   'more_info'=> 'czytaj więcej...',
-  'news' => 'Aktualności',
-  'about' => 'O nas',
   'category'=>'Według kategorii',
   'all_news'=>'wszystkie wiadomości...',
   'admin'=>'Admin',
   'page' => 'Strona',
-
   'productions'=>'Kategorie produktów',
-  'production'=>'Oferta',
+  'search' => 'Search',
 
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
@@ -52,7 +54,6 @@ return array(
   'MANAGE' => 'Manage', //en
   'YOU_MAY_ENTER_COMPARISON_OPERATOR' => 'You may optionally enter a comparison operator', //en
   'AT_THE_BEGINNING' => 'at the beginning of each of your search values to specify how the comparison should be done', //en
-  'SEARCH' => 'Search', //en
   'ADVANCED_SEARCH' => 'Advanced Search', //en
   'VIEW_USERS' => 'View User', //en
 );
