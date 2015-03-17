@@ -111,6 +111,24 @@ $arrow-sprite: sprite-map("arrow-slider/*.png", $position: 100%, $spacing: 5px, 
   text-transform: uppercase;
   line-height: 40px;
 }
+.impact{
+  font:{
+    family: Impact, sans-serif;
+    weight: normal;
+    size: 31.5px;
+  }
+  margin:{
+    top: 0;
+    bottom: 10px;
+  }
+  @include text-shadow(rgba(0,0,0,0.2) 3px 3px 4px);
+  &.blue{
+    color: #393185;
+  }
+  &.wite{
+    color: #fff;
+  }
+}
 ul.checkarrow{
   list-style-image: inline-image("icons/icon-arrow.gif");
 }
@@ -133,16 +151,3 @@ textarea{
   line-height: normal;
 }
 
-/* .container{
-  @media (max-width: 1024px){
-    max-width: 940px;
-    width: auto;
-    padding: 0px 20px;
-  }
-  @media (max-width: 767px){
-    padding:{
-      left: 20px;
-      right: 20px;
-    }
-  }
-} */

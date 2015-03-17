@@ -1,13 +1,15 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="navbar-inner">
     <div class="container">
-      <?php echo CHtml::link('Dendor '.$this->pageHeaderBrand, Yii::app()->createUrl('site/index'), array('class'=>'brand span3')); ?>
-      <div class="main-menu" id="mainMenu">
+      <?php echo CHtml::link($this->pageHeaderBrand, Yii::app()->createUrl('site/index'), array('class'=>'brand span3')); ?>
+      <button id="mainMenuShow" class="btn btn-navbar pull-right main-menu-show"><i class="fa fa-bars fa-fw"></i></button>
+      <?php $this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'nav pull-right country'))); ?>
+      <div class="main-menu pull-right" id="mainMenu">
         <?php
           $this->widget('zii.widgets.CMenu',array(
             'items'=>array(
-              array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
               array('label'=>Yii::t('app', 'production'), 'url'=>array('/catalog/catalog/index')),
+              array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
               array('label'=>Yii::t('app', 'news'), 'url'=> array('/news/news/index')),
               array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),
               array('label'=>Yii::t('app', 'price'), 'url'=>array('/site/index')),
@@ -15,13 +17,11 @@
             ),
             'activeCssClass'=>'active',
             'htmlOptions'=>array(
-                'class'=>'nav',
+              'class'=>'nav',
             ),
           ));
         ?>
       </div>
-      <button id="mainMenuShow" class="btn btn-navbar pull-right main-menu-show"><i class="fa fa-bars fa-fw"></i></button>
-      <?php $this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'nav pull-right country'))); ?>
     </div>
   </div>
 </div>

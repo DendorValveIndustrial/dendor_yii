@@ -49,7 +49,7 @@ class Controller extends CController
 	 * Page Brand menu title
 	 * @var string
 	 */
-	public $pageHeaderBrand = 'Valve';
+	public $pageHeaderBrand = 'Dendor Valve';
 
 	/**
 	 * Page title

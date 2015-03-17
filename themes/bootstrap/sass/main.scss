@@ -9,15 +9,16 @@ body{
   }
 }
 .header{
-  height: 300px;
+  max-height: 300px;
+  margin-bottom: 0;//15px;
   background:{
     image: image-url("body_bg.png");
     position: top center;
     repeat: no-repeat;
     color: #393185;
   }
+  color: #fff;
   @include box-shadow(rgba(0, 0, 0, 0.5) 0 5px 15px);
-  margin-bottom: 15px;
   .navbar{
     .country{
       >li{
@@ -64,35 +65,59 @@ body{
         @include text-shadow(rgba(0,0,0,0.2) 0 -1px 0);
       }
     }
+    .wrap-slider{
+      position: relative;
+      margin: 10px 0;
+      padding:20px 45px;
+      background-color: rgba(255,255,255, 0.3);
+      height: 160px;
+      > h1{
+        color: #fff;
+        font:{
+          family: Impact, sans-serif;
+          weight: normal;
+        }
+        margin:{
+          bottom: 20px;
+        }
+        @include text-shadow(rgba(0,0,0,0.2) 3px 3px 4px);
+        max-width: 500px;
+      }
+      .subtext-header{
+        color: rgb(255,255,255);
+        text-shadow: rgba(0,0,0,0.2) 0 -1px 0;
+        font-size: 17.5px;
+        max-width: 500px;
+      }
+      .img-slider{
+        position: absolute;
+        top: 20px;
+        right: 45px;
+      }
+    }
   }
-  .wrap-slider{
-    position: relative;
-    margin: 10px 0;
-    padding:20px 45px;
-    background-color: rgba(255,255,255, 0.3);
-    height: 160px;
-    > h1{
-      color: #fff;
-      font:{
-        family: Impact, sans-serif;
-        weight: normal;
+  .top-header{
+    height: 90px;
+    margin-top: 66px;
+    .top-contact{
+      .tel{
+        margin-top: 5px;
+        //color: #393185;
+        line-height: 40px;
+        font:{
+          family: Impact,sans-serif;
+          size: 36px;
+          weight: normal;
+        }
+        @include text-shadow(rgba(0,0,0,0.2) 3px 3px 4px);
       }
-      margin:{
-        bottom: 20px;
+      .mail{
+        &:before{
+          content: "e-mail: ";
+          font-style: italic;
+          //color: #999;
+        }
       }
-      @include text-shadow(rgba(0,0,0,0.2) 3px 3px 4px);
-      max-width: 500px;
-    }
-    .subtext-header{
-      color: rgb(255,255,255);
-      text-shadow: rgba(0,0,0,0.2) 0 -1px 0;
-      font-size: 17.5px;
-      max-width: 500px;
-    }
-    .img-slider{
-      position: absolute;
-      top: 20px;
-      right: 45px;
     }
   }
 }
@@ -101,7 +126,34 @@ body{
   margin-bottom: 40px;
   .breadcrumb{
     background-color: transparent;
-    margin-bottom: 10px;
+    margin:{
+      bottom: 10px;
+      top: 66px;
+    }
+  }
+  .main-content{
+    padding-left: 25px;
+    .contact{
+      margin-top: 20px;
+    }
+    .text-item{
+      margin: 0 0 20px;
+      text-align: justify;
+      .image-text-item {
+        padding: {
+          left: 20px;
+          bottom: 20px;
+        }
+      }
+    }
+    span{
+      &.h1{
+        color: inherit;
+        font-weight: bold;
+        margin-right: 3px;
+        padding-left: 0;
+      }
+    }
   }
   .aside-sidebar{
     min-height: 20px;
@@ -137,6 +189,45 @@ body{
         z-index: -1;
         @include box-shadow(rgba(0,0,0,.6) 0 0 8px 2px);
       }
+    }
+  }
+  .left-bar{
+    .nav{
+      >li{
+        >a{
+          background-color: transparent;
+          &:hover{
+            color: #022e65;
+          }
+        }
+      }
+      .disabled{
+        >a{
+          &:hover{
+            color: #999;
+          }
+        }
+      }
+    }
+    .nav-header{
+      color: inherit;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px dotted #524E4E;
+      margin-bottom: 10px;
+    }
+  }
+  .row-fluid {
+    >.left-bar{
+      height: 100%;
+      min-height: 38.125rem;
+      border:{
+        style: solid;
+        color: #D7DCD2;
+        width: 0 1px 0 0;
+      }
+      /* padding-right: 30px; */
     }
   }
   .home-title{
@@ -181,6 +272,53 @@ body{
         line-height: 20px;
       }
       text-decoration: none;
+    }
+  }
+  .contact-form{
+    .required{
+      &:after{
+        content: "*";
+        color: red;
+        margin-left: 5px;
+      }
+    }
+    .error {
+      display: none;
+      margin-top: 3px;
+      margin-bottom: 5px;
+      font-size: 11px;
+      border: 1px solid #FF4F4F;
+      color: #D6000E;
+      background: #FFF2F2;
+      padding: 5px;
+      text-align: center;
+    }
+    .success {
+      display: none;
+      margin-top: 3px;
+      margin-bottom: 5px;
+      border: 1px solid #00CC00;
+      color: #4F8A10;
+      background: #F2FFF2;
+      font-size: 11px;
+      padding: 5px;
+      text-align: center;
+    }
+    .warning {
+      display: none;
+      margin-top: 3px;
+      font-size: 11px;
+      color: #9F6000;
+      background: #FFF9D5;
+      border: 1px solid #FFD324;
+      padding: 5px;
+      text-align: center;
+    }
+    .captcha{
+      >img{
+        vertical-align:baseline;
+        margin-left: 20px;
+      }
     }
   }
 }
