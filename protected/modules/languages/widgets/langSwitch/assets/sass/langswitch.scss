@@ -1,3 +1,26 @@
-.navbar .country > li > a {
-  padding: 12.5px 6px 12.5px;
+.langswitch{
+  img{
+    vertical-align: inheerit;
+  }
+}
+.navbar{
+  .langswitch{
+    .label-switch{
+      line-height: 45px;
+      color: #999;
+    }
+    >li{
+      >a{
+        padding:{
+          top: 12.5px;
+          right: 6px;
+          bottom: 12.5px;
+          left: 6px;
+        }
+        >img{
+          vertical-align: middle;
+        }
+      }
+    }
+  }
 }

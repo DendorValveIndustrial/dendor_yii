@@ -1,13 +1,6 @@
 @import "base";
 @include sticky-footer(70px, ".layout", ".layout-footer", ".footer");
 
-// body{
-//   background:{
-//     image: image-url("body_bg.png");
-//     position: top center;
-//     repeat: no-repeat;
-//   }
-// }
 .header{
   height: 450px;
   background:{
@@ -22,9 +15,8 @@
     .country{
       >li{
         >a{
-          padding: 12.5px 6px 12.5px;
           >img{
-            padding-bottom: 2px;
+            //padding-bottom: 2px;
           }
         }
       }
@@ -160,7 +152,6 @@
 }
 .main{
   position: relative;
-  // margin-bottom: 40px;
   .aside-sidebar{
     min-height: 20px;
     background-color: #f9f9f9;
