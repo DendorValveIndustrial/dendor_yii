@@ -1,5 +1,6 @@
 <?php
 /* @var $this CatalogController */
+
 $pagePropuctions = Pages::model()->pageCategory('productions')->find();
 $this->pageTitle = CHtml::encode($pagePropuctions->meta_title);
 $this->metaDescription = CHtml::encode($pagePropuctions->meta_description);

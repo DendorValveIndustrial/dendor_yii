@@ -1,4 +1,5 @@
 <?php
+  //$this->layout = '//layouts/main';
   $this->pageTitle = CHtml::encode($model->meta_title).' - '.CHtml::encode(Yii::app()->name);
   $this->metaDescription = CHtml::encode($model->meta_description);
   $this->metaKeywords = CHtml::encode($model->meta_keywords);
@@ -60,3 +61,4 @@
     </div>
   </div>
 </div>
+<?php Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/home.css')); ?>

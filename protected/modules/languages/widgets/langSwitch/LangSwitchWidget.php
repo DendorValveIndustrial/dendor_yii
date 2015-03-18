@@ -15,6 +15,8 @@ class LangSwitchWidget extends CWidget {
 
   public function run()
   {
+    self::addCssClass('langswitch', $this->htmlOptions);
+
     $url = $this->url;
 
     $defaultLang = Yii::app()->languageManager->default;
@@ -23,6 +25,8 @@ class LangSwitchWidget extends CWidget {
     $currentId = $currentLang->id;
 
     $langs = array();
+
+    $langs[0] = array('label'=> Yii::t('LanguagesModule.app', 'language'), 'itemOptions'=>array('class'=>'label-switch'));
 
     foreach(Yii::app()->languageManager->languages as $lang)
     {
@@ -78,4 +82,29 @@ class LangSwitchWidget extends CWidget {
     }
   }
 
+  /**
+  * Appends new class names to the given options..
+  * @param mixed $className the class(es) to append.
+  * @param array $htmlOptions the options.
+  * @return array the options.
+  */
+  public static function addCssClass($className, &$htmlOptions)
+  {
+     // Always operate on arrays
+     if (is_string($className)) {
+         $className = explode(' ', $className);
+     }
+     if (isset($htmlOptions['class'])) {
+         $classes = array_filter(explode(' ', $htmlOptions['class']));
+         foreach ($className as $class) {
+             $class = trim($class);
+             // Don't add the class if it already exists
+             if (array_search($class, $classes) === false) {
+                 $classes[] = $class;
+             }
+         }
+         $className = $classes;
+     }
+     $htmlOptions['class'] = implode(' ', $className);
+  }
 }

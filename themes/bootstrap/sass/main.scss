@@ -123,12 +123,22 @@ body{
 }
 .main{
   position: relative;
-  margin-bottom: 40px;
+  margin:{
+    bottom: 40px;
+    //top: 60px;
+  }
   .breadcrumb{
     background-color: transparent;
     margin:{
       bottom: 10px;
-      top: 66px;
+      top: 50px;
+    }
+  }
+  .page-header{
+    small{
+      display: block;
+      font-size: 50%;
+      line-height: normal;
     }
   }
   .main-content{

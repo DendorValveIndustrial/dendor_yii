@@ -12,7 +12,7 @@
 
     Yii::app()->bootstrap->register();
     Yii::app()->fontawesome->register();
-    Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/main.css'));
+    Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/screen.css'));
     Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/classie.js'),CClientScript::POS_END);
     Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/script.js'),CClientScript::POS_END);
   ?>
@@ -20,18 +20,21 @@
 <body>
   <div class="layout">
     <header class="header" role="banner">
-      <?php $this->renderPartial('//layouts/_navbar'); ?>
-      <?php //$this->renderPartial('//layouts/_head_main'); ?>
+      <?php $this->renderPartial('//layouts/_header', array('showSlider'=>$this->showSlider)); ?>
     </header>
     <main class="main" role="main">
       <div class="container">
-        <?php
-          if(isset($this->breadcrumbs)){
-            $this->widget('bootstrap.widgets.TbBreadcrumb', array(
-              'links'=>$this->breadcrumbs,
-            ));
-          }
-        ?>
+        <div class="row-fluid">
+          <div class="span12">
+            <?php
+              if(isset($this->breadcrumbs)){
+                $this->widget('bootstrap.widgets.TbBreadcrumb', array(
+                  'links'=>$this->breadcrumbs,
+                ));
+              }
+            ?>
+          </div>
+        </div>
         <?php echo $content; ?>
       </div>
     </main>

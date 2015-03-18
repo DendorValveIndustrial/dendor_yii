@@ -8,6 +8,7 @@
  * @property integer $object_id
  * @property integer $language_id
  * @property string $name
+ * @property string $title
  * @property string $short_description
  * @property string $full_description
  * @property string $meta_title

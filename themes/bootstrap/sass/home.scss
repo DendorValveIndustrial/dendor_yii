@@ -1,13 +1,13 @@
 @import "base";
 @include sticky-footer(70px, ".layout", ".layout-footer", ".footer");
 
-body{
-  background:{
-    image: image-url("body_bg.png");
-    position: top center;
-    repeat: no-repeat;
-  }
-}
+// body{
+//   background:{
+//     image: image-url("body_bg.png");
+//     position: top center;
+//     repeat: no-repeat;
+//   }
+// }
 .header{
   height: 450px;
   background:{
@@ -160,7 +160,7 @@ body{
 }
 .main{
   position: relative;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
   .aside-sidebar{
     min-height: 20px;
     background-color: #f9f9f9;
@@ -242,17 +242,17 @@ body{
     }
   }
 }
-.footer{
-  background-color: #EBECEC;
-  color: #868383;
-  font-size: 12px;
-  /* margin: 40px 0 0; */
-  padding: 0;
-  @include box-shadow (rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset);
-  .container{
-    padding-top: 30px;
-  }
-}
+// .footer{
+//   background-color: #EBECEC;
+//   color: #868383;
+//   font-size: 12px;
+//   /* margin: 40px 0 0; */
+//   padding: 0;
+//   @include box-shadow (rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset);
+//   .container{
+//     padding-top: 30px;
+//   }
+// }
 .modal{
   width: 600px;
   margin-left: -300px;
@@ -290,8 +290,3 @@ body{
     }
   }
 }
-
-@import "_responsitive-max1024.scss";
-@import "_responsitive-max979.scss";
-@import "_responsitive-max767.scss";
-@import "_responsitive-max480.scss";

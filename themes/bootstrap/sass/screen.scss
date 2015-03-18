@@ -8,10 +8,10 @@ body{
     position: top center;
     repeat: no-repeat;
   }
-  @media (max-width: 767px){
-    padding: 0;
-    overflow-y: hidden;
-  }
+  // @media (max-width: 767px){
+  //   padding: 0;
+  //   overflow-y: hidden;
+  // }
 }
 .header{
   margin-bottom: 10px;
@@ -187,8 +187,13 @@ body{
   }
 }
 
-.container{
+/* .container{
   @media (max-width: 480px){
     padding: 0 20px;
   }
-}
+} */
+
+@import "_responsitive-max1024.scss";
+@import "_responsitive-max979.scss";
+@import "_responsitive-max767.scss";
+@import "_responsitive-max480.scss";

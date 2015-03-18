@@ -29,7 +29,6 @@ class SiteController extends Controller
 	{
     $pages = new Pages;
     $model = $pages->pageCategory('home')->find();
-		$this->layout = '//layouts/home';
     $this->render('index', array('model'=>$model));
 	}
 

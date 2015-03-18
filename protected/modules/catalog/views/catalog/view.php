@@ -10,7 +10,8 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
-$this->pageHeader = $model->name;
+$this->pageHeader = $model->title;
+$this->subtextHeader = $model->name
 ?>
 <div class="span9 pull-right">
 	<div class="main-content" id="content">

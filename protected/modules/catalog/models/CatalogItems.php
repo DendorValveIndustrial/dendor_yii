@@ -24,6 +24,7 @@ Yii::import('application.modules.catalog.models.Property');
  *
  * The followings are the available columns in table 'CatalogItemsTranslate':
  * @property string $name
+ * @property string $title
  * @property string $short_description
  * @property string $full_description
  * @property string $meta_title
@@ -54,6 +55,7 @@ class CatalogItems extends CActiveRecord
 	 * Multilingual attrs
 	 */
 	public $name;
+	public $title;
 	public $short_description;
 	public $full_description;
 	public $meta_title;
@@ -88,7 +90,7 @@ class CatalogItems extends CActiveRecord
 		return array(
 			array('group_id, modification_id, active, sorting, deleted', 'numerical', 'integerOnly'=>true),
 			array('group_id', 'numerical', 'min'=>1),
-			array('meta_title, meta_description, meta_keywords, name, short_description, full_description', 'type', 'type'=>'string'),
+			array('title, meta_title, meta_description, meta_keywords, name, short_description, full_description', 'type', 'type'=>'string'),
 			array('url, image', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>12),
 			array('created, publish, end_date', 'safe'),
@@ -131,6 +133,7 @@ class CatalogItems extends CActiveRecord
 				'class'=>'ext.behaviors.TranslateBehavior',
 				'translateAttributes'=>array(
 					'name',
+					'title',
 					'short_description',
 					'full_description',
 					'meta_title',
@@ -161,7 +164,8 @@ class CatalogItems extends CActiveRecord
 			'sorting' => Yii::t('admin', 'sorting'),
 			'deleted' => Yii::t('admin', 'deleted'),
 			//CatalogItemsTranslate
-			'name' => Yii::t('admin', 'title'),
+			'name' => Yii::t('admin', 'name'),
+			'title' => Yii::t('admin', 'title'),
 			'short_description' => Yii::t('admin', 'short_description'),
 			'full_description' => Yii::t('admin', 'full_description'),
 			'meta_title' => Yii::t('admin', 'meta_title'),
@@ -187,6 +191,7 @@ class CatalogItems extends CActiveRecord
 		$criteria->compare('t.id',$this->id);
 		$criteria->compare('t.group_id',$this->group_id);
 		$criteria->compare('t.modification_id',$this->modification_id);
+		$criteria->compare('translate.title',$this->title,true);
 		$criteria->compare('translate.name',$this->name,true);
 		$criteria->compare('t.url',$this->url,true);
 		$criteria->compare('translate.short_description',$this->short_description,true);
