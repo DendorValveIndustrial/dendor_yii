@@ -58,8 +58,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
       'filter'=>TbHtml::activeDropDownList($model,'category_id',NewsCategory::model()->listCategory)
     ),
     array(
-      'name'=>'url',
-      'value'=>'CHtml::link($data->url, $data->viewUrl)',
+      'name'=>'title',
+      'value'=>'CHtml::link($data->title, $data->viewUrl)',
       'type'=>'raw',
     ),
     'status',
