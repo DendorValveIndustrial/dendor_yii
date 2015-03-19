@@ -1,15 +1,18 @@
 <?php
 /* @var $this CatalogController */
 
-$pagePropuctions = Pages::model()->pageCategory('productions')->find();
-$this->pageTitle = CHtml::encode($pagePropuctions->meta_title);
-$this->metaDescription = CHtml::encode($pagePropuctions->meta_description);
-$this->metaKeywords = CHtml::encode($pagePropuctions->meta_keywords);
+$this->layout='//layouts/full_page';
+Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/catalog.css'));
 
-$this->pageHeader =  CHtml::encode($pagePropuctions->title);
+$pageProductions = Pages::model()->pageCategory('productions')->find();
+$this->pageTitle = CHtml::encode($pageProductions->meta_title);
+$this->metaDescription = CHtml::encode($pageProductions->meta_description);
+$this->metaKeywords = CHtml::encode($pageProductions->meta_keywords);
+
+/*$this->pageHeader =  CHtml::encode($pageProductions->title);
 
 $this->imgSlider = CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/slide1.png');
-$this->showSlider = true;
+$this->showSlider = true;*/
 
 $this->breadcrumbs=array(
 	Yii::t('app', 'production'),
@@ -20,12 +23,12 @@ $aCatalogGroup_chunk = array_chunk(CatalogGroup::model()->findAll(), 2, true);
 ?>
 
 <div class="row-fluid">
-  <!-- <div class="span6">
-    <?php echo TbHtml::tag('h2', array('class'=>'h1'),Yii::t('app','productions')) ?>
-  </div> -->
-  <div class="span12">
-    <?php echo TbHtml::navbarSearchForm(Yii::app()->createUrl('site/search'), 'get', array('class'=>'', 'inputOptions'=>array('name'=>'q', 'placeholder'=>Yii::t('app','search')))); ?>
+  <div class="span6">
+    <?php echo TbHtml::tag('h2', array('class'=>'h1'),CHtml::encode($pageProductions->title)) ?>
   </div>
+  <!-- <div class="span6">
+    <?php echo TbHtml::navbarSearchForm(Yii::app()->createUrl('site/search'), 'get', array('class'=>'pull-right', 'inputOptions'=>array('name'=>'q', 'placeholder'=>Yii::t('app','search')))); ?>
+  </div> -->
 </div>
 
 <?php foreach ($aCatalogGroup_chunk as $aCatalogGroup): ?>

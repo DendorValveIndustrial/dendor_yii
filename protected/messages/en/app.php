@@ -17,6 +17,7 @@ return array(
   'page' => 'Page',
   'productions'=>'Productions',
   'search' => 'Search',
+  'site map'=>'Site map',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.',
   'NAME' => 'Name',

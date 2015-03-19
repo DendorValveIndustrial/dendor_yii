@@ -5,6 +5,30 @@
   .view-container{
     position: relative;
   }
+  .page-header{
+    margin:{
+      bottom: 15px;
+    }
+    border: none;
+    .page-title{
+      font:{
+        size: 18px;
+        weight: 700;
+      }
+      margin:{
+        bottom: 10px;
+      };
+      text-transform: uppercase;
+      border:{
+        bottom: 1px solid #eee
+      };
+    }
+    .small{
+      font-size: 16px;
+      margin-top: 0;
+      line-height: normal;
+    }
+  }
   .main-content{
     .text-item{
       margin: 0 0 20px;

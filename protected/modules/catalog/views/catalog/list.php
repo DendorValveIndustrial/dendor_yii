@@ -2,12 +2,15 @@
 /* @var $this NewsController */
 /* @var $dataProvider CActiveDataProvider */
 
+$this->layout='//layouts/left_bar_group_product';
+Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/catalog.css'));
+
 $this->pageTitle = CHtml::encode($group->meta_title);
 $this->metaDescription = CHtml::encode($group->meta_description);
 $this->metaKeywords = CHtml::encode($group->meta_keywords);
 
 $this->pageHeader = $group->name;
-$this->subtextHeader = $group->short_description;
+//$this->subtextHeader = $group->short_description;
 $this->imgSlider = CatalogGroup::model()->getUploadPath($group->id).$group->image;//CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/slide1.png');
 
 
@@ -15,7 +18,7 @@ $this->breadcrumbs=array(
   $group->name,
 );
 
-$this->sidebar = CatalogGroup::model()->getListMenu(Yii::t('app','productions'));
+//$this->sidebar = CatalogGroup::model()->getListMenu(Yii::t('app','productions'));
 ?>
 <div class="text-item">
   <?php echo $group->description; ?>

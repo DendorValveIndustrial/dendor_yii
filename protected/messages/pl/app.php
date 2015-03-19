@@ -16,8 +16,8 @@ return array(
   'admin'=>'Admin',
   'page' => 'Strona',
   'productions'=>'Kategorie produktów',
-  'search' => 'Search',
-
+  'search' => 'Poszukiwanie',
+  'site map'=>'Mapa strony',
 
   'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
   'NAME' => 'Name', //en

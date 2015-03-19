@@ -22,13 +22,19 @@ class Controller extends CController
 	public $breadcrumbs=array();
 
 	/**
-	 * Page header
+	 * Page header title (not h1 or pageHeader or pageTitle)
+	 * @var string
+	 */
+	public $pageHeaderTitle = '';
+
+	/**
+	 * Page header (h1)
 	 * @var string
 	 */
 	public $pageHeader;
 
 	/**
-	 * Subtext header in TbHtml::pageHeader
+	 * Subtext header in TbHtml::pageHeader -> subtext
 	 * @var string
 	 */
 	public $subtextHeader = '';

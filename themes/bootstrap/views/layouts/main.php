@@ -15,6 +15,7 @@
     Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/screen.css'));
     Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/classie.js'),CClientScript::POS_END);
     Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/script.js'),CClientScript::POS_END);
+    Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/head.min.js'),CClientScript::POS_END);
   ?>
 </head>
 <body>
@@ -24,17 +25,17 @@
     </header>
     <main class="main" role="main">
       <div class="container">
-        <div class="row-fluid">
-          <div class="span12">
-            <?php
-              if(isset($this->breadcrumbs)){
+        <?php if(!empty($this->breadcrumbs)): ?>
+          <div class="row-fluid">
+            <div class="span12">
+              <?php
                 $this->widget('bootstrap.widgets.TbBreadcrumb', array(
                   'links'=>$this->breadcrumbs,
                 ));
-              }
-            ?>
+              ?>
+            </div>
           </div>
-        </div>
+        <?php endif; ?>
         <?php echo $content; ?>
       </div>
     </main>

@@ -1,5 +1,5 @@
 <?php
-  $this->layout = '//layouts/news/column1';
+  $this->layout = '//layouts/left_bar_group_product';
   $model = Pages::model()->pageCategory('about')->find();
   $this->breadcrumbs=array(
     CHtml::encode($model->title),
@@ -12,21 +12,6 @@
 
 ?>
 
-<div class="span9 pull-right">
-  <div class="main-content" id="content">
-    <div class="text-item">
-      <?php echo $model->full_description; ?>
-    </div>
-  </div>
-</div>
-<div class="span3 pull-left left-bar text-right">
-  <div class="span11">
-    <?php
-      $this->widget('bootstrap.widgets.TbNav', array(
-        'type' => TbHtml::NAV_TYPE_LIST,
-        'items' => CatalogGroup::model()->getListMenu(Yii::t('app','productions'))
-      ));
-    ?>
-  </div>
-
+<div class="text-item">
+  <?php echo $model->full_description; ?>
 </div>

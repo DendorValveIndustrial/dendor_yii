@@ -6,7 +6,7 @@
         <?php
           $this->widget('zii.widgets.CMenu',array(
             'items'=>array(
-              array('label'=>Yii::t('app', 'production'), 'url'=>array('/catalog/catalog/index')),
+              array('label'=>Yii::t('app', 'production'), 'url'=>array('/catalog/catalog/index'), 'active' => $this->id === 'catalog'),
               array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
               array('label'=>Yii::t('app', 'news'), 'url'=> array('/news/news/index')),
               array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact')),

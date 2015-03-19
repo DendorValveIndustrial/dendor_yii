@@ -6,7 +6,7 @@ class CatalogController extends BaseModuleController
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/catalog/column1';
+	//public $layout='//layouts/catalog/column1';
 
 	/**
 	 * @return array action filters
@@ -29,7 +29,7 @@ class CatalogController extends BaseModuleController
 	 */
 	public function actionList($group)
 	{
-		$this->layout = '//layouts/catalog/column2';
+		//$this->layout = '//layouts/catalog/column2';
 		$oGroup = $this->loadGroupModel($group);
 
 		if(!$oGroup)
@@ -63,7 +63,7 @@ class CatalogController extends BaseModuleController
 	 */
 	public function actionView($url)
 	{
-		$this->layout = '//layouts/catalog/view_item';
+		//$this->layout = '//layouts/catalog/view_item';
 		$model = CatalogItems::model()->withUrl($url)->find();
 		$group = CatalogGroup::model()->findByPk($model->group_id);
 

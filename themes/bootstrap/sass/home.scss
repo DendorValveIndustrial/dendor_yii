@@ -1,5 +1,4 @@
 @import "base";
-@include sticky-footer(70px, ".layout", ".layout-footer", ".footer");
 
 .header{
   height: 450px;
@@ -11,21 +10,6 @@
   }
   @include box-shadow(rgba(0, 0, 0, 0.5) 0 5px 15px);
   margin-bottom: 45px;
-  .navbar{
-    .country{
-      >li{
-        >a{
-          >img{
-            //padding-bottom: 2px;
-          }
-        }
-      }
-    }
-    .main-menu-show{
-      display: none;
-      padding: 4px 12px;
-    }
-  }
   .head{
     margin-top: 65px;
     .logo{
@@ -157,7 +141,7 @@
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     margin-bottom: 20px;
-    margin-top: -83px;
+    margin-top: -48px;
     position: relative;
     .nav-list{
       >li{
@@ -189,6 +173,7 @@
     }
   }
   .home-title{
+    margin-top: 30px;
     h2{
       font:{
         family: Impact, sans-serif;
@@ -233,17 +218,6 @@
     }
   }
 }
-// .footer{
-//   background-color: #EBECEC;
-//   color: #868383;
-//   font-size: 12px;
-//   /* margin: 40px 0 0; */
-//   padding: 0;
-//   @include box-shadow (rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset);
-//   .container{
-//     padding-top: 30px;
-//   }
-// }
 .modal{
   width: 600px;
   margin-left: -300px;
@@ -281,3 +255,8 @@
     }
   }
 }
+
+@import "home/_responsitive-max1024.scss";
+@import "home/_responsitive-max979.scss";
+@import "home/_responsitive-max767.scss";
+@import "home/_responsitive-max480.scss";

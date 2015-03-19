@@ -10,6 +10,8 @@ $this->breadcrumbs=array(
   $category->name,
 );
 
+$this->layout = '//layouts/left_bar';
+
 $this->sidebar[] = array('label' => Yii::t('app','category'));
 $aCategory = NewsCategory::model()->findAll();
 foreach ($aCategory as $oCategory) {

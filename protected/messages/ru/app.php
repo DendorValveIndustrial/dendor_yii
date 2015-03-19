@@ -17,8 +17,7 @@ return array(
   'page' => 'Страница',
   'productions'=>'Продукция',
   'search' => 'Поиск',
-
-
+  'site map'=>'Карта сайта',
 
   'REQUIRED_FIELDS' => 'Обязательные поля отмеченны <span class="required">*</span>.',
   'NAME' => 'Имя',

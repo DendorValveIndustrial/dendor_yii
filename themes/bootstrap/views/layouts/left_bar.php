@@ -1,11 +1,17 @@
-<?php Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/catalog.css')); ?>
 <?php $this->beginContent('//layouts/main') ?>
-<div class="row-fluid">
-  <div class="span9 offset3">
-    <?php echo TbHtml::pageHeader($this->pageHeader, ''); ?>
+<?php if(!empty($this->pageHeader)): ?>
+  <div class="row-fluid">
+    <div class="span9 offset3">
+      <?php echo TbHtml::pageHeader($this->pageHeader, $this->subtextHeader); ?>
+    </div>
   </div>
-</div>
+<?php endif; ?>
 <div class="row-fluid">
+  <div class="span9 pull-right">
+    <div class="main-content" id="content">
+      <?php echo $content; ?>
+    </div>
+  </div>
   <div class="span3 left-bar text-right">
     <div id="sidebar" class="span11">
       <?php
@@ -16,11 +22,5 @@
       ?>
     </div>
   </div>
-  <div class="span9">
-    <div class="main-content" id="content">
-      <?php echo $content; ?>
-    </div>
-  </div>
 </div>
 <?php $this->endContent(); ?>
-

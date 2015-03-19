@@ -1,6 +1,8 @@
 <?php
 /* @var $this NewsController */
 /* @var $model News */
+$this->layout = '//layouts/catalog/view_item';
+
 $this->pageTitle = CHtml::encode($model->meta_title);
 $this->metaDescription = CHtml::encode($model->meta_description);
 $this->metaKeywords = CHtml::encode($model->meta_keywords);
@@ -10,8 +12,9 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
-$this->pageHeader = $model->title;
-$this->subtextHeader = $model->name
+$this->pageHeaderTitle = $model->title;
+$this->pageHeader = $model->name;
+$this->subtextHeader = '';
 ?>
 <div class="span9 pull-right">
 	<div class="main-content" id="content">
