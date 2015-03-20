@@ -2,7 +2,7 @@
 @include sticky-footer(70px, ".layout", ".layout-footer", ".footer");
 
 body{
-  overflow-y: scroll;
+  //overflow-y: scroll;
   background:{
     image: image-url("body_bg.png");
     position: top center;
