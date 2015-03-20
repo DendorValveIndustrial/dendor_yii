@@ -1,6 +1,7 @@
 <?php
 /* @var $this NewsController */
 /* @var $dataProvider CActiveDataProvider */
+$this->layout = '//layouts/left_bar';
 
 $this->breadcrumbs=array(
 	Yii::t('app','news'),

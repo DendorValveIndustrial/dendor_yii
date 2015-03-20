@@ -72,7 +72,8 @@ body{
   }
   .page-header{
     margin:{
-      left: 25px;
+      //left: 25px;
+      top: 0;
     }
     >h1{
       font:{
@@ -87,7 +88,7 @@ body{
     }
   }
   .main-content{
-    padding-left: 25px;
+    //padding-left: 25px;
     .contact{
       margin-top: 20px;
     }
@@ -138,7 +139,7 @@ body{
     }
   }
   .row-fluid {
-    >.left-bar{
+    .left-bar{
       height: 100%;
       min-height: 38.125rem;
       border:{

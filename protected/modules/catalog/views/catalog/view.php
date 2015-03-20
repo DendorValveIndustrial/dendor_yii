@@ -16,7 +16,23 @@ $this->pageHeaderTitle = $model->title;
 $this->pageHeader = $model->name;
 $this->subtextHeader = '';
 ?>
-<div class="span9 pull-right">
+<div class="span3 left-bar">
+	<div class="span10 text-right">
+		<div class="item-image">
+			<?php if($model->image) echo TbHtml::image(CatalogGroup::model()->getUploadPath($model->group_id).$model->image, $model->name); ?>
+		</div>
+		<div class="main-features-item">
+			<?php
+				$aProperty = $model->property(array('condition'=>'main=1'));
+				$this->renderPartial('_main_property', array(
+					'model'=>$model,
+					'aProperty'=>$aProperty,
+				));
+			?>
+	  </div>
+	</div>
+</div>
+<div class="span9">
 	<div class="main-content" id="content">
 		<?php
 			if (trim($model->full_description) != '')
@@ -31,20 +47,6 @@ $this->subtextHeader = '';
 				));
 			?>
 		</div>
-	</div>
-</div>
-<div class="span3 pull-left left-bar">
-	<div class="span10 text-right">
-		<?php if($model->image) echo TbHtml::image(CatalogGroup::model()->getUploadPath($model->group_id).$model->image, $model->name); ?>
-		<div class="main-features-item">
-			<?php
-				$aProperty = $model->property(array('condition'=>'main=1'));
-				$this->renderPartial('_main_property', array(
-					'model'=>$model,
-					'aProperty'=>$aProperty,
-				));
-			?>
-	  </div>
 	</div>
 </div>
 

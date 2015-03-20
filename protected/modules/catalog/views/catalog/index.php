@@ -20,23 +20,15 @@ $this->breadcrumbs=array(
 
 $aCatalogGroup_chunk = array_chunk(CatalogGroup::model()->findAll(), 2, true);
 
+$this->pageHeader = CHtml::encode($pageProductions->title);
+
 ?>
-
-<div class="row-fluid">
-  <div class="span6">
-    <?php echo TbHtml::tag('h2', array('class'=>'h1'),CHtml::encode($pageProductions->title)) ?>
-  </div>
-  <!-- <div class="span6">
-    <?php echo TbHtml::navbarSearchForm(Yii::app()->createUrl('site/search'), 'get', array('class'=>'pull-right', 'inputOptions'=>array('name'=>'q', 'placeholder'=>Yii::t('app','search')))); ?>
-  </div> -->
-</div>
-
 <?php foreach ($aCatalogGroup_chunk as $aCatalogGroup): ?>
   <div class="line line-dotted"></div>
   <div class="row-fluid">
     <?php foreach ($aCatalogGroup as $model): ?>
-      <section class="catalog-group span6">
-        <?php echo CHtml::tag('h2', array('class'=>'group-head'), $model->name) ?>
+      <section class="catalog-group span6 clearfix">
+        <?php echo CHtml::tag('h2', array('class'=>'group-head text-right'), $model->name) ?>
         <div class="group-image pull-left">
           <?php echo TbHtml::link(TbHtml::image(CatalogGroup::model()->getUploadPath($model->id).$model->image, $model->name),$model->viewUrl); ?>
         </div>

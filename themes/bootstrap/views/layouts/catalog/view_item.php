@@ -8,7 +8,7 @@
     </div>
   </div>
 </div>
-<div class="row-fluid">
+<div class="row-fluid item-view">
   <?php echo $content; ?>
 </div>
 <?php $this->endContent(); ?>

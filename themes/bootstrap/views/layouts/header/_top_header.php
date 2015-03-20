@@ -3,8 +3,8 @@
     <div class="span3">
       <?php echo CHtml::link(CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-blue193.png'),CHtml::encode(Yii::app()->name), array('width'=>'194', 'height'=>'59')),Yii::app()->createUrl('site/index')); ?>
     </div>
-    <div class="span6">
-      <div class="top-contact pull-right">
+    <div class="span6 top-contact">
+      <div class="pull-right">
         <div class="tel text-center"><?php echo CHtml::encode(Yii::app()->params['telOfficePol']); ?></div>
         <div class="mail text-center"><?php echo CHtml::mailto(Yii::app()->params['officeEmail']); ?></div>
       </div>

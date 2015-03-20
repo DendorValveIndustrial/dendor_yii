@@ -1,24 +1,15 @@
 @media (max-width: 1024px){
   .container{
-    max-width: 940px;
+    max-width: 900px;
     width: auto;
     padding: 0px 20px;
   }
   .header{
-    .head{
-      .logo{
-        margin-top: 60px;
-      }
+    .top-contact{
+      width: 40.5%;
     }
-    .wrap-slider{
-      .img-slider{
-        margin-right: 0;
-      }
-      .slider{
-        .slider-item{
-          max-width: 400px;
-        }
-      }
+    .top-menu{
+      width: 32%;
     }
   }
 }

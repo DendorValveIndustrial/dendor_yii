@@ -1,6 +1,8 @@
 <?php
 /* @var $this NewsController */
 /* @var $dataProvider CActiveDataProvider */
+$this->layout = '//layouts/left_bar';
+
 $this->pageTitle = CHtml::encode($category->meta_title);
 $this->metaDescription = CHtml::encode($category->meta_description);
 $this->metaKeywords = CHtml::encode($category->meta_keywords);
@@ -9,8 +11,6 @@ $this->breadcrumbs=array(
   Yii::t('app','news')=>array('index'),
   $category->name,
 );
-
-$this->layout = '//layouts/left_bar';
 
 $this->sidebar[] = array('label' => Yii::t('app','category'));
 $aCategory = NewsCategory::model()->findAll();

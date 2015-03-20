@@ -17,6 +17,7 @@
       }
       margin:{
         bottom: 10px;
+        top: 20px;
       };
       text-transform: uppercase;
       border:{
@@ -50,7 +51,8 @@
         @include box-shadow(rgba(0, 0, 0, 0.5) 1px 1px 3px);
       }
       .group-image{
-        width: 120px;
+        width: 23%;
+        max-width: 120px;
         background-color: #EBECEC;
         border: 5px solid white;
         margin: 0 0 5px 0;
@@ -67,7 +69,7 @@
       }
       .group-items{
         margin: 50px 0px 0px 10px;
-        width: 71%;
+        width: 70%;
         .list-items{
           >li{
             margin-bottom: 5px;

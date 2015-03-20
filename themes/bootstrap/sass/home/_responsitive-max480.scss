@@ -59,29 +59,30 @@
     }
   }
   .main{
-    .home-news{
-      .span6{
-        float: none;
-        width: 100%
-      }
-      .span3{
-        width: 49%;
-        float: left;
-        margin-left: 0;
-        &:last-child{
-          display: block;
-        margin-left: 2%;
+    .home-page{
+      .home-news{
+        .span6{
+          float: none;
+          width: 100%
         }
-        .offset2{
+        .span3{
+          width: 49%;
+          float: left;
           margin-left: 0;
+          &:last-child{
+            display: block;
+          margin-left: 2%;
+          }
+          .offset2{
+            margin-left: 0;
+          }
         }
-      }
-      .thumbnail{
-        .caption{
-          line-height: 14px;
+        .thumbnail{
+          .caption{
+            line-height: 14px;
+          }
         }
       }
     }
-
   }
 }

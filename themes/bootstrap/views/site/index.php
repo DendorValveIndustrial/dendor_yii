@@ -1,5 +1,4 @@
 <?php
-  //$this->layout = '//layouts/main';
   $this->pageTitle = CHtml::encode($model->meta_title).' - '.CHtml::encode(Yii::app()->name);
   $this->metaDescription = CHtml::encode($model->meta_description);
   $this->metaKeywords = CHtml::encode($model->meta_keywords);
@@ -7,7 +6,7 @@
   $this->imgSlider = CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/slide1.png');
   $this->showSlider = true;
 ?>
-<div class="row-fluid">
+<div class="row-fluid home-page">
   <div class="span3">
     <div class="aside-sidebar">
       <?php

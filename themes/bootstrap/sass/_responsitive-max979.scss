@@ -12,15 +12,32 @@
       .span3,
       .span6{
         width: 48.61878453038674%;
+        float: left;
       }
     }
   }
   .main{
-    /* .span3{
-      width: 31.4917%;
+    .main-content{
+      .catalog-group{
+        .group-head{
+          left: 20%;
+        }
+        .group-image{
+          width: 23%;
+        }
+        .group-items{
+          width: 68%
+        }
+      }
+    }
+    .span3{
+      width: 31.491712707182323%;
     }
     .span9{
-      width: 65.7459%;
-    } */
+      width: 65.74585635359117%;
+      &.offset3{
+        margin-left: 34.25414364640884%;
+      }
+    }
   }
 }

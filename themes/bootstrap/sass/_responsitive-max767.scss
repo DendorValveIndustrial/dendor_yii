@@ -11,12 +11,29 @@
   }
   .header{
     .navbar{
+      &.navbar-static-top{
+        margin:{
+          left: 0;
+          right: 0;
+        }
+      }
       .brand{
         width: auto;
       }
       .langswitch{
         .label-switch{
           display: none;
+        }
+      }
+      .main-menu{
+        .ru-section &{
+          .nav{
+            >li{
+              &:last-child{
+                @include hide-text();
+              }
+            }
+          }
         }
       }
     }
@@ -28,70 +45,58 @@
       }
       position: fixed;
     }
-    .head{
-      .logo{
-        text-align: center;
-      }
-      .span3,
-      .span9{
-        float: none;
-        width: 100%;
-        margin-left: 0px;
-      }
-    }
-    .wrap-slider{
-      @include hide-box();
-    }
   }
   .main{
-    .aside-sidebar{
-      @include hide-box();
-    }
-    .span9{
-      width: 100%;
-    }
-    .home-news{
-      .span6{
-        float: left;
-      }
-      .span3{
-        width: 23.5%;
-        float: left;
-        margin-left: 2%;
-        .offset2{
-          margin-left: 19%;
-        }
-      }
-      .thumbnail{
-        .caption{
-          line-height: 14px;
-        }
-      }
-    }
-    /* .home-news-box{
-      .thumbnails{
-        .span5{
-          display: block;
-          box-sizing: border-box;
-          float: left;
-          margin-left: 2%;
-          width: 49%;
-          &:first-child {
-            margin-left: 0;
-          }
-          .thumbnail{
-            max-width: 180px;
-            margin: 0 auto;
-          }
-        }
-      }
-    }
     .span3,
     .span9{
-      float: none;
       width: 100%;
-      margin-left: 0px;
-    } */
+      &.offset3{
+        margin-left: 0;
+      }
+    }
+    .sidebar{
+      @include hide-box;
+    }
+    .main-content{
+      padding-left: 0;
+      .image-item{
+        width: 25%;
+        float: left;
+        text-align: left;
+        margin-right: 30px;
+      }
+    }
+    .list-view{
+      .group-item{
+        .span4{
+          width: 40.5%;
+          float: left;
+        }
+      }
+    }
+    .item-view{
+      .left-bar{
+        border: none;
+        height: auto;
+        min-height: 200px;
+        .text-right{
+          text-align: left;
+        }
+      }
+      .item-image{
+        width: 49%;
+        max-width: 150px;
+        float: left;
+      }
+      .main-features-item{
+        width: 49%;
+        float: left;
+        margin: {
+          top: 10px;
+          left: 10%;
+        }
+      }
+    }
     margin-bottom: 0;
   }
 }

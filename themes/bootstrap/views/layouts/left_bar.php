@@ -1,3 +1,4 @@
+<!-- left_bar -->
 <?php $this->beginContent('//layouts/main') ?>
 <?php if(!empty($this->pageHeader)): ?>
   <div class="row-fluid">
@@ -7,12 +8,7 @@
   </div>
 <?php endif; ?>
 <div class="row-fluid">
-  <div class="span9 pull-right">
-    <div class="main-content" id="content">
-      <?php echo $content; ?>
-    </div>
-  </div>
-  <div class="span3 left-bar text-right">
+  <div class="span3 left-bar sidebar text-right">
     <div id="sidebar" class="span11">
       <?php
         $this->widget('bootstrap.widgets.TbNav', array(
@@ -20,6 +16,11 @@
           'items' => $this->sidebar,
         ));
       ?>
+    </div>
+  </div>
+  <div class="span9">
+    <div class="main-content" id="content">
+      <?php echo $content; ?>
     </div>
   </div>
 </div>
