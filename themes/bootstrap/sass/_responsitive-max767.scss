@@ -30,7 +30,7 @@
           .nav{
             >li{
               &:last-child{
-                @include hide-text();
+                @include hide-box();
               }
             }
           }

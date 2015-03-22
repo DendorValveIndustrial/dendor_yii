@@ -19,15 +19,20 @@ return array(
   'search' => 'Poszukiwanie',
   'site map'=>'Mapa strony',
 
-  'REQUIRED_FIELDS' => 'Fields with <span class="required">*</span> are required.', //en
-  'NAME' => 'Name', //en
-  'EMAIL' => 'Email', //en
-  'SUBJECT' => 'Subject', //en
-  'BODY' => 'Message', //en
-  'VERIFICATION_CODE' => 'Verification Code', //en
-  'ENTER_LETTERS_FROM_IMAGE' => 'Please enter the letters as they are shown in the image above', //en
-  'LETTERS_NOT_CASE_SENSITIVE' => 'Letters are not case-sensitive', //en
-  'SUBMIT' => 'Submit', //en
+  'Contact Form'=>'Formularz Kontaktowy',
+  'Name_surname'=>'Imię i nazwisko',
+  'Email' => 'Email',
+  'Phone number'=>'Numer telefonu',
+  'Subject' => 'Temat',
+  'Sales'=> 'Sprzedaż',
+  'Support'=> 'Wsparcie',
+  'Other'=> 'Pozostałe',
+  'Message' => 'Wiadomość',
+  'Verification Code' => 'Kod weryfikacyjny',
+  'Submit' => 'Wyślij',
+  'enter_letters_from_image' => 'Wprowadź znaki przedstawione na obrazku.',
+  'letters_not_case_sensitive' => 'Wielkość liter nie jest rozróżniana',
+
   'USERNAME' => 'Name', //en
   'PASSWORD' => 'Password', //en
   'REMEMBER_ME' => 'Remember me next time', //en
