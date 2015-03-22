@@ -58,6 +58,15 @@
             }
           }
         }
+        .ru-section &{
+          .nav{
+            >li{
+              &:last-child{
+                display: block;
+              }
+            }
+          }
+        }
       }
       .main-menu-show{
         display: block;
@@ -72,7 +81,21 @@
     }
   }
   .main{
+    .breadcrumb{
+      @include hide-box();
+    }
     .main-content{
+      .contact{
+        margin-top: 40px;
+        .dl-horizontal{
+          >dt{
+            width: 80px;
+          }
+          >dd{
+            margin-left: 100px;
+          }
+        }
+      }
       .catalog-group{
         .group-head{
           @include hide-box();
@@ -84,6 +107,26 @@
         .group-items{
           width: 100%;
           float: none;
+        }
+      }
+    }
+    .contact-office,
+    .contact-form{
+      width: 100%;
+      float: none;
+    }
+    .item-view{
+      .item-image{
+        margin:{
+          top: 0;
+        }
+      }
+      .main-features-item{
+        text-align: right;
+        width: 47%;
+        margin: {
+          top: 0;
+          left: 4%;
         }
       }
     }

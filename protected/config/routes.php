@@ -3,7 +3,7 @@
     '' => array('site/index', 'urlSuffix'=>''),
     '<action:(contact|search|login)>' => array('site/<action>', 'urlSuffix'=>'.html'),
     '<action:(logout|captcha)>' => 'site/<action>',
-    '<view:about>' => array('site/page', 'urlSuffix'=>'.html'),
+    '<view:(about|price)>' => array('site/page', 'urlSuffix'=>'.html'),
 
     'admin'=>'admin/default/index',
     // //'admin/user'=>'admin/user/admin',

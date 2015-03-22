@@ -20,17 +20,12 @@
       .brand{
         width: auto;
       }
-      .langswitch{
-        .label-switch{
-          display: none;
-        }
-      }
       .main-menu{
         .ru-section &{
           .nav{
             >li{
               &:last-child{
-                @include hide-box();
+                display: none;
               }
             }
           }
@@ -47,17 +42,32 @@
     }
   }
   .main{
-    .span3,
-    .span9{
-      width: 100%;
-      &.offset3{
-        margin-left: 0;
+    .row-fluid{
+      .span3,
+      .span9{
+        width: 100%;
+        &.offset3{
+          margin-left: 0;
+        }
+      }
+      .sidebar{
+        @include hide-box;
       }
     }
-    .sidebar{
-      @include hide-box;
-    }
     .main-content{
+      .contact{
+        margin-top: 40px;
+        .dl-horizontal{
+          >dt{
+            width: 160px;
+            float: left;
+            text-align: right;
+          }
+          >dd{
+            margin-left: 180px;
+          }
+        }
+      }
       padding-left: 0;
       .image-item{
         width: 25%;
@@ -66,6 +76,12 @@
         margin-right: 30px;
       }
     }
+    .contact-office,
+    .contact-form{
+      width: 80%;
+      float: none;
+    }
+
     .list-view{
       .group-item{
         .span4{

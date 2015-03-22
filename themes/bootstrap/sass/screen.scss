@@ -72,7 +72,6 @@ body{
   }
   .page-header{
     margin:{
-      //left: 25px;
       top: 0;
     }
     >h1{
@@ -89,9 +88,11 @@ body{
     }
   }
   .main-content{
-    //padding-left: 25px;
     .contact{
-      margin-top: 20px;
+      margin:{
+        top: 20px;
+        bottom: 40px;
+      };
     }
     .text-item{
       margin: 0 0 20px;
@@ -111,7 +112,17 @@ body{
         padding-left: 0;
       }
     }
+    .price-download{
+      margin:{
+        top: 20px;
+        bottom: 15px;
+        left: 30px;
+      }
+    }
   }
+  /* .contact-form{
+    margin-left: 0;
+  } */
   .left-bar{
     .nav{
       >li{
@@ -155,45 +166,8 @@ body{
     span{
       &.required{
         color: red;
-        /* &:after{
-          content: "*";
-          color: red;
-          margin-left: 5px;
-        } */
       }
     }
-    // .error {
-    //   display: none;
-    //   margin-top: 3px;
-    //   margin-bottom: 5px;
-    //   font-size: 11px;
-    //   border: 1px solid #FF4F4F;
-    //   color: #D6000E;
-    //   background: #FFF2F2;
-    //   padding: 5px;
-    //   text-align: center;
-    // }
-    // .success {
-    //   display: none;
-    //   margin-top: 3px;
-    //   margin-bottom: 5px;
-    //   border: 1px solid #00CC00;
-    //   color: #4F8A10;
-    //   background: #F2FFF2;
-    //   font-size: 11px;
-    //   padding: 5px;
-    //   text-align: center;
-    // }
-    // .warning {
-    //   display: none;
-    //   margin-top: 3px;
-    //   font-size: 11px;
-    //   color: #9F6000;
-    //   background: #FFF9D5;
-    //   border: 1px solid #FFD324;
-    //   padding: 5px;
-    //   text-align: center;
-    // }
     .captcha{
       >img{
         margin:{

@@ -9,7 +9,7 @@
               array('label'=>Yii::t('app', 'production'), 'url'=>array('/catalog/catalog/index'), 'active' => $this->id === 'catalog'),
               array('label'=>Yii::t('app', 'about'), 'url'=>array('/site/page', 'view'=>'about')),
               array('label'=>Yii::t('app', 'news'), 'url'=> array('/news/news/index')),
-              array('label'=>Yii::t('app', 'price'), 'url'=>'#'),
+              array('label'=>Yii::t('app', 'price'), 'url'=>array('/site/page', 'view'=>'price')),
               array('label'=>Yii::t('app', 'contact'), 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'contact')),
               array('label'=>Yii::t('app', 'admin').' ('.Yii::app()->user->name.')', 'url'=>array('admin/default/index'), 'visible'=>!Yii::app()->user->isGuest)
             ),

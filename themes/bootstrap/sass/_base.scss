@@ -77,7 +77,7 @@ $arrow-sprite: sprite-map("arrow-slider/*.png", $position: 100%, $spacing: 5px, 
 @mixin hide-box(){
   @include hide-text();
   overflow: hidden;
-  height: 0px;
+  height: 0;
   background-color: transparent;
   margin: 0;
   padding: 0;

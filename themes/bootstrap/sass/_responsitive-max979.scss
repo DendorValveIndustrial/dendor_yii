@@ -2,8 +2,15 @@
   .header{
     //height: 350px;
     margin-bottom: 20px;
-    .navbar-fixed-top{
-      position: fixed;
+    .navbar{
+      &.navbar-fixed-top{
+        position: fixed;
+      }
+      .langswitch{
+        .label-switch{
+          display: none;
+        }
+      }
     }
     .top-header{
       .top-menu{
@@ -27,6 +34,22 @@
         }
         .group-items{
           width: 68%
+        }
+      }
+    }
+    .contact-form{
+      width: 40.0552%;
+    }
+    .contact-office{
+      width: 48.6188%;
+    }
+    .contact{
+      .dl-horizontal{
+        >dt{
+          width: 100px;
+        }
+        >dd{
+          margin-left: 120px;
         }
       }
     }
