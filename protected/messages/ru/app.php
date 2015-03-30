@@ -17,6 +17,7 @@ return array(
   'page' => 'Страница',
   'productions'=>'Продукция',
   'search' => 'Поиск',
+  'Search form' => 'Форма поиска',
   'site map'=>'Карта сайта',
 
   'Contact Form'=>'Форма обратной связи',

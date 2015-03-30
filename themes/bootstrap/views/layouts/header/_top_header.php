@@ -14,7 +14,7 @@
         $this->widget('zii.widgets.CMenu', array(
           'items'=>array(
             array('label'=>'<i class="fa fa-home"></i> '.Yii::t('app', 'home'), 'url'=>array('/site/index')),
-            array('label'=>'<i class="fa fa-sitemap"></i> '.Yii::t('app', 'site map'), 'url'=>'#'),
+            array('label'=>'<i class="fa fa-sitemap"></i> '.Yii::t('app', 'site map'), 'url'=>array('/site/page', 'view'=>'map')),
             array('label'=>'<i class="fa fa-envelope-o"></i> '.Yii::t('app', 'contact_us'), 'url'=>array('/site/contact')),
           ),
           'htmlOptions'=> array('class'=>'inline pull-right'),

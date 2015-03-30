@@ -53,6 +53,14 @@
       .sidebar{
         @include hide-box;
       }
+      .search{
+        min-height: 0;
+        border: none;
+        text-align: left;
+        .nav-header{
+          display: none;
+        }
+      }
     }
     .main-content{
       .contact{

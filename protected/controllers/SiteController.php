@@ -119,9 +119,18 @@ class SiteController extends Controller
 			// получаем данные из формы
 			$model->attributes=$_POST['SearchForm'];
 			if(isset($model->q) && $model->q != '')
-				$this->redirect('?r=site/search&q=' . CHtml::encode($model->q));
+				$this->redirect('?q=' . CHtml::encode($model->q));
 		}
 		$this->render('search',array('model'=>$model));
+	}
+
+	public function actionMap()
+	{
+		$items = array();
+    $items = array_merge($items, Pages::model()->published()->findAll());
+		$this->render('map', array(
+			'items'=>$items,
+		));
 	}
 
 	/**

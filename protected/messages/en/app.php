@@ -17,6 +17,7 @@ return array(
   'page' => 'Page',
   'productions'=>'Productions',
   'search' => 'Search',
+  'Search form' => 'Search form',
   'site map'=>'Site map',
 
   'Contact Form'=>'Contact Form',

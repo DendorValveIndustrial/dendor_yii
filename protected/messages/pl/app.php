@@ -17,6 +17,7 @@ return array(
   'page' => 'Strona',
   'productions'=>'Kategorie produktów',
   'search' => 'Poszukiwanie',
+  'Search form' => 'Formularz wyszukiwania',
   'site map'=>'Mapa strony',
 
   'Contact Form'=>'Formularz Kontaktowy',

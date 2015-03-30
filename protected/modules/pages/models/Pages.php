@@ -36,6 +36,7 @@ class Pages extends CActiveRecord
 	 * Multilingual attrs
 	 */
 	public $title;
+	public $name;
 	public $short_description;
 	public $full_description;
 	public $meta_title;
@@ -119,7 +120,7 @@ class Pages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('system_name, layout, url, image, title, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
+			array('system_name, layout, url, image, title, name, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			array('short_description, full_description', 'type', 'type'=>'string'),
 			array('status', 'in', 'range'=>array_keys(self::statuses())),
 			array('system_name, title, status', 'required'),
@@ -156,6 +157,7 @@ class Pages extends CActiveRecord
 				'class'=>'ext.behaviors.TranslateBehavior',
 				'translateAttributes'=>array(
 					'title',
+					'name',
 					'short_description',
 					'full_description',
 					'meta_title',
@@ -181,6 +183,7 @@ class Pages extends CActiveRecord
 			'image' => Yii::t('admin','image'),
 			//PageTranslate
 			'title' => Yii::t('admin', 'title'),
+			'name' => Yii::t('admin', 'name'),
 			'short_description' => Yii::t('admin', 'short_description'),
 			'full_description' => Yii::t('admin', 'full_description'),
 			'meta_title' => Yii::t('admin', 'meta_title'),
@@ -227,6 +230,7 @@ class Pages extends CActiveRecord
 		$criteria->compare('t.id',$this->id);
 		$criteria->compare('t.system_name',$this->system_name);
 		$criteria->compare('translate.title',$this->title,true);
+		$criteria->compare('translate.name',$this->name,true);
 		$criteria->compare('t.url',$this->url,true);
 		$criteria->compare('translate.short_description',$this->short_description,true);
 		$criteria->compare('translate.full_description',$this->full_description,true);
@@ -299,12 +303,6 @@ class Pages extends CActiveRecord
 	 */
 	public function getViewUrl()
 	{
-		/*$data = array('url'=>$this->url);
-
-		if($this->category)
-			$data['category'] = $this->category->url;*/
-
-		return urldecode(Yii::app()->createUrl($this->url));
+		return ($this->url != 'home') ? urldecode(Yii::app()->createUrl($this->url)).'.html' : Yii::app()->createUrl('site/index');
 	}
-
 }
