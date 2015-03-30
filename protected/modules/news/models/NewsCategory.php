@@ -195,12 +195,6 @@ class NewsCategory extends CActiveRecord
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
@@ -274,58 +268,9 @@ class NewsCategory extends CActiveRecord
 			$this->page_size = $this->defaultPageSize;
 		}
 
-		/*// Check if url available
-		if($this->isNewRecord)
-		{
-			$test = PageCategory::model()
-				->withUrl($this->url)
-				->count('parent_id=:parent_id', array(
-					':parent_id'=>$this->parent_id
-				));
-		}
-		else
-		{
-			$test = PageCategory::model()
-				->withUrl($this->url)
-				->count('id!=:id AND parent_id=:parent_id', array(
-					':id'=>$this->id,
-					':parent_id'=>$this->parent_id,
-				));
-		}
-
-		if ($test > 0)
-			$this->url .= '-'.date('YmdHis');*/
-
 		return parent::beforeSave();
 	}
 
-	/**
-	 * Delete category pages and childs.
-	 * @return boolean
-	 */
-	/*public function beforeDelete()
-	{
-		// Delete pages
-		$pages = $this->pages;
-		if ($pages)
-		{
-			foreach($pages as $p)
-				$p->delete();
-		}
-
-		// Delete all child categories
-		$tree = new NewsCategoryTree();
-		$tree = $tree->buildTree($this->id);
-
-		if (count($tree) > 0)
-		{
-			foreach($tree as $child)
-				$child->delete();
-		}
-
-		return parent::beforeDelete();
-	}
-	*/
 	/**
 	 * Count and cache categories by url
 	 *
@@ -397,17 +342,6 @@ class NewsCategory extends CActiveRecord
 		return $name;
 	}
 
-	/*public function afterSave()
-	{
-		Yii::app()->cache->delete('news_category_'.$this->url);
-		return parent::afterSave();
-	}
-
-	public function afterDelete()
-	{
-		Yii::app()->cache->delete('news_category_'.$this->url);
-		return parent::afterSave();
-	}*/
 
 	/**
 	 * @return string

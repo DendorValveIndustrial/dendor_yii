@@ -29,7 +29,8 @@ class PagesModule extends CWebModule
 	public $urlRules = array(
 		'home' => array('/site/index', 'urlSuffix'=>''),
 		'catalog' => array('/catalog/catalog/index', 'urlSuffix'=>'.html'),
-		'about' => array('/site/page', 'urlSuffix'=>'.html'),
+		'about' => array('/site/page', 'view'=>'about', 'urlSuffix'=>'.html'),
+		'news' => array('/news/news/index', 'urlSuffix'=>'.html'),
 	);
 
 }

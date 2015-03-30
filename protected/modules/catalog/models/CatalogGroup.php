@@ -30,6 +30,11 @@ class CatalogGroup extends CActiveRecord
 {
 
 	/**
+	 * Status to allow display page on the front.
+	 */
+	public $publishStatus = 'published';
+
+	/**
 	 * Default page size.
 	 */
 	public $defaultPageSize = 10;
@@ -240,6 +245,18 @@ class CatalogGroup extends CActiveRecord
 		}
 
 		return parent::beforeSave();
+	}
+
+	public function scopes()
+	{
+		return array(
+			'published'=>array(
+				'condition'=>'active = :active',
+				'params'=>array(
+					':active'=>1,
+				),
+			),
+		);
 	}
 
 	/**

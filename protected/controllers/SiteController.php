@@ -126,10 +126,31 @@ class SiteController extends Controller
 
 	public function actionMap()
 	{
-		$items = array();
-    $items = array_merge($items, Pages::model()->published()->findAll());
+	  $catalogGroup = CatalogGroup::model()->published()->findAll();
+	  $catalogMap = array();
+	  foreach ($catalogGroup as $oGroup) {
+	    $aGroupItems = $oGroup->groupItems;
+	    $catalogItemMap = array();
+	    foreach ($aGroupItems as $oItem) {
+	      $catalogItemMap[] = array('label'=>$oItem->name, 'url'=>$oItem->viewUrl);
+	    }
+	    $catalogMap[] = array('label'=>$oGroup->name, 'url'=>$oGroup->viewUrl, 'items'=>$catalogItemMap);
+	  }
+
+	  $newsCategory = NewsCategory::model()->findAll();
+	  $newsMap = array();
+	  foreach ($newsCategory as $oNewsCategory){
+	    $aNewsItems = $oNewsCategory->pages;
+	    $newsItemMap = array();
+	    foreach ($aNewsItems as $oNewsItem) {
+	      $newsItemMap[] = array('label'=>$oNewsItem->title, 'url'=>$oNewsItem->viewUrl);
+	    }
+	    $newsMap[] = array('label'=>$oNewsCategory->name, 'url'=>$oNewsCategory->viewUrl, 'items'=>$newsItemMap);
+	  }
+
 		$this->render('map', array(
-			'items'=>$items,
+			'catalogMap' => $catalogMap,
+			'newsMap' => $newsMap,
 		));
 	}
 
