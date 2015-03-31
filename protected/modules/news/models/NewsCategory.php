@@ -15,6 +15,8 @@ Yii::import('application.modules.news.models.NewsCategoryTranslate');
  * @property string $created
  * @property string $updated
  * @property integer $page_size
+ * @property integer $active
+ * @property integer $deleted
  *
  * The followings are the available columns in table 'NewsCategoryTranslate':
  * @property string $name
@@ -29,6 +31,10 @@ Yii::import('application.modules.news.models.NewsCategoryTranslate');
  */
 class NewsCategory extends CActiveRecord
 {
+	/**
+	 * Status to allow display page on the front.
+	 */
+	public $publishStatus = 'published';
 
 	/**
 	 * Default page size.
@@ -95,10 +101,10 @@ class NewsCategory extends CActiveRecord
 			array('name', 'required'),
 			array('url', 'LocalUrlValidator'),
 			array('url', 'unique'),
-			array('parent_id, page_size', 'numerical', 'integerOnly'=>true),
+			array('parent_id, page_size, active, deleted', 'numerical', 'integerOnly'=>true),
 			array('name, url, full_url, layout, image, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			// The following rule is used by search().
-			array('id, parent_id, name, url, description, layout, image, meta_title, meta_description, meta_keywords, created, updated', 'safe', 'on'=>'search'),
+			array('id, parent_id, name, url, description, layout, image, meta_title, meta_description, meta_keywords, created, updated, active, deleted', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -162,6 +168,8 @@ class NewsCategory extends CActiveRecord
 			'created' => Yii::t('admin', 'created'),
 			'updated' => Yii::t('admin', 'updated'),
 			'page_size' => Yii::t('admin', 'page_size'),
+			'active' => Yii::t('admin', 'active'),
+			'deleted' => Yii::t('admin', 'deleted'),
 			//NewsCategoryTranslate
 			'name' => Yii::t('admin', 'title'),
 			'description' => Yii::t('admin', 'description'),
@@ -218,6 +226,8 @@ class NewsCategory extends CActiveRecord
 		$criteria->compare('translate.meta_keywords',$this->meta_keywords,true);
 		$criteria->compare('created',$this->created,true);
 		$criteria->compare('updated',$this->updated,true);
+		$criteria->compare('active',$this->active,true);
+		$criteria->compare('deleted',$this->deleted,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -242,11 +252,10 @@ class NewsCategory extends CActiveRecord
 
 	public function beforeSave()
 	{
-		if(!$this->created && $this->isNewRecord)
-			$this->created = date('Y-m-d H:i:s');
+		$this->updated = date('Y-m-d H:i:s');
 
-		if(!$this->updated)
-			$this->updated = date('Y-m-d H:i:s');
+		if(!$this->created)
+			$this->created = date('Y-m-d H:i:s');
 
 		if($this->meta_title === '')
 			$this->meta_title = $this->name;
@@ -269,6 +278,28 @@ class NewsCategory extends CActiveRecord
 		}
 
 		return parent::beforeSave();
+	}
+
+	public function defaultScope()
+	{
+		return array(
+			'condition'=>'deleted=:deleted',
+			'params' => array(
+				':deleted' => 0,
+			),
+		);
+	}
+
+	public function scopes()
+	{
+		return array(
+			'published'=>array(
+				'condition'=>'active = :active',
+				'params'=>array(
+					':active'=>1,
+				),
+			),
+		);
 	}
 
 	/**

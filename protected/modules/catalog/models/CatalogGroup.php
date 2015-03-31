@@ -14,6 +14,8 @@ Yii::import('application.modules.catalog.models.CatalogGroupTranslate');
  * @property integer $sorting
  * @property integer $page_size
  * @property integer $upload_path
+ * @property string $created
+ * @property string $updated
  * @property integer $deleted
  *
  * The followings are the available columns in table 'CatalogGroupTranslate':
@@ -102,7 +104,7 @@ class CatalogGroup extends CActiveRecord
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, parent_id, image, url, active, sorting, page_size, deleted', 'safe', 'on'=>'search'),
+			array('id, parent_id, image, url, active, sorting, page_size, created, updated, deleted', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -136,6 +138,8 @@ class CatalogGroup extends CActiveRecord
 			'sorting' => Yii::t('admin', 'sorting'),
 			'page_size' =>  Yii::t('admin', 'page_size'),
 			'upload_path' =>  Yii::t('admin', 'upload_path'),
+			'created' => Yii::t('admin', 'created'),
+			'updated' => Yii::t('admin', 'updated'),
 			'deleted' => Yii::t('admin', 'deleted'),
 			//CatalogGroupTranslate
 			'name' => Yii::t('admin', 'name'),
@@ -176,6 +180,8 @@ class CatalogGroup extends CActiveRecord
 		$criteria->compare('t.active',$this->active);
 		$criteria->compare('t.sorting',$this->sorting);
 		$criteria->compare('t.page_size',$this->page_size);
+		$criteria->compare('t.created',$this->created);
+		$criteria->compare('t.updated',$this->updated);
 		$criteria->compare('t.deleted',$this->deleted);
 
 		$sort=new CSort;
@@ -237,6 +243,11 @@ class CatalogGroup extends CActiveRecord
 
 	public function beforeSave()
 	{
+		$this->updated = date('Y-m-d H:i:s');
+
+		if(!$this->created)
+			$this->created = date('Y-m-d H:i:s');
+
 		if($this->meta_title === '')
 			$this->meta_title = $this->name;
 

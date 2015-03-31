@@ -2,6 +2,14 @@
 
 class SiteController extends Controller
 {
+  const ALWAYS = 'always';
+  const HOURLY = 'hourly';
+  const DAILY = 'daily';
+  const WEEKLY = 'weekly';
+  const MONTHLY = 'monthly';
+  const YEARLY = 'yearly';
+  const NEVER = 'never';
+
 	/**
 	 * Declares class-based actions.
 	 */
@@ -152,6 +160,41 @@ class SiteController extends Controller
 			'catalogMap' => $catalogMap,
 			'newsMap' => $newsMap,
 		));
+	}
+
+	public function actionSitemap()
+	{
+		/*$aItems = CatalogGroup::model()->published()->findAll();
+		foreach ($aItems as $oItem) {
+			$oItem->updated = date('Y-m-d H:i:s');
+
+			if(!$oItem->created)
+				$oItem->created = date('Y-m-d H:i:s');
+			$oItem->save();
+		}*/
+
+    $classes = array(
+      'Pages' => array(self::WEEKLY, 0.2),
+      'CatalogGroup' => array(self::WEEKLY, 0.5),
+      'CatalogItems' => array(self::WEEKLY, 0.8),
+      'NewsCategory' => array(self::WEEKLY, 0.3),
+      'News' => array(self::DAILY, 0.5),
+    );
+
+
+		$items = array();
+		foreach ($classes as $class=>$options){
+      $items = array_merge($items, array(array(
+        'models' => CActiveRecord::model($class)->published()->findAll(),
+        'changefreq' => $options[0],
+        'priority' => $options[1],
+      )));
+    }
+
+		$this->renderPartial('sitemap', array(
+      'host'=>Yii::app()->request->hostInfo,
+      'items'=>$items,
+    ));
 	}
 
 	/**

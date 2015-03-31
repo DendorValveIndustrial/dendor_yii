@@ -46,8 +46,16 @@
                 <div class="span6">
                     <?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
                     <?php echo $form->textAreaControlGroup($model,'short_description',array('rows'=>5,'span'=>12)); ?>
-                    <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>2)); ?>
-                    <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>2)); ?>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <?php echo $form->textFieldControlGroup($model,'sorting',array('span'=>4)); ?>
+                            <?php echo $form->numberFieldControlGroup($model,'page_size',array('span'=>4)); ?>
+                        </div>
+                        <div class="span6">
+                            <?php echo $form->textFieldControlGroup($model,'created',array('span'=>12)); ?>
+                            <?php echo $form->textFieldControlGroup($model,'updated',array('span'=>12)); ?>
+                        </div>
+                    </div>
                 </div>
                 <div class="span6">
                     <?php echo $form->textAreaControlGroup($model,'meta_description',array('rows'=>6,'span'=>12,'maxlength'=>255)); ?>

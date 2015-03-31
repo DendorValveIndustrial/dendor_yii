@@ -2,6 +2,7 @@
   return array(
     '' => array('site/index', 'urlSuffix'=>''),
     '<action:(contact|search|login|map)>' => array('site/<action>', 'urlSuffix'=>'.html'),
+    '<action:(sitemap)>' => array('site/<action>', 'urlSuffix'=>'.xml'),
     '<action:(logout|captcha)>' => 'site/<action>',
     '<view:(about|price)>' => array('site/page', 'urlSuffix'=>'.html'),
 

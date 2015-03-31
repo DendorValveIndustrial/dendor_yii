@@ -13,6 +13,7 @@ Yii::import('application.modules.catalog.models.Property');
  * @property integer $group_id
  * @property integer $modification_id
  * @property string $created
+ * @property string $updated
  * @property string $publish
  * @property string $end_date
  * @property string $url
@@ -100,7 +101,7 @@ class CatalogItems extends CActiveRecord
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, group_id, modification_id, created, publish, end_date, url, image, price, active, sorting, deleted, short_description, full_description, meta_title, meta_description, meta_keywords, name', 'safe', 'on'=>'search'),
+			array('id, group_id, modification_id, created, updated, publish, end_date, url, image, price, active, sorting, deleted, short_description, full_description, meta_title, meta_description, meta_keywords, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -154,6 +155,7 @@ class CatalogItems extends CActiveRecord
 			'group_id' => Yii::t('admin', 'items_group'),
 			'modification_id' => Yii::t('admin', 'modification'),
 			'created' => Yii::t('admin', 'created'),
+			'updated' => Yii::t('admin', 'updated'),
 			'publish' => Yii::t('admin', 'publish_date'),
 			'end_date' => Yii::t('admin', 'end_date'),
 			'url' => Yii::t('admin', 'url'),
@@ -202,6 +204,7 @@ class CatalogItems extends CActiveRecord
 		$criteria->compare('t.image',$this->image,true);
 		$criteria->compare('t.price',$this->price,true);
 		$criteria->compare('t.created',$this->created,true);
+		$criteria->compare('t.updated',$this->updated,true);
 		$criteria->compare('t.publish',$this->publish,true);
 		$criteria->compare('t.end_date',$this->end_date,true);
 		$criteria->compare('t.active',$this->active);
@@ -244,7 +247,9 @@ class CatalogItems extends CActiveRecord
 	 */
 	public function beforeSave()
 	{
-		if(empty($this->created) && $this->isNewRecord)
+		$this->updated = date('Y-m-d H:i:s');
+
+		if(!$this->created)
 			$this->created = date('Y-m-d H:i:s');
 
 		if(empty($this->publish) && $this->isNewRecord)

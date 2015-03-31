@@ -9,6 +9,7 @@
  * @property string $layout
  * @property string $url
  * @property string $created
+ * @property string $updated
  * @property string $status
  * @property string $image
  *
@@ -130,7 +131,7 @@ class Pages extends CActiveRecord
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, system_name, url, created, status, image', 'safe', 'on'=>'search'),
+			array('id, system_name, url, created, updated, status, image', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -179,6 +180,7 @@ class Pages extends CActiveRecord
 			'layout' => Yii::t('admin','layout'),
 			'url' => Yii::t('admin','url'),
 			'created' => Yii::t('admin','created'),
+			'updated' => Yii::t('admin','updated'),
 			'status' => Yii::t('admin','status'),
 			'image' => Yii::t('admin','image'),
 			//PageTranslate
@@ -238,6 +240,7 @@ class Pages extends CActiveRecord
 		$criteria->compare('translate.meta_description',$this->meta_description,true);
 		$criteria->compare('translate.meta_keywords',$this->meta_keywords,true);
 		$criteria->compare('t.created',$this->created,true);
+		$criteria->compare('t.updated',$this->updated,true);
 		$criteria->compare('t.status',$this->status);
 
 		// Create sorting by translation title
@@ -264,7 +267,9 @@ class Pages extends CActiveRecord
 	 */
 	public function beforeSave()
 	{
-		if(!$this->created && $this->isNewRecord)
+		$this->updated = date('Y-m-d H:i:s');
+
+		if(!$this->created)
 			$this->created = date('Y-m-d H:i:s');
 
 		if($this->meta_title === '')

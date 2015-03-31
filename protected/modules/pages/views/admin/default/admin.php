@@ -54,11 +54,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
     ),
     'title',
 		'name',
+    'system_name',
 		'url',
-		'created',
 		'status',
 		// 'image',
-		// 'system_name',
+    //'created',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
       'buttons'=>array(

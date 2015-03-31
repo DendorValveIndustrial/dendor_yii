@@ -287,11 +287,10 @@ class News extends CActiveRecord
 	 */
 	public function beforeSave()
 	{
-		if(!$this->created && $this->isNewRecord)
-			$this->created = date('Y-m-d H:i:s');
+		$this->updated = date('Y-m-d H:i:s');
 
-		if(!$this->updated)
-			$this->updated = date('Y-m-d H:i:s');
+		if(!$this->created)
+			$this->created = date('Y-m-d H:i:s');
 
 		if(!$this->publish_date && $this->isNewRecord)
 			$this->publish_date = date('Y-m-d H:i:s');
