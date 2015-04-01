@@ -328,6 +328,34 @@ class CatalogItems extends CActiveRecord
 		return $this;
 	}
 
+	public function getNextItem()
+	{
+    $record = self::model()->find(array(
+      'condition' => 't.id>:current_id AND group_id=:group_id',
+      'order' => 't.id ASC',
+      'limit' => 1,
+      'params'=>array(':current_id'=>$this->id, ':group_id'=>$this->group_id),
+    ));
+
+    if( $record !== null)
+        return $record;
+
+    return null;
+	}
+
+	public function getPrevItem()
+	{
+    $record = self::model()->find(array(
+      'condition' => 't.id<:current_id AND group_id=:group_id',
+      'order' => 't.id DESC',
+      'limit' => 1,
+      'params'=>array(':current_id'=>$this->id, ':group_id'=>$this->group_id),
+    ));
+    if($record!==null)
+        return $record;
+    return null;
+	}
+
 	/**
 	 * Filter items by group.
 	 * Scope.

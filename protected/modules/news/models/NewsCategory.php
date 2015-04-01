@@ -347,6 +347,21 @@ class NewsCategory extends CActiveRecord
 		return urldecode(Yii::app()->createUrl('news/news/list', array('path'=>$this->full_url)));
 	}
 
+  public function getUploadPath($group_id)
+  {
+    $path = Yii::app()->params['uploadPath'].'news';
+
+    $oGroup = self::model()
+      ->findByPk($group_id);
+    if($oGroup===null)
+      throw new CHttpException(404, Yii::t('admin', 'Category not found'));
+
+    if(!empty($oGroup->full_url))
+      $path .= '/'.$oGroup->full_url.'/';
+
+    return $path;
+  }
+
 	/**
 	 * Get list to form object on front
 	 * @return array

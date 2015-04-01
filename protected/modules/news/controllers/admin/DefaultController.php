@@ -39,7 +39,7 @@ class DefaultController extends BaseAdminController
     // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
 
-    $dir = Yii::getPathOfAlias('webroot.upload');
+    $dir = Yii::getPathOfAlias('webroot.upload').NewsCategory::model()->getUploadPath($model->category_id);
 
     if(isset($_POST['News']))
     {
