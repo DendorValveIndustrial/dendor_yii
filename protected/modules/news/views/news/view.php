@@ -29,7 +29,7 @@ $this->pageHeader = $model->title;
 ?>
 <div class="span3 left-bar image-item text-right">
 	<div class="span10">
-		<?php if($model->image) echo TbHtml::tag('p',array(),TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->image, $model->title)); ?>
+		<?php if($model->image) echo TbHtml::tag('p',array(),TbHtml::imagePolaroid(NewsCategory::model()->getUploadPath($model->category_id).$model->image, $model->title)); ?>
 		<?php echo TbHtml::muted(TbHtml::icon(TbHtml::ICON_CALENDAR).' '.TbHtml::i(Yii::app()->dateFormatter->format('d MMMM yyyy', $model->publish_date))); ?>
 	</div>
 </div>

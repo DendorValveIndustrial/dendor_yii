@@ -32,7 +32,7 @@
 			</div>
 			<div class="span2">
 				<?php
-					if($model->image) echo TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$model->image, $model->title);
+					if($model->image) echo TbHtml::imagePolaroid(NewsCategory::model()->getUploadPath($model->category_id).$model->image, $model->title);
 				?>
 			</div>
 		</div>

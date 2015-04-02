@@ -40,17 +40,18 @@ class BaseModuleController extends Controller {
     chmod($dir, $mode);
     return $result;
   }*/
- 	public static function createDir($path, $mode = 0775, $recursive = true)
+ 	public function createDir($path, $mode = 0775, $recursive = true)
 	{
 		if (is_dir($path)) {
 			return true;
 		}
 		$parentDir = dirname($path);
 		if ($recursive && !is_dir($parentDir)) {
-			static::createDir($parentDir, $mode, true);
+			$this->createDir($parentDir, $mode, true);
 		}
 		$result = mkdir($path, $mode);
 		chmod($path, $mode);
+
 		return $result;
 	}
 }
