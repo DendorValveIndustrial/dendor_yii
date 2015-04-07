@@ -72,6 +72,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'value' => '$data->active',
 			'htmlOptions'=>array('class'=>'span1'),
 		),
+		'novelty',
 		array(
 			'name'=>'sorting',
 			'value' => '$data->sorting',

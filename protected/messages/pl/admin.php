@@ -47,6 +47,7 @@ return array(
   'active' => 'Aktywne',
   'sorting' => 'Sortowanie',
   'deleted' => 'Usunięte',
+  'novelty' => 'Nowość',
 
   'dir_id' => 'Grupa właściwościach',
   'system_name' => 'Name System',

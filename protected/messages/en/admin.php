@@ -47,6 +47,7 @@ return array(
   'active' => 'Active',
   'sorting' => 'Sorting',
   'deleted' => 'Deleted',
+  'novelty' => 'Novelty',
 
   'dir_id' => 'Group of properties',
   'system_name' => 'System Name',

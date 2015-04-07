@@ -47,6 +47,7 @@ return array(
   'active' => 'Активность',
   'sorting' => 'Сортировка',
   'deleted' => 'Удален',
+  'novelty' => 'Новинка',
 
   'dir_id' => 'Группа свойств',
   'system_name' => 'Системное имя',

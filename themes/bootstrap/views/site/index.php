@@ -29,6 +29,19 @@
       </div>
     </div>
     <div class='line line-dotted'></div>
+    <div class="home-news-events"></div>
+    <div class="home-new-products">
+      <?php
+        echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','New products'));
+        $aNewProduct = CatalogItems::model()->new()->findAll();
+        $thumbnails = array();
+        foreach ($aNewProduct as $oItem) {
+          $thumbnails[] = array('image' => CatalogGroup::model()->getUploadPath($oItem->group_id).$oItem->image, 'label' => false, 'caption' => $oItem->name);
+          //var_dump($oItem->name);
+        }
+        echo TbHtml::thumbnails($thumbnails, array('span' => 3));
+      ?>
+    </div>
     <div class='home-news'>
       <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','news')) ?>
       <ul class="thumbnails">

@@ -209,6 +209,21 @@
       }
     }
   }
+  .home-new-products{
+    .thumbnail{
+      padding: {
+        top: 20px;
+      }
+      img{
+        max-height: 140px;
+      }
+      .caption{
+        height: 60px;
+        //word-break: break-all;
+        text-align: center;
+      }
+    }
+  }
   .home-news{
     .thumbnail{
       .caption{

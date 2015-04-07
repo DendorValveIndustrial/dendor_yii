@@ -22,6 +22,7 @@ Yii::import('application.modules.catalog.models.Property');
  * @property integer $active
  * @property integer $sorting
  * @property integer $deleted
+ * @property integer $novelty
  *
  * The followings are the available columns in table 'CatalogItemsTranslate':
  * @property string $name
@@ -89,7 +90,7 @@ class CatalogItems extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('group_id, modification_id, active, sorting, deleted', 'numerical', 'integerOnly'=>true),
+			array('group_id, modification_id, active, sorting, deleted, novelty', 'numerical', 'integerOnly'=>true),
 			array('group_id', 'numerical', 'min'=>1),
 			array('title, meta_title, meta_description, meta_keywords, name, short_description, full_description', 'type', 'type'=>'string'),
 			array('url, image', 'length', 'max'=>255),
@@ -101,7 +102,7 @@ class CatalogItems extends CActiveRecord
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, group_id, modification_id, created, updated, publish, end_date, url, image, price, active, sorting, deleted, short_description, full_description, meta_title, meta_description, meta_keywords, name', 'safe', 'on'=>'search'),
+			array('id, group_id, modification_id, created, updated, publish, end_date, url, image, price, active, sorting, deleted, novelty, short_description, full_description, meta_title, meta_description, meta_keywords, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -165,6 +166,7 @@ class CatalogItems extends CActiveRecord
 			'active' => Yii::t('admin', 'active'),
 			'sorting' => Yii::t('admin', 'sorting'),
 			'deleted' => Yii::t('admin', 'deleted'),
+			'novelty' => Yii::t('admin', 'novelty'),
 			//CatalogItemsTranslate
 			'name' => Yii::t('admin', 'name'),
 			'title' => Yii::t('admin', 'title'),
@@ -210,6 +212,7 @@ class CatalogItems extends CActiveRecord
 		$criteria->compare('t.active',$this->active);
 		$criteria->compare('t.sorting',$this->sorting);
 		$criteria->compare('t.deleted',$this->deleted);
+		$criteria->compare('t.novelty',$this->novelty);
 
 		// Create sorting by translation name
 		$sort=new CSort;
@@ -307,6 +310,15 @@ class CatalogItems extends CActiveRecord
 				'condition'=>'active = :active',
 				'params'=>array(
 					':active'=>1,
+				),
+			),
+			'new'=>array(
+				'condition'=>'active = :active and novelty = :novelty',
+				'limit' => 4,
+				'order' => rand(1, 20),
+				'params'=>array(
+					':active'=>1,
+					':novelty'=>1,
 				),
 			),
 		);

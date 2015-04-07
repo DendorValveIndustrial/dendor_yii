@@ -33,6 +33,7 @@ return array(
   'Submit' => 'Submit',
   'enter_letters_from_image' => 'Please enter the letters as they are shown in the image above.',
   'letters_not_case_sensitive' => 'Letters are not case-sensitive.',
+  'New products' => 'New products',
 
   'USERNAME' => 'Name',
   'PASSWORD' => 'Password',

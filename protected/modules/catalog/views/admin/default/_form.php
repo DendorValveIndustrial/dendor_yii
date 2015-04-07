@@ -55,6 +55,7 @@
 							$form->textFieldControlGroup($model,'publish',array('span'=>6)).
 							$form->textFieldControlGroup($model,'end_date',array('span'=>6)).
 							$form->checkBoxControlGroup($model,'active').
+							$form->checkBoxControlGroup($model,'novelty').
 							$form->textFieldControlGroup($model,'sorting',array('span'=>2))
 							, 'htmlOptions'=>array('class'=>'pull-right')
 						),

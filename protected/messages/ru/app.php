@@ -33,6 +33,7 @@ return array(
   'Submit' => 'Отправить',
   'enter_letters_from_image' => 'Пожалуйста, введите символы, показаные на картинке.',
   'letters_not_case_sensitive' => 'Буквы регистронезависимые.',
+  'New products' => 'Новинки',
 
   'USERNAME' => 'Имя',
   'PASSWORD' => 'Пароль',

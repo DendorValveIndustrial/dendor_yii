@@ -33,6 +33,7 @@ return array(
   'Submit' => 'Wyślij',
   'enter_letters_from_image' => 'Wprowadź znaki przedstawione na obrazku.',
   'letters_not_case_sensitive' => 'Wielkość liter nie jest rozróżniana',
+  'New products' => 'Nowość',
 
   'USERNAME' => 'Name', //en
   'PASSWORD' => 'Password', //en
