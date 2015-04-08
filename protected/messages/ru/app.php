@@ -4,6 +4,7 @@ return array(
   'about' => 'О компании',
   'production'=>'Продукция',
   'news' => 'Новости',
+  'events' => 'События',
   'contact' => 'Контакты',
   'price' => 'Цены',
 

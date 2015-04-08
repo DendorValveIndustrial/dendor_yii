@@ -21,4 +21,16 @@
       }
     }
   }
+  .main{
+    .home-new-products{
+      .new-products-item{
+        img{
+          max-height: 115px;
+        }
+        .caption{
+          font-size: 90%;
+        }
+      }
+    }
+  }
 }

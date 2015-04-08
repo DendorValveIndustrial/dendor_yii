@@ -4,6 +4,7 @@ return array(
   'about' => 'About',
   'production'=>'Production',
   'news' => 'News',
+  'events' => 'Events',
   'contact' => 'Contact',
   'price' => 'Price',
 

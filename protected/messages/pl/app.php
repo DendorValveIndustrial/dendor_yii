@@ -4,6 +4,7 @@ return array(
   'about' => 'O nas',
   'production'=>'Oferta',
   'news' => 'Aktualności',
+  'events' => 'Wydarzenia',
   'contact' => 'Kontakt',
   'price' => 'Cennik',
 

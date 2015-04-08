@@ -29,19 +29,45 @@
       </div>
     </div>
     <div class='line line-dotted'></div>
-    <div class="home-news-events"></div>
+    <div class="home-news-events">
+      <div class="row-fluid">
+        <div class="span6">
+          <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','news')) ?>
+          <?php
+            $latest_news = News::model()->filterByCategory(1)->find();
+            echo TbHtml::media(
+              $latest_news->image ? NewsCategory::model()->getUploadPath($latest_news->category_id).$latest_news->image : false,
+              $latest_news->title,
+              substr($latest_news->short_description, 0, 150).'...'
+            );
+          ?>
+        </div>
+        <div class="span6">
+          <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','events')) ?>
+          <?php
+            $latest_news = News::model()->filterByCategory(2)->find();
+            echo TbHtml::media(
+              $latest_news->image ? NewsCategory::model()->getUploadPath($latest_news->category_id).$latest_news->image : false,
+              $latest_news->title,
+              substr($latest_news->short_description, 0, 150).'...'
+            );
+          ?>
+        </div>
+      </div>
+    </div>
+    <div class='line line-dotted'></div>
     <div class="home-new-products">
+      <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','New products')); ?>
+      <?php $aNewProduct = CatalogItems::model()->new()->findAll(); ?>
       <?php
-        echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','New products'));
-        $aNewProduct = CatalogItems::model()->new()->findAll();
         $thumbnails = array();
         foreach ($aNewProduct as $oItem) {
-          $thumbnails[] = array('image' => CatalogGroup::model()->getUploadPath($oItem->group_id).$oItem->image, 'label' => false, 'caption' => $oItem->name);
-          //var_dump($oItem->name);
+          $thumbnails[] = array('image' => CatalogGroup::model()->getUploadPath($oItem->group_id).$oItem->image, 'label' => false, 'caption' => $oItem->name, 'htmlOptions'=>array('class' => 'new-products-item'), 'url'=>$oItem->viewUrl);
         }
         echo TbHtml::thumbnails($thumbnails, array('span' => 3));
       ?>
     </div>
+    <div class='line line-dotted'></div>
     <div class='home-news'>
       <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','news')) ?>
       <ul class="thumbnails">

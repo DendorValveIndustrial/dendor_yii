@@ -210,7 +210,22 @@
     }
   }
   .home-new-products{
-    .thumbnail{
+    .new-products-item{
+      border:{
+        top: 5px solid white;
+        left: 5px solid white;
+        right: 5px solid white;
+        bottom: 5px solid white;
+      };
+      @include box-shadow(rgba(0, 0, 0, 0.3) 1px 1px 3px);
+      @include single-transition(all, 0.1s, ease-in-out, false);
+      &:hover{
+        cursor: pointer;
+        @include box-shadow(rgba(0,0,0,0.3) 6px 6px 6px);
+        .caption{
+          color: #08c;
+        }
+      }
       padding: {
         top: 20px;
       }
@@ -219,8 +234,9 @@
       }
       .caption{
         height: 60px;
-        //word-break: break-all;
         text-align: center;
+        display: table-cell;
+        vertical-align: middle;
       }
     }
   }
@@ -229,7 +245,6 @@
       .caption{
         line-height: 20px;
       }
-      text-decoration: none;
     }
   }
 }

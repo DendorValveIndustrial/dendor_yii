@@ -69,6 +69,22 @@
           width: 100%;
         }
       }
+      .home-new-products{
+        .span3{
+          width: 46.61878453038674%;
+          &:nth-child(3){
+            margin-left: 0;
+          }
+        }
+        .new-products-item{
+          img{
+            max-height: 140px;
+          }
+          .caption{
+            font-size: 100%;
+          }
+        }
+      }
     }
   }
 }

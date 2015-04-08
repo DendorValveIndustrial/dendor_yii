@@ -73,6 +73,20 @@
           }
         }
       }
+      .home-new-products{
+        .span3{
+          float: left;
+          margin-left: 2%;
+          &:first-child{
+            margin-left: 0;
+          }
+        }
+        .new-products-item{
+          img{
+            max-height: 140px;
+          }
+        }
+      }
     }
     margin-bottom: 0;
   }

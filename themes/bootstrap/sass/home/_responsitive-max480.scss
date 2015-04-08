@@ -83,6 +83,34 @@
           }
         }
       }
+      .home-new-products{
+        .span3{
+          width: 80%;
+          float: none;
+          margin:{
+            top: 0;
+            bottom: 20px;
+            left: auto;
+            right: auto;
+          }
+          &:first-child{
+            margin:{
+              top: 0;
+              bottom: 20px;
+              left: auto;
+              right: auto;
+            }
+          }
+          &:nth-child(3){
+            margin:{
+              top: 0;
+              bottom: 20px;
+              left: auto;
+              right: auto;
+            }
+          }
+        }
+      }
     }
   }
 }
