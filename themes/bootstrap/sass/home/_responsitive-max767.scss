@@ -55,24 +55,6 @@
       .span9{
         width: 100%;
       }
-      .home-news{
-        .span6{
-          float: left;
-        }
-        .span3{
-          width: 23.5%;
-          float: left;
-          margin-left: 2%;
-          .offset2{
-            margin-left: 19%;
-          }
-        }
-        .thumbnail{
-          .caption{
-            line-height: 14px;
-          }
-        }
-      }
       .home-new-products{
         .span3{
           float: left;
@@ -85,6 +67,11 @@
           img{
             max-height: 140px;
           }
+        }
+      }
+      .media{
+        .media-object{
+          display: block;
         }
       }
     }

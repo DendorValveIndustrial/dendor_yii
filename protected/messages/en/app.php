@@ -4,14 +4,16 @@ return array(
   'about' => 'About',
   'production'=>'Production',
   'news' => 'News',
-  'events' => 'Events',
+  'events' => 'News and events',
   'contact' => 'Contact',
   'price' => 'Price',
+  'info' => 'Downloads',
 
   'pipeline_valves'=>'Pipeline valves',
   'contact_us' => 'Contact Us',
   'read_more'=> 'read more...',
   'more_info'=> 'read more...',
+  'download'=> 'download',
   'category'=>'Category',
   'all_news'=>'all news...',
   'admin'=>'Admin',
@@ -35,6 +37,10 @@ return array(
   'enter_letters_from_image' => 'Please enter the letters as they are shown in the image above.',
   'letters_not_case_sensitive' => 'Letters are not case-sensitive.',
   'New products' => 'New products',
+
+  'Catalogue' => 'Catalogue',
+  'Сertificate' => 'Сertificate',
+  'Documentation' => 'Documentation',
 
   'USERNAME' => 'Name',
   'PASSWORD' => 'Password',

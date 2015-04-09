@@ -55,20 +55,6 @@
       .aside-sidebar{
         margin-top: -40px;
       }
-      .home-news{
-        .span6{
-          width: 65.7459%;
-        }
-        .span3{
-          width: 22.92817679558011%;
-          &:last-child{
-            display: none;
-          }
-        }
-        .thumbnail{
-          width: 100%;
-        }
-      }
       .home-new-products{
         .span3{
           width: 46.61878453038674%;
@@ -83,6 +69,11 @@
           .caption{
             font-size: 100%;
           }
+        }
+      }
+      .media{
+        .media-object{
+          display: none;
         }
       }
     }

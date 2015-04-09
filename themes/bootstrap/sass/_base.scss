@@ -88,6 +88,13 @@ $arrow-sprite: sprite-map("arrow-slider/*.png", $position: 100%, $spacing: 5px, 
   z-index: -1;
 }
 
+@mixin box-hover-haddow($property: all, $duration: 0.2s, $function: ease-in-out, $delay: false, $opacity: 0.2){
+  @include single-transition($property, $duration, $function, $delay);
+  &:hover{
+    @include box-shadow(rgba(0,0,0, $opacity) 6px 6px 6px);
+  }
+}
+
 .h1 {
   color: #9D9D00;
   font-size: 24px;
@@ -153,4 +160,7 @@ textarea{
 
 a.thumbnail {
   text-decoration: none;
+}
+.img-hover{
+  @include box-hover-haddow();
 }

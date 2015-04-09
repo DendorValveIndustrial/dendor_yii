@@ -217,11 +217,11 @@
         right: 5px solid white;
         bottom: 5px solid white;
       };
-      @include box-shadow(rgba(0, 0, 0, 0.3) 1px 1px 3px);
-      @include single-transition(all, 0.1s, ease-in-out, false);
+      @include box-shadow(rgba(0, 0, 0, 0.2) 0 1px 3px);
+      @include single-transition(all, 0.2s, ease-in-out, false);
       &:hover{
         cursor: pointer;
-        @include box-shadow(rgba(0,0,0,0.3) 6px 6px 6px);
+        @include box-shadow(rgba(0,0,0,0.2) 6px 6px 6px);
         .caption{
           color: #08c;
         }
@@ -240,12 +240,18 @@
       }
     }
   }
-  .home-news{
-    .thumbnail{
-      .caption{
-        line-height: 20px;
-      }
+  .home-news-events{
+    .media-object{
+      max-width: 120px;
     }
+  }
+  .home-info{
+  }
+  .media{
+    margin-bottom: 15px;
+  }
+  .line{
+    margin-top: 35px;
   }
 }
 .modal{

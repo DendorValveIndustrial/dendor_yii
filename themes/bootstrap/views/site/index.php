@@ -29,73 +29,11 @@
       </div>
     </div>
     <div class='line line-dotted'></div>
-    <div class="home-news-events">
-      <div class="row-fluid">
-        <div class="span6">
-          <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','news')) ?>
-          <?php
-            $latest_news = News::model()->filterByCategory(1)->find();
-            echo TbHtml::media(
-              $latest_news->image ? NewsCategory::model()->getUploadPath($latest_news->category_id).$latest_news->image : false,
-              $latest_news->title,
-              substr($latest_news->short_description, 0, 150).'...'
-            );
-          ?>
-        </div>
-        <div class="span6">
-          <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','events')) ?>
-          <?php
-            $latest_news = News::model()->filterByCategory(2)->find();
-            echo TbHtml::media(
-              $latest_news->image ? NewsCategory::model()->getUploadPath($latest_news->category_id).$latest_news->image : false,
-              $latest_news->title,
-              substr($latest_news->short_description, 0, 150).'...'
-            );
-          ?>
-        </div>
-      </div>
-    </div>
+    <?php $this->renderPartial('partial/_home_news_event'); ?>
     <div class='line line-dotted'></div>
-    <div class="home-new-products">
-      <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','New products')); ?>
-      <?php $aNewProduct = CatalogItems::model()->new()->findAll(); ?>
-      <?php
-        $thumbnails = array();
-        foreach ($aNewProduct as $oItem) {
-          $thumbnails[] = array('image' => CatalogGroup::model()->getUploadPath($oItem->group_id).$oItem->image, 'label' => false, 'caption' => $oItem->name, 'htmlOptions'=>array('class' => 'new-products-item'), 'url'=>$oItem->viewUrl);
-        }
-        echo TbHtml::thumbnails($thumbnails, array('span' => 3));
-      ?>
-    </div>
+    <?php $this->renderPartial('partial/_home_new_products'); ?>
     <div class='line line-dotted'></div>
-    <div class='home-news'>
-      <?php echo CHtml::tag('h2',array('class'=>'h1'),Yii::t('app','news')) ?>
-      <ul class="thumbnails">
-        <li class="span6">
-            <p>
-              <?php
-                $latest_news = News::model()->find();
-                echo CHtml::encode($latest_news->short_description);
-              ?>
-            </p>
-            <p class='text-right'>
-              <?php echo CHtml::link(Yii::t('app','read_more'),$latest_news->viewUrl); ?>
-            </p>
-        </li>
-        <li class="span3">
-          <a href="#" class="thumbnail span10 offset2">
-            <img alt="lorem_image" src="http://placehold.it/180x120" style="width: 180px; height: 120px;"/>
-            <div class="caption text-center">Catalogue</div>
-          </a>
-        </li>
-        <li class="span3">
-          <a href="#" class="thumbnail span10 offset2">
-            <img alt="lorem_image" src="http://placehold.it/180x120" style="width: 180px; height: 120px;"/>
-            <div class="caption text-center">Сertificate</div>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <?php $this->renderPartial('partial/_home_info'); ?>
   </div>
 </div>
 <?php Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/home.css')); ?>

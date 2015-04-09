@@ -4,14 +4,16 @@ return array(
   'about' => 'O nas',
   'production'=>'Oferta',
   'news' => 'Aktualności',
-  'events' => 'Wydarzenia',
+  'events' => 'Aktualności i wydarzenia',
   'contact' => 'Kontakt',
   'price' => 'Cennik',
+  'info' => 'Info',
 
   'pipeline_valves'=>'Armatura przemysłowa',
   'contact_us' => 'Kontakt',
   'read_more'=> 'czytaj więcej...',
   'more_info'=> 'czytaj więcej...',
+  'download'=> 'pobrać',
   'category'=>'Według kategorii',
   'all_news'=>'wszystkie wiadomości...',
   'admin'=>'Admin',
@@ -35,6 +37,10 @@ return array(
   'enter_letters_from_image' => 'Wprowadź znaki przedstawione na obrazku.',
   'letters_not_case_sensitive' => 'Wielkość liter nie jest rozróżniana',
   'New products' => 'Nowość',
+
+  'Catalogue' => 'Catalogue',
+  'Сertificate' => 'Сertificate',
+  'Documentation' => 'Documentation',
 
   'USERNAME' => 'Name', //en
   'PASSWORD' => 'Password', //en
