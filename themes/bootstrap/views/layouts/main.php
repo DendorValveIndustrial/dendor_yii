@@ -25,28 +25,14 @@
     </header>
     <main class="main" role="main">
       <div class="container">
-        <?php if(!empty($this->breadcrumbs)): ?>
-          <div class="row-fluid">
-            <div class="span12">
-              <?php
-                $this->widget('bootstrap.widgets.TbBreadcrumb', array(
-                  'links'=>$this->breadcrumbs,
-                ));
-              ?>
-            </div>
-          </div>
-        <?php endif; ?>
+        <?php $this->renderPartial('//layouts/_breadcrumb'); ?>
         <?php echo $content; ?>
       </div>
     </main>
     <div class="layout-footer"></div>
   </div>
   <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="row-fluid">
-        <div class="text-center">Copyright &copy; <?php echo date('Y') ?> by <?php echo CHtml::encode(Yii::app()->name) ?></div>
-      </div>
-    </div>
+    <?php $this->renderPartial('//layouts/_footer'); ?>
   </footer>
 </body>
 </html>
