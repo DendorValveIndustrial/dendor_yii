@@ -22,11 +22,12 @@ return array(
 	'import'=>require(dirname(__FILE__).'/import.php'),
 
 	'modules'=>array(
+		'pages',
 		'news',
+		'certificates',
+		'catalog',
 		'sliders',
 		'languages',
-		'pages',
-		'catalog',
 		'admin',
 		'users',
 		// uncomment the following to enable the Gii tool

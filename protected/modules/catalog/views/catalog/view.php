@@ -57,13 +57,13 @@ $this->subtextHeader = '';
 			<div class="line line-dotted"></div>
 			<?php echo TbHtml::pager(array(
 		    array(
-		    	'label' => (!is_null($model->prevItem) && !empty($model->prevItem->property_values(array('condition'=>'property_id = 5'))[0]->value)) ? '&larr; '.$model->prevItem->property_values(array('condition'=>'property_id = 5'))[0]->value : '&larr; Older',
+		    	'label' => (!is_null($model->prevItem) && !empty($model->prevItem->getPropertyValue(5)[0]->value)) ? '&larr; '.$model->prevItem->getPropertyValue(5)[0]->value : '&larr; Older',
 		    	'url' => $model->prevItem->viewUrl,
 		    	'previous' => true,
 		    	'disabled' => is_null($model->prevItem),
 		    ),
 		    array(
-		    	'label' => (!is_null($model->nextItem) && !empty($model->nextItem->property_values(array('condition'=>'property_id = 5'))[0]->value)) ? $model->nextItem->property_values(array('condition'=>'property_id = 5'))[0]->value.' &rarr;' : 'Newer &rarr;',
+		    	'label' => (!is_null($model->nextItem) && !empty($model->nextItem->getPropertyValue(5)[0]->value)) ? $model->nextItem->getPropertyValue(5)[0]->value.' &rarr;' : 'Newer &rarr;',
 		    	'url' => $model->nextItem->viewUrl,
 		    	'next' => true,
 		    	'disabled' => is_null($model->nextItem),

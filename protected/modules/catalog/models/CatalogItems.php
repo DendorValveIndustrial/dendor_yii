@@ -75,6 +75,12 @@ class CatalogItems extends CActiveRecord
 	public $img;
 
 	/**
+	 * array property value item
+	 */
+
+	private $_propertyValue;
+
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -117,11 +123,6 @@ class CatalogItems extends CActiveRecord
 			'property'=>array(self::HAS_MANY,'Property',array('property_id'=>'id'),'through'=>'property_values'),
 			'property_no_main'=>array(self::HAS_MANY,'Property',array('property_id'=>'id'),'through'=>'property_values', 'condition'=>'property.main = 0'),
 			'property_values'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id'),
-			/*'property_main'=>array(self::HAS_MANY, 'PropertyValue', 'entity_id',
-				'condition'=>'property.main = 1',
-				'order'=>'property.sorting ASC',
-				'with'=>'property',
-			),*/
 		);
 	}
 
@@ -430,5 +431,15 @@ class CatalogItems extends CActiveRecord
   		if($Property->system_name === $systemName)
   			return $Property;
   	}
+  }
+
+  public function getPropertyValue($property_id)
+  {
+  	$this->_propertyValue = $this->property_values(array(
+  			'condition'=>'property_id = :property_id',
+  			'params'=>array('property_id'=>$property_id),
+  		));
+
+  	return $this->_propertyValue;
   }
 }
