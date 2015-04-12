@@ -19,13 +19,15 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'image',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'image',array('span'=>5)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'file',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'file',array('span'=>5)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'active',array('span'=>5)); ?>
+            <?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'deleted',array('span'=>5)); ?>
+            <?php echo $form->checkBoxControlGroup($model,'active'); ?>
+
+            <?php echo $form->checkBoxControlGroup($model,'deleted'); ?>
 
         <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
