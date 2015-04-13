@@ -31,6 +31,7 @@ return array(
   'waiting'=>'Ждет одобрения',
   'draft'=>'Черновик',
   'archive'=>'Архив',
+  'download_file'=>'Файл для загрузки',
 
   'web_app' => 'На сайт',
 

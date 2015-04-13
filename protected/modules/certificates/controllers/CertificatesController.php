@@ -16,7 +16,14 @@ class CertificatesController extends BaseModuleController
 	 */
 	public function actionIndex()
 	{
-		$this->render('index');
+		$dataProvider=new CActiveDataProvider('Certificates', array(
+			'pagination'=>array(
+				'pageSize'=>5,
+			),
+		));
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
 	}
 
 }

@@ -14,10 +14,31 @@ class DefaultController extends BaseAdminController
     // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
 
-    if (isset($_POST['Certificates'])) {
+    $dir = Yii::getPathOfAlias('webroot.upload.certificates');
+    $this->createDir($dir);
+
+    if (isset($_POST['Certificates']))
+    {
       $model->attributes=$_POST['Certificates'];
-      if ($model->save()) {
-        $this->redirect(array('view','id'=>$model->id));
+
+      $model->img = CUploadedFile::getInstance($model,'img');
+      if($model->img)
+        $model->image = $model->img->getName();
+
+      $model->pdf = CUploadedFile::getInstance($model,'pdf');
+      if($model->pdf)
+        $model->file = $model->pdf->getName();
+
+      if ($model->save())
+      {
+        if (is_object($model->img)) {
+          $model->img->saveAs($dir.'/'.$model->img->getName());
+        }
+        if (is_object($model->pdf)) {
+          $model->pdf->saveAs($dir.'/'.$model->pdf->getName());
+        }
+
+        $this->redirect(array('update','id'=>$model->id));
       }
     }
 
@@ -38,10 +59,29 @@ class DefaultController extends BaseAdminController
     // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
 
+    $dir = Yii::getPathOfAlias('webroot.upload.certificates');
+    $this->createDir($dir);
+
     if (isset($_POST['Certificates'])) {
       $model->attributes=$_POST['Certificates'];
+
+      $model->img = CUploadedFile::getInstance($model,'img');
+      if($model->img)
+        $model->image = $model->img->getName();
+
+      $model->pdf = CUploadedFile::getInstance($model,'pdf');
+      if($model->pdf)
+        $model->file = $model->pdf->getName();
+
       if ($model->save()) {
-        $this->redirect(array('view','id'=>$model->id));
+        if (is_object($model->img)) {
+          $model->img->saveAs($dir.'/'.$model->img->getName());
+        }
+        if (is_object($model->pdf)) {
+          $model->pdf->saveAs($dir.'/'.$model->pdf->getName());
+        }
+
+        $this->redirect(array('update','id'=>$model->id));
       }
     }
 

@@ -14,6 +14,7 @@ return array(
   'read_more'=> 'читать далее...',
   'more_info'=> 'подробнее...',
   'download'=> 'скачать',
+  'download_price'=> 'скачать прайс в Euro, pdf...',
   'category'=>'По категориям',
   'all_news'=>'все новости...',
   'admin'=>'Админ',

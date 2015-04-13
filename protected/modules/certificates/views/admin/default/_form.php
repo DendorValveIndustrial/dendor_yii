@@ -8,33 +8,47 @@
 
     <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'certificates-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+    'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
+    'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
-    <p class="help-block">Fields with <span class="required">*</span> are required.</p>
+    <?php echo TbHtml::blockAlert(TbHtml::ALERT_COLOR_WARNING, Yii::t('admin','fields_required'), array('class'=>'text-center')); ?>
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'image',array('span'=>5)); ?>
+    <div class="row-fluid">
+        <div class="span8">
 
-            <?php echo $form->textFieldControlGroup($model,'file',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'name',array('span'=>12)); ?>
+            <?php echo $form->textFieldControlGroup($model,'title',array('span'=>12)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->fileFieldControlGroup($model,'img') ?>
+            <?php echo $form->hiddenField($model,'image'); ?>
+
+            <?php echo $form->fileFieldControlGroup($model,'pdf') ?>
+            <?php echo $form->hiddenField($model,'file'); ?>
+
+            <?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6,'span'=>12)); ?>
 
             <?php echo $form->checkBoxControlGroup($model,'active'); ?>
 
-            <?php echo $form->checkBoxControlGroup($model,'deleted'); ?>
+        </div>
+        <div class="span4">
+            <?php
+                if(!$model->isNewRecord)
+                    echo TbHtml::link(TbHtml::imagePolaroid(Yii::app()->params['uploadPath'].$this->module->id.'/'.$model->image, $model->title),Yii::app()->params['uploadPath'].$this->module->id.'/'.$model->file, array('target'=>'_blank'));
+            ?>
+        </div>
+    </div>
+
 
         <div class="form-actions">
-        <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
-		    'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
-		    'size'=>TbHtml::BUTTON_SIZE_LARGE,
-		)); ?>
-    </div>
+            <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
+    		    'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
+    		    'size'=>TbHtml::BUTTON_SIZE_LARGE,
+    		)); ?>
+        </div>
 
     <?php $this->endWidget(); ?>
 

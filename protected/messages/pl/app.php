@@ -14,6 +14,7 @@ return array(
   'read_more'=> 'czytaj więcej...',
   'more_info'=> 'czytaj więcej...',
   'download'=> 'pobrać',
+  'download_price'=> 'Cennik PLN, pdf, pobrać...',
   'category'=>'Według kategorii',
   'all_news'=>'wszystkie wiadomości...',
   'admin'=>'Admin',

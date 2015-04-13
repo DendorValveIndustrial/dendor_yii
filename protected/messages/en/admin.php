@@ -31,6 +31,7 @@ return array(
   'waiting'=>'Waiting',
   'draft'=>'Draft',
   'archive'=>'Archive',
+  'download_file'=>'Download file',
 
   'web_app' => 'Web app',
 

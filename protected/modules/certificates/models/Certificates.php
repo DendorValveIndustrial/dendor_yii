@@ -62,7 +62,7 @@ class Certificates extends CActiveRecord
 			array('active, deleted', 'numerical', 'integerOnly'=>true),
 			array('image, file', 'safe'),
 			array('image, file', 'length', 'max'=>255),
-			array('image, file', 'required'),
+			array('name, image, file', 'required'),
 			array('title, name, description', 'type', 'type'=>'string'),
 			array('img','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'jpg, png', 'maxSize' => 1048576),
 			array('pdf','file', 'safe' => true, 'allowEmpty'=>true, 'types'=>'pdf', 'maxSize' => 1048576),
@@ -107,6 +107,8 @@ class Certificates extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'image' => Yii::t('admin', 'image'),
+			'img' => Yii::t('admin', 'image'),
+			'pdf' => Yii::t('admin', 'download_file'),
 			'file' => 'file',
 			'active' => Yii::t('admin', 'active'),
 			'deleted' => Yii::t('admin', 'deleted'),

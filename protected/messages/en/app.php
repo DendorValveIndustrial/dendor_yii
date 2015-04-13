@@ -14,6 +14,7 @@ return array(
   'read_more'=> 'read more...',
   'more_info'=> 'read more...',
   'download'=> 'download',
+  'download_price'=> 'Price list Euro, pdf, download...',
   'category'=>'Category',
   'all_news'=>'all news...',
   'admin'=>'Admin',

@@ -11,13 +11,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Certificates', 'url'=>array('index')),
-	array('label'=>'Create Certificates', 'url'=>array('create')),
-	array('label'=>'View Certificates', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Certificates', 'url'=>array('admin')),
+	array('label'=>Yii::t('app','Сertificate')),
+	array('label'=>Yii::t('admin','Create'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
+	array('label'=>Yii::t('admin','Manage'), 'url'=>array('admin')),
 );
 ?>
 
-    <h1>Update Certificates <?php echo $model->id; ?></h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Update'),$model->title); ?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

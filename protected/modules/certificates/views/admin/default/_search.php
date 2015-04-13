@@ -11,19 +11,19 @@
 	'method'=>'get',
 )); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'id',array('span'=>5)); ?>
+        <?php echo $form->textFieldControlGroup($model,'id',array('span'=>5)); ?>
 
-                    <?php echo $form->textAreaControlGroup($model,'image',array('rows'=>6,'span'=>8)); ?>
+        <?php echo $form->textAreaControlGroup($model,'image',array('rows'=>6,'span'=>8)); ?>
 
-                    <?php echo $form->textAreaControlGroup($model,'file',array('rows'=>6,'span'=>8)); ?>
+        <?php echo $form->textAreaControlGroup($model,'file',array('rows'=>6,'span'=>8)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'active',array('span'=>5)); ?>
+        <?php echo $form->textFieldControlGroup($model,'active',array('span'=>5)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'deleted',array('span'=>5)); ?>
+        <?php echo $form->textFieldControlGroup($model,'deleted',array('span'=>5)); ?>
 
         <div class="form-actions">
-        <?php echo TbHtml::submitButton('Search',  array('color' => TbHtml::BUTTON_COLOR_PRIMARY,));?>
-    </div>
+            <?php echo TbHtml::submitButton('Search',  array('color' => TbHtml::BUTTON_COLOR_PRIMARY,));?>
+        </div>
 
     <?php $this->endWidget(); ?>
 

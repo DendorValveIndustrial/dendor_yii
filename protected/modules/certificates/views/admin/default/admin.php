@@ -9,8 +9,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Certificates', 'url'=>array('index')),
-	array('label'=>'Create Certificates', 'url'=>array('create')),
+	array('label'=>Yii::t('app','Сertificate')),
+	array('label'=>Yii::t('admin','Create'), 'url'=>array('create'), 'visible'=>Yii::app()->user->name === 'admin'),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Certificates</h1>
+<?php echo TbHtml::pageHeader(Yii::t('admin','Manage'),Yii::t('app','Сertificate')); ?>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -47,13 +47,26 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+    array(
+      'name'=>'id',
+      'value' => '$data->id',
+      'htmlOptions'=>array('class'=>'span1'),
+    ),
+		'name',
 		'image',
 		'file',
 		'active',
-		'deleted',
+		//'deleted',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
+      'buttons'=>array(
+        'delete'=>array(
+          'visible'=>'Yii::app()->user->name === "admin"',
+        ),
+        'view'=>array(
+          'visible'=>'false',
+        ),
+      ),
 		),
 	),
 )); ?>
