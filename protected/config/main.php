@@ -1,16 +1,10 @@
 <?php
 
-// uncomment the following to define a path alias
-// Yii::setPathOfAlias('local','path/to/local-folder');
-
-// This is the main Web application configuration. Any writable
-// CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Dendor Valve Industrial',
 	'theme'=>'bootstrap',
 	'language'=>'pl',
-	//'sourceLanguage'=>'pl',
 
 	'aliases' => array(
 		'bootstrap' => dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiistrap',
@@ -40,7 +34,6 @@ return array(
 		),*/
 	),
 
-	// application components
 	'components'=>array(
 		'user'=>array(
 			'allowAutoLogin'=>true,
@@ -71,21 +64,7 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 				),
-				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
 			),
-		),
-		'viewRenderer'=>array(
-			'class'=>'ext.phamlp.Haml',
-			// delete options below in production
-			'ugly' => false,
-			'style' => 'nested',
-			'debug' => 0,
-			'cache' => false,
 		),
 		'bootstrap' => array(
 			'class' => 'bootstrap.components.TbApi',

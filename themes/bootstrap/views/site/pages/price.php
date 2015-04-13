@@ -9,7 +9,6 @@
   $this->metaKeywords=CHtml::encode($model->meta_keywords);
 
   $this->pageHeader=CHtml::encode($model->title);
-
 ?>
 
 <div class="text-item">

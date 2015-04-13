@@ -39,6 +39,10 @@
           'url'=>array('/site/page', 'view'=>'price')
         ),
         array(
+          'label'=>Pages::model()->pageCategory('certificate')->find()->name,
+          'url'=>array('/site/page', 'view'=>'certificates')
+        ),
+        array(
           'label'=>Pages::model()->pageCategory('contact')->find()->name,
           'url'=>array('/site/contact'),
         ),
