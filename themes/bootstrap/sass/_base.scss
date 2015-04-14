@@ -3,6 +3,7 @@
 @import "compass/css3";
 
 $arrow-sprite: sprite-map("arrow-slider/*.png", $position: 100%, $spacing: 5px, $repeat: no-repeat);
+$cert-sprite: sprite-map("certificate/*.png", $position: 100%, $spacing: 5px, $repeat: no-repeat);
 /* $flag-sprite: sprite-map("flags/*", $position: 100%, $spacing: 5px, $repeat: no-repeat); */
 
 @mixin red-box($all-children: false){

@@ -1,5 +1,5 @@
 @import "base";
-@include sticky-footer(70px, ".layout", ".layout-footer", ".footer");
+@include sticky-footer(220px, ".layout", ".layout-footer", ".footer");
 
 body{
   //overflow-y: scroll;
@@ -200,6 +200,33 @@ body{
   @include box-shadow (rgba(0, 0, 0, 0.3) 0 6px 8px -4px inset);
   .container{
     padding-top: 30px;
+  }
+  .certificate{
+    margin:{
+      top: 15px;
+      bottom: 15px;
+    }
+    a{
+      display: inline-block;
+      height: 50px;
+      //float: left;
+      &.iso{
+        background: sprite($cert-sprite, C2015);
+        width: 106px;
+      }
+      &.iaf{
+        background: sprite($cert-sprite, IAF);
+        width: 80px;
+      }
+      &.pca{
+        background: sprite($cert-sprite, PCA);
+        width: 33px;
+      }
+      &.pzh{
+        background: sprite($cert-sprite, PZH);
+        width: 51px;
+      }
+    }
   }
 }
 .flag-language{

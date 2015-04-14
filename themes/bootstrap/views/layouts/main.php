@@ -20,19 +20,19 @@
 </head>
 <body>
   <div class="layout">
-    <header class="header" role="banner">
+    <div class="header" role="banner">
       <?php $this->renderPartial('//layouts/_header', array('showSlider'=>$this->showSlider)); ?>
-    </header>
-    <main class="main" role="main">
+    </div>
+    <div class="main" role="main">
       <div class="container">
         <?php $this->renderPartial('//layouts/_breadcrumb'); ?>
         <?php echo $content; ?>
       </div>
-    </main>
+    </div>
     <div class="layout-footer"></div>
   </div>
-  <footer class="footer" role="contentinfo">
+  <div class="footer" role="contentinfo">
     <?php $this->renderPartial('//layouts/_footer'); ?>
-  </footer>
+  </div>
 </body>
 </html>
