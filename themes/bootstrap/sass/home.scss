@@ -3,7 +3,7 @@
 .header{
   height: 450px;
   background:{
-    image: image-url("body_bg.png");
+    image: image-url("body_bg.png",false,false);
     position: top center;
     repeat: no-repeat;
     color: #393185;

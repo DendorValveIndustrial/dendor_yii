@@ -4,11 +4,22 @@
     margin-bottom: 20px;
     .navbar-fixed-top{
       position: fixed;
+      .navbar-inner{
+        padding: {
+          top: 0;
+          bottom: 0;
+          left: 5px;
+          right: 5px;
+        }
+      }
     }
     .head{
       margin-top: 62px;
       .logo{
-        margin-top: 20px;
+        margin:{
+          top: 10px;
+          bottom: 10px;
+        }
       }
       .span3{
         display: block;
