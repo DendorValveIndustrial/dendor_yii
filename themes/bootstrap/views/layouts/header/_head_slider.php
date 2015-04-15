@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row-fluid head">
     <div class="span3">
-      <div class="logo">
-        <?php echo CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-wite270.png'),CHtml::encode(Yii::app()->name), array('width'=>'269', 'height'=>'82')); ?>
+      <div class="logo text-center">
+        <?php echo CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-new-wite200.png'),CHtml::encode(Yii::app()->name), array('width'=>'200', 'height'=>'176')); ?>
       </div>
       <div class="contact-top text-center" role="contentinfo">
-        <div class="address">ul. Jaśkowa Dolina 81<br/>80-286 Gdańsk, Polska</div>
+        <!-- <div class="address">ul. Jaśkowa Dolina 81<br/>80-286 Gdańsk, Polska</div> -->
         <div class="tel"><?php echo CHtml::encode(Yii::app()->params['telOfficePol']);?></div>
         <div class="email">
           <?php

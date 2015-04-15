@@ -110,6 +110,13 @@
           float: none;
         }
       }
+      .image-item{
+        .muted *{
+          font: {
+            size: 80%;
+          }
+        }
+      }
     }
     .contact-office,
     .contact-form{

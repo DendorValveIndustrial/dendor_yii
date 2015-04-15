@@ -78,10 +78,15 @@
       }
       padding-left: 0;
       .image-item{
-        width: 25%;
+        width: 30%;
         float: left;
         text-align: left;
         margin-right: 30px;
+        &.left-bar{
+          height: auto;
+          min-height: 0;
+          border: none;
+        }
       }
     }
     .contact-office,
