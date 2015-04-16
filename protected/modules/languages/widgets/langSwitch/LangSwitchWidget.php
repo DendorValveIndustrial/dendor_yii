@@ -3,6 +3,7 @@ class LangSwitchWidget extends CWidget {
 
   public $url;
   public $class = 'inline';
+  public $cssBody = false;
 
   /**
    * @var array HTML attributes for the menu's root container tag.
@@ -55,11 +56,17 @@ class LangSwitchWidget extends CWidget {
   {
     $assets = dirname(__FILE__) . '/assets';
     $baseUrl = Yii::app() -> assetManager -> publish($assets);
-    if (is_dir($assets)) {
-      $cs = Yii::app()->clientScript;
-      $cs->registerCssFile($baseUrl.'/css/langswitch.css');
-    } else {
+    $cs = Yii::app()->clientScript;
+    if ($cssBody !== false) {
+      $cs->registerCss('langswitch','.langswitch img{vertical-align:inheerit}.navbar .langswitch .label-switch{line-height:45px;color:#999;margin-right:5px}.navbar .langswitch>li>a{padding-top:12.5px;padding-right:6px;padding-bottom:12.5px;padding-left:6px}.navbar .langswitch>li>a>img{vertical-align:middle}','all');
+    }
+    else {
+      if (is_dir($assets)) {
+        $cs->registerCssFile($baseUrl.'/css/langswitch.css');
+      }
+      else {
         throw new CHttpException(500, __CLASS__ . ' - Error: Couldn\'t find assets to publish.');
+      }
     }
   }
 

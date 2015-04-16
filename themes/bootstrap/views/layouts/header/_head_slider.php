@@ -2,7 +2,7 @@
   <div class="row-fluid head">
     <div class="span3">
       <div class="logo text-center">
-        <?php echo CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-new-wite200.png'),CHtml::encode(Yii::app()->name), array('width'=>'200', 'height'=>'176')); ?>
+        <?php echo CHtml::image(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/img/logo/logo-new-write-3.png'),CHtml::encode(Yii::app()->name), array('width'=>'270', 'height'=>'176')); ?>
       </div>
       <div class="contact-top text-center" role="contentinfo">
         <!-- <div class="address">ul. Jaśkowa Dolina 81<br/>80-286 Gdańsk, Polska</div> -->

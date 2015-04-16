@@ -14,8 +14,9 @@
     Yii::app()->fontawesome->register();
     Yii::app()->clientScript->registerCssFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/css/screen.css'));
     Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/classie.min.js'),CClientScript::POS_END);
-    Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/script.js'),CClientScript::POS_END);
     Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/head.min.js'),CClientScript::POS_END);
+    //Yii::app()->clientScript->registerScriptFile(CHtml::asset(Yii::getPathOfAlias('webroot.themes.bootstrap.assets').'/js/script.js'),CClientScript::POS_END);
+    Yii::app()->clientScript->registerScript('main_script','function disableOther(e){"mainMenuShow"!==e&&classie.toggle(mainMenuShow,"disabled")}var mainMenu=document.getElementById("mainMenu"),mainMenuShow=document.getElementById("mainMenuShow"),body=document.body;mainMenuShow.onclick=function(){classie.toggle(this,"active-menu"),classie.toggle(mainMenu,"open"),disableOther("mainMenuShow")};',CClientScript::POS_END);
   ?>
 </head>
 <body>

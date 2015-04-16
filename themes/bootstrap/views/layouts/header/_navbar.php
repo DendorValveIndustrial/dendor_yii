@@ -21,7 +21,7 @@
         ?>
       </div>
       <button id="mainMenuShow" class="btn btn-navbar pull-right main-menu-show"><i class="fa fa-bars fa-fw"></i></button>
-      <?php $this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'htmlOptions'=>array('class'=>'nav pull-right country'))); ?>
+      <?php $this->widget('application.modules.languages.widgets.langSwitch.LangSwitchWidget', array('url'=>$this->url, 'cssBody'=>true,'htmlOptions'=>array('class'=>'nav pull-right country'))); ?>
     </div>
   </div>
 </div>
