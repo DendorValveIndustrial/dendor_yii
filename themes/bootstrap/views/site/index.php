@@ -1,5 +1,5 @@
 <?php
-  $this->pageTitle = CHtml::encode($model->meta_title).' - '.CHtml::encode(Yii::app()->name);
+  $this->pageTitle = CHtml::encode($model->meta_title);
   $this->metaDescription = CHtml::encode($model->meta_description);
   $this->metaKeywords = CHtml::encode($model->meta_keywords);
   $this->pageHeader = Yii::t('app', 'pipeline_valves');
