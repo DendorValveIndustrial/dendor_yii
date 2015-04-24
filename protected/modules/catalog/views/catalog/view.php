@@ -1,4 +1,8 @@
 <?php
+use Imagine\Image\Box;
+use Imagine\Image\ImageInterface;
+use Imagine\Gd\Imagine;
+
 /* @var $this NewsController */
 /* @var $model News */
 $this->layout = '//layouts/catalog/view_item';
@@ -12,9 +16,21 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
-$this->pageHeaderTitle = $model->title;
+/*$this->pageHeaderTitle = $model->title;
 $this->pageHeader = $model->name;
 $this->subtextHeader = '';
+
+$imagine = new Imagine();
+$mode = ImageInterface::THUMBNAIL_INSET;
+$upload_img_path = Yii::app()->request->hostInfo.CatalogGroup::model()->getUploadPath($model->group_id);
+
+$imagine
+	->open($upload_img_path.$model->image)
+	->thumbnail(new Box(100, 100), $mode)
+	->save($upload_img_path.'thumb_100x100_'.$model->image, array('flatten' => false));;
+
+var_dump(Yii::app()->request->hostInfo.CatalogGroup::model()->getUploadPath($model->group_id));
+*/
 ?>
 <div class="span3 left-bar">
 	<div class="span10 text-right">
@@ -24,10 +40,11 @@ $this->subtextHeader = '';
 		<div class="main-features-item">
 			<?php
 				$aProperty = $model->property(array('condition'=>'main=1'));
-				$this->renderPartial('_main_property', array(
-					'model'=>$model,
-					'aProperty'=>$aProperty,
-				));
+				if(!empty($aProperty))
+					$this->renderPartial('_main_property', array(
+						'model'=>$model,
+						'aProperty'=>$aProperty,
+					));
 			?>
 	  </div>
 	</div>
@@ -41,10 +58,11 @@ $this->subtextHeader = '';
 		<div class="properties">
 			<?php
 				$aProperty = $model->property(array('condition'=>'main=0'));
-				$this->renderPartial('_view_property', array(
-					'model'=>$model,
-					'aProperty'=>$aProperty,
-				));
+				if(!empty($aProperty))
+					$this->renderPartial('_view_property', array(
+						'model'=>$model,
+						'aProperty'=>$aProperty,
+					));
 			?>
 		</div>
 	</div>

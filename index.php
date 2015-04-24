@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(__FILE__).'/vendor/autoload.php');
 
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../framework/yii.php';
