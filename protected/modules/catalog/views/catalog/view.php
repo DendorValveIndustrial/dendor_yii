@@ -1,8 +1,4 @@
 <?php
-use Imagine\Image\Box;
-use Imagine\Image\ImageInterface;
-use Imagine\Gd\Imagine;
-
 /* @var $this NewsController */
 /* @var $model News */
 $this->layout = '//layouts/catalog/view_item';
@@ -16,21 +12,8 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
-/*$this->pageHeaderTitle = $model->title;
-$this->pageHeader = $model->name;
-$this->subtextHeader = '';
-
-$imagine = new Imagine();
-$mode = ImageInterface::THUMBNAIL_INSET;
-$upload_img_path = Yii::app()->request->hostInfo.CatalogGroup::model()->getUploadPath($model->group_id);
-
-$imagine
-	->open($upload_img_path.$model->image)
-	->thumbnail(new Box(100, 100), $mode)
-	->save($upload_img_path.'thumb_100x100_'.$model->image, array('flatten' => false));;
-
-var_dump(Yii::app()->request->hostInfo.CatalogGroup::model()->getUploadPath($model->group_id));
-*/
+//echo Yii::app()->thumbnailImage->thumbs(CatalogGroup::model()->getUploadPath($model->group_id).$model->image, 100, 100, 'test', array('class'=>'thumb'));
+var_dump(Yii::app()->thumbnailImage->getThumbImg(CatalogGroup::model()->getUploadPath($model->group_id).$model->image, 100, 100));
 ?>
 <div class="span3 left-bar">
 	<div class="span10 text-right">

@@ -75,6 +75,9 @@ return array(
 		'languageManager'=>array(
 			'class'=>'LanguageManager',
 		),
+		'thumbnailImage' => array(
+			'class'=> 'ThumbnailImageManager',
+		),
 	),
 
 	'onBeginRequest' => array(
