@@ -1,6 +1,7 @@
 <?php
-/* @var $this NewsController */
-/* @var $model News */
+/* @var $this catalogController */
+/* @var $model CatalogItems */
+
 $this->layout = '//layouts/catalog/view_item';
 
 $this->pageTitle = CHtml::encode($model->meta_title);

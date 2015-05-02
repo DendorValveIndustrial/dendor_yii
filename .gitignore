@@ -7,3 +7,4 @@ config.rb
 *.sublime-project
 *.sublime-workspace
 ~*
+.idea/*
